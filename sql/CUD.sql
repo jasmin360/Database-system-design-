@@ -62,7 +62,7 @@ BEGIN
     set City            = ISNULL(@City, City),
         Street_Number   = ISNULL(@Street_Number, Street_Number),
         Building_Number = ISNULL(@Building_Number, Building_Number),
-        Contact_Number  = ISNULL(@Contact_number, Contact_Number)
+        Contact_Number  = ISNULL(@Contact_Number, Contact_Number)
     where Branch_ID = @Branch_ID;
 END;
 
@@ -227,7 +227,7 @@ END;
 CREATE PROCEDURE Payment_Update
     in @Payment_ID int,
     in @Payment_Method varchar(10) = null,
-    in @Payment_date date = null,
+    in @Payment_Date date = null,
     in @Emp_ID int = null,
     in @Client_ID int = null
 AS
