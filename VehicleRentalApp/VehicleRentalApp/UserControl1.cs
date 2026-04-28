@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace VehicleRentalApp
 {
-    public partial class Form1 : Form
+    public partial class SideBar : UserControl
     {
-        public Form1()
+        public SideBar()
         {
             InitializeComponent();
         }

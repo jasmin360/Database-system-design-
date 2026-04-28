@@ -49,6 +49,16 @@ BEGIN
         select * from Employee where Emp_ID = @Emp_ID;
 END;
 
+CREATE PROCEDURE Employee_Read_Email
+    @Email VARCHAR(200) = NULL
+AS
+BEGIN
+    if @Email is null
+        select * from Employee;
+    else
+        select * from Employee where Email = @Email;
+END;
+
 CREATE PROCEDURE Payment_Read_PaymentID
     @Payment_ID INT = NULL
 AS
@@ -141,7 +151,16 @@ END;
 
 -- Special retrieval procedures
 
-CREATE PROCEDURE Get_Recent_Reservations_With_Details
+CREATE PROCEDURE Get_Recent_Reservations
+AS
+BEGIN
+    SELECT *
+    FROM Reservation r
+    WHERE r.Reservation_Date >= DATEADD(DAY, -7, CAST(GETDATE() AS DATE));
+END;
+
+CREATE PROCEDURE Get_Reservation_details
+    @Reservation_ID INT
 AS
 BEGIN
     SELECT *
@@ -150,8 +169,9 @@ BEGIN
     LEFT JOIN Car c ON r.Licesne_Plate = c.Licesne_Plate
     LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
     LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
-    WHERE r.Reservation_Date >= DATEADD(DAY, -7, CAST(GETDATE() AS DATE));
+    WHERE r.Reservation_ID = @Reservation_ID;
 END;
+
 
 CREATE PROCEDURE Get_Todays_Returns
 AS
@@ -191,5 +211,16 @@ BEGIN
     ELSE
         SELECT * FROM Reservation
         WHERE Deadline = CAST(GETDATE() AS DATE)
-          AND Return_Branch_ID = @Branch_ID;
+          AND Return_Branch_ID = @Branch_ID
+          AND reservation != 'Rreturned';
+END;
+
+CREATE PROCEDURE Get_Branch_By_Employee_Email
+    @Email VARCHAR(200)
+AS
+BEGIN
+   SELECT Branch.*
+    FROM Branch
+    INNER JOIN Employee ON Branch.Branch_ID = Employee.Branch_ID
+    WHERE Employee.Email = @Email;
 END;
