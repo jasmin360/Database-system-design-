@@ -60,7 +60,7 @@ Reservation_Date date,
 Deadline Date, 
 reservation ENUM('Pending', 'Pickedup', 'Rreturned'),
 LicenseNo int REFERENCES Client(Driver_License_Number),
-Licesne_Plate varchar(200) REFERENCES Car(Licesne_Plate),
+Licesne_Plate varchar(200) REFERENCES Car(Licesne_Plate), /*spelling ~yahia*/
 Pickup_Branch_ID int REFERENCES Branch(Branch_ID),
 Return_Branch_ID int REFERENCES Branch(Branch_ID),
 return_Date date default null,
