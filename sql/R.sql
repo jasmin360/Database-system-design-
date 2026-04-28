@@ -30,13 +30,13 @@ BEGIN
 END;
 
 CREATE PROCEDURE Car_Read_LicensePlate
-    @Licesne_Plate VARCHAR(200) = NULL
+    @License_Plate VARCHAR(200) = NULL
 AS
 BEGIN
-    if @Licesne_Plate is null
+    if @License_Plate is null
         select * from Car;
     else
-        select * from Car where Licesne_Plate = @Licesne_Plate;
+        select * from Car where License_Plate = @License_Plate;
 END;
 
 CREATE PROCEDURE Employee_Read_EmpID
@@ -108,10 +108,10 @@ BEGIN
 END;
 
 CREATE PROCEDURE Payment_Read_ByEmpID
-    @emp_ID INT
+    @Emp_ID INT
 AS
 BEGIN
-    select * from Payment where emp_ID = @emp_ID;
+    select * from Payment where Emp_ID = @Emp_ID;
 END;
 
 CREATE PROCEDURE Payment_Read_ByClientID
@@ -129,10 +129,10 @@ BEGIN
 END;
 
 CREATE PROCEDURE Reservation_Read_ByCarLicensePlate
-    @Licesne_Plate VARCHAR(200)
+    @License_Plate VARCHAR(200)
 AS
 BEGIN
-    select * from Reservation where Licesne_Plate = @Licesne_Plate;
+    select * from Reservation where License_Plate = @License_Plate;
 END;
 
 CREATE PROCEDURE Reservation_Read_ByPickupBranchID
@@ -166,7 +166,7 @@ BEGIN
     SELECT *
     FROM Reservation r
     LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
-    LEFT JOIN Car c ON r.Licesne_Plate = c.Licesne_Plate
+    LEFT JOIN Car c ON r.License_Plate = c.License_Plate
     LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
     LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
     WHERE r.Reservation_ID = @Reservation_ID;
@@ -178,8 +178,8 @@ AS
 BEGIN
     SELECT *
     FROM Reservation
-    WHERE reservation = 'Rreturned'
-      AND return_Date = CAST(GETDATE() AS DATE);
+    WHERE Reservation_Status = 'Returned'
+      AND Return_Date = CAST(GETDATE() AS DATE);
 END;
 
 CREATE PROCEDURE Get_Total_Cars_In_Branch
@@ -212,7 +212,7 @@ BEGIN
         SELECT * FROM Reservation
         WHERE Deadline = CAST(GETDATE() AS DATE)
           AND Return_Branch_ID = @Branch_ID
-          AND reservation != 'Rreturned';
+          AND Reservation_Status != 'Returned';
 END;
 
 CREATE PROCEDURE Get_Branch_By_Employee_Email
