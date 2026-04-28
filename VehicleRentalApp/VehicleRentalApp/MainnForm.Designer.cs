@@ -1,6 +1,6 @@
 ﻿namespace VehicleRentalApp
 {
-    partial class Form1
+    partial class MainnForm
     {
         /// <summary>
         /// Required designer variable.
@@ -37,4 +37,3 @@
         #endregion
     }
 }
-
