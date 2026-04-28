@@ -141,7 +141,7 @@ END;
 
 -- Special retrieval procedures
 
-CREATE PROCEDURE Get_Recent_Reservations_With_Details
+CREATE PROCEDURE Get_Recent_Reservations
 AS
 BEGIN
     SELECT *
@@ -152,6 +152,20 @@ BEGIN
     LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
     WHERE r.Reservation_Date >= DATEADD(DAY, -7, CAST(GETDATE() AS DATE));
 END;
+
+CREATE PROCEDURE Get_Reservation_details
+    @Reservation_ID INT
+AS
+BEGIN
+    SELECT *
+    FROM Reservation r
+    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
+    LEFT JOIN Car c ON r.Licesne_Plate = c.Licesne_Plate
+    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
+    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
+    WHERE r.Reservation_ID = @Reservation_ID;
+END;
+
 
 CREATE PROCEDURE Get_Todays_Returns
 AS
