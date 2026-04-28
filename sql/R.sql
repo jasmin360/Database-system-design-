@@ -138,3 +138,58 @@ AS
 BEGIN
     select * from Reservation where Return_Branch_ID = @Return_Branch_ID;
 END;
+
+-- Special retrieval procedures
+
+CREATE PROCEDURE Get_Recent_Reservations_With_Details
+AS
+BEGIN
+    SELECT *
+    FROM Reservation r
+    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
+    LEFT JOIN Car c ON r.Licesne_Plate = c.Licesne_Plate
+    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
+    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
+    WHERE r.Reservation_Date >= DATEADD(DAY, -7, CAST(GETDATE() AS DATE));
+END;
+
+CREATE PROCEDURE Get_Todays_Returns
+AS
+BEGIN
+    SELECT *
+    FROM Reservation
+    WHERE reservation = 'Rreturned'
+      AND return_Date = CAST(GETDATE() AS DATE);
+END;
+
+CREATE PROCEDURE Get_Total_Cars_In_Branch
+    @Branch_ID INT = NULL
+AS
+BEGIN
+    IF @Branch_ID IS NULL
+        SELECT COUNT(*) AS Total_Cars FROM Car;
+    ELSE
+        SELECT COUNT(*) AS Total_Cars FROM Car WHERE Branch_ID = @Branch_ID;
+END;
+
+CREATE PROCEDURE Get_Available_Cars_In_Branch
+    @Branch_ID INT = NULL
+AS
+BEGIN
+    IF @Branch_ID IS NULL
+        SELECT * FROM Car WHERE Condition = 'Free';
+    ELSE
+        SELECT * FROM Car WHERE Condition = 'Free' AND Branch_ID = @Branch_ID;
+END;
+
+CREATE PROCEDURE Get_Todays_Planned_Returns
+    @Branch_ID INT = NULL
+AS
+BEGIN
+    IF @Branch_ID IS NULL
+        SELECT * FROM Reservation WHERE Deadline = CAST(GETDATE() AS DATE);
+    ELSE
+        SELECT * FROM Reservation
+        WHERE Deadline = CAST(GETDATE() AS DATE)
+          AND Return_Branch_ID = @Branch_ID;
+END;
