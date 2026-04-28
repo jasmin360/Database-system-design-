@@ -1,9 +1,9 @@
 CREATE TABLE Client (
-Driver_License_Number int IDENTITY(1,1) PRIMARY KEY,
-Fname varchar(200),
-Lname varchar(200),
-Email varchar(200) CHECK (Email LIKE '%_@__%.__%' AND PATINDEX('%[^a-zA-Z0-9@._-]%', Email) = 0),
-Phone varchar(20) CHECK (LEN(Phone) = 12 AND Phone NOT LIKE '%[^0-9]%')
+Driver_License_Number int PRIMARY KEY,
+First_Name varchar(200) NOT NULL,
+Last_Name varchar(200) NOT NULL,
+Email varchar(200) unique CHECK (Email LIKE '%_@__%.__%' AND PATINDEX('%[^a-zA-Z0-9@._-]%', Email) = 0) NOT NULL,
+Phone varchar(20) unique CHECK (LEN(Phone) = 12 AND Phone NOT LIKE '%[^0-9]%') NOT NULL
 );
 
 CREATE TABLE Branch (
@@ -11,60 +11,60 @@ Branch_ID int IDENTITY(1,1) PRIMARY KEY,
 City varchar(200),
 Street_Number int,
 Building_Number int,
-Contact_number  varchar(20) CHECK (LEN(Contact_number) = 12 AND Contact_number NOT LIKE '%[^0-9]%')
+Contact_Number  varchar(20) CHECK (LEN(Contact_Number) = 12 AND Contact_Number NOT LIKE '%[^0-9]%')
 );
 
 CREATE TABLE Car_Category (
 Category_ID int IDENTITY(1,1) PRIMARY KEY,
-Car_Type ENUM('Picanto', 'SUV', 'Coupe', 'Sedan', 'Hatchback'),
-Make varchar(200),
-Model varchar(200),
-model_year varchar(200),
-Transmission ENUM('Manual', 'Automatic', 'DCT', 'CVT', 'AMT'),
-Daily_rental_rate money
+Car_Type varchar(200) CHECK (Car_Type IN('Picanto', 'SUV', 'Coupe', 'Sedan', 'Hatchback')) NOT NULL,
+Make varchar(200) NOT NULL,
+Model varchar(200) NOT NULL,
+Model_Year int NOT NULL,
+Transmission varchar(200) CHECK (Transmission IN('Manual', 'Automatic', 'DCT', 'CVT', 'AMT')) NOT NULL,
+Daily_Rental_Rate money NOT NULL
 );
 
 CREATE TABLE Car (
-Licesne_Plate varchar(200) PRIMARY KEY ,
-Condition ENUM('Maintainance', 'Free','Reserved'),
-No_seats int,
-Mileage int,
-colour varchar(200),
-Category_ID int REFERENCES Car_Category(Category_ID),
-Branch_ID int REFERENCES Branch(Branch_ID)
+License_Plate varchar(200) PRIMARY KEY ,
+Condition varchar(200) CHECK (Condition IN('Maintenance', 'Free','Reserved')) NOT NULL,
+No_seats int NOT NULL,
+Mileage int NOT NULL,
+Colour varchar(200) NOT NULL,
+Category_ID int NOT NULL REFERENCES Car_Category(Category_ID),
+Branch_ID int NOT NULL REFERENCES Branch(Branch_ID)
 );
 
 CREATE TABLE Employee (
 Emp_ID int IDENTITY(1,1) PRIMARY KEY ,
-Password_Hashed varchar(200),
-Email varchar(200) CHECK (Email LIKE '%_@__%.__%' AND PATINDEX('%[^a-zA-Z0-9@._-]%', Email) = 0),
-position ENUM('Supervisor','Employee'),
-First_name varchar(200),
-Last_name varchar(200),
-Branch_ID int REFERENCES Branch(Branch_ID),
-SuperEmpID int REFERENCES Employee(Emp_ID)
+Passkey varchar(200) NOT NULL,
+Email varchar(200) unique CHECK (Email LIKE '%_@__%.__%' AND PATINDEX('%[^a-zA-Z0-9@._-]%', Email) = 0)  NOT NULL,
+Position varchar(200) CHECK (Position IN ('Supervisor','Employee')) NOT NULL,
+First_Name varchar(200) NOT NULL,
+Last_Name varchar(200) NOT NULL,
+Branch_ID int NOT NULL REFERENCES Branch(Branch_ID),
+SuperEmpID int REFERENCES Employee(Emp_ID) CHECK (SuperEmpID <> Emp_ID)
 );
 
 CREATE TABLE Payment (
 Payment_ID int IDENTITY(1,1) PRIMARY KEY,
-Payment_method ENUM('Cash', 'Card'),
-Payment_date Date,
-base_price money,
-emp_ID int REFERENCES Employee(Emp_ID),
-Client_ID int REFERENCES Client(Driver_License_Number)
+Payment_Method varchar(200) CHECK (Payment_Method IN('Cash', 'Card')) NOT NULL,
+Payment_Date Date NOT NULL,
+Emp_ID int REFERENCES Employee(Emp_ID) NOT NULL,
+Client_ID int NOT NULL REFERENCES Client(Driver_License_Number)
 );
 
 CREATE TABLE Reservation (
 Reservation_ID int IDENTITY(1,1) PRIMARY KEY,
-Reservation_Date date,
-Deadline Date, 
-reservation ENUM('Pending', 'Pickedup', 'Rreturned'),
-LicenseNo int REFERENCES Client(Driver_License_Number),
-Licesne_Plate varchar(200) REFERENCES Car(Licesne_Plate), /*spelling ~yahia*/
-Pickup_Branch_ID int REFERENCES Branch(Branch_ID),
-Return_Branch_ID int REFERENCES Branch(Branch_ID),
-return_Date date default null,
-Pickup_date date default null
+Payment_ID int NOT NULL REFERENCES Payment(Payment_ID),
+Reservation_Date date NOT NULL,
+Deadline Date NOT NULL CHECK (Deadline >= Reservation_Date), 
+Reservation_Status varchar(200) CHECK ((Reservation_Status = 'Pending' AND Pickup_Date IS NULL AND Return_Date IS NULL) OR(Reservation_Status = 'Pickedup' AND Pickup_Date IS NOT NULL) OR(Reservation_Status = 'Returned' AND Pickup_Date IS NOT NULL AND Return_Date IS NOT NULL)) NOT NULL,
+LicenseNo int NOT NULL REFERENCES Client(Driver_License_Number),
+License_Plate varchar(200) NOT NULL REFERENCES Car(License_Plate), 
+Pickup_Branch_ID int REFERENCES Branch(Branch_ID) NOT NULL,
+Return_Branch_ID int REFERENCES Branch(Branch_ID) default null,
+Return_Date date default null,
+Pickup_Date date default null CHECK (Return_Date IS NULL OR Pickup_Date IS NULL OR Return_Date >= Pickup_Date)
 );
 
 
