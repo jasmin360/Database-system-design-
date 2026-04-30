@@ -37,9 +37,10 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Black;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(163, 155);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(82, 81);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1325, 705);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(885, 499);
             this.flowLayoutPanel1.TabIndex = 38;
             // 
             // left
@@ -53,10 +54,10 @@
             this.left.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.left.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.left.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.left.Location = new System.Drawing.Point(163, 78);
-            this.left.Margin = new System.Windows.Forms.Padding(4);
+            this.left.Location = new System.Drawing.Point(82, 41);
+            this.left.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.left.Name = "left";
-            this.left.Size = new System.Drawing.Size(32, 25);
+            this.left.Size = new System.Drawing.Size(16, 13);
             this.left.TabIndex = 37;
             this.left.UseVisualStyleBackColor = false;
             // 
@@ -71,10 +72,10 @@
             this.right.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.right.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.right.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.right.Location = new System.Drawing.Point(1456, 78);
-            this.right.Margin = new System.Windows.Forms.Padding(4);
+            this.right.Location = new System.Drawing.Point(942, 41);
+            this.right.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.right.Name = "right";
-            this.right.Size = new System.Drawing.Size(32, 25);
+            this.right.Size = new System.Drawing.Size(16, 13);
             this.right.TabIndex = 36;
             this.right.UseVisualStyleBackColor = false;
             // 
@@ -84,23 +85,25 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.label7.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(673, 68);
+            this.label7.Location = new System.Drawing.Point(429, 35);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(251, 35);
+            this.label7.Size = new System.Drawing.Size(173, 23);
             this.label7.TabIndex = 34;
             this.label7.Text = "Recent Reservations";
             // 
             // overview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.left);
             this.Controls.Add(this.right);
             this.Controls.Add(this.label7);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "overview";
-            this.Size = new System.Drawing.Size(1643, 923);
+            this.Size = new System.Drawing.Size(1095, 615);
             this.ResumeLayout(false);
             this.PerformLayout();
 
