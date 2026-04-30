@@ -224,3 +224,25 @@ BEGIN
     INNER JOIN Employee ON Branch.Branch_ID = Employee.Branch_ID
     WHERE Employee.Email = @Email;
 END;
+
+CREATE PROCEDURE Reservation_filter (
+    @Day   DATE = NULL,
+    @Week  INT  = NULL,
+    @Month INT  = NULL,
+    @Year  INT  = NULL 
+)
+AS 
+BEGIN
+    --toot    
+END;
+
+CREATE PROCEDURE Deadline_filter (
+    @Day   DATE = NULL,
+    @Week  INT  = NULL,
+    @Month INT  = NULL,
+    @Year  INT  = NULL 
+)
+AS 
+BEGIN
+    --toot
+END;
