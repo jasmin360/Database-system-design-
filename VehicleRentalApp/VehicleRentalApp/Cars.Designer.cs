@@ -39,9 +39,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.button1.Location = new System.Drawing.Point(159, 45);
+            this.button1.Location = new System.Drawing.Point(238, 68);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 62);
+            this.button1.Size = new System.Drawing.Size(168, 93);
             this.button1.TabIndex = 25;
             this.button1.Text = "All";
             this.button1.UseVisualStyleBackColor = false;
@@ -55,9 +56,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.button2.Location = new System.Drawing.Point(306, 45);
+            this.button2.Location = new System.Drawing.Point(459, 68);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 62);
+            this.button2.Size = new System.Drawing.Size(264, 93);
             this.button2.TabIndex = 26;
             this.button2.Text = "Reserved";
             this.button2.UseVisualStyleBackColor = false;
@@ -70,9 +72,10 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.button3.Location = new System.Drawing.Point(516, 45);
+            this.button3.Location = new System.Drawing.Point(774, 68);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(124, 62);
+            this.button3.Size = new System.Drawing.Size(186, 93);
             this.button3.TabIndex = 27;
             this.button3.Text = "Free";
             this.button3.UseVisualStyleBackColor = false;
@@ -80,9 +83,10 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(159, 152);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(238, 228);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1325, 705);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1988, 1058);
             this.flowLayoutPanel1.TabIndex = 42;
             // 
             // label7
@@ -90,9 +94,10 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(669, 65);
+            this.label7.Location = new System.Drawing.Point(1004, 98);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 35);
+            this.label7.Size = new System.Drawing.Size(0, 51);
             this.label7.TabIndex = 39;
             // 
             // plus
@@ -106,10 +111,10 @@
             this.plus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.plus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.plus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.plus.Location = new System.Drawing.Point(1449, 63);
-            this.plus.Margin = new System.Windows.Forms.Padding(4);
+            this.plus.Location = new System.Drawing.Point(2174, 94);
+            this.plus.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.plus.Name = "plus";
-            this.plus.Size = new System.Drawing.Size(35, 37);
+            this.plus.Size = new System.Drawing.Size(52, 56);
             this.plus.TabIndex = 43;
             this.plus.UseVisualStyleBackColor = false;
             // 
@@ -124,10 +129,10 @@
             this.right.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.right.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.right.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.right.Location = new System.Drawing.Point(1386, 60);
-            this.right.Margin = new System.Windows.Forms.Padding(4);
+            this.right.Location = new System.Drawing.Point(2079, 90);
+            this.right.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.right.Name = "right";
-            this.right.Size = new System.Drawing.Size(40, 43);
+            this.right.Size = new System.Drawing.Size(60, 64);
             this.right.TabIndex = 40;
             this.right.UseVisualStyleBackColor = false;
             this.right.Click += new System.EventHandler(this.right_Click);
@@ -138,9 +143,10 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Calibri", 11F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.txtSearch.Location = new System.Drawing.Point(675, 45);
+            this.txtSearch.Location = new System.Drawing.Point(1012, 68);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(340, 34);
+            this.txtSearch.Size = new System.Drawing.Size(509, 48);
             this.txtSearch.TabIndex = 45;
             this.txtSearch.Text = "Search...";
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -156,9 +162,10 @@
             this.filterPanel.Controls.Add(this.chkLuxury);
             this.filterPanel.Controls.Add(this.chkVan);
             this.filterPanel.Controls.Add(this.chkTruck);
-            this.filterPanel.Location = new System.Drawing.Point(1208, 110);
+            this.filterPanel.Location = new System.Drawing.Point(1812, 165);
+            this.filterPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(276, 265);
+            this.filterPanel.Size = new System.Drawing.Size(413, 396);
             this.filterPanel.TabIndex = 46;
             // 
             // lblFilterTitle
@@ -167,9 +174,10 @@
             this.lblFilterTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblFilterTitle.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.lblFilterTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblFilterTitle.Location = new System.Drawing.Point(12, 12);
+            this.lblFilterTitle.Location = new System.Drawing.Point(18, 18);
+            this.lblFilterTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFilterTitle.Name = "lblFilterTitle";
-            this.lblFilterTitle.Size = new System.Drawing.Size(170, 27);
+            this.lblFilterTitle.Size = new System.Drawing.Size(254, 40);
             this.lblFilterTitle.TabIndex = 0;
             this.lblFilterTitle.Text = "Filter by Car Type";
             // 
@@ -179,9 +187,10 @@
             this.chkEconomy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkEconomy.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkEconomy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkEconomy.Location = new System.Drawing.Point(12, 45);
+            this.chkEconomy.Location = new System.Drawing.Point(18, 68);
+            this.chkEconomy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkEconomy.Name = "chkEconomy";
-            this.chkEconomy.Size = new System.Drawing.Size(98, 28);
+            this.chkEconomy.Size = new System.Drawing.Size(141, 41);
             this.chkEconomy.TabIndex = 1;
             this.chkEconomy.Text = "Picanto";
             this.chkEconomy.UseVisualStyleBackColor = false;
@@ -192,9 +201,10 @@
             this.chkCompact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkCompact.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkCompact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkCompact.Location = new System.Drawing.Point(12, 80);
+            this.chkCompact.Location = new System.Drawing.Point(18, 120);
+            this.chkCompact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkCompact.Name = "chkCompact";
-            this.chkCompact.Size = new System.Drawing.Size(69, 28);
+            this.chkCompact.Size = new System.Drawing.Size(99, 41);
             this.chkCompact.TabIndex = 2;
             this.chkCompact.Text = "SUV";
             this.chkCompact.UseVisualStyleBackColor = false;
@@ -205,9 +215,10 @@
             this.chkSUV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkSUV.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkSUV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkSUV.Location = new System.Drawing.Point(12, 115);
+            this.chkSUV.Location = new System.Drawing.Point(18, 172);
+            this.chkSUV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkSUV.Name = "chkSUV";
-            this.chkSUV.Size = new System.Drawing.Size(90, 28);
+            this.chkSUV.Size = new System.Drawing.Size(128, 41);
             this.chkSUV.TabIndex = 3;
             this.chkSUV.Text = "Coupe";
             this.chkSUV.UseVisualStyleBackColor = false;
@@ -218,9 +229,10 @@
             this.chkLuxury.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkLuxury.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkLuxury.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkLuxury.Location = new System.Drawing.Point(12, 150);
+            this.chkLuxury.Location = new System.Drawing.Point(18, 225);
+            this.chkLuxury.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkLuxury.Name = "chkLuxury";
-            this.chkLuxury.Size = new System.Drawing.Size(87, 28);
+            this.chkLuxury.Size = new System.Drawing.Size(124, 41);
             this.chkLuxury.TabIndex = 4;
             this.chkLuxury.Text = "Sedan";
             this.chkLuxury.UseVisualStyleBackColor = false;
@@ -231,9 +243,10 @@
             this.chkVan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkVan.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkVan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkVan.Location = new System.Drawing.Point(12, 185);
+            this.chkVan.Location = new System.Drawing.Point(18, 278);
+            this.chkVan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkVan.Name = "chkVan";
-            this.chkVan.Size = new System.Drawing.Size(122, 28);
+            this.chkVan.Size = new System.Drawing.Size(178, 41);
             this.chkVan.TabIndex = 5;
             this.chkVan.Text = "Hatchback";
             this.chkVan.UseVisualStyleBackColor = false;
@@ -241,13 +254,14 @@
             // chkTruck
             // 
             this.chkTruck.Location = new System.Drawing.Point(0, 0);
+            this.chkTruck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkTruck.Name = "chkTruck";
-            this.chkTruck.Size = new System.Drawing.Size(104, 24);
+            this.chkTruck.Size = new System.Drawing.Size(156, 36);
             this.chkTruck.TabIndex = 6;
             // 
             // Cars
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.Controls.Add(this.filterPanel);
@@ -259,8 +273,9 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Cars";
-            this.Size = new System.Drawing.Size(1643, 923);
+            this.Size = new System.Drawing.Size(2464, 1384);
             this.Load += new System.EventHandler(this.Cars_Load);
             this.filterPanel.ResumeLayout(false);
             this.filterPanel.PerformLayout();
