@@ -41,5 +41,10 @@ namespace VehicleRentalApp
         {
 
         }
+
+        private void MainnForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
