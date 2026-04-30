@@ -67,10 +67,9 @@
             this.empNameGreet.BackColor = System.Drawing.Color.Transparent;
             this.empNameGreet.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.empNameGreet.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.empNameGreet.Location = new System.Drawing.Point(200, 13);
-            this.empNameGreet.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.empNameGreet.Location = new System.Drawing.Point(133, 9);
             this.empNameGreet.Name = "empNameGreet";
-            this.empNameGreet.Size = new System.Drawing.Size(291, 73);
+            this.empNameGreet.Size = new System.Drawing.Size(194, 49);
             this.empNameGreet.TabIndex = 1;
             this.empNameGreet.Text = "FleetRides";
             this.empNameGreet.Click += new System.EventHandler(this.empNameGreet_Click);
@@ -79,10 +78,9 @@
             // 
             this.flowLayoutPanel4.Controls.Add(this.button3);
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(5, 272);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 178);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(255, 434);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(170, 289);
             this.flowLayoutPanel4.TabIndex = 5;
             // 
             // button3
@@ -90,10 +88,9 @@
             this.button3.BackColor = System.Drawing.Color.Firebrick;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(5, 343);
-            this.button3.Margin = new System.Windows.Forms.Padding(5);
+            this.button3.Location = new System.Drawing.Point(3, 229);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(234, 86);
+            this.button3.Size = new System.Drawing.Size(156, 57);
             this.button3.TabIndex = 2;
             this.button3.Text = "Log Out";
             this.button3.UseVisualStyleBackColor = false;
@@ -106,10 +103,9 @@
             this.sidePanel.Controls.Add(this.button2);
             this.sidePanel.Controls.Add(this.button4);
             this.sidePanel.Controls.Add(this.flowLayoutPanel4);
-            this.sidePanel.Location = new System.Drawing.Point(1874, 1748);
-            this.sidePanel.Margin = new System.Windows.Forms.Padding(5);
+            this.sidePanel.Location = new System.Drawing.Point(13, 1153);
             this.sidePanel.Name = "sidePanel";
-            this.sidePanel.Size = new System.Drawing.Size(270, 701);
+            this.sidePanel.Size = new System.Drawing.Size(180, 467);
             this.sidePanel.TabIndex = 4;
             this.sidePanel.Visible = false;
             // 
@@ -117,10 +113,9 @@
             // 
             this.flowLayoutPanel5.Controls.Add(this.close);
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(5, 5);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(255, 65);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(170, 43);
             this.flowLayoutPanel5.TabIndex = 8;
             // 
             // close
@@ -128,30 +123,27 @@
             this.close.BackColor = System.Drawing.Color.Transparent;
             this.close.BackgroundImage = global::VehicleRentalApp.Properties.Resources.cross;
             this.close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.close.Location = new System.Drawing.Point(193, 5);
-            this.close.Margin = new System.Windows.Forms.Padding(5);
+            this.close.Location = new System.Drawing.Point(129, 3);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(57, 57);
+            this.close.Size = new System.Drawing.Size(38, 38);
             this.close.TabIndex = 7;
             this.close.UseVisualStyleBackColor = false;
             this.close.Click += new System.EventHandler(this.button6_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(5, 80);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
+            this.button2.Location = new System.Drawing.Point(3, 52);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(255, 86);
+            this.button2.Size = new System.Drawing.Size(170, 57);
             this.button2.TabIndex = 0;
             this.button2.Text = "My Account";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(5, 176);
-            this.button4.Margin = new System.Windows.Forms.Padding(5);
+            this.button4.Location = new System.Drawing.Point(3, 115);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(255, 86);
+            this.button4.Size = new System.Drawing.Size(170, 57);
             this.button4.TabIndex = 1;
             this.button4.Text = "Branch Info";
             this.button4.UseVisualStyleBackColor = true;
@@ -161,10 +153,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(108)))));
-            this.label2.Location = new System.Drawing.Point(199, 280);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(133, 187);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 29);
+            this.label2.Size = new System.Drawing.Size(75, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Total Cars";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -175,10 +166,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(193, 210);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Location = new System.Drawing.Point(129, 140);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 73);
+            this.label3.Size = new System.Drawing.Size(42, 49);
             this.label3.TabIndex = 10;
             this.label3.Text = "6";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -189,10 +179,9 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(894, 210);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Location = new System.Drawing.Point(596, 140);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 73);
+            this.label4.Size = new System.Drawing.Size(42, 49);
             this.label4.TabIndex = 13;
             this.label4.Text = "1";
             // 
@@ -201,10 +190,9 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(108)))));
-            this.label5.Location = new System.Drawing.Point(902, 280);
-            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label5.Location = new System.Drawing.Point(601, 187);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 29);
+            this.label5.Size = new System.Drawing.Size(104, 19);
             this.label5.TabIndex = 11;
             this.label5.Text = "Available Cars";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -215,10 +203,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(1667, 210);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(1111, 140);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 73);
+            this.label1.Size = new System.Drawing.Size(42, 49);
             this.label1.TabIndex = 16;
             this.label1.Text = "6";
             // 
@@ -227,10 +214,9 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(108)))));
-            this.label6.Location = new System.Drawing.Point(1675, 280);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label6.Location = new System.Drawing.Point(1117, 187);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 29);
+            this.label6.Size = new System.Drawing.Size(75, 19);
             this.label6.TabIndex = 14;
             this.label6.Text = "Total Cars";
             // 
@@ -243,10 +229,10 @@
             this.ovBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ovBtn.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ovBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.ovBtn.Location = new System.Drawing.Point(62, 349);
-            this.ovBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ovBtn.Location = new System.Drawing.Point(41, 233);
+            this.ovBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ovBtn.Name = "ovBtn";
-            this.ovBtn.Size = new System.Drawing.Size(264, 71);
+            this.ovBtn.Size = new System.Drawing.Size(176, 47);
             this.ovBtn.TabIndex = 26;
             this.ovBtn.Text = "Overview";
             this.ovBtn.UseVisualStyleBackColor = false;
@@ -260,10 +246,10 @@
             this.ResBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ResBtn.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.ResBtn.Location = new System.Drawing.Point(750, 349);
-            this.ResBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ResBtn.Location = new System.Drawing.Point(500, 233);
+            this.ResBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ResBtn.Name = "ResBtn";
-            this.ResBtn.Size = new System.Drawing.Size(264, 71);
+            this.ResBtn.Size = new System.Drawing.Size(176, 47);
             this.ResBtn.TabIndex = 27;
             this.ResBtn.Text = "Reservations";
             this.ResBtn.UseVisualStyleBackColor = false;
@@ -277,10 +263,10 @@
             this.carBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.carBtn.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.carBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.carBtn.Location = new System.Drawing.Point(411, 349);
-            this.carBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.carBtn.Location = new System.Drawing.Point(274, 233);
+            this.carBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.carBtn.Name = "carBtn";
-            this.carBtn.Size = new System.Drawing.Size(264, 71);
+            this.carBtn.Size = new System.Drawing.Size(176, 47);
             this.carBtn.TabIndex = 28;
             this.carBtn.Text = "Cars";
             this.carBtn.UseVisualStyleBackColor = false;
@@ -288,20 +274,19 @@
             // contentPanel
             // 
             this.contentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.contentPanel.Location = new System.Drawing.Point(62, 457);
-            this.contentPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.contentPanel.Location = new System.Drawing.Point(41, 305);
+            this.contentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(1847, 1076);
+            this.contentPanel.Size = new System.Drawing.Size(1643, 923);
             this.contentPanel.TabIndex = 29;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::VehicleRentalApp.Properties.Resources.dollar_symbol;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(1488, 210);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
+            this.pictureBox1.Location = new System.Drawing.Point(992, 140);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(169, 92);
+            this.pictureBox1.Size = new System.Drawing.Size(113, 61);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
@@ -309,10 +294,9 @@
             // 
             this.pictureBox3.BackgroundImage = global::VehicleRentalApp.Properties.Resources.check;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(750, 195);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(5);
+            this.pictureBox3.Location = new System.Drawing.Point(500, 130);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(169, 118);
+            this.pictureBox3.Size = new System.Drawing.Size(113, 79);
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
             // 
@@ -320,10 +304,9 @@
             // 
             this.pictureBox2.BackgroundImage = global::VehicleRentalApp.Properties.Resources.car;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(20, 210);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(5);
+            this.pictureBox2.Location = new System.Drawing.Point(13, 140);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(169, 92);
+            this.pictureBox2.Size = new System.Drawing.Size(113, 61);
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
@@ -338,10 +321,9 @@
             this.profilePic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.profilePic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.profilePic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.profilePic.Location = new System.Drawing.Point(43, 13);
-            this.profilePic.Margin = new System.Windows.Forms.Padding(5);
+            this.profilePic.Location = new System.Drawing.Point(29, 9);
             this.profilePic.Name = "profilePic";
-            this.profilePic.Size = new System.Drawing.Size(153, 135);
+            this.profilePic.Size = new System.Drawing.Size(102, 90);
             this.profilePic.TabIndex = 7;
             this.profilePic.UseVisualStyleBackColor = false;
             this.profilePic.Click += new System.EventHandler(this.profilePic_Click);
@@ -353,16 +335,17 @@
             this.branch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.branch.Font = new System.Drawing.Font("Calibri", 8F);
             this.branch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(145)))), ((int)(((byte)(118)))));
-            this.branch.Location = new System.Drawing.Point(211, 94);
-            this.branch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.branch.Location = new System.Drawing.Point(141, 63);
+            this.branch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.branch.Name = "branch";
-            this.branch.Size = new System.Drawing.Size(197, 53);
+            this.branch.Size = new System.Drawing.Size(131, 35);
             this.branch.TabIndex = 30;
             this.branch.Text = "Maadi Branch";
             this.branch.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.sidePanel);
             this.panel1.Controls.Add(this.branch);
             this.panel1.Controls.Add(this.contentPanel);
             this.panel1.Controls.Add(this.carBtn);
@@ -379,22 +362,20 @@
             this.panel1.Controls.Add(this.profilePic);
             this.panel1.Controls.Add(this.empNameGreet);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(33, 11);
+            this.panel1.Location = new System.Drawing.Point(-1, 7);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2031, 1760);
+            this.panel1.Size = new System.Drawing.Size(1623, 1205);
             this.panel1.TabIndex = 31;
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(1927, 1230);
-            this.Controls.Add(this.sidePanel);
+            this.ClientSize = new System.Drawing.Size(1679, 1236);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Dashboard";
             this.Tag = "";
             this.Text = "Dashboard";

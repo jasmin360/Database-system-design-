@@ -181,9 +181,9 @@
             this.chkEconomy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.chkEconomy.Location = new System.Drawing.Point(12, 45);
             this.chkEconomy.Name = "chkEconomy";
-            this.chkEconomy.Size = new System.Drawing.Size(112, 28);
+            this.chkEconomy.Size = new System.Drawing.Size(98, 28);
             this.chkEconomy.TabIndex = 1;
-            this.chkEconomy.Text = "Economy";
+            this.chkEconomy.Text = "Picanto";
             this.chkEconomy.UseVisualStyleBackColor = false;
             // 
             // chkCompact
@@ -194,9 +194,9 @@
             this.chkCompact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.chkCompact.Location = new System.Drawing.Point(12, 80);
             this.chkCompact.Name = "chkCompact";
-            this.chkCompact.Size = new System.Drawing.Size(110, 28);
+            this.chkCompact.Size = new System.Drawing.Size(69, 28);
             this.chkCompact.TabIndex = 2;
-            this.chkCompact.Text = "Compact";
+            this.chkCompact.Text = "SUV";
             this.chkCompact.UseVisualStyleBackColor = false;
             // 
             // chkSUV
@@ -207,9 +207,9 @@
             this.chkSUV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.chkSUV.Location = new System.Drawing.Point(12, 115);
             this.chkSUV.Name = "chkSUV";
-            this.chkSUV.Size = new System.Drawing.Size(69, 28);
+            this.chkSUV.Size = new System.Drawing.Size(90, 28);
             this.chkSUV.TabIndex = 3;
-            this.chkSUV.Text = "SUV";
+            this.chkSUV.Text = "Coupe";
             this.chkSUV.UseVisualStyleBackColor = false;
             // 
             // chkLuxury
@@ -220,9 +220,9 @@
             this.chkLuxury.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.chkLuxury.Location = new System.Drawing.Point(12, 150);
             this.chkLuxury.Name = "chkLuxury";
-            this.chkLuxury.Size = new System.Drawing.Size(91, 28);
+            this.chkLuxury.Size = new System.Drawing.Size(87, 28);
             this.chkLuxury.TabIndex = 4;
-            this.chkLuxury.Text = "Luxury";
+            this.chkLuxury.Text = "Sedan";
             this.chkLuxury.UseVisualStyleBackColor = false;
             // 
             // chkVan
@@ -233,28 +233,22 @@
             this.chkVan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.chkVan.Location = new System.Drawing.Point(12, 185);
             this.chkVan.Name = "chkVan";
-            this.chkVan.Size = new System.Drawing.Size(67, 28);
+            this.chkVan.Size = new System.Drawing.Size(122, 28);
             this.chkVan.TabIndex = 5;
-            this.chkVan.Text = "Van";
+            this.chkVan.Text = "Hatchback";
             this.chkVan.UseVisualStyleBackColor = false;
             // 
             // chkTruck
             // 
-            this.chkTruck.AutoSize = true;
-            this.chkTruck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.chkTruck.Font = new System.Drawing.Font("Calibri", 10F);
-            this.chkTruck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkTruck.Location = new System.Drawing.Point(12, 220);
+            this.chkTruck.Location = new System.Drawing.Point(0, 0);
             this.chkTruck.Name = "chkTruck";
-            this.chkTruck.Size = new System.Drawing.Size(80, 28);
+            this.chkTruck.Size = new System.Drawing.Size(104, 24);
             this.chkTruck.TabIndex = 6;
-            this.chkTruck.Text = "Truck";
-            this.chkTruck.UseVisualStyleBackColor = false;
             // 
             // Cars
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.Controls.Add(this.filterPanel);
             this.Controls.Add(this.txtSearch);

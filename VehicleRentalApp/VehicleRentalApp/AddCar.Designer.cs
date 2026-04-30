@@ -134,10 +134,9 @@
             this.cmbCondition.Font = new System.Drawing.Font("Calibri", 10F);
             this.cmbCondition.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmbCondition.Items.AddRange(new object[] {
-            "Excellent",
-            "Good",
-            "Fair",
-            "Poor"});
+            "Reserved",
+            "Free",
+            "Maintenance"});
             this.cmbCondition.Location = new System.Drawing.Point(200, 72);
             this.cmbCondition.Name = "cmbCondition";
             this.cmbCondition.Size = new System.Drawing.Size(210, 32);
@@ -284,12 +283,11 @@
             this.cmbCarType.Font = new System.Drawing.Font("Calibri", 10F);
             this.cmbCarType.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmbCarType.Items.AddRange(new object[] {
-            "Economy",
-            "Compact",
+            "Picanto",
             "SUV",
-            "Luxury",
-            "Van",
-            "Truck"});
+            "Coupe",
+            "Sedan",
+            "Hatchback"});
             this.cmbCarType.Location = new System.Drawing.Point(270, 17);
             this.cmbCarType.Name = "cmbCarType";
             this.cmbCarType.Size = new System.Drawing.Size(210, 32);
@@ -400,7 +398,11 @@
             this.cmbTransmission.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmbTransmission.Items.AddRange(new object[] {
             "Automatic",
-            "Manual"});
+            "Manual",
+            "DCT",
+            "CVT",
+            "AMT"
+            });
             this.cmbTransmission.Location = new System.Drawing.Point(270, 232);
             this.cmbTransmission.Name = "cmbTransmission";
             this.cmbTransmission.Size = new System.Drawing.Size(210, 32);
