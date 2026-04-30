@@ -22,6 +22,7 @@ Model varchar(200) NOT NULL,
 Model_Year int NOT NULL,
 Transmission varchar(200) CHECK (Transmission IN('Manual', 'Automatic', 'DCT', 'CVT', 'AMT')) NOT NULL,
 Daily_Rental_Rate money NOT NULL
+UNIQUE (Category_ID,Car_Type, Make,Model,Model_Year,Transmission, Daily_Rental_Rate)
 );
 
 CREATE TABLE Car (
