@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VehicleRentalApp", "VehicleRentalApp", "{175F058E-5525-B220-51EB-BDE69B98BE57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleRentalApp", "VehicleRentalApp\VehicleRentalApp\VehicleRentalApp.csproj", "{8D0A76C8-44B1-6E71-C2DB-6B4CCFEE6EAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D0A76C8-44B1-6E71-C2DB-6B4CCFEE6EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D0A76C8-44B1-6E71-C2DB-6B4CCFEE6EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D0A76C8-44B1-6E71-C2DB-6B4CCFEE6EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D0A76C8-44B1-6E71-C2DB-6B4CCFEE6EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8D0A76C8-44B1-6E71-C2DB-6B4CCFEE6EAC} = {175F058E-5525-B220-51EB-BDE69B98BE57}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF25792B-AA46-49A2-97A2-8EBE71DBD6BE}
+	EndGlobalSection
+EndGlobal
