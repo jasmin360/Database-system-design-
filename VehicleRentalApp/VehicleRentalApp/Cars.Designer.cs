@@ -40,7 +40,7 @@
             this.button1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.button1.Location = new System.Drawing.Point(238, 68);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(168, 93);
             this.button1.TabIndex = 25;
@@ -57,7 +57,7 @@
             this.button2.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.button2.Location = new System.Drawing.Point(459, 68);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(264, 93);
             this.button2.TabIndex = 26;
@@ -73,7 +73,7 @@
             this.button3.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.button3.Location = new System.Drawing.Point(774, 68);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(186, 93);
             this.button3.TabIndex = 27;
@@ -82,9 +82,10 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(238, 228);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1988, 1058);
             this.flowLayoutPanel1.TabIndex = 42;
@@ -112,7 +113,7 @@
             this.plus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.plus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.plus.Location = new System.Drawing.Point(2174, 94);
-            this.plus.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.plus.Margin = new System.Windows.Forms.Padding(6);
             this.plus.Name = "plus";
             this.plus.Size = new System.Drawing.Size(52, 56);
             this.plus.TabIndex = 43;
@@ -130,7 +131,7 @@
             this.right.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.right.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.right.Location = new System.Drawing.Point(2079, 90);
-            this.right.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.right.Margin = new System.Windows.Forms.Padding(6);
             this.right.Name = "right";
             this.right.Size = new System.Drawing.Size(60, 64);
             this.right.TabIndex = 40;
@@ -144,7 +145,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Calibri", 11F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.txtSearch.Location = new System.Drawing.Point(1012, 68);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(509, 48);
             this.txtSearch.TabIndex = 45;
@@ -163,7 +164,7 @@
             this.filterPanel.Controls.Add(this.chkVan);
             this.filterPanel.Controls.Add(this.chkTruck);
             this.filterPanel.Location = new System.Drawing.Point(1812, 165);
-            this.filterPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.filterPanel.Margin = new System.Windows.Forms.Padding(4);
             this.filterPanel.Name = "filterPanel";
             this.filterPanel.Size = new System.Drawing.Size(413, 396);
             this.filterPanel.TabIndex = 46;
@@ -188,7 +189,7 @@
             this.chkEconomy.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkEconomy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.chkEconomy.Location = new System.Drawing.Point(18, 68);
-            this.chkEconomy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkEconomy.Margin = new System.Windows.Forms.Padding(4);
             this.chkEconomy.Name = "chkEconomy";
             this.chkEconomy.Size = new System.Drawing.Size(141, 41);
             this.chkEconomy.TabIndex = 1;
@@ -202,7 +203,7 @@
             this.chkCompact.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkCompact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.chkCompact.Location = new System.Drawing.Point(18, 120);
-            this.chkCompact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkCompact.Margin = new System.Windows.Forms.Padding(4);
             this.chkCompact.Name = "chkCompact";
             this.chkCompact.Size = new System.Drawing.Size(99, 41);
             this.chkCompact.TabIndex = 2;
@@ -216,7 +217,7 @@
             this.chkSUV.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkSUV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.chkSUV.Location = new System.Drawing.Point(18, 172);
-            this.chkSUV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkSUV.Margin = new System.Windows.Forms.Padding(4);
             this.chkSUV.Name = "chkSUV";
             this.chkSUV.Size = new System.Drawing.Size(128, 41);
             this.chkSUV.TabIndex = 3;
@@ -230,7 +231,7 @@
             this.chkLuxury.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkLuxury.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.chkLuxury.Location = new System.Drawing.Point(18, 225);
-            this.chkLuxury.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkLuxury.Margin = new System.Windows.Forms.Padding(4);
             this.chkLuxury.Name = "chkLuxury";
             this.chkLuxury.Size = new System.Drawing.Size(124, 41);
             this.chkLuxury.TabIndex = 4;
@@ -244,7 +245,7 @@
             this.chkVan.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkVan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.chkVan.Location = new System.Drawing.Point(18, 278);
-            this.chkVan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkVan.Margin = new System.Windows.Forms.Padding(4);
             this.chkVan.Name = "chkVan";
             this.chkVan.Size = new System.Drawing.Size(178, 41);
             this.chkVan.TabIndex = 5;
@@ -254,7 +255,7 @@
             // chkTruck
             // 
             this.chkTruck.Location = new System.Drawing.Point(0, 0);
-            this.chkTruck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkTruck.Margin = new System.Windows.Forms.Padding(4);
             this.chkTruck.Name = "chkTruck";
             this.chkTruck.Size = new System.Drawing.Size(156, 36);
             this.chkTruck.TabIndex = 6;
@@ -273,7 +274,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Cars";
             this.Size = new System.Drawing.Size(2464, 1384);
             this.Load += new System.EventHandler(this.Cars_Load);
