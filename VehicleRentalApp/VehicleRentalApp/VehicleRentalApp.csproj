@@ -60,7 +60,6 @@
     <Compile Include="Cars.Designer.cs">
       <DependentUpon>Cars.cs</DependentUpon>
     </Compile>
-    <Compile Include="DAL\DatabaseHelper.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +160,9 @@
     <None Include="Resources\car.png" />
     <None Include="Resources\horse-rider.png" />
     <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,6 +33,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.sidePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.close = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,12 +46,12 @@
             this.ResBtn = new System.Windows.Forms.Button();
             this.carBtn = new System.Windows.Forms.Button();
             this.contentPanel = new System.Windows.Forms.Panel();
-            this.close = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.profilePic = new System.Windows.Forms.Button();
             this.branch = new System.Windows.Forms.Button();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.flowLayoutPanel4.SuspendLayout();
             this.sidePanel.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
@@ -78,7 +79,7 @@
             this.flowLayoutPanel4.Controls.Add(this.button3);
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(4, 232);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(219, 374);
             this.flowLayoutPanel4.TabIndex = 5;
@@ -89,7 +90,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button3.Location = new System.Drawing.Point(4, 296);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(201, 74);
             this.button3.TabIndex = 2;
@@ -105,7 +106,7 @@
             this.sidePanel.Controls.Add(this.button4);
             this.sidePanel.Controls.Add(this.flowLayoutPanel4);
             this.sidePanel.Location = new System.Drawing.Point(1606, 1507);
-            this.sidePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sidePanel.Margin = new System.Windows.Forms.Padding(4);
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(231, 604);
             this.sidePanel.TabIndex = 4;
@@ -116,15 +117,28 @@
             this.flowLayoutPanel5.Controls.Add(this.close);
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel5.Location = new System.Drawing.Point(4, 4);
-            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(219, 56);
             this.flowLayoutPanel5.TabIndex = 8;
             // 
+            // close
+            // 
+            this.close.BackColor = System.Drawing.Color.Transparent;
+            this.close.BackgroundImage = global::VehicleRentalApp.Properties.Resources.cross;
+            this.close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.close.Location = new System.Drawing.Point(166, 4);
+            this.close.Margin = new System.Windows.Forms.Padding(4);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(49, 49);
+            this.close.TabIndex = 7;
+            this.close.UseVisualStyleBackColor = false;
+            this.close.Click += new System.EventHandler(this.button6_Click);
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(4, 68);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(219, 74);
             this.button2.TabIndex = 0;
@@ -134,7 +148,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(4, 150);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(219, 74);
             this.button4.TabIndex = 1;
@@ -275,21 +289,8 @@
             this.contentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.contentPanel.Location = new System.Drawing.Point(69, 414);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(1615, 928);
+            this.contentPanel.Size = new System.Drawing.Size(1583, 928);
             this.contentPanel.TabIndex = 29;
-            // 
-            // close
-            // 
-            this.close.BackColor = System.Drawing.Color.Transparent;
-            this.close.BackgroundImage = global::VehicleRentalApp.Properties.Resources.cross;
-            this.close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.close.Location = new System.Drawing.Point(166, 4);
-            this.close.Margin = new System.Windows.Forms.Padding(4);
-            this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(49, 49);
-            this.close.TabIndex = 7;
-            this.close.UseVisualStyleBackColor = false;
-            this.close.Click += new System.EventHandler(this.button6_Click);
             // 
             // pictureBox1
             // 
@@ -357,12 +358,21 @@
             this.branch.Text = "Maadi Branch";
             this.branch.UseVisualStyleBackColor = false;
             // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Location = new System.Drawing.Point(1674, 414);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(26, 808);
+            this.vScrollBar1.TabIndex = 0;
+            this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(1748, 1537);
+            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.branch);
             this.Controls.Add(this.sidePanel);
             this.Controls.Add(this.contentPanel);
@@ -381,7 +391,7 @@
             this.Controls.Add(this.empNameGreet);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
             this.Tag = "";
             this.Text = "Dashboard";
@@ -421,5 +431,6 @@
         private System.Windows.Forms.Button carBtn;
         private System.Windows.Forms.Panel contentPanel;
         private System.Windows.Forms.Button branch;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }
