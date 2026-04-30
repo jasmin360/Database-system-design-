@@ -84,8 +84,14 @@ CREATE PROCEDURE CarCategory_Create
     in @Daily_Rental_Rate money
 AS
 BEGIN
-    insert into Car_Category (Car_Type, Make, Model, Model_Year, Transmission, Daily_Rental_Rate)
-    values (@Car_Type, @Make, @Model, @Model_Year, @Transmission, @Daily_Rental_Rate);
+
+    if NOT EXISTS (select 1 from Car_Category where Car_Type=@Car_Type and Make = @Make and Model = @Model 
+        and Model_Year = @Model_Year and Transmission = @Transmission and Daily_Rental_Rate = @Daily_Rental_Rate)
+    BEGIN
+        insert into Car_Category (Car_Type, Make, Model, Model_Year, Transmission, Daily_Rental_Rate)
+        values (@Car_Type, @Make, @Model, @Model_Year, @Transmission, @Daily_Rental_Rate);
+    END;
+
 END;
 
 
