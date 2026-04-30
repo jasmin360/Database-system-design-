@@ -93,8 +93,46 @@ namespace VehicleRentalApp
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            //int scrollableHeight = contentPanel.Height - this.ClientSize.Height;
 
+            //if (scrollableHeight > 0)
+            //{
+            //    vScrollBar1.Minimum = 0;
+
+            //    // WinForms has a weird quirk with maximum values. 
+            //    // You have to add the LargeChange property to actually reach the true bottom.
+            //    vScrollBar1.Maximum = scrollableHeight + vScrollBar1.LargeChange - 1;
+
+            //    vScrollBar1.SmallChange = 25; // Arrow click speed
+            //    vScrollBar1.LargeChange = 100; // Track click speed
+            //    vScrollBar1.Visible = true;
+            //}
+            //else
+            //{
+            //    // Hide scrollbar if the window is big enough to show everything
+            //    vScrollBar1.Visible = false;
+            //}
+
+            //// Connect the mouse wheel so it feels like a real app!
+            //this.MouseWheel += Dashboard_MouseWheel;
         }
+        //private void Dashboard_MouseWheel(object sender, MouseEventArgs e)
+        //{
+        //    if (!vScrollBar1.Visible) return;
+
+        //    // e.Delta is usually 120 or -120. We divide it to make the scroll speed reasonable.
+        //    int scrollAmount = -(e.Delta / 4);
+        //    int newValue = vScrollBar1.Value + scrollAmount;
+
+        //    // Clamp the value so it doesn't crash by going below Minimum or above Maximum
+        //    if (newValue < vScrollBar1.Minimum) newValue = vScrollBar1.Minimum;
+        //    if (newValue > (vScrollBar1.Maximum - vScrollBar1.LargeChange + 1))
+        //        newValue = vScrollBar1.Maximum - vScrollBar1.LargeChange + 1;
+
+        //    // Apply the new value to the scrollbar and manually move the panel
+        //    vScrollBar1.Value = newValue;
+        //    contentPanel.Top = -newValue;
+        //}
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -153,7 +191,7 @@ namespace VehicleRentalApp
 
         private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
-
+            contentPanel.Top = -e.NewValue;
         }
     }
 }
