@@ -8,9 +8,9 @@ Phone varchar(20) unique CHECK (LEN(Phone) = 12 AND Phone NOT LIKE '%[^0-9]%') N
 
 CREATE TABLE Branch (
 Branch_ID int IDENTITY(1,1) PRIMARY KEY,
-City varchar(200),
-Street_Number int,
-Building_Number int,
+City varchar(200) NOT NULL,
+Street_Number int NOT NULL,
+Building_Number int NOT NULL,
 Contact_Number  varchar(20) CHECK (LEN(Contact_Number) = 12 AND Contact_Number NOT LIKE '%[^0-9]%')
 );
 
