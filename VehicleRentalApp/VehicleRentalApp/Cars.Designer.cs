@@ -19,9 +19,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.plus = new System.Windows.Forms.Button();
             this.right = new System.Windows.Forms.Button();
-            this.addOptions = new System.Windows.Forms.FlowLayoutPanel();
-            this.addCar = new System.Windows.Forms.Button();
-            this.addCat = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.filterPanel = new System.Windows.Forms.Panel();
             this.lblFilterTitle = new System.Windows.Forms.Label();
@@ -31,7 +28,6 @@
             this.chkLuxury = new System.Windows.Forms.CheckBox();
             this.chkVan = new System.Windows.Forms.CheckBox();
             this.chkTruck = new System.Windows.Forms.CheckBox();
-            this.addOptions.SuspendLayout();
             this.filterPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,44 +132,6 @@
             this.right.UseVisualStyleBackColor = false;
             this.right.Click += new System.EventHandler(this.right_Click);
             // 
-            // addOptions
-            // 
-            this.addOptions.BackColor = System.Drawing.Color.Transparent;
-            this.addOptions.Controls.Add(this.addCar);
-            this.addOptions.Controls.Add(this.addCat);
-            this.addOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.addOptions.Location = new System.Drawing.Point(1130, 124);
-            this.addOptions.Name = "addOptions";
-            this.addOptions.Size = new System.Drawing.Size(320, 114);
-            this.addOptions.TabIndex = 44;
-            // 
-            // addCar
-            // 
-            this.addCar.FlatAppearance.BorderSize = 0;
-            this.addCar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addCar.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addCar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.addCar.Location = new System.Drawing.Point(3, 3);
-            this.addCar.Name = "addCar";
-            this.addCar.Size = new System.Drawing.Size(162, 110);
-            this.addCar.TabIndex = 0;
-            this.addCar.Text = "Add Car";
-            this.addCar.UseVisualStyleBackColor = true;
-            // 
-            // addCat
-            // 
-            this.addCat.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addCat.FlatAppearance.BorderSize = 0;
-            this.addCat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addCat.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addCat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.addCat.Location = new System.Drawing.Point(171, 3);
-            this.addCat.Name = "addCat";
-            this.addCat.Size = new System.Drawing.Size(142, 110);
-            this.addCat.TabIndex = 1;
-            this.addCat.Text = "Add Category";
-            this.addCat.UseVisualStyleBackColor = true;
-            // 
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
@@ -198,7 +156,7 @@
             this.filterPanel.Controls.Add(this.chkLuxury);
             this.filterPanel.Controls.Add(this.chkVan);
             this.filterPanel.Controls.Add(this.chkTruck);
-            this.filterPanel.Location = new System.Drawing.Point(1290, 110);
+            this.filterPanel.Location = new System.Drawing.Point(1208, 110);
             this.filterPanel.Name = "filterPanel";
             this.filterPanel.Size = new System.Drawing.Size(276, 265);
             this.filterPanel.TabIndex = 46;
@@ -300,7 +258,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.Controls.Add(this.filterPanel);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.addOptions);
             this.Controls.Add(this.plus);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.right);
@@ -311,7 +268,6 @@
             this.Name = "Cars";
             this.Size = new System.Drawing.Size(1643, 923);
             this.Load += new System.EventHandler(this.Cars_Load);
-            this.addOptions.ResumeLayout(false);
             this.filterPanel.ResumeLayout(false);
             this.filterPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -326,9 +282,6 @@
         private System.Windows.Forms.Button right;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button plus;
-        private System.Windows.Forms.FlowLayoutPanel addOptions;
-        private System.Windows.Forms.Button addCar;
-        private System.Windows.Forms.Button addCat;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Panel filterPanel;
         private System.Windows.Forms.Label lblFilterTitle;
