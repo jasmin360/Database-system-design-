@@ -10,18 +10,11 @@ namespace VehicleRentalApp
         {
             InitializeComponent();
 
-            addOptions.Visible = false;
             filterPanel.Visible = false;
 
             plus.Click += (s, e) =>
             {
                 filterPanel.Visible = false;
-                addOptions.Visible = !addOptions.Visible;
-            };
-
-            addCar.Click += (s, e) =>
-            {
-                addOptions.Visible = false;
                 new AddCar().ShowDialog();
             };
 
@@ -46,7 +39,6 @@ namespace VehicleRentalApp
 
         private void right_Click(object sender, EventArgs e)
         {
-            addOptions.Visible = false;
             filterPanel.Visible = !filterPanel.Visible;
         }
 
