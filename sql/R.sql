@@ -266,6 +266,48 @@ CREATE PROCEDURE Reservation_filter (
 )
 AS 
 BEGIN
+    SELECT BEGIN
+    SELECT 
+        Reservation_ID,
+        Payment_ID,
+        Reservation_Date,
+        Deadline,
+        Reservation_Status,
+        Pickup_Branch_ID,
+        Return_Branch_ID,
+        Return_Date,
+        Pickup_Date,
+        Driver_License_Number,
+        First_Name,
+        Last_Name,
+        Email,
+        Phone,
+        License_Plate,
+        Condition,
+        No_seats,
+        Mileage,
+        Colour,
+        Branch_ID,
+        Category_ID,
+        Car_Type,
+        Make,
+        Model,
+        Model_Year,
+        Transmission,
+        Daily_Rental_Rate,
+        Payment_ID,
+        Payment_Method,
+        Payment_Date,
+        Emp_ID
+    FROM Reservation
+    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
+    LEFT JOIN Car c ON r.License_Plate = c.License_Plate
+    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
+    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
+    WHERE (@Day   IS NULL OR DATEPART(DAY,   Reservation_Date) = @Day)
+      AND (@Week  IS NULL OR DATEPART(WEEK,  Reservation_Date) = @Week)
+      AND (@Month IS NULL OR DATEPART(MONTH, Reservation_Date) = @Month)
+      AND (@Year  IS NULL OR DATEPART(YEAR,  Reservation_Date) = @Year);
     --toot    
 END;
 
@@ -277,5 +319,139 @@ CREATE PROCEDURE Deadline_filter (
 )
 AS 
 BEGIN
+    SELECT 
+        Reservation_ID,
+        Payment_ID,
+        Reservation_Date,
+        Deadline,
+        Reservation_Status,
+        Pickup_Branch_ID,
+        Return_Branch_ID,
+        Return_Date,
+        Pickup_Date,
+        Driver_License_Number,
+        First_Name,
+        Last_Name,
+        Email,
+        Phone,
+        License_Plate,
+        Condition,
+        No_seats,
+        Mileage,
+        Colour,
+        Branch_ID,
+        Category_ID,
+        Car_Type,
+        Make,
+        Model,
+        Model_Year,
+        Transmission,
+        Daily_Rental_Rate,
+        Payment_ID,
+        Payment_Method,
+        Payment_Date,
+        Emp_ID
+    FROM Reservation
+    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
+    LEFT JOIN Car c ON r.License_Plate = c.License_Plate
+    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
+    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
+
+    WHERE (@Day   IS NULL OR DATEPART(DAY,   Deadline) = @Day)
+    AND   (@Week  IS NULL OR DATEPART(WEEK,  Deadline) = @Week)
+    AND   (@Month IS NULL OR DATEPART(MONTH, Deadline) = @Month)
+    AND   (@Year  IS NULL OR DATEPART(YEAR,  Deadline) = @Year);
     --toot
+END;
+
+CREATE PROCEDURE Reservation_thisweekfilter (
+)
+AS 
+BEGIN
+    SELECT 
+    Reservation_ID,
+        Payment_ID,
+        Reservation_Date,
+        Deadline,
+        Reservation_Status,
+        Pickup_Branch_ID,
+        Return_Branch_ID,
+        Return_Date,
+        Pickup_Date,
+        Driver_License_Number,
+        First_Name,
+        Last_Name,
+        Email,
+        Phone,
+        License_Plate,
+        Condition,
+        No_seats,
+        Mileage,
+        Colour,
+        Branch_ID,
+        Category_ID,
+        Car_Type,
+        Make,
+        Model,
+        Model_Year,
+        Transmission,
+        Daily_Rental_Rate,
+        Payment_ID,
+        Payment_Method,
+        Payment_Date,
+        Emp_ID
+    FROM Reservation
+    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
+    LEFT JOIN Car c ON r.License_Plate = c.License_Plate
+    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
+    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
+WHERE Reservation_Date >= CAST(GETDATE() AS DATE)
+      AND Reservation_Date <  CAST(GETDATE() + 7 AS DATE);
+    --toot    
+END;
+
+CREATE PROCEDURE Deadlines_thisweekfilter (
+)
+AS 
+BEGIN
+    SELECT 
+    Reservation_ID,
+        Payment_ID,
+        Reservation_Date,
+        Deadline,
+        Reservation_Status,
+        Pickup_Branch_ID,
+        Return_Branch_ID,
+        Return_Date,
+        Pickup_Date,
+        Driver_License_Number,
+        First_Name,
+        Last_Name,
+        Email,
+        Phone,
+        License_Plate,
+        Condition,
+        No_seats,
+        Mileage,
+        Colour,
+        Branch_ID,
+        Category_ID,
+        Car_Type,
+        Make,
+        Model,
+        Model_Year,
+        Transmission,
+        Daily_Rental_Rate,
+        Payment_ID,
+        Payment_Method,
+        Payment_Date,
+        Emp_ID
+    FROM Reservation
+    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
+    LEFT JOIN Car c ON r.License_Plate = c.License_Plate
+    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
+    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
+WHERE Deadline >= CAST(GETDATE() AS DATE)
+      AND Deadline <  CAST(GETDATE() + 7 AS DATE);
+    --toot    
 END;
