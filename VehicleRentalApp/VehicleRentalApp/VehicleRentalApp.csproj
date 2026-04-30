@@ -54,6 +54,18 @@
     <Compile Include="AddCar.Designer.cs">
       <DependentUpon>AddCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="CarCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CarCard.Designer.cs">
+      <DependentUpon>CarCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarDetails.Designer.cs">
+      <DependentUpon>CarDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cars.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,6 +78,12 @@
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCar.Designer.cs">
+      <DependentUpon>EditCar.cs</DependentUpon>
     </Compile>
     <Compile Include="MainnForm.cs">
       <SubType>Form</SubType>
@@ -96,11 +114,20 @@
     <EmbeddedResource Include="AddCar.resx">
       <DependentUpon>AddCar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CarCard.resx">
+      <DependentUpon>CarCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarDetails.resx">
+      <DependentUpon>CarDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cars.resx">
       <DependentUpon>Cars.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCar.resx">
+      <DependentUpon>EditCar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainnForm.resx">
       <DependentUpon>MainnForm.cs</DependentUpon>
@@ -141,6 +168,10 @@
   <ItemGroup>
     <Content Include="pics\cross.png" />
     <Content Include="pics\kimchi-fries3.jpg" />
+    <None Include="Resources\compose %281%291.png" />
+    <None Include="Resources\compose %281%29.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\compose.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\filter %282%291.png" />
     <None Include="Resources\filter.png" />
