@@ -83,8 +83,6 @@ namespace VehicleRentalApp.Models
         public DateTime  Reservation_Date   { get; set; }
         public DateTime  Deadline           { get; set; }
         public string    Reservation_Status { get; set; }
-        public int       LicenseNo          { get; set; }
-        public string    License_Plate      { get; set; }
         public int       Pickup_Branch_ID   { get; set; }
         public int?      Return_Branch_ID   { get; set; }
         public DateTime? Return_Date        { get; set; }
@@ -99,7 +97,6 @@ namespace VehicleRentalApp.Models
         public int    No_seats      { get; set; }
         public int    Mileage       { get; set; }
         public string Colour        { get; set; }
-        public int    Category_ID   { get; set; }
         public int    Branch_ID     { get; set; }
         public int     Category_ID      { get; set; }
         public string  Car_Type         { get; set; }
@@ -112,6 +109,5 @@ namespace VehicleRentalApp.Models
         public string   Payment_Method  { get; set; }
         public DateTime Payment_Date    { get; set; }
         public int      Emp_ID          { get; set; }
-        public int      Client_ID       { get; set; }
     }
 }
