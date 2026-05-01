@@ -1,11 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data.SqlClient;
-using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using VehicleRentalApp.Models;
-using System.IO.Pipelines;
+using System.Data;
 using System.Runtime.CompilerServices;
+using System;
 
 namespace VehicleRentalApp.DAL
 {
@@ -149,16 +148,16 @@ namespace VehicleRentalApp.DAL
         // also takes a boolean by ref and that boolean is true if reservation is found otherwise it is false
         public ReservationChonk Reservation_Details(int Reservation_ID, ref bool exist)
         {
+            ReservationChonk reservation = null;
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Get_Reservation_details", connection))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                ReservationChonk reservation = new ReservationChonk();
 
                 cmd.Parameters.Add(new SqlParameter("@Reservation_ID", SqlDbType.Int));
                 cmd.Parameters["@Reservation_ID"].Value = Reservation_ID;
 
-                ReservationChonk reservation = null;
+
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -206,7 +205,7 @@ namespace VehicleRentalApp.DAL
                     else
                     {
                         exist= false;
-                        return;
+                        return reservation;
                     }
                 }
             }
@@ -564,7 +563,7 @@ namespace VehicleRentalApp.DAL
                 cmd.ExecuteNonQuery();
             }
 
-            string licenseplate;
+            string licenseplate= "";
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("license_plate_from_reservationID", connection))
             {
@@ -616,7 +615,7 @@ namespace VehicleRentalApp.DAL
                 cmd.ExecuteNonQuery();
             }
 
-            string licenseplate;
+            string licenseplate="";
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("license_plate_from_reservationID", connection))
             {
@@ -660,7 +659,7 @@ namespace VehicleRentalApp.DAL
                 cmd.ExecuteNonQuery();
             }
 
-            string licenseplate;
+            string licenseplate = "";
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("license_plate_from_reservationID", connection))
             {
@@ -918,8 +917,8 @@ namespace VehicleRentalApp.DAL
                     else
                     {
                         exist= false;
-                        using (SqlConnection connection = DatabaseHelper.GetConnection())
-                        using (SqlCommand cmd = new SqlCommand("Client_Create", connection))
+                        using (SqlConnection connection2 = DatabaseHelper.GetConnection())
+                        using (SqlCommand cmd2 = new SqlCommand("Client_Create", connection2))
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.Add(new SqlParameter("@First_Name", SqlDbType.VarChar, 200));
