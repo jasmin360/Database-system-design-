@@ -31,7 +31,7 @@ namespace VehicleRentalApp
         private void SetupLayout() {
             ovBtn.Click += (s, e) => NavigateTo(new overview());
             carBtn.Click += (s, e) => NavigateTo(new Cars());
-            //ResBtn.Click += (s, e) => NavigateTo(new Reservations());
+            ResBtn.Click += (s, e) => NavigateTo(new Reservation());
 
         }
         private void NavigateTo(UserControl screen)
@@ -53,7 +53,11 @@ namespace VehicleRentalApp
             {
                 highlightButton(carBtn);
             }
+            else if(screen is Reservation)
+            {
+                highlightButton(ResBtn);
 
+            }
             contentPanel.Controls.Add(screen);
         }
 

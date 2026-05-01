@@ -41,7 +41,7 @@
             this.todaybtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.todaybtn.Location = new System.Drawing.Point(159, 45);
             this.todaybtn.Name = "todaybtn";
-            this.todaybtn.Size = new System.Drawing.Size(105, 62);
+            this.todaybtn.Size = new System.Drawing.Size(139, 62);
             this.todaybtn.TabIndex = 25;
             this.todaybtn.Text = "Today";
             this.todaybtn.UseVisualStyleBackColor = false;
@@ -54,7 +54,7 @@
             this.thisWeekbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.thisWeekbtn.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thisWeekbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.thisWeekbtn.Location = new System.Drawing.Point(284, 45);
+            this.thisWeekbtn.Location = new System.Drawing.Point(318, 45);
             this.thisWeekbtn.Name = "thisWeekbtn";
             this.thisWeekbtn.Size = new System.Drawing.Size(176, 62);
             this.thisWeekbtn.TabIndex = 25;
@@ -69,7 +69,7 @@
             this.monthBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.monthBtn.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monthBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.monthBtn.Location = new System.Drawing.Point(477, 45);
+            this.monthBtn.Location = new System.Drawing.Point(500, 45);
             this.monthBtn.Name = "monthBtn";
             this.monthBtn.Size = new System.Drawing.Size(128, 62);
             this.monthBtn.TabIndex = 25;
@@ -84,9 +84,9 @@
             this.dayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dayBtn.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dayBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.dayBtn.Location = new System.Drawing.Point(620, 45);
+            this.dayBtn.Location = new System.Drawing.Point(643, 45);
             this.dayBtn.Name = "dayBtn";
-            this.dayBtn.Size = new System.Drawing.Size(91, 62);
+            this.dayBtn.Size = new System.Drawing.Size(145, 62);
             this.dayBtn.TabIndex = 25;
             this.dayBtn.Text = "Day";
             this.dayBtn.UseVisualStyleBackColor = false;
@@ -97,7 +97,7 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Calibri", 11F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.txtSearch.Location = new System.Drawing.Point(733, 64);
+            this.txtSearch.Location = new System.Drawing.Point(809, 60);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(326, 43);

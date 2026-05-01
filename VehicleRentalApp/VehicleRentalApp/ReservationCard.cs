@@ -15,18 +15,35 @@ namespace VehicleRentalApp
             Data = data;
             RefreshDisplay();
 
-            btnEdit.Click += BtnEdit_Click;
             btnDelete.Click += BtnDelete_Click;
 
             // make every child clickable as the card itself, except the edit and delete buttons
             this.Click += OpenDetails;
             foreach (Control c in this.Controls)
             {
-                if (c != btnEdit && c != btnDelete)
+                if (c != btnDelete && c != lblStatus)
                     c.Click += OpenDetails;
             }
-        }
 
+            var statusMenu = new ContextMenuStrip();
+
+            statusMenu.Items.Add("Pending", null, (s, e) => SetStatus("Pending"));
+            statusMenu.Items.Add("Picked Up", null, (s, e) => SetStatus("Picked Up"));
+            statusMenu.Items.Add("Returned", null, (s, e) => SetStatus("Returned"));
+
+            lblStatus.ContextMenuStrip = statusMenu;
+
+            lblStatus.Click += (s, e) =>
+            {
+                statusMenu.Show(lblStatus, 0, lblStatus.Height);
+            };
+
+
+        }
+        public void SetDeadlineOnlyView()
+        {
+            lblDates.Text = $"Deadline: {Data.Deadline.ToShortDateString()}";
+        }
         private void RefreshDisplay()
         {
             lblClientName.Text = $"{Data.FirstName} {Data.LastName}";
@@ -63,16 +80,14 @@ namespace VehicleRentalApp
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             var confirm = MessageBox.Show(
-                $"Delete reservation for {Data.FirstName} {Data.LastName}?",
+                $"ARE YOU SUREEEEEEEEEE?????????",
                 "Confirm Delete",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
 
             if (confirm == DialogResult.Yes)
             {
-                // TODO: delete from DB
-                this.Parent?.Controls.Remove(this);
-                this.Dispose();
+                // remoververve db
             }
         }
 
@@ -85,10 +100,23 @@ namespace VehicleRentalApp
                 this.Dispose();
             }
         }
+        private void SetStatus(string newStatus)
+        {
+            Data.Status = newStatus;
+            RefreshDisplay();
+
+            // update database laterfdfsf
+        }
+
 
         private void btnEdit_Click(object sender, EventArgs e) { }
         private void btnDelete_Click(object sender, EventArgs e) { }
         private void lblStatus_Click(object sender, EventArgs e) { }
+
+        private void lblRate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class ReservationInfo
