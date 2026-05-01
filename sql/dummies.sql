@@ -1,9 +1,9 @@
 
-INSERT INTO Client_Create 10001, 'Ahmed',   'Hassan',   'ahmed.hassan@gmail.com',    '201012345678';
-INSERT INTO Client_Create 10002, 'Sara',    'Mahmoud',  'sara.mahmoud@yahoo.com',    '201123456789';
-INSERT INTO Client_Create 10003, 'Omar',    'Ali',      'omar.ali@hotmail.com',      '201234567890';
-INSERT INTO Client_Create 10004, 'Nour',    'Ibrahim',  'nour.ibrahim@outlook.com',  '201345678901';
-INSERT INTO Client_Create 10005, 'Khaled',  'Mostafa',  'khaled.mostafa@gmail.com',  '201456789012';
+EXEC Client_Create 10001, 'Ahmed',   'Hassan',   'ahmed.hassan@gmail.com',    '201012345678';
+EXEC Client_Create 10002, 'Sara',    'Mahmoud',  'sara.mahmoud@yahoo.com',    '201123456789';
+EXEC Client_Create 10003, 'Omar',    'Ali',      'omar.ali@hotmail.com',      '201234567890';
+EXEC Client_Create 10004, 'Nour',    'Ibrahim',  'nour.ibrahim@outlook.com',  '201345678901';
+EXEC Client_Create 10005, 'Khaled',  'Mostafa',  'khaled.mostafa@gmail.com',  '201456789012';
 
 
 EXEC Branch_Create 'Cairo',          12,  3,  '202345678901';
