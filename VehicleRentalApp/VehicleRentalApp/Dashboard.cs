@@ -173,5 +173,12 @@ namespace VehicleRentalApp
 
             branchDetails.ShowDialog();
         }
+
+        private void branch_Click(object sender, EventArgs e)
+        {
+            BranchDetails branchDetails = new BranchDetails();
+
+            branchDetails.ShowDialog();
+        }
     }
 }

@@ -192,11 +192,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(1147, 443);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.panelCar);
             this.Controls.Add(this.btnClose);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "BranchDetails";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.BranchDetails_Load);

@@ -41,7 +41,12 @@
             this.contentPanel = new System.Windows.Forms.Panel();
             this.branch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.profilePic = new System.Windows.Forms.Button();
             this.side_panel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -49,16 +54,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.close = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.profilePic = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.side_panel.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.side_panel.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // empNameGreet
@@ -227,6 +228,7 @@
             this.branch.TabIndex = 30;
             this.branch.Text = "Maadi Branch";
             this.branch.UseVisualStyleBackColor = false;
+            this.branch.Click += new System.EventHandler(this.branch_Click);
             // 
             // panel1
             // 
@@ -252,9 +254,62 @@
             this.panel1.Size = new System.Drawing.Size(2059, 1471);
             this.panel1.TabIndex = 31;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::VehicleRentalApp.Properties.Resources.dollar_symbol;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(992, 182);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(112, 62);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::VehicleRentalApp.Properties.Resources.check;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(500, 172);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(112, 80);
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::VehicleRentalApp.Properties.Resources.car;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(14, 182);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(112, 62);
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
+            // profilePic
+            // 
+            this.profilePic.BackColor = System.Drawing.Color.Transparent;
+            this.profilePic.BackgroundImage = global::VehicleRentalApp.Properties.Resources.horse_rider;
+            this.profilePic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.profilePic.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.profilePic.FlatAppearance.BorderSize = 0;
+            this.profilePic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.profilePic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.profilePic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profilePic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.profilePic.Location = new System.Drawing.Point(28, 9);
+            this.profilePic.Margin = new System.Windows.Forms.Padding(2);
+            this.profilePic.Name = "profilePic";
+            this.profilePic.Size = new System.Drawing.Size(100, 90);
+            this.profilePic.TabIndex = 7;
+            this.profilePic.UseVisualStyleBackColor = false;
+            this.profilePic.Click += new System.EventHandler(this.profilePic_Click);
+            // 
             // side_panel
             // 
             this.side_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.side_panel.Controls.Add(this.button2);
             this.side_panel.Controls.Add(this.button6);
             this.side_panel.Controls.Add(this.button5);
             this.side_panel.Controls.Add(this.button1);
@@ -262,10 +317,24 @@
             this.side_panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.side_panel.Location = new System.Drawing.Point(0, 0);
             this.side_panel.Name = "side_panel";
-            this.side_panel.Size = new System.Drawing.Size(716, 3324);
+            this.side_panel.Size = new System.Drawing.Size(730, 1607);
             this.side_panel.TabIndex = 5;
             this.side_panel.Visible = false;
             this.side_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint_1);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.button2.Location = new System.Drawing.Point(27, 807);
+            this.button2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(668, 149);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Employees";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button6
             // 
@@ -273,7 +342,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button6.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.button6.Location = new System.Drawing.Point(36, 1205);
+            this.button6.Location = new System.Drawing.Point(27, 1205);
             this.button6.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(668, 149);
@@ -287,7 +356,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.button5.Location = new System.Drawing.Point(36, 617);
+            this.button5.Location = new System.Drawing.Point(27, 618);
             this.button5.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(668, 149);
@@ -302,7 +371,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.button1.Location = new System.Drawing.Point(36, 430);
+            this.button1.Location = new System.Drawing.Point(27, 430);
             this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(668, 149);
@@ -360,65 +429,13 @@
             this.close.UseVisualStyleBackColor = false;
             this.close.Click += new System.EventHandler(this.button6_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::VehicleRentalApp.Properties.Resources.dollar_symbol;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(992, 182);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 62);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::VehicleRentalApp.Properties.Resources.check;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(500, 172);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(112, 80);
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::VehicleRentalApp.Properties.Resources.car;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(14, 182);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(112, 62);
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
-            // profilePic
-            // 
-            this.profilePic.BackColor = System.Drawing.Color.Transparent;
-            this.profilePic.BackgroundImage = global::VehicleRentalApp.Properties.Resources.horse_rider;
-            this.profilePic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.profilePic.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.profilePic.FlatAppearance.BorderSize = 0;
-            this.profilePic.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.profilePic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.profilePic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.profilePic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.profilePic.Location = new System.Drawing.Point(28, 9);
-            this.profilePic.Margin = new System.Windows.Forms.Padding(2);
-            this.profilePic.Name = "profilePic";
-            this.profilePic.Size = new System.Drawing.Size(100, 90);
-            this.profilePic.TabIndex = 7;
-            this.profilePic.UseVisualStyleBackColor = false;
-            this.profilePic.Click += new System.EventHandler(this.profilePic_Click);
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(3179, 2075);
+            this.ClientSize = new System.Drawing.Size(2255, 1607);
             this.Controls.Add(this.side_panel);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -430,12 +447,12 @@
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.side_panel.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.side_panel.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -466,5 +483,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
