@@ -371,3 +371,16 @@ BEGIN
     where Reservation_ID = @Reservation_ID
 
 END;
+
+CREATE PROCEDURE filter_car_car_type
+    in @Car_Type varchar(20)
+AS
+BEGIN
+
+    select 
+    License_Plate, Condition, No_seats, Mileage, Colour, Branch_ID, Category_ID, Car_Type, Make, Model, Model_Year, Transmission, Daily_Rental_Rate 
+    from Car
+    join Car_Category on Car.Category_ID = Car_Category.Category_ID
+    where Car_Type = @Car_Type
+
+END;
