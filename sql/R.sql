@@ -325,12 +325,12 @@ BEGIN
 END;
 
 CREATE PROCEDURE CarCategory_Exists
-    in @Car_Type varchar(20),
-    in @Make varchar(200),
-    in @Model varchar(200),
-    in @Model_Year int,
-    in @Transmission varchar(20),
-    in @Daily_Rental_Rate money
+    @Car_Type varchar(20),
+    @Make varchar(200),
+    @Model varchar(200),
+    @Model_Year int,
+    @Transmission varchar(20),
+    @Daily_Rental_Rate money
 AS
 BEGIN
 
@@ -340,22 +340,22 @@ BEGIN
 END;
 
 CREATE PROCEDURE CarCategory_from_catID
-    in @Car_Type varchar(20),
-    in @Make varchar(200),
-    in @Model varchar(200),
-    in @Model_Year int,
-    in @Transmission varchar(20),
-    in @Daily_Rental_Rate money
+    @Car_Type varchar(20),
+    @Make varchar(200),
+    @Model varchar(200),
+    @Model_Year int,
+    @Transmission varchar(20),
+    @Daily_Rental_Rate money
 AS
 BEGIN
 
-    select 1 from Car_Category where Car_Type=@Car_Type and Make = @Make and Model = @Model 
+    select * from Car_Category where Car_Type=@Car_Type and Make = @Make and Model = @Model 
         and Model_Year = @Model_Year and Transmission = @Transmission and Daily_Rental_Rate = @Daily_Rental_Rate
 
 END;
 
 Create procedure count_available_cars_in_branch
-    in @Branch_ID int
+    @Branch_ID int
 AS
 BEGIN
     select count(*) from Car where Branch_ID = @Branch_ID and Condition = 'Free';
@@ -363,7 +363,7 @@ BEGIN
 END;
 
 CREATE PROCEDURE license_plate_from_reservationID
-    in @Reservation_ID int
+    @Reservation_ID int
 AS
 BEGIN
 
@@ -373,7 +373,7 @@ BEGIN
 END;
 
 CREATE PROCEDURE filter_car_car_type
-    in @Car_Type varchar(20)
+    @Car_Type varchar(20)
 AS
 BEGIN
 
