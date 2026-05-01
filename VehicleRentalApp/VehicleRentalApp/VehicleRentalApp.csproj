@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -91,6 +92,7 @@
     <Compile Include="MainnForm.Designer.cs">
       <DependentUpon>MainnForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="models\model.cs" />
     <Compile Include="recentRes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -168,6 +170,7 @@
   <ItemGroup>
     <Content Include="pics\cross.png" />
     <Content Include="pics\kimchi-fries3.jpg" />
+    <Content Include="Resources\cross2.png" />
     <None Include="Resources\compose %281%291.png" />
     <None Include="Resources\compose %281%29.png" />
     <None Include="Resources\delete.png" />
