@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -97,12 +98,43 @@
     <Compile Include="EditCar.Designer.cs">
       <DependentUpon>EditCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="BranchDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BranchDetails.Designer.cs">
+      <DependentUpon>BranchDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EmployeeCard.Designer.cs">
+      <DependentUpon>EmployeeCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeDetails.Designer.cs">
+      <DependentUpon>EmployeeDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees.Designer.cs">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HireEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HireEmployee.Designer.cs">
+      <DependentUpon>HireEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainnForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainnForm.Designer.cs">
       <DependentUpon>MainnForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="models\model.cs" />
     <Compile Include="recentRes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,9 +176,12 @@
     <EmbeddedResource Include="AddCar.resx">
       <DependentUpon>AddCar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddReservation.resx">
-      <DependentUpon>AddReservation.cs</DependentUpon>
-    </EmbeddedResource>
+	  <EmbeddedResource Include="BranchDetails.resx">
+		  <DependentUpon>BranchDetails.cs</DependentUpon>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="AddReservation.resx">
+		  <DependentUpon>AddReservation.cs</DependentUpon>
+	  </EmbeddedResource>
     <EmbeddedResource Include="CarCard.resx">
       <DependentUpon>CarCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +199,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditCar.resx">
       <DependentUpon>EditCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeCard.resx">
+      <DependentUpon>EmployeeCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeDetails.resx">
+      <DependentUpon>EmployeeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees.resx">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HireEmployee.resx">
+      <DependentUpon>HireEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainnForm.resx">
       <DependentUpon>MainnForm.cs</DependentUpon>
@@ -213,6 +260,9 @@
   <ItemGroup>
     <Content Include="pics\cross.png" />
     <Content Include="pics\kimchi-fries3.jpg" />
+    <Content Include="Resources\cross2.png" />
+    <None Include="Resources\Fire.png" />
+    <Content Include="Resources\sort.png" />
     <None Include="Resources\compose %281%291.png" />
     <None Include="Resources\compose %281%29.png" />
     <None Include="Resources\delete.png" />
@@ -240,4 +290,7 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="taskkill /F /IM VehicleRentalApp.exe &gt;nul 2&gt;&amp;1 || exit 0" />
+  </Target>
 </Project>

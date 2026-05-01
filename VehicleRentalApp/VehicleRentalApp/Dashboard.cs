@@ -17,16 +17,16 @@ namespace VehicleRentalApp
             InitializeComponent();
             SetupLayout();
             NavigateTo(new overview());
-            profilePic.Click += (sender, e) => Display_side_bar(sender, e);
+            //profilePic.Click += (sender, e) => Display_side_bar(sender, e);
 
 
 
         }
 
-        private void Display_side_bar(object sender, EventArgs e) {
-            sidePanel.Visible = !sidePanel.Visible;
+        //private void Display_side_bar(object sender, EventArgs e) {
+        //    side_Panel.Visible = !side_Panel.Visible;
 
-        }
+        //}
 
         private void SetupLayout() {
             ovBtn.Click += (s, e) => NavigateTo(new overview());
@@ -97,7 +97,7 @@ namespace VehicleRentalApp
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            side_panel.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -127,7 +127,9 @@ namespace VehicleRentalApp
 
         private void profilePic_Click(object sender, EventArgs e)
         {
+            side_panel.Visible = true;
 
+            side_panel.BringToFront();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -158,6 +160,25 @@ namespace VehicleRentalApp
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
 
+        }
+
+        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            BranchDetails branchDetails = new BranchDetails();
+
+            branchDetails.ShowDialog();
+        }
+
+        private void branch_Click(object sender, EventArgs e)
+        {
+            BranchDetails branchDetails = new BranchDetails();
+
+            branchDetails.ShowDialog();
         }
     }
 }

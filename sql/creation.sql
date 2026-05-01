@@ -27,7 +27,7 @@ UNIQUE (Category_ID,Car_Type, Make,Model,Model_Year,Transmission, Daily_Rental_R
 
 CREATE TABLE Car (
 License_Plate varchar(200) PRIMARY KEY ,
-Condition varchar(200) CHECK (Condition IN('Maintenance', 'Free','Reserved')) NOT NULL,
+Condition varchar(200) CHECK (Condition IN('Free','Reserved')) NOT NULL,
 No_seats int NOT NULL,
 Mileage int NOT NULL,
 Colour varchar(200) NOT NULL,
