@@ -143,6 +143,9 @@
     <Compile Include="models\Payment.cs" />
     <Compile Include="models\ReservationHorse.cs" />
     <Compile Include="models\ReservationChonk.cs" />
+    <Compile Include="MonthYearPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="recentRes.cs">
       <SubType>UserControl</SubType>
     </Compile>

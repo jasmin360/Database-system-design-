@@ -184,5 +184,26 @@ namespace VehicleRentalApp
 
             branchDetails.ShowDialog();
         }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            MainnForm mainForm = new MainnForm();
+
+            mainForm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EmployeeDetails employeeDetails = new EmployeeDetails();
+
+            employeeDetails.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Employees employees = new Employees();
+
+            employees.ShowDialog();
+        }
     }
 }

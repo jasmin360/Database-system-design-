@@ -9,15 +9,19 @@ namespace VehicleRentalApp
     {
         public ReservationInfo Data { get; private set; }
 
-        public ReservationCard(ReservationInfo data)
+        public ReservationCard(ReservationInfo data, bool showReservationDate = true)
         {
             InitializeComponent();
             Data = data;
+
             RefreshDisplay();
+
+            lblDates.Text = showReservationDate
+                ? $"Reserved: {data.ResDate.ToShortDateString()}  |  Deadline: {data.Deadline.ToShortDateString()}"
+                : $"Deadline: {data.Deadline.ToShortDateString()}";
 
             btnDelete.Click += BtnDelete_Click;
 
-            // make every child clickable as the card itself, except the edit and delete buttons
             this.Click += OpenDetails;
             foreach (Control c in this.Controls)
             {
@@ -26,19 +30,14 @@ namespace VehicleRentalApp
             }
 
             var statusMenu = new ContextMenuStrip();
-
             statusMenu.Items.Add("Pending", null, (s, e) => SetStatus("Pending"));
             statusMenu.Items.Add("Picked Up", null, (s, e) => SetStatus("Picked Up"));
             statusMenu.Items.Add("Returned", null, (s, e) => SetStatus("Returned"));
-
             lblStatus.ContextMenuStrip = statusMenu;
-
             lblStatus.Click += (s, e) =>
             {
                 statusMenu.Show(lblStatus, 0, lblStatus.Height);
             };
-
-
         }
         public void SetDeadlineOnlyView()
         {
@@ -114,6 +113,16 @@ namespace VehicleRentalApp
         private void lblStatus_Click(object sender, EventArgs e) { }
 
         private void lblRate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReservationCard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCarInfo_Click(object sender, EventArgs e)
         {
 
         }
