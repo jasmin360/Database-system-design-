@@ -265,10 +265,8 @@ CREATE PROCEDURE Reservation_filter (
 )
 AS 
 BEGIN
-    SELECT BEGIN
     SELECT 
         Reservation_ID,
-        Payment_ID,
         Reservation_Date,
         Deadline,
         Reservation_Status,
@@ -318,92 +316,21 @@ CREATE PROCEDURE Deadline_filter (
 )
 AS 
 BEGIN
-    SELECT 
-        Reservation_ID,
-        Payment_ID,
-        Reservation_Date,
-        Deadline,
-        Reservation_Status,
-        Pickup_Branch_ID,
-        Return_Branch_ID,
-        Return_Date,
-        Pickup_Date,
-        Driver_License_Number,
-        First_Name,
-        Last_Name,
-        Email,
-        Phone,
-        License_Plate,
-        Condition,
-        No_seats,
-        Mileage,
-        Colour,
-        Branch_ID,
-        Category_ID,
-        Car_Type,
-        Make,
-        Model,
-        Model_Year,
-        Transmission,
-        Daily_Rental_Rate,
-        Payment_ID,
-        Payment_Method,
-        Payment_Date,
-        Emp_ID
+    SELECT *
     FROM Reservation
-    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
-    LEFT JOIN Car c ON r.License_Plate = c.License_Plate
-    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
-    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
 
     WHERE (@Day   IS NULL OR DATEPART(DAY,   Deadline) = @Day)
     AND   (@Week  IS NULL OR DATEPART(WEEK,  Deadline) = @Week)
     AND   (@Month IS NULL OR DATEPART(MONTH, Deadline) = @Month)
     AND   (@Year  IS NULL OR DATEPART(YEAR,  Deadline) = @Year);
-    --toot
 END;
 
 CREATE PROCEDURE Reservation_thisweekfilter (
 )
 AS 
 BEGIN
-    SELECT 
-    Reservation_ID,
-        Payment_ID,
-        Reservation_Date,
-        Deadline,
-        Reservation_Status,
-        Pickup_Branch_ID,
-        Return_Branch_ID,
-        Return_Date,
-        Pickup_Date,
-        Driver_License_Number,
-        First_Name,
-        Last_Name,
-        Email,
-        Phone,
-        License_Plate,
-        Condition,
-        No_seats,
-        Mileage,
-        Colour,
-        Branch_ID,
-        Category_ID,
-        Car_Type,
-        Make,
-        Model,
-        Model_Year,
-        Transmission,
-        Daily_Rental_Rate,
-        Payment_ID,
-        Payment_Method,
-        Payment_Date,
-        Emp_ID
+    SELECT *
     FROM Reservation
-    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
-    LEFT JOIN Car c ON r.License_Plate = c.License_Plate
-    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
-    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
 WHERE Reservation_Date >= CAST(GETDATE() AS DATE)
       AND Reservation_Date <  CAST(GETDATE() + 7 AS DATE);
        
@@ -413,43 +340,8 @@ CREATE PROCEDURE Deadlines_thisweekfilter (
 )
 AS 
 BEGIN
-    SELECT 
-    Reservation_ID,
-        Payment_ID,
-        Reservation_Date,
-        Deadline,
-        Reservation_Status,
-        Pickup_Branch_ID,
-        Return_Branch_ID,
-        Return_Date,
-        Pickup_Date,
-        Driver_License_Number,
-        First_Name,
-        Last_Name,
-        Email,
-        Phone,
-        License_Plate,
-        Condition,
-        No_seats,
-        Mileage,
-        Colour,
-        Branch_ID,
-        Category_ID,
-        Car_Type,
-        Make,
-        Model,
-        Model_Year,
-        Transmission,
-        Daily_Rental_Rate,
-        Payment_ID,
-        Payment_Method,
-        Payment_Date,
-        Emp_ID
+    SELECT *
     FROM Reservation
-    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
-    LEFT JOIN Car c ON r.License_Plate = c.License_Plate
-    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
-    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
 WHERE Deadline >= CAST(GETDATE() AS DATE)
       AND Deadline <  CAST(GETDATE() + 7 AS DATE);
       
@@ -457,47 +349,12 @@ END;
 
 
 CREATE procedure Get_Overdue_Reservations
-    @Branch_ID INT = NULL;
+    @Branch_ID INT = NULL
 AS
-BEGIN;
-    SELECT 
-        Reservation_ID,
-        Payment_ID,
-        Reservation_Date,
-        Deadline,
-        Reservation_Status,
-        Pickup_Branch_ID,
-        Return_Branch_ID,
-        Return_Date,
-        Pickup_Date,
-        Driver_License_Number,
-        First_Name,
-        Last_Name,
-        Email,
-        Phone,
-        License_Plate,
-        Condition,
-        No_seats,
-        Mileage,
-        Colour,
-        Branch_ID,
-        Category_ID,
-        Car_Type,
-        Make,
-        Model,
-        Model_Year,
-        Transmission,
-        Daily_Rental_Rate,
-        Payment_ID,
-        Payment_Method,
-        Payment_Date,
-        Emp_ID
+BEGIN
+    SELECT  *
     FROM Reservation
-    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
-    LEFT JOIN Car c ON r.License_Plate = c.License_Plate
-    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
-    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
-WHERE Deadline < CAST(GETDATE() AS DATE)
+    WHERE Deadline < CAST(GETDATE() AS DATE)
       AND Reservation_Status != 'Returned'
       AND (@Branch_ID IS NULL OR Pickup_Branch_ID = @Branch_ID);
 END;
@@ -537,5 +394,15 @@ Create procedure count_available_cars_in_branch
 AS
 BEGIN
     select count(*) from Car where Branch_ID = @Branch_ID and Condition = 'Free';
+
+END;
+
+CREATE PROCEDURE license_plate_from_reservationID
+    in @Reservation_ID int
+AS
+BEGIN
+
+    select License_Plate from Reservation 
+    where Reservation_ID = @Reservation_ID
 
 END;

@@ -88,6 +88,8 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.VarChar, 200));
                 cmd.Parameters["@Email"].Value = email;
 
+                Branch branch;
+
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
@@ -96,8 +98,8 @@ namespace VehicleRentalApp.DAL
                         {
                             Branch_ID = Convert.ToInt32(reader["Branch_ID"]),
                             City = reader["City"].ToString(),
-                            Street_Number = reader["Street_Number"].ToString(),
-                            Building_Number = reader["Building_Number"].ToString(),
+                            Street_Number = Convert.ToInt32(reader["Street_Number"]),
+                            Building_Number = Convert.ToInt32(reader["Building_Number"]),
                             Contact_Number = reader["Contact_Number"].ToString()
                         };
                     }
@@ -155,14 +157,16 @@ namespace VehicleRentalApp.DAL
                 ReservationChonk reservation = new ReservationChonk();
 
                 cmd.Parameters.Add(new SqlParameter("@Reservation_ID", SqlDbType.Int));
-                cmd.Parameters["@Reservation_ID"].Value = reservationId;
+                cmd.Parameters["@Reservation_ID"].Value = Reservation_ID;
+
+                ReservationChonk reservation;
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
                     {
                         exist = true;
-                        ReservationChonk reservation = new ReservationChonk
+                        reservation = new ReservationChonk
                         {
                             Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
                             Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
@@ -189,7 +193,7 @@ namespace VehicleRentalApp.DAL
                             Make = reader["Make"].ToString(),
                             Model = reader["Model"].ToString(),
                             Model_Year = Convert.ToInt32(reader["Model_Year"]),
-                            Transmission = reader["Transmission_Type"].ToString(),
+                            Transmission = reader["Transmission"].ToString(),
                             Daily_Rental_Rate = Convert.ToDecimal(reader["Daily_Rental_Rate"]),
                             Payment_Method = reader["Payment_Method"].ToString(),
                             Payment_Date = Convert.ToDateTime(reader["Payment_Date"]),
@@ -213,7 +217,7 @@ namespace VehicleRentalApp.DAL
         //if return is an empty array then no reservations found with this filter
         //all parameters are optional
         // week (1-53) and month (1-12) and year are integers
-        public Reservation[] filter_reservation(DateTime day= null, int week= null, int month = null, int year = null)
+        public Reservation[] filter_reservation(DateTime? day = null , int? week= null, int? month = null, int? year = null)
         {
             List<Reservation> reservations = new List<Reservation>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -257,11 +261,46 @@ namespace VehicleRentalApp.DAL
             return reservations.ToArray();
         }
 
-        public Reservation[] filter_deadlines(DateTime day= null, int week= null, int month = null, int year = null)
+        public Reservation[] filter_reservation_this_week()
         {
             List<Reservation> reservations = new List<Reservation>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
-            using (SqlCommand cmd = new SqlCommand("Reservation_filter", connection))
+            using (SqlCommand cmd = new SqlCommand("Reservation_thisweekfilter", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Reservation reservation = new Reservation
+                        {
+                            Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
+                            Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
+                            Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
+                            Deadline = Convert.ToDateTime(reader["Deadline"]),
+                            Reservation_Status = reader["Reservation_Status"].ToString(),
+                            LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
+                            License_Plate = reader["License_Plate"].ToString(),
+                            Pickup_Branch_ID = reader["Pickup_Branch"].ToString(),
+                            Return_Branch_ID = reader["Return_Branch"].ToString(),
+                            Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
+                            Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
+
+                        };
+
+                        reservations.Add(reservation);
+                    }
+                    
+                }
+            }
+            return reservations.ToArray();
+        }
+
+        public Reservation[] filter_deadlines(DateTime? day = null, int week= null, int month = null, int year = null)
+        {
+            List<Reservation> reservations = new List<Reservation>();
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Deadline_filter", connection))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Day", SqlDbType.VarChar, 200));
@@ -272,6 +311,42 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters["@Month"].Value = month.HasValue ? (object)month.Value : DBNull.Value;
                 cmd.Parameters.Add(new SqlParameter("@Year", SqlDbType.Int));
                 cmd.Parameters["@Year"].Value = year.HasValue ? (object)year.Value : DBNull.Value;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                   while (reader.Read())
+                    {
+                        Reservation reservation = new Reservation
+                        {
+                            Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
+                            Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
+                            Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
+                            Deadline = Convert.ToDateTime(reader["Deadline"]),
+                            Reservation_Status = reader["Reservation_Status"].ToString(),
+                            LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
+                            License_Plate = reader["License_Plate"].ToString(),
+                            Pickup_Branch_ID = reader["Pickup_Branch"].ToString(),
+                            Return_Branch_ID = reader["Return_Branch"].ToString(),
+                            Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
+                            Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
+
+                        };
+
+                        reservations.Add(reservation);
+                    }
+                }
+            }
+            return reservations.ToArray();
+            
+        }
+
+        public Reservation[] filter_deadlines_this_week()
+        {
+            List<Reservation> reservations = new List<Reservation>();
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Deadline_filter", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -329,9 +404,86 @@ namespace VehicleRentalApp.DAL
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Get_Todays_Planned_Returns", connection))
             {
-                while (reader.Read())
+                cmd.CommandType = CommandType.StoredProcedure;
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    Reservation reservation = new Reservation
+                    while (reader.Read())
+                    {
+                        Reservation reservation = new Reservation
+                            {
+                                Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
+                                Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
+                                Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
+                                Deadline = Convert.ToDateTime(reader["Deadline"]),
+                                Reservation_Status = reader["Reservation_Status"].ToString(),
+                                LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
+                                License_Plate = reader["License_Plate"].ToString(),
+                                Pickup_Branch_ID = reader["Pickup_Branch"].ToString(),
+                                Return_Branch_ID = reader["Return_Branch"].ToString(),
+                                Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
+                                Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
+
+                            };
+
+                        reservations.Add(reservation);
+                    }
+                    
+                }
+
+            }
+
+            return reservations.ToArray();
+        }
+
+        public Car[] Get_Available_Cars_In_Branch (int branchID)
+        {
+            List<Car> cars = new List<Car>();
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Get_Available_Cars_In_Branch", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Branch_ID", SqlDbType.Int));
+                cmd.Parameters["@Branch_ID"].Value = branchID;
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Car carss = new Car
+                        {
+                            License_Plate = reader["License_Plate"].ToString(),
+                            Condition = reader["Condition"].ToString(),
+                            No_seats = Convert.ToInt32(reader["No_seats"]),
+                            Mileage = Convert.ToInt32(reader["Mileage"]),
+                            Colour = reader["Colour"].ToString(),
+                            Category_ID = Convert.ToInt32(reader["Category_ID"]),
+                            Branch_ID = Convert.ToInt32(reader["Branch_ID"])
+
+                        };
+
+                        cars.Add(carss);
+                    }
+                    
+                }
+
+
+            }
+
+            return cars.ToArray();
+            
+        }
+
+        public Reservation[] Get_Overdue_Reservations()
+        {
+            List<Reservation> reservations = new List<Reservation>();
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Get_Overdue_Reservations", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Reservation reservation = new Reservation
                         {
                             Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
                             Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
@@ -347,73 +499,10 @@ namespace VehicleRentalApp.DAL
 
                         };
 
-                    reservations.Add(reservation);
+                        reservations.Add(reservation);
+                    }
                 }
-            }
 
-            return reservations.ToArray();
-        }
-
-        public Car[] Get_Available_Cars_In_Branch (int branchID)
-        {
-            List<Car> cars = new List<Car>();
-            using (SqlConnection connection = DatabaseHelper.GetConnection())
-            using (SqlCommand cmd = new SqlCommand("Get_Available_Cars_In_Branch", connection))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@Branch_ID", SqlDbType.Int));
-                cmd.Parameters["@Branch_ID"].Value = branchID;
-
-                while (reader.Read())
-                {
-                    Car carss = new Car
-                    {
-                        License_Plate = reader["License_Plate"].ToString(),
-                        Condition = reader["Condition"].ToString(),
-                        No_seats = Convert.ToInt32(reader["No_seats"]),
-                        Mileage = Convert.ToInt32(reader["Mileage"]),
-                        Colour = reader["Colour"].ToString(),
-                        Category_ID = Convert.ToInt32(reader["Category_ID"]),
-                        Branch_ID = Convert.ToInt32(reader["Branch_ID"])
-
-                    };
-
-                    cars.Add(carss);
-                }
-            }
-
-            return cars.ToArray();
-            
-        }
-
-        public Reservation[] Get_Overdue_Reservations()
-        {
-            List<Reservation> reservations = new List<Reservation>();
-            using (SqlConnection connection = DatabaseHelper.GetConnection())
-            using (SqlCommand cmd = new SqlCommand("Get_Overdue_Reservations", connection))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                while (reader.Read())
-                {
-                    Reservation reservation = new Reservation
-                    {
-                        Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
-                        Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
-                        Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
-                        Deadline = Convert.ToDateTime(reader["Deadline"]),
-                        Reservation_Status = reader["Reservation_Status"].ToString(),
-                        LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
-                        License_Plate = reader["License_Plate"].ToString(),
-                        Pickup_Branch_ID = reader["Pickup_Branch"].ToString(),
-                        Return_Branch_ID = reader["Return_Branch"].ToString(),
-                        Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
-                        Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
-
-                    };
-
-                    reservations.Add(reservation);
-                }
             }
 
             return reservations.ToArray();
@@ -429,27 +518,30 @@ namespace VehicleRentalApp.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Branch_ID", SqlDbType.Int));
                 cmd.Parameters["@Branch_ID"].Value = branchID;
-
-                while (reader.Read())
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    Reservation reservation = new Reservation
+                    while (reader.Read())
                     {
-                        Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
-                        Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
-                        Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
-                        Deadline = Convert.ToDateTime(reader["Deadline"]),
-                        Reservation_Status = reader["Reservation_Status"].ToString(),
-                        LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
-                        License_Plate = reader["License_Plate"].ToString(),
-                        Pickup_Branch_ID = reader["Pickup_Branch"].ToString(),
-                        Return_Branch_ID = reader["Return_Branch"].ToString(),
-                        Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
-                        Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
+                        Reservation reservation = new Reservation
+                        {
+                            Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
+                            Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
+                            Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
+                            Deadline = Convert.ToDateTime(reader["Deadline"]),
+                            Reservation_Status = reader["Reservation_Status"].ToString(),
+                            LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
+                            License_Plate = reader["License_Plate"].ToString(),
+                            Pickup_Branch_ID = reader["Pickup_Branch"].ToString(),
+                            Return_Branch_ID = reader["Return_Branch"].ToString(),
+                            Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
+                            Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
-                    };
+                        };
 
-                    reservations.Add(reservation);
+                        reservations.Add(reservation);
+                    }
                 }
+
             }
 
             return reservations.ToArray();
@@ -465,12 +557,30 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters["@Reservation_ID"].Value = reservationID;
                 cmd.Parameters.Add(new SqlParameter("@Reservation_Status", SqlDbType.VarChar, 200));
                 cmd.Parameters["@Reservation_Status"].Value = "Returned";
-                cmd.Parameters.Add(new SqlParameter("Return_Branch_ID", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@Return_Branch_ID", SqlDbType.Int));
                 cmd.Parameters["@Return_Branch_ID"].Value = branchID;
-                cmd.Parameters.Add(new SqlParameter("Return_Date", SqlDbType.DateTime));
+                cmd.Parameters.Add(new SqlParameter("@Return_Date", SqlDbType.DateTime));
                 cmd.Parameters["@Return_Date"].Value = DateTime.Now;
 
                 cmd.ExecuteNonQuery();
+            }
+
+            string licenseplate;
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("license_plate_from_reservationID", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Reservation_ID", SqlDbType.Int));
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        licenseplate= reader[0].ToString();
+                    }
+                }
+
             }
 
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -481,6 +591,8 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters["@Condition"].Value = "Free";
                 cmd.Parameters.Add(new SqlParameter("@Branch_ID", SqlDbType.Int));
                 cmd.Parameters["@Branch_ID"].Value = branchID;
+                cmd.Parameters.Add(new SqlParameter("@License_Plate", SqlDbType.VarChar, 200));
+                cmd.Parameters["@License_Plate"].Value = licenseplate;
 
                 cmd.ExecuteNonQuery();
                 
@@ -497,12 +609,30 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters["@Reservation_ID"].Value = reservationID;
                 cmd.Parameters.Add(new SqlParameter("@Reservation_Status", SqlDbType.VarChar, 200));
                 cmd.Parameters["@Reservation_Status"].Value = "Pickedup";
-                cmd.Parameters.Add(new SqlParameter("Pickup_Branch_ID", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@Pickup_Branch_ID", SqlDbType.Int));
                 cmd.Parameters["@Pickup_Branch_ID"].Value = branchID;
-                cmd.Parameters.Add(new SqlParameter("Pickup_Date", SqlDbType.DateTime));
+                cmd.Parameters.Add(new SqlParameter("@Pickup_Date", SqlDbType.DateTime));
                 cmd.Parameters["@Pickup_Date"].Value = DateTime.Now;
 
                 cmd.ExecuteNonQuery();
+            }
+
+            string licenseplate;
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("license_plate_from_reservationID", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Reservation_ID", SqlDbType.Int));
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        licenseplate= reader[0].ToString();
+                    }
+                }
+
             }
 
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -511,6 +641,8 @@ namespace VehicleRentalApp.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Condition", SqlDbType.VarChar, 200));
                 cmd.Parameters["@Condition"].Value = "Reserved";
+                cmd.Parameters.Add(new SqlParameter("@License_Plate", SqlDbType.VarChar, 200));
+                cmd.Parameters["@License_Plate"].Value = licenseplate;
 
                 cmd.ExecuteNonQuery();
                 
@@ -529,12 +661,32 @@ namespace VehicleRentalApp.DAL
                 cmd.ExecuteNonQuery();
             }
 
+            string licenseplate;
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("license_plate_from_reservationID", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Reservation_ID", SqlDbType.Int));
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        licenseplate= reader[0].ToString();
+                    }
+                }
+
+            }
+
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Car_Update", connection))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Condition", SqlDbType.VarChar, 200));
                 cmd.Parameters["@Condition"].Value = "Free";
+                cmd.Parameters.Add(new SqlParameter("@License_Plate", SqlDbType.VarChar, 200));
+                cmd.Parameters["@License_Plate"].Value = licenseplate;
 
                 cmd.ExecuteNonQuery();
                 
@@ -587,40 +739,34 @@ namespace VehicleRentalApp.DAL
                     cmd.Parameters.Add(new SqlParameter("@Daily_Rental_Rate", SqlDbType.Decimal));
                     cmd.Parameters["@Daily_Rental_Rate"].Value = cat.Daily_Rental_Rate;
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())                    {
-                        if (reader.Read())
-                        {
-                            cat.Category_ID = Convert.ToInt32(reader["Category_ID"]);
-                        }
-                    }
+                    cmd.ExecuteNonQuery();
 
                 }
-            }
-            else
-            {
-                using (SqlConnection connection = DatabaseHelper.GetConnection())
-                using (SqlCommand cmd = new SqlCommand("CarCategory_from_catID", connection))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter("@Car_Type", SqlDbType.VarChar, 200));
-                    cmd.Parameters["@Car_Type"].Value = cat.Car_Type;
-                    cmd.Parameters.Add(new SqlParameter("@Make", SqlDbType.VarChar, 200));
-                    cmd.Parameters["@Make"].Value = cat.Make;
-                    cmd.Parameters.Add(new SqlParameter("@Model", SqlDbType.VarChar, 200));
-                    cmd.Parameters["@Model"].Value = cat.Model;
-                    cmd.Parameters.Add(new SqlParameter("@Model_Year", SqlDbType.Int));
-                    cmd.Parameters["@Model_Year"].Value = cat.Model_Year;
-                    cmd.Parameters.Add(new SqlParameter("@Transmission", SqlDbType.VarChar, 200));
-                    cmd.Parameters["@Transmission"].Value = cat.Transmission;
-                    cmd.Parameters.Add(new SqlParameter("@Daily_Rental_Rate", SqlDbType.Decimal));
-                    cmd.Parameters["@Daily_Rental_Rate"].Value = cat.Daily_Rental_Rate;
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+            }
+
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("CarCategory_from_catID", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Car_Type", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Car_Type"].Value = cat.Car_Type;
+                cmd.Parameters.Add(new SqlParameter("@Make", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Make"].Value = cat.Make;
+                cmd.Parameters.Add(new SqlParameter("@Model", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Model"].Value = cat.Model;
+                cmd.Parameters.Add(new SqlParameter("@Model_Year", SqlDbType.Int));
+                cmd.Parameters["@Model_Year"].Value = cat.Model_Year;
+                cmd.Parameters.Add(new SqlParameter("@Transmission", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Transmission"].Value = cat.Transmission;
+                cmd.Parameters.Add(new SqlParameter("@Daily_Rental_Rate", SqlDbType.Decimal));
+                cmd.Parameters["@Daily_Rental_Rate"].Value = cat.Daily_Rental_Rate;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
                     {
-                        if (reader.Read())
-                        {
-                            cat.Category_ID = Convert.ToInt32(reader["Category_ID"]);
-                        }
+                        cat.Category_ID = Convert.ToInt32(reader["Category_ID"]);
                     }
                 }
             }
@@ -660,7 +806,7 @@ namespace VehicleRentalApp.DAL
                 cmd.ExecuteNonQuery();
             }
         }
-        public void add_payment(Payment payment, int employeeID, int clientID, decimal amount)
+        public void add_payment(Payment payment, int employeeID, int clientID)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Payment_Create", connection))
@@ -670,8 +816,6 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters["@Payment_Method"].Value = payment.Payment_Method;
                 cmd.Parameters.Add(new SqlParameter("@Payment_Date", SqlDbType.DateTime));
                 cmd.Parameters["@Payment_Date"].Value = payment.Payment_Date;
-                cmd.Parameters.Add(new SqlParameter("@Amount", SqlDbType.Decimal));
-                cmd.Parameters["@Amount"].Value = amount;
                 cmd.Parameters.Add(new SqlParameter("@Emp_ID", SqlDbType.Int));
                 cmd.Parameters["@Emp_ID"].Value = employeeID;
                 cmd.Parameters.Add(new SqlParameter("@Client_ID", SqlDbType.Int));
@@ -744,7 +888,7 @@ namespace VehicleRentalApp.DAL
             }
         }
 
-        public void display_client(int clientID, out Client client, out bool exist)
+        public void display_client(int clientID, out Client client, out bool exist,string First_Name= null, string Last_Name= null, String email= null, string phone= null)
         {
             client = null;
             exist = false;
@@ -762,7 +906,7 @@ namespace VehicleRentalApp.DAL
                         exist = true;
                         client = new Client
                         {
-                            Client_ID = Convert.ToInt32(reader["Client_ID"]),
+                            Client_ID = Convert.ToInt32(reader["Driver_License_Number"]),
                             Driver_License_Number = Convert.ToInt32(reader["Driver_License_Number"]),
                             First_Name = reader["First_Name"].ToString(),
                             Last_Name = reader["Last_Name"].ToString(),
@@ -781,15 +925,15 @@ namespace VehicleRentalApp.DAL
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.Add(new SqlParameter("@First_Name", SqlDbType.VarChar, 200));
-                            cmd.Parameters["@First_Name"].Value = client.First_Name;
+                            cmd.Parameters["@First_Name"].Value = First_Name;
                             cmd.Parameters.Add(new SqlParameter("@Last_Name", SqlDbType.VarChar, 200));
-                            cmd.Parameters["@Last_Name"].Value = client.Last_Name;
+                            cmd.Parameters["@Last_Name"].Value = Last_Name;
                             cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.VarChar, 200));
-                            cmd.Parameters["@Email"].Value = client.Email;
+                            cmd.Parameters["@Email"].Value = email;
                             cmd.Parameters.Add(new SqlParameter("@Phone", SqlDbType.VarChar, 200));
-                            cmd.Parameters["@Phone"].Value = client.Phone;
+                            cmd.Parameters["@Phone"].Value = phone;
                             cmd.Parameters.Add(new SqlParameter("@Driver_License_Number", SqlDbType.Int));
-                            cmd.Parameters["@Driver_License_Number"].Value = client.Driver_License_Number;
+                            cmd.Parameters["@Driver_License_Number"].Value = clientID;
 
                             cmd.ExecuteNonQuery();
                         }
@@ -798,7 +942,7 @@ namespace VehicleRentalApp.DAL
             }
         }
 
-        public void edit_employee(int employeeID, string firstName=null, string lastName=null, string email=null, string position=null, int branchID=null, int superEmpID=null, string passkey=null)
+        public void edit_employee(int employeeID, string firstName=null, string lastName=null, string email=null, string position=null, int? branchID=null, int? superEmpID=null, string passkey=null)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Employee_Update", connection))
