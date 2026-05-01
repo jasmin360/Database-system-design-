@@ -43,7 +43,10 @@ Position varchar(200) CHECK (Position IN ('Supervisor','Employee')) NOT NULL,
 First_Name varchar(200) NOT NULL,
 Last_Name varchar(200) NOT NULL,
 Branch_ID int NOT NULL REFERENCES Branch(Branch_ID),
-SuperEmpID int REFERENCES Employee(Emp_ID) CHECK (SuperEmpID <> Emp_ID)
+SuperEmpID int REFERENCES Employee(Emp_ID), 
+
+    CONSTRAINT noselfsupervisor 
+        CHECK (SuperEmpID IS NULL OR SuperEmpID <> Emp_ID)
 );
 
 CREATE TABLE Payment (
@@ -58,14 +61,18 @@ CREATE TABLE Reservation (
 Reservation_ID int IDENTITY(1,1) PRIMARY KEY,
 Payment_ID int NOT NULL REFERENCES Payment(Payment_ID),
 Reservation_Date date NOT NULL,
-Deadline Date NOT NULL CHECK (Deadline >= Reservation_Date), 
-Reservation_Status varchar(200) CHECK ((Reservation_Status = 'Pending' AND Pickup_Date IS NULL AND Return_Date IS NULL) OR(Reservation_Status = 'Pickedup' AND Pickup_Date IS NOT NULL) OR(Reservation_Status = 'Returned' AND Pickup_Date IS NOT NULL AND Return_Date IS NOT NULL)) NOT NULL,
+Deadline Date NOT NULL, 
+Reservation_Status varchar(200)  NOT NULL,
 LicenseNo int NOT NULL REFERENCES Client(Driver_License_Number),
 License_Plate varchar(200) NOT NULL REFERENCES Car(License_Plate), 
 Pickup_Branch_ID int REFERENCES Branch(Branch_ID) NOT NULL,
 Return_Branch_ID int REFERENCES Branch(Branch_ID) default null,
 Return_Date date default null,
-Pickup_Date date default null CHECK (Return_Date IS NULL OR Pickup_Date IS NULL OR Return_Date >= Pickup_Date)
+Pickup_Date date default null ,
+
+CHECK (Deadline >= Reservation_Date),
+CHECK ((Reservation_Status = 'Pending' AND Pickup_Date IS NULL AND Return_Date IS NULL) OR(Reservation_Status = 'Pickedup' AND Pickup_Date IS NOT NULL) OR(Reservation_Status = 'Returned' AND Pickup_Date IS NOT NULL AND Return_Date IS NOT NULL)),
+CHECK (Return_Date IS NULL OR Pickup_Date IS NULL OR Return_Date >= Pickup_Date)
 );
 
 
