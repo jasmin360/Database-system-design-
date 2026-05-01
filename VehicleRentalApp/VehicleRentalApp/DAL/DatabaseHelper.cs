@@ -29,7 +29,7 @@ namespace VehicleRentalApp.DAL
         //i will output the employee details in it 
         //the function itself returns a boolena you can use to check directly if this human is signing in correctly
         //a string passed by raference that will contain the ouput message
-        public bool verify_credentials(string email, string passkey, ref string result , ref Employee employee)
+        public static bool verify_credentials(string email, string passkey, ref string result , ref Employee employee)
         {
             bool checker=false;
             using (SqlConnection connection = DatabaseHelper.GetConnection())
