@@ -8,6 +8,7 @@ BEGIN
     else
         select * from Client where Driver_License_Number = @Driver_License_Number;
 END;
+GO
 
 CREATE PROCEDURE Branch_Read_BranchID
     @Branch_ID INT = NULL
@@ -19,6 +20,8 @@ BEGIN
         select * from Branch where Branch_ID = @Branch_ID;
 END;
 
+GO
+
 CREATE PROCEDURE Car_Category_Read_CategoryID
     @Category_ID INT = NULL
 AS
@@ -28,6 +31,8 @@ BEGIN
     else
         select * from Car_Category where Category_ID = @Category_ID;
 END;
+
+GO
 
 CREATE PROCEDURE Car_Read_LicensePlate
     @License_Plate VARCHAR(200) = NULL
@@ -39,6 +44,8 @@ BEGIN
         select * from Car where License_Plate = @License_Plate;
 END;
 
+GO
+
 CREATE PROCEDURE Employee_Read_EmpID
     @Emp_ID INT = NULL
 AS
@@ -48,6 +55,8 @@ BEGIN
     else
         select * from Employee where Emp_ID = @Emp_ID;
 END;
+
+GO
 
 CREATE PROCEDURE Employee_Read_Email
     @Email VARCHAR(200) = NULL
@@ -59,6 +68,8 @@ BEGIN
         select * from Employee where Email = @Email;
 END;
 
+GO
+
 CREATE PROCEDURE Payment_Read_PaymentID
     @Payment_ID INT = NULL
 AS
@@ -68,6 +79,8 @@ BEGIN
     else
         select * from Payment where Payment_ID = @Payment_ID;
 END;
+
+GO
 
 CREATE PROCEDURE Reservation_Read_ReservationID
     @Reservation_ID INT = NULL
@@ -79,12 +92,16 @@ BEGIN
         select * from Reservation where Reservation_ID = @Reservation_ID;
 END;
 
+GO
+
 CREATE PROCEDURE Cars_Read_ByCategoryID
     @Category_ID INT
 AS
 BEGIN
     select * from Car where Category_ID = @Category_ID;
 END;
+
+GO
 
 CREATE PROCEDURE Cars_Read_ByBranchID
     @Branch_ID INT
@@ -93,12 +110,16 @@ BEGIN
     select * from Car where Branch_ID = @Branch_ID;
 END;
 
+GO
+
 CREATE PROCEDURE Employee_Read_ByBranchID
     @Branch_ID INT
 AS
 BEGIN
     select * from Employee where Branch_ID = @Branch_ID;
 END;
+
+GO
 
 CREATE PROCEDURE Employee_Read_BySupervisorID
     @SuperEmpID INT
@@ -107,12 +128,16 @@ BEGIN
     select * from Employee where SuperEmpID = @SuperEmpID;
 END;
 
+GO
+
 CREATE PROCEDURE Payment_Read_ByEmpID
     @Emp_ID INT
 AS
 BEGIN
     select * from Payment where Emp_ID = @Emp_ID;
 END;
+
+GO
 
 CREATE PROCEDURE Payment_Read_ByClientID
     @Client_ID INT
@@ -121,12 +146,16 @@ BEGIN
     select * from Payment where Client_ID = @Client_ID;
 END;
 
+GO
+
 CREATE PROCEDURE Reservation_Read_ByClientID
     @LicenseNo INT
 AS
 BEGIN
     select * from Reservation where LicenseNo = @LicenseNo;
 END;
+
+GO
 
 CREATE PROCEDURE Reservation_Read_ByCarLicensePlate
     @License_Plate VARCHAR(200)
@@ -135,6 +164,8 @@ BEGIN
     select * from Reservation where License_Plate = @License_Plate;
 END;
 
+GO
+
 CREATE PROCEDURE Reservation_Read_ByPickupBranchID
     @Pickup_Branch_ID INT
 AS
@@ -142,13 +173,15 @@ BEGIN
     select * from Reservation where Pickup_Branch_ID = @Pickup_Branch_ID;
 END;
 
+GO
+
 CREATE PROCEDURE Reservation_Read_ByReturnBranchID
     @Return_Branch_ID INT
 AS
 BEGIN
     select * from Reservation where Return_Branch_ID = @Return_Branch_ID;
 END;
-
+GO
 -- Special retrieval procedures
 
 CREATE PROCEDURE Get_Recent_Reservations
@@ -160,13 +193,15 @@ BEGIN
     WHERE r.Reservation_Date >= DATEADD(DAY, -7, CAST(GETDATE() AS DATE));
 END;
 
+GO
+
 CREATE PROCEDURE Get_Reservation_details
     @Reservation_ID INT
 AS
 BEGIN
     SELECT
         Reservation_ID,
-        Payment_ID,
+        r.Payment_ID,
         Reservation_Date,
         Deadline,
         Reservation_Status,
@@ -179,13 +214,13 @@ BEGIN
         Last_Name,
         Email,
         Phone,
-        License_Plate,
+        r.License_Plate,
         Condition,
         No_seats,
         Mileage,
         Colour,
         Branch_ID,
-        Category_ID,
+        cat.Category_ID,
         Car_Type,
         Make,
         Model,
@@ -204,6 +239,7 @@ BEGIN
     WHERE r.Reservation_ID = @Reservation_ID;
 END;
 
+GO
 
 CREATE PROCEDURE Get_Todays_Returns
 AS
@@ -213,6 +249,8 @@ BEGIN
     WHERE Reservation_Status = 'Returned'
       AND Return_Date = CAST(GETDATE() AS DATE);
 END;
+
+GO
 
 CREATE PROCEDURE Get_Total_Cars_In_Branch
     @Branch_ID INT = NULL
@@ -224,6 +262,8 @@ BEGIN
         SELECT COUNT(*) AS Total_Cars FROM Car WHERE Branch_ID = @Branch_ID;
 END;
 
+GO
+
 CREATE PROCEDURE Get_Available_Cars_In_Branch
     @Branch_ID INT = NULL
 AS
@@ -233,6 +273,8 @@ BEGIN
     ELSE
         SELECT * FROM Car WHERE Condition = 'Free' AND Branch_ID = @Branch_ID;
 END;
+
+GO
 
 CREATE PROCEDURE Get_Todays_Planned_Returns
     @Branch_ID INT = NULL
@@ -247,6 +289,8 @@ BEGIN
           AND Reservation_Status != 'Returned';
 END;
 
+GO
+
 CREATE PROCEDURE Get_Branch_By_Employee_Email
     @Email VARCHAR(200)
 AS
@@ -256,9 +300,10 @@ BEGIN
     INNER JOIN Employee ON Branch.Branch_ID = Employee.Branch_ID
     WHERE Employee.Email = @Email;
 END;
+GO
 
 CREATE PROCEDURE Reservation_filter (
-    @Day   DATE = NULL,
+    @Day   INT  = NULL,
     @Week  INT  = NULL,
     @Month INT  = NULL,
     @Year  INT  = NULL 
@@ -272,9 +317,10 @@ BEGIN
       AND (@Month IS NULL OR DATEPART(MONTH, Reservation_Date) = @Month)
       AND (@Year  IS NULL OR DATEPART(YEAR,  Reservation_Date) = @Year); 
 END;
+GO
 
 CREATE PROCEDURE Deadline_filter (
-    @Day   DATE = NULL,
+    @Day   INT  = NULL,
     @Week  INT  = NULL,
     @Month INT  = NULL,
     @Year  INT  = NULL 
@@ -283,15 +329,16 @@ AS
 BEGIN
     SELECT *
     FROM Reservation
-
     WHERE (@Day   IS NULL OR DATEPART(DAY,   Deadline) = @Day)
-    AND   (@Week  IS NULL OR DATEPART(WEEK,  Deadline) = @Week)
-    AND   (@Month IS NULL OR DATEPART(MONTH, Deadline) = @Month)
-    AND   (@Year  IS NULL OR DATEPART(YEAR,  Deadline) = @Year);
+      AND (@Week  IS NULL OR DATEPART(WEEK,  Deadline) = @Week)
+      AND (@Month IS NULL OR DATEPART(MONTH, Deadline) = @Month)
+      AND (@Year  IS NULL OR DATEPART(YEAR,  Deadline) = @Year);
 END;
 
-CREATE PROCEDURE Reservation_thisweekfilter (
-)
+
+GO
+
+CREATE PROCEDURE Reservation_thisweekfilter 
 AS 
 BEGIN
     SELECT *
@@ -301,8 +348,9 @@ WHERE Reservation_Date >= CAST(GETDATE() AS DATE)
        
 END;
 
-CREATE PROCEDURE Deadlines_thisweekfilter (
-)
+GO
+
+CREATE PROCEDURE Deadlines_thisweekfilter 
 AS 
 BEGIN
     SELECT *
@@ -312,6 +360,7 @@ WHERE Deadline >= CAST(GETDATE() AS DATE)
       
 END;
 
+GO
 
 CREATE procedure Get_Overdue_Reservations
     @Branch_ID INT = NULL
@@ -323,6 +372,8 @@ BEGIN
       AND Reservation_Status != 'Returned'
       AND (@Branch_ID IS NULL OR Pickup_Branch_ID = @Branch_ID);
 END;
+
+GO
 
 CREATE PROCEDURE CarCategory_Exists
     @Car_Type varchar(20),
@@ -339,6 +390,8 @@ BEGIN
 
 END;
 
+GO
+
 CREATE PROCEDURE CarCategory_from_catID
     @Car_Type varchar(20),
     @Make varchar(200),
@@ -354,6 +407,8 @@ BEGIN
 
 END;
 
+GO
+
 Create procedure count_available_cars_in_branch
     @Branch_ID int
 AS
@@ -361,6 +416,8 @@ BEGIN
     select count(*) from Car where Branch_ID = @Branch_ID and Condition = 'Free';
 
 END;
+
+GO
 
 CREATE PROCEDURE license_plate_from_reservationID
     @Reservation_ID int
@@ -372,13 +429,15 @@ BEGIN
 
 END;
 
+GO
+
 CREATE PROCEDURE filter_car_car_type
     @Car_Type varchar(20)
 AS
 BEGIN
 
     select 
-    License_Plate, Condition, No_seats, Mileage, Colour, Branch_ID, Category_ID, Car_Type, Make, Model, Model_Year, Transmission, Daily_Rental_Rate 
+    License_Plate, Condition, No_seats, Mileage, Colour, Branch_ID, Car.Category_ID, Car_Type, Make, Model, Model_Year, Transmission, Daily_Rental_Rate 
     from Car
     join Car_Category on Car.Category_ID = Car_Category.Category_ID
     where Car_Type = @Car_Type

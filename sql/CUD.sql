@@ -13,6 +13,8 @@ BEGIN
     values (@Driver_License_Number, @First_Name, @Last_Name, @Email, @Phone)
 END;
 
+GO
+
 CREATE PROCEDURE Client_Update(
      @Driver_License_Number int,
      @First_Name varchar(200) = null,
@@ -29,7 +31,7 @@ BEGIN
     where Driver_License_Number = @Driver_License_Number;
 END;
 
-
+GO
 CREATE PROCEDURE Client_Delete
      @Driver_License_Number int
 AS
@@ -37,6 +39,7 @@ BEGIN
     delete from Client where Driver_License_Number = @Driver_License_Number;
 END;
 
+GO
 
 --branch 
 CREATE PROCEDURE Branch_Create
@@ -50,6 +53,7 @@ BEGIN
     values (@City, @Street_Number, @Building_Number, @Contact_Number);
 END;
 
+GO
 CREATE PROCEDURE Branch_Update
      @Branch_ID int,
      @City varchar(200) = null,
@@ -66,6 +70,7 @@ BEGIN
     where Branch_ID = @Branch_ID;
 END;
 
+GO
 CREATE PROCEDURE Branch_Delete
      @Branch_ID int
 AS
@@ -73,7 +78,7 @@ BEGIN
     delete from Branch where Branch_ID = @Branch_ID;
 END;
 
-
+GO
 --car category 
 CREATE PROCEDURE CarCategory_Create
      @Car_Type varchar(20),
@@ -94,7 +99,7 @@ BEGIN
 
 END;
 
-
+GO
 CREATE PROCEDURE CarCategory_Update
      @Category_ID int,
      @Car_Type varchar(20) = null,
@@ -115,7 +120,7 @@ BEGIN;
     where Category_ID = @Category_ID;
 END;
 
-
+GO
 CREATE PROCEDURE CarCategory_Delete
      @Category_ID int
 AS
@@ -123,7 +128,7 @@ BEGIN
     delete from Car_Category where Category_ID = @Category_ID;
 END;
 
-
+GO
 -- car
 CREATE PROCEDURE Car_Create
      @License_Plate varchar(200),
@@ -139,7 +144,7 @@ BEGIN
     values (@License_Plate, @Condition, @No_seats, @Mileage, @Colour, @Category_ID, @Branch_ID);
 END;
 
-
+GO
 CREATE PROCEDURE Car_Update
      @License_Plate varchar(200),
      @Condition varchar(20) = null,
@@ -160,7 +165,7 @@ BEGIN
     WHERE License_Plate = @License_Plate;
 END;
 
-
+GO
 CREATE PROCEDURE Car_Delete
      @License_Plate varchar(200)
 AS
@@ -168,7 +173,7 @@ BEGIN
     delete from Car where License_Plate = @License_Plate;
 END;
 
-
+GO
 
 -- employee
 CREATE PROCEDURE Employee_Create
@@ -185,6 +190,7 @@ BEGIN
     values (@Passkey, @Email, @Position, @First_name, @Last_name, @Branch_ID, @SuperEmpID);
 END;
 
+GO
 CREATE PROCEDURE Employee_Update
      @Emp_ID int,
      @Passkey varchar(200) = null,
@@ -207,7 +213,7 @@ BEGIN
     where Emp_ID = @Emp_ID;
 END;
 
-
+GO
 CREATE PROCEDURE Employee_Delete
      @Emp_ID int
 AS
@@ -217,7 +223,7 @@ END;
 
 
 --payment 
-
+GO
 CREATE PROCEDURE Payment_Create
      @Payment_Method varchar(10),
      @Payment_Date date,
@@ -229,7 +235,7 @@ BEGIN
     values (@Payment_Method, @Payment_Date, @Emp_ID, @Client_ID);
 END;
 
-
+GO
 CREATE PROCEDURE Payment_Update
      @Payment_ID int,
      @Payment_Method varchar(10) = null,
@@ -246,7 +252,7 @@ BEGIN
     where Payment_ID = @Payment_ID;
 END;
 
-
+GO
 CREATE PROCEDURE Payment_Delete
      @Payment_ID int
 AS
@@ -254,7 +260,7 @@ BEGIN
     delete from Payment where Payment_ID = @Payment_ID;
 END;
 
-
+GO
 --reservation 
 CREATE PROCEDURE Reservation_Create
      @Reservation_Date date,
@@ -278,7 +284,7 @@ BEGIN
     );
 END;
 
-
+GO
 CREATE PROCEDURE Reservation_Update
      @Reservation_ID int,
      @Deadline date = null,
@@ -305,7 +311,7 @@ BEGIN
     where Reservation_ID = @Reservation_ID;
 END;
 
-
+GO
 CREATE PROCEDURE Reservation_Delete
      @Reservation_ID int
 AS
