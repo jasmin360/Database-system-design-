@@ -5,6 +5,7 @@ using VehicleRentalApp.Models;
 using System.Data;
 using System.Runtime.CompilerServices;
 using System;
+using VehicleRentalApp.Models;
 
 namespace VehicleRentalApp.DAL
 {
@@ -108,9 +109,9 @@ namespace VehicleRentalApp.DAL
         }
 
         //will give you an array of reservations, if empty then no recent reservations
-        public Reservation[] recent_reservations()
+        public ReservationHorse[] recent_reservations()
         {
-            List<Reservation> reservations = new List<Reservation>();
+            List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Get_Recent_Reservations", connection))
             {
@@ -120,7 +121,7 @@ namespace VehicleRentalApp.DAL
                 {
                     while (reader.Read())
                     {
-                        Reservation reservation = new Reservation
+                        ReservationHorse reservation = new ReservationHorse
                         {
                             Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
                             Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
@@ -215,9 +216,9 @@ namespace VehicleRentalApp.DAL
         //if return is an empty array then no reservations found with this filter
         //all parameters are optional
         // week (1-53) and month (1-12) and year are integers
-        public Reservation[] filter_reservation(DateTime? day = null , int? week= null, int? month = null, int? year = null)
+        public ReservationHorse[] filter_reservation(DateTime? day = null , int? week= null, int? month = null, int? year = null)
         {
-            List<Reservation> reservations = new List<Reservation>();
+            List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Reservation_filter", connection))
             {
@@ -235,7 +236,7 @@ namespace VehicleRentalApp.DAL
                 {
                     while (reader.Read())
                     {
-                        Reservation reservation = new Reservation
+                        ReservationHorse reservation = new ReservationHorse
                         {
                             Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
                             Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
@@ -259,9 +260,9 @@ namespace VehicleRentalApp.DAL
             return reservations.ToArray();
         }
 
-        public Reservation[] filter_reservation_this_week()
+        public ReservationHorse[] filter_reservation_this_week()
         {
-            List<Reservation> reservations = new List<Reservation>();
+            List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Reservation_thisweekfilter", connection))
             {
@@ -270,7 +271,7 @@ namespace VehicleRentalApp.DAL
                 {
                     while (reader.Read())
                     {
-                        Reservation reservation = new Reservation
+                        ReservationHorse reservation = new ReservationHorse
                         {
                             Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
                             Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
@@ -294,9 +295,9 @@ namespace VehicleRentalApp.DAL
             return reservations.ToArray();
         }
 
-        public Reservation[] filter_deadlines(DateTime? day = null, int? week= null, int? month = null, int? year = null)
+        public ReservationHorse[] filter_deadlines(DateTime? day = null, int? week= null, int? month = null, int? year = null)
         {
-            List<Reservation> reservations = new List<Reservation>();
+            List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Deadline_filter", connection))
             {
@@ -314,7 +315,7 @@ namespace VehicleRentalApp.DAL
                 {
                    while (reader.Read())
                     {
-                        Reservation reservation = new Reservation
+                        ReservationHorse reservation = new ReservationHorse
                         {
                             Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
                             Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
@@ -338,9 +339,9 @@ namespace VehicleRentalApp.DAL
             
         }
 
-        public Reservation[] filter_deadlines_this_week()
+        public ReservationHorse[] filter_deadlines_this_week()
         {
-            List<Reservation> reservations = new List<Reservation>();
+            List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Deadlines_thisweekfilter", connection))
             {
@@ -350,7 +351,7 @@ namespace VehicleRentalApp.DAL
                 {
                    while (reader.Read())
                     {
-                        Reservation reservation = new Reservation
+                        ReservationHorse reservation = new ReservationHorse
                         {
                             Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
                             Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
@@ -396,9 +397,9 @@ namespace VehicleRentalApp.DAL
     
         }
 
-        public Reservation[] planned_returns_today(int branchID)
+        public ReservationHorse[] planned_returns_today(int branchID)
         {
-            List<Reservation> reservations = new List<Reservation>();
+            List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Get_Todays_Planned_Returns", connection))
             {
@@ -407,7 +408,7 @@ namespace VehicleRentalApp.DAL
                 {
                     while (reader.Read())
                     {
-                        Reservation reservation = new Reservation
+                        ReservationHorse reservation = new ReservationHorse
                             {
                                 Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
                                 Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
@@ -470,9 +471,9 @@ namespace VehicleRentalApp.DAL
             
         }
 
-        public Reservation[] Get_Overdue_Reservations()
+        public ReservationHorse[] Get_Overdue_Reservations()
         {
-            List<Reservation> reservations = new List<Reservation>();
+            List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Get_Overdue_Reservations", connection))
             {
@@ -481,7 +482,7 @@ namespace VehicleRentalApp.DAL
                 {
                     while (reader.Read())
                     {
-                        Reservation reservation = new Reservation
+                        ReservationHorse reservation = new ReservationHorse
                         {
                             Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
                             Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
@@ -507,9 +508,9 @@ namespace VehicleRentalApp.DAL
         }
 
 
-        public Reservation[] Get_Reservations_By_Branch(int branchID)
+        public ReservationHorse[] Get_Reservations_By_Branch(int branchID)
         {
-            List<Reservation> reservations = new List<Reservation>();
+            List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Reservation_Read_ByPickupBranchID", connection))
             {
@@ -520,7 +521,7 @@ namespace VehicleRentalApp.DAL
                 {
                     while (reader.Read())
                     {
-                        Reservation reservation = new Reservation
+                        ReservationHorse reservation = new ReservationHorse
                         {
                             Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
                             Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
@@ -823,7 +824,7 @@ namespace VehicleRentalApp.DAL
             }
         }
 
-        public void add_reservation(Reservation reservation, int paymentID)
+        public void add_reservation(ReservationHorse reservation, int paymentID)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Reservation_Create", connection))

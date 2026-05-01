@@ -4,7 +4,7 @@ namespace VehicleRentalApp.Models
 {
 
 
-    public class Reservation
+    public class ReservationHorse
     {
         public int       Reservation_ID     { get; set; }
         public int       Payment_ID         { get; set; }

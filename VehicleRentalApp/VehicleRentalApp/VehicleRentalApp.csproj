@@ -141,7 +141,7 @@
     <Compile Include="models\Client.cs" />
     <Compile Include="models\Employee.cs" />
     <Compile Include="models\Payment.cs" />
-    <Compile Include="models\Reservation.cs" />
+    <Compile Include="models\ReservationHorse.cs" />
     <Compile Include="models\ReservationChonk.cs" />
     <Compile Include="recentRes.cs">
       <SubType>UserControl</SubType>
@@ -184,12 +184,12 @@
     <EmbeddedResource Include="AddCar.resx">
       <DependentUpon>AddCar.cs</DependentUpon>
     </EmbeddedResource>
-	  <EmbeddedResource Include="BranchDetails.resx">
-		  <DependentUpon>BranchDetails.cs</DependentUpon>
-	  </EmbeddedResource>
-	  <EmbeddedResource Include="AddReservation.resx">
-		  <DependentUpon>AddReservation.cs</DependentUpon>
-	  </EmbeddedResource>
+    <EmbeddedResource Include="BranchDetails.resx">
+      <DependentUpon>BranchDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddReservation.resx">
+      <DependentUpon>AddReservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CarCard.resx">
       <DependentUpon>CarCard.cs</DependentUpon>
     </EmbeddedResource>
