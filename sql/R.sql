@@ -192,7 +192,6 @@ BEGIN
         Model_Year,
         Transmission,
         Daily_Rental_Rate,
-        Payment_ID,
         Payment_Method,
         Payment_Date,
         Emp_ID
@@ -407,7 +406,7 @@ BEGIN
     LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
 WHERE Reservation_Date >= CAST(GETDATE() AS DATE)
       AND Reservation_Date <  CAST(GETDATE() + 7 AS DATE);
-    --toot    
+       
 END;
 
 CREATE PROCEDURE Deadlines_thisweekfilter (
@@ -453,5 +452,90 @@ BEGIN
     LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
 WHERE Deadline >= CAST(GETDATE() AS DATE)
       AND Deadline <  CAST(GETDATE() + 7 AS DATE);
-    --toot    
+      
+END;
+
+
+CREATE procedure Get_Overdue_Reservations
+    @Branch_ID INT = NULL;
+AS
+BEGIN;
+    SELECT 
+        Reservation_ID,
+        Payment_ID,
+        Reservation_Date,
+        Deadline,
+        Reservation_Status,
+        Pickup_Branch_ID,
+        Return_Branch_ID,
+        Return_Date,
+        Pickup_Date,
+        Driver_License_Number,
+        First_Name,
+        Last_Name,
+        Email,
+        Phone,
+        License_Plate,
+        Condition,
+        No_seats,
+        Mileage,
+        Colour,
+        Branch_ID,
+        Category_ID,
+        Car_Type,
+        Make,
+        Model,
+        Model_Year,
+        Transmission,
+        Daily_Rental_Rate,
+        Payment_ID,
+        Payment_Method,
+        Payment_Date,
+        Emp_ID
+    FROM Reservation
+    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
+    LEFT JOIN Car c ON r.License_Plate = c.License_Plate
+    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
+    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
+WHERE Deadline < CAST(GETDATE() AS DATE)
+      AND Reservation_Status != 'Returned'
+      AND (@Branch_ID IS NULL OR Pickup_Branch_ID = @Branch_ID);
+END;
+
+CREATE PROCEDURE CarCategory_Exists
+    in @Car_Type varchar(20),
+    in @Make varchar(200),
+    in @Model varchar(200),
+    in @Model_Year int,
+    in @Transmission varchar(20),
+    in @Daily_Rental_Rate money
+AS
+BEGIN
+
+    select 1 from Car_Category where Car_Type=@Car_Type and Make = @Make and Model = @Model 
+        and Model_Year = @Model_Year and Transmission = @Transmission and Daily_Rental_Rate = @Daily_Rental_Rate;
+
+END;
+
+CREATE PROCEDURE CarCategory_from_catID
+    in @Car_Type varchar(20),
+    in @Make varchar(200),
+    in @Model varchar(200),
+    in @Model_Year int,
+    in @Transmission varchar(20),
+    in @Daily_Rental_Rate money
+AS
+BEGIN
+
+    select 1 from Car_Category where Car_Type=@Car_Type and Make = @Make and Model = @Model 
+        and Model_Year = @Model_Year and Transmission = @Transmission and Daily_Rental_Rate = @Daily_Rental_Rate
+
+END;
+
+Create procedure count_available_cars_in_branch
+    in @Branch_ID int
+AS
+BEGIN
+    select count(*) from Car where Branch_ID = @Branch_ID and Condition = 'Free';
+
 END;

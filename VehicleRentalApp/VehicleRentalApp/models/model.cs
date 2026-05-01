@@ -105,7 +105,6 @@ namespace VehicleRentalApp.Models
         public int     Model_Year       { get; set; }
         public string  Transmission     { get; set; }
         public decimal Daily_Rental_Rate { get; set; }
-        public int      Payment_ID      { get; set; }
         public string   Payment_Method  { get; set; }
         public DateTime Payment_Date    { get; set; }
         public int      Emp_ID          { get; set; }
