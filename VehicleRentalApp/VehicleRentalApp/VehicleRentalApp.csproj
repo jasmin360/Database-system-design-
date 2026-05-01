@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -134,7 +135,14 @@
     <Compile Include="MainnForm.Designer.cs">
       <DependentUpon>MainnForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="models\model.cs" />
+    <Compile Include="models\Branch.cs" />
+    <Compile Include="models\Car.cs" />
+    <Compile Include="models\Car_Category.cs" />
+    <Compile Include="models\Client.cs" />
+    <Compile Include="models\Employee.cs" />
+    <Compile Include="models\Payment.cs" />
+    <Compile Include="models\ReservationHorse.cs" />
+    <Compile Include="models\ReservationChonk.cs" />
     <Compile Include="recentRes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -176,12 +184,12 @@
     <EmbeddedResource Include="AddCar.resx">
       <DependentUpon>AddCar.cs</DependentUpon>
     </EmbeddedResource>
-	  <EmbeddedResource Include="BranchDetails.resx">
-		  <DependentUpon>BranchDetails.cs</DependentUpon>
-	  </EmbeddedResource>
-	  <EmbeddedResource Include="AddReservation.resx">
-		  <DependentUpon>AddReservation.cs</DependentUpon>
-	  </EmbeddedResource>
+    <EmbeddedResource Include="BranchDetails.resx">
+      <DependentUpon>BranchDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddReservation.resx">
+      <DependentUpon>AddReservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CarCard.resx">
       <DependentUpon>CarCard.cs</DependentUpon>
     </EmbeddedResource>
