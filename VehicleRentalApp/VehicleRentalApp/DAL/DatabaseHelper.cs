@@ -968,7 +968,6 @@ namespace VehicleRentalApp.DAL
                 cmd.ExecuteNonQuery();
             }
         }
-
         public int count_available_cars_in_branch(int branchID)
         {
             int result = 0;
@@ -990,6 +989,24 @@ namespace VehicleRentalApp.DAL
 
             return result;
         }
+
+        public void update_car(string licensePlate, string condition, int mileage)
+        {
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Car_Update", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@License_Plate", SqlDbType.VarChar, 200));
+                cmd.Parameters["@License_Plate"].Value = licensePlate;
+                cmd.Parameters.Add(new SqlParameter("@Colour", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Colour"].Value = condition;
+                cmd.Parameters.Add(new SqlParameter("@Mileage", SqlDbType.Int));
+                cmd.Parameters["@Mileage"].Value = mileage;
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
 
     }
 

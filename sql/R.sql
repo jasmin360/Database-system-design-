@@ -265,47 +265,12 @@ CREATE PROCEDURE Reservation_filter (
 )
 AS 
 BEGIN
-    SELECT 
-        Reservation_ID,
-        Reservation_Date,
-        Deadline,
-        Reservation_Status,
-        Pickup_Branch_ID,
-        Return_Branch_ID,
-        Return_Date,
-        Pickup_Date,
-        Driver_License_Number,
-        First_Name,
-        Last_Name,
-        Email,
-        Phone,
-        License_Plate,
-        Condition,
-        No_seats,
-        Mileage,
-        Colour,
-        Branch_ID,
-        Category_ID,
-        Car_Type,
-        Make,
-        Model,
-        Model_Year,
-        Transmission,
-        Daily_Rental_Rate,
-        Payment_ID,
-        Payment_Method,
-        Payment_Date,
-        Emp_ID
+    SELECT *
     FROM Reservation
-    LEFT JOIN Client cl ON r.LicenseNo = cl.Driver_License_Number
-    LEFT JOIN Car c ON r.License_Plate = c.License_Plate
-    LEFT JOIN Car_Category cat ON c.Category_ID = cat.Category_ID
-    LEFT JOIN Payment p ON r.LicenseNo = p.Client_ID
     WHERE (@Day   IS NULL OR DATEPART(DAY,   Reservation_Date) = @Day)
       AND (@Week  IS NULL OR DATEPART(WEEK,  Reservation_Date) = @Week)
       AND (@Month IS NULL OR DATEPART(MONTH, Reservation_Date) = @Month)
-      AND (@Year  IS NULL OR DATEPART(YEAR,  Reservation_Date) = @Year);
-    --toot    
+      AND (@Year  IS NULL OR DATEPART(YEAR,  Reservation_Date) = @Year); 
 END;
 
 CREATE PROCEDURE Deadline_filter (
