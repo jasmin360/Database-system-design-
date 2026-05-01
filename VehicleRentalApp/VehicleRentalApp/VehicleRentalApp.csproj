@@ -98,6 +98,12 @@
     <Compile Include="EmployeeCard.Designer.cs">
       <DependentUpon>EmployeeCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeDetails.Designer.cs">
+      <DependentUpon>EmployeeDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     <EmbeddedResource Include="EmployeeCard.resx">
       <DependentUpon>EmployeeCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeDetails.resx">
+      <DependentUpon>EmployeeDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employees.resx">
       <DependentUpon>Employees.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +207,7 @@
     <Content Include="pics\cross.png" />
     <Content Include="pics\kimchi-fries3.jpg" />
     <Content Include="Resources\cross2.png" />
+    <None Include="Resources\Fire.png" />
     <Content Include="Resources\sort.png" />
     <None Include="Resources\compose %281%291.png" />
     <None Include="Resources\compose %281%29.png" />
