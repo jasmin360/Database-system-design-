@@ -54,9 +54,10 @@
             this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.lblTitle.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitle.Location = new System.Drawing.Point(84, 25);
+            this.lblTitle.Location = new System.Drawing.Point(42, 13);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(980, 55);
+            this.lblTitle.Size = new System.Drawing.Size(490, 29);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Add New Car";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -66,9 +67,10 @@
             this.lblCarSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.lblCarSection.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.lblCarSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
-            this.lblCarSection.Location = new System.Drawing.Point(25, 117);
+            this.lblCarSection.Location = new System.Drawing.Point(12, 61);
+            this.lblCarSection.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCarSection.Name = "lblCarSection";
-            this.lblCarSection.Size = new System.Drawing.Size(200, 30);
+            this.lblCarSection.Size = new System.Drawing.Size(100, 16);
             this.lblCarSection.TabIndex = 1;
             this.lblCarSection.Text = "Car Details";
             // 
@@ -86,9 +88,10 @@
             this.panelCarSection.Controls.Add(this.numMileage);
             this.panelCarSection.Controls.Add(this.lblColour);
             this.panelCarSection.Controls.Add(this.txtColour);
-            this.panelCarSection.Location = new System.Drawing.Point(30, 180);
+            this.panelCarSection.Location = new System.Drawing.Point(15, 94);
+            this.panelCarSection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelCarSection.Name = "panelCarSection";
-            this.panelCarSection.Size = new System.Drawing.Size(504, 393);
+            this.panelCarSection.Size = new System.Drawing.Size(253, 205);
             this.panelCarSection.TabIndex = 2;
             // 
             // lblLicensePlate
@@ -97,9 +100,10 @@
             this.lblLicensePlate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblLicensePlate.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblLicensePlate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblLicensePlate.Location = new System.Drawing.Point(15, 20);
+            this.lblLicensePlate.Location = new System.Drawing.Point(8, 10);
+            this.lblLicensePlate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLicensePlate.Name = "lblLicensePlate";
-            this.lblLicensePlate.Size = new System.Drawing.Size(118, 24);
+            this.lblLicensePlate.Size = new System.Drawing.Size(83, 17);
             this.lblLicensePlate.TabIndex = 0;
             this.lblLicensePlate.Text = "License Plate";
             // 
@@ -109,9 +113,10 @@
             this.txtLicensePlate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLicensePlate.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtLicensePlate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtLicensePlate.Location = new System.Drawing.Point(200, 17);
+            this.txtLicensePlate.Location = new System.Drawing.Point(100, 9);
+            this.txtLicensePlate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLicensePlate.Name = "txtLicensePlate";
-            this.txtLicensePlate.Size = new System.Drawing.Size(210, 32);
+            this.txtLicensePlate.Size = new System.Drawing.Size(106, 24);
             this.txtLicensePlate.TabIndex = 1;
             // 
             // lblCondition
@@ -120,9 +125,10 @@
             this.lblCondition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblCondition.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblCondition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblCondition.Location = new System.Drawing.Point(15, 75);
+            this.lblCondition.Location = new System.Drawing.Point(8, 39);
+            this.lblCondition.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCondition.Name = "lblCondition";
-            this.lblCondition.Size = new System.Drawing.Size(93, 24);
+            this.lblCondition.Size = new System.Drawing.Size(66, 17);
             this.lblCondition.TabIndex = 2;
             this.lblCondition.Text = "Condition";
             // 
@@ -137,9 +143,10 @@
             "Reserved",
             "Free",
             "Maintenance"});
-            this.cmbCondition.Location = new System.Drawing.Point(200, 72);
+            this.cmbCondition.Location = new System.Drawing.Point(100, 37);
+            this.cmbCondition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbCondition.Name = "cmbCondition";
-            this.cmbCondition.Size = new System.Drawing.Size(210, 32);
+            this.cmbCondition.Size = new System.Drawing.Size(106, 23);
             this.cmbCondition.TabIndex = 3;
             // 
             // lblSeats
@@ -148,9 +155,10 @@
             this.lblSeats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblSeats.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblSeats.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblSeats.Location = new System.Drawing.Point(15, 130);
+            this.lblSeats.Location = new System.Drawing.Point(8, 68);
+            this.lblSeats.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSeats.Name = "lblSeats";
-            this.lblSeats.Size = new System.Drawing.Size(88, 24);
+            this.lblSeats.Size = new System.Drawing.Size(64, 17);
             this.lblSeats.TabIndex = 4;
             this.lblSeats.Text = "No. Seats";
             // 
@@ -160,7 +168,8 @@
             this.numSeats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numSeats.Font = new System.Drawing.Font("Calibri", 10F);
             this.numSeats.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.numSeats.Location = new System.Drawing.Point(200, 127);
+            this.numSeats.Location = new System.Drawing.Point(100, 66);
+            this.numSeats.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numSeats.Maximum = new decimal(new int[] {
             20,
             0,
@@ -172,7 +181,7 @@
             0,
             0});
             this.numSeats.Name = "numSeats";
-            this.numSeats.Size = new System.Drawing.Size(210, 32);
+            this.numSeats.Size = new System.Drawing.Size(105, 24);
             this.numSeats.TabIndex = 5;
             this.numSeats.Value = new decimal(new int[] {
             5,
@@ -186,9 +195,10 @@
             this.lblMileage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblMileage.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblMileage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblMileage.Location = new System.Drawing.Point(15, 185);
+            this.lblMileage.Location = new System.Drawing.Point(8, 96);
+            this.lblMileage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMileage.Name = "lblMileage";
-            this.lblMileage.Size = new System.Drawing.Size(119, 24);
+            this.lblMileage.Size = new System.Drawing.Size(83, 17);
             this.lblMileage.TabIndex = 6;
             this.lblMileage.Text = "Mileage (km)";
             // 
@@ -198,14 +208,15 @@
             this.numMileage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numMileage.Font = new System.Drawing.Font("Calibri", 10F);
             this.numMileage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.numMileage.Location = new System.Drawing.Point(200, 182);
+            this.numMileage.Location = new System.Drawing.Point(100, 95);
+            this.numMileage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numMileage.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
             this.numMileage.Name = "numMileage";
-            this.numMileage.Size = new System.Drawing.Size(210, 32);
+            this.numMileage.Size = new System.Drawing.Size(105, 24);
             this.numMileage.TabIndex = 7;
             // 
             // lblColour
@@ -214,9 +225,10 @@
             this.lblColour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblColour.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblColour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblColour.Location = new System.Drawing.Point(15, 240);
+            this.lblColour.Location = new System.Drawing.Point(8, 125);
+            this.lblColour.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblColour.Name = "lblColour";
-            this.lblColour.Size = new System.Drawing.Size(66, 24);
+            this.lblColour.Size = new System.Drawing.Size(47, 17);
             this.lblColour.TabIndex = 8;
             this.lblColour.Text = "Colour";
             // 
@@ -226,9 +238,10 @@
             this.txtColour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtColour.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtColour.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtColour.Location = new System.Drawing.Point(200, 237);
+            this.txtColour.Location = new System.Drawing.Point(100, 123);
+            this.txtColour.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtColour.Name = "txtColour";
-            this.txtColour.Size = new System.Drawing.Size(210, 32);
+            this.txtColour.Size = new System.Drawing.Size(106, 24);
             this.txtColour.TabIndex = 9;
             // 
             // lblCatSection
@@ -236,9 +249,10 @@
             this.lblCatSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.lblCatSection.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.lblCatSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
-            this.lblCatSection.Location = new System.Drawing.Point(557, 117);
+            this.lblCatSection.Location = new System.Drawing.Point(278, 61);
+            this.lblCatSection.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCatSection.Name = "lblCatSection";
-            this.lblCatSection.Size = new System.Drawing.Size(305, 60);
+            this.lblCatSection.Size = new System.Drawing.Size(152, 31);
             this.lblCatSection.TabIndex = 3;
             this.lblCatSection.Text = "Category Details";
             // 
@@ -258,9 +272,10 @@
             this.panelCatSection.Controls.Add(this.cmbTransmission);
             this.panelCatSection.Controls.Add(this.lblDailyRate);
             this.panelCatSection.Controls.Add(this.numDailyRate);
-            this.panelCatSection.Location = new System.Drawing.Point(562, 180);
+            this.panelCatSection.Location = new System.Drawing.Point(281, 94);
+            this.panelCatSection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelCatSection.Name = "panelCatSection";
-            this.panelCatSection.Size = new System.Drawing.Size(502, 393);
+            this.panelCatSection.Size = new System.Drawing.Size(252, 205);
             this.panelCatSection.TabIndex = 4;
             // 
             // lblCarType
@@ -269,9 +284,10 @@
             this.lblCarType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblCarType.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblCarType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblCarType.Location = new System.Drawing.Point(15, 20);
+            this.lblCarType.Location = new System.Drawing.Point(8, 10);
+            this.lblCarType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCarType.Name = "lblCarType";
-            this.lblCarType.Size = new System.Drawing.Size(82, 24);
+            this.lblCarType.Size = new System.Drawing.Size(59, 17);
             this.lblCarType.TabIndex = 0;
             this.lblCarType.Text = "Car Type";
             // 
@@ -288,9 +304,10 @@
             "Coupe",
             "Sedan",
             "Hatchback"});
-            this.cmbCarType.Location = new System.Drawing.Point(270, 17);
+            this.cmbCarType.Location = new System.Drawing.Point(135, 9);
+            this.cmbCarType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbCarType.Name = "cmbCarType";
-            this.cmbCarType.Size = new System.Drawing.Size(210, 32);
+            this.cmbCarType.Size = new System.Drawing.Size(106, 23);
             this.cmbCarType.TabIndex = 1;
             // 
             // lblMake
@@ -299,9 +316,10 @@
             this.lblMake.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblMake.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblMake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblMake.Location = new System.Drawing.Point(15, 75);
+            this.lblMake.Location = new System.Drawing.Point(8, 39);
+            this.lblMake.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMake.Name = "lblMake";
-            this.lblMake.Size = new System.Drawing.Size(56, 24);
+            this.lblMake.Size = new System.Drawing.Size(41, 17);
             this.lblMake.TabIndex = 2;
             this.lblMake.Text = "Make";
             // 
@@ -311,9 +329,10 @@
             this.txtMake.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMake.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtMake.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtMake.Location = new System.Drawing.Point(270, 75);
+            this.txtMake.Location = new System.Drawing.Point(135, 39);
+            this.txtMake.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMake.Name = "txtMake";
-            this.txtMake.Size = new System.Drawing.Size(210, 32);
+            this.txtMake.Size = new System.Drawing.Size(106, 24);
             this.txtMake.TabIndex = 3;
             // 
             // lblModel
@@ -322,9 +341,10 @@
             this.lblModel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblModel.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblModel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblModel.Location = new System.Drawing.Point(15, 130);
+            this.lblModel.Location = new System.Drawing.Point(8, 68);
+            this.lblModel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblModel.Name = "lblModel";
-            this.lblModel.Size = new System.Drawing.Size(64, 24);
+            this.lblModel.Size = new System.Drawing.Size(46, 17);
             this.lblModel.TabIndex = 4;
             this.lblModel.Text = "Model";
             // 
@@ -334,9 +354,10 @@
             this.txtModel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtModel.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtModel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtModel.Location = new System.Drawing.Point(270, 128);
+            this.txtModel.Location = new System.Drawing.Point(135, 67);
+            this.txtModel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(210, 32);
+            this.txtModel.Size = new System.Drawing.Size(106, 24);
             this.txtModel.TabIndex = 5;
             // 
             // lblModelYear
@@ -345,9 +366,10 @@
             this.lblModelYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblModelYear.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblModelYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblModelYear.Location = new System.Drawing.Point(15, 185);
+            this.lblModelYear.Location = new System.Drawing.Point(8, 96);
+            this.lblModelYear.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblModelYear.Name = "lblModelYear";
-            this.lblModelYear.Size = new System.Drawing.Size(104, 24);
+            this.lblModelYear.Size = new System.Drawing.Size(74, 17);
             this.lblModelYear.TabIndex = 6;
             this.lblModelYear.Text = "Model Year";
             // 
@@ -357,7 +379,8 @@
             this.numModelYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numModelYear.Font = new System.Drawing.Font("Calibri", 10F);
             this.numModelYear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.numModelYear.Location = new System.Drawing.Point(270, 177);
+            this.numModelYear.Location = new System.Drawing.Point(135, 92);
+            this.numModelYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numModelYear.Maximum = new decimal(new int[] {
             2030,
             0,
@@ -369,7 +392,7 @@
             0,
             0});
             this.numModelYear.Name = "numModelYear";
-            this.numModelYear.Size = new System.Drawing.Size(210, 32);
+            this.numModelYear.Size = new System.Drawing.Size(105, 24);
             this.numModelYear.TabIndex = 7;
             this.numModelYear.Value = new decimal(new int[] {
             2020,
@@ -383,9 +406,10 @@
             this.lblTransmission.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblTransmission.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblTransmission.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblTransmission.Location = new System.Drawing.Point(15, 240);
+            this.lblTransmission.Location = new System.Drawing.Point(8, 125);
+            this.lblTransmission.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTransmission.Name = "lblTransmission";
-            this.lblTransmission.Size = new System.Drawing.Size(119, 24);
+            this.lblTransmission.Size = new System.Drawing.Size(85, 17);
             this.lblTransmission.TabIndex = 8;
             this.lblTransmission.Text = "Transmission";
             // 
@@ -401,11 +425,11 @@
             "Manual",
             "DCT",
             "CVT",
-            "AMT"
-            });
-            this.cmbTransmission.Location = new System.Drawing.Point(270, 232);
+            "AMT"});
+            this.cmbTransmission.Location = new System.Drawing.Point(135, 121);
+            this.cmbTransmission.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbTransmission.Name = "cmbTransmission";
-            this.cmbTransmission.Size = new System.Drawing.Size(210, 32);
+            this.cmbTransmission.Size = new System.Drawing.Size(105, 23);
             this.cmbTransmission.TabIndex = 9;
             // 
             // lblDailyRate
@@ -414,9 +438,10 @@
             this.lblDailyRate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblDailyRate.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblDailyRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblDailyRate.Location = new System.Drawing.Point(15, 290);
+            this.lblDailyRate.Location = new System.Drawing.Point(8, 151);
+            this.lblDailyRate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDailyRate.Name = "lblDailyRate";
-            this.lblDailyRate.Size = new System.Drawing.Size(154, 24);
+            this.lblDailyRate.Size = new System.Drawing.Size(108, 17);
             this.lblDailyRate.TabIndex = 10;
             this.lblDailyRate.Text = "Daily Rental Rate";
             // 
@@ -427,14 +452,15 @@
             this.numDailyRate.DecimalPlaces = 2;
             this.numDailyRate.Font = new System.Drawing.Font("Calibri", 10F);
             this.numDailyRate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.numDailyRate.Location = new System.Drawing.Point(270, 282);
+            this.numDailyRate.Location = new System.Drawing.Point(135, 147);
+            this.numDailyRate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numDailyRate.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
             this.numDailyRate.Name = "numDailyRate";
-            this.numDailyRate.Size = new System.Drawing.Size(210, 32);
+            this.numDailyRate.Size = new System.Drawing.Size(105, 24);
             this.numDailyRate.TabIndex = 11;
             // 
             // btnSave
@@ -445,9 +471,10 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.btnSave.Location = new System.Drawing.Point(716, 605);
+            this.btnSave.Location = new System.Drawing.Point(358, 315);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(160, 67);
+            this.btnSave.Size = new System.Drawing.Size(80, 35);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -461,9 +488,10 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.btnCancel.Location = new System.Drawing.Point(904, 605);
+            this.btnCancel.Location = new System.Drawing.Point(452, 315);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(160, 67);
+            this.btnCancel.Size = new System.Drawing.Size(80, 35);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -471,10 +499,10 @@
             // 
             // AddCar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(1174, 753);
+            this.ClientSize = new System.Drawing.Size(544, 392);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblCarSection);
             this.Controls.Add(this.panelCarSection);
@@ -483,6 +511,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddCar";
