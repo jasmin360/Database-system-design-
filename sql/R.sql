@@ -443,6 +443,8 @@ BEGIN
 
 END;
 
+GO
+
 CREATE PROCEDURE branch_revenue
     @Branch_ID INT
 AS

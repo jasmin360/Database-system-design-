@@ -381,6 +381,3 @@ EXEC Reservation_Create '2026-11-01', 95,  '2026-11-15', 'Pending',  10000045, '
 EXEC Reservation_Create '2026-11-03', 96,  '2026-11-17', 'Pending',  10000046, 'AAA-003', 9,  10, NULL, NULL;
 EXEC Reservation_Create '2026-11-05', 97,  '2026-11-19', 'Pending',  10000047, 'AAA-005', 10, 1,  NULL, NULL;
 EXEC Reservation_Create '2026-11-07', 98,  '2026-11-21', 'Pending',  10000048, 'AAA-007', 1,  2,  NULL, NULL;
-EXEC Reservation_Create '2026-12-01', 99,  '2026-12-15', 'Pending',  10000049, 'AAA-009', 2,  3,  NULL, NULL;
-EXEC Reservation_Create '2026-12-05', 100, '2026-12-19', 'Pending',  10000050, 'AAA-011', 3,  4,  NULL, NULL;
-
