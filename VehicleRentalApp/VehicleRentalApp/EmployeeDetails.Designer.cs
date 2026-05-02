@@ -77,6 +77,7 @@
             this.panelCar.Name = "panelCar";
             this.panelCar.Size = new System.Drawing.Size(457, 125);
             this.panelCar.TabIndex = 3;
+            this.panelCar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCar_Paint);
             // 
             // lblEmpIDK
             // 

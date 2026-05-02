@@ -17,6 +17,21 @@ namespace VehicleRentalApp
         public EmployeeCard(EmployeeCardInfo employee)
         {
             InitializeComponent();
+
+            lblEmpID.Text = $"{employee.EmployeeID}";
+            lblName.Text = $"{employee.Name}";
+            lblRole.Text = $"{employee.Role}";
+            lblEmail.Text = $"{employee.Email}";
+        }
+
+        private void lblName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EmployeeCard_Load(object sender, EventArgs e)
+        {
+
         }
     }
     public class EmployeeCardInfo
