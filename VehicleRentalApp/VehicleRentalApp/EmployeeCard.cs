@@ -7,14 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VehicleRentalApp.DAL;
+using VehicleRentalApp.Models;
 
 namespace VehicleRentalApp
 {
     public partial class EmployeeCard : UserControl
     {
-        public EmployeeCard()
+        public EmployeeCard(EmployeeCardInfo employee)
         {
             InitializeComponent();
         }
+    }
+    public class EmployeeCardInfo
+    {
+        public int EmployeeID { get; set; }
+        public string Name { get; set; }
+        public string Role { get; set; }
+        public string Email { get; set; }
+
     }
 }

@@ -458,3 +458,14 @@ BEGIN
     JOIN Car_Category cat ON c.Category_ID   = cat.Category_ID
     WHERE e.Branch_ID = @Branch_ID;
 END;
+
+
+GO
+
+Create procedure all_employees
+    @Branch_ID int
+AS
+BEGIN
+    select * from Employee where Branch_ID = @Branch_ID;
+
+END;

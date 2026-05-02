@@ -1029,6 +1029,41 @@ namespace VehicleRentalApp.DAL
 
             return revenue;
         }
+    
+        public static Employee[] view_all_employees(int branchID)
+        {
+            List<Employee> employees = new List<Employee>();
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("all_employees", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Branch_ID", SqlDbType.Int));
+                cmd.Parameters["@Branch_ID"].Value = branchID;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+                        Employee emp = new Employee
+                        {
+                            Emp_ID = Convert.ToInt32(reader["Emp_ID"]),
+                            First_Name = reader["First_Name"].ToString(),
+                            Last_Name = reader["Last_Name"].ToString(),
+                            Email = reader["Email"].ToString(),
+                            Position = reader["Position"].ToString(),
+                            Branch_ID = Convert.ToInt32(reader["Branch_ID"]),
+                            SuperEmpID = Convert.ToInt32(reader["SuperEmpID"]),
+                            Passkey = reader["Passkey"].ToString()
+                        };
+                        employees.Add(emp);
+                    }
+                }
+            }
+
+            return employees.ToArray();
+        }
+    
     }    
 
 }

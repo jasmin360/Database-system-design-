@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,21 +15,26 @@ namespace VehicleRentalApp
 {
     public partial class EmployeeDetails : Form
     {
-        int id = 0;
-        string name = "";
-        string role = "";
-        string email = "";
+        static int id = 0;
+        static string name = "";
+        static string role = "";
+        static string email = "";
         public EmployeeDetails(Employee employee)
         {
             InitializeComponent();
-            this.id = employee.Emp_ID;
-            this.name = employee.First_Name +" " +employee.Last_Name;
-            this.role = employee.Position;
-            this.email = employee.Email;
-            lblEmpIDK.Text = $"Employee ID : {this.id.ToString()}";
-            lblNameK.Text = $"Employee Name : {this.name}";
-            lblRoleK.Text = $"Employee Role : {this.role}";
-            lblEmailK.Text = $"Employee Email : {this.email}";
+            EmployeeDetails.id = employee.Emp_ID;
+            EmployeeDetails.name = employee.First_Name +" " +employee.Last_Name;
+            EmployeeDetails.role = employee.Position;
+            EmployeeDetails.email = employee.Email;
+            lblEmpIDK.Text = $"Employee ID : {EmployeeDetails.id.ToString()}";
+            lblNameK.Text = $"Employee Name : {EmployeeDetails.name}";
+            lblRoleK.Text = $"Employee Role : {EmployeeDetails.role}";
+            lblEmailK.Text = $"Employee Email : {EmployeeDetails.email}";
+        }
+
+        public static int BRANCHID()
+        {
+            return EmployeeDetails.id;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
