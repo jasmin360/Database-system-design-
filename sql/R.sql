@@ -469,3 +469,41 @@ BEGIN
     select * from Employee where Branch_ID = @Branch_ID;
 
 END;
+
+GO
+
+CREATE PROCEDURE car_filter_chonk
+    @Branch_ID INT = NULL,
+    @freereservedall varchar(200) = null,
+    @picanto boolean = false,
+    @suv boolean = false,
+    @coupe boolean = false,
+    @sedan boolean = false,
+    @hatchback boolean = false
+
+AS
+BEGIN
+    select c.License_Plate,
+    c.Condition,
+    c.No_seats,
+    c.Mileage,
+    c.Colour,
+    c.Category_ID,
+    c.Branch_ID
+    FROM Car c
+    INNER JOIN Car_Category cat ON c.Category_ID WHERE Branch_ID = @branchID
+    AND (                                   
+        OR (@condition = 'Free' AND c.Condition = 'Free')     
+        OR (@condition = 'Reserved' AND c.Condition = 'Reserved') 
+        OR (@condition= null AND c.Condition = 'Free' AND c.Condition = 'Reserved' )
+    )
+    AND (
+        (@picanto = false AND @suv = false AND @coupe = false AND @sedan = false AND @hatchback = false)
+        OR 
+        (@picanto = true AND cat.Car_Type = 'Picanto')
+        OR (@suv = true AND cat.Car_Type = 'SUV')
+        OR (@coupe = true AND cat.Car_Type = 'Coupe')
+        OR (@sedan = true AND cat.Car_Type = 'Sedan')
+        OR (@hatchback = true AND cat.Car_Type = 'Hatchback')
+    )
+END;

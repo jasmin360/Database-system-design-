@@ -1064,6 +1064,80 @@ namespace VehicleRentalApp.DAL
             return employees.ToArray();
         }
     
+        public static Car[] filter_Cars_In_Branch (int branchID, string reserveOrFree, bool picanto, bool suv, bool coupe, bool sedan, bool hatchback){
+            List<Car> cars = new List<Car>();
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("car_filter_chonk", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Branch_ID", SqlDbType.Int));
+                cmd.Parameters["@Branch_ID"].Value = branchID;
+                cmd.Parameters.Add(new SqlParameter("@ReserveOrFree", SqlDbType.VarChar, 200));
+                cmd.Parameters["@ReserveOrFree"].Value = reserveOrFree;
+                cmd.Parameters.Add(new SqlParameter("@Picanto", SqlDbType.Bit));
+                cmd.Parameters["@Picanto"].Value = picanto;
+                cmd.Parameters.Add(new SqlParameter("@SUV", SqlDbType.Bit));
+                cmd.Parameters["@SUV"].Value = suv;
+                cmd.Parameters.Add(new SqlParameter("@Coupe", SqlDbType.Bit));
+                cmd.Parameters["@Coupe"].Value = coupe;
+                cmd.Parameters.Add(new SqlParameter("@Sedan", SqlDbType.Bit));
+                cmd.Parameters["@Sedan"].Value = sedan;
+                cmd.Parameters.Add(new SqlParameter("@Hatchback", SqlDbType.Bit));
+                cmd.Parameters["@Hatchback"].Value = hatchback;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+                        Car car = new Car
+                        {
+                            License_Plate = reader["License_Plate"].ToString(),
+                            Condition = reader["Condition"].ToString(),
+                            No_seats = Convert.ToInt32(reader["No_seats"]),
+                            Mileage = Convert.ToInt32(reader["Mileage"]),
+                            Colour = reader["Colour"].ToString(),
+                            Branch_ID = Convert.ToInt32(reader["Branch_ID"]),
+                            Category_ID = Convert.ToInt32(reader["Category_ID"])
+                        };
+                        cars.Add(car);
+                    }
+                }
+
+            }
+            return cars.ToArray();
+        }
+        
+        public static Car_Category cat_fromID(int catID)
+        {
+            Car_Category carcat = null;
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Car_Category_Read_CategoryID", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Category_ID", SqlDbType.Int));
+                cmd.Parameters["@Category_ID"].Value = catID;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        carcat = new Car_Category
+                        {
+                            Category_ID = Convert.ToInt32(reader["Category_ID"]),
+                            Car_Type = reader["Car_Type"].ToString(),
+                            Make = reader["Make"].ToString(),
+                            Model = reader["Model"].ToString(),
+                            Model_Year = Convert.ToInt32(reader["Model_Year"]),
+                            Transmission = reader["Transmission"].ToString(),
+                            Daily_Rental_Rate = Convert.ToDecimal(reader["Daily_Rental_Rate"])
+                        };
+                    }
+                }
+            }
+            return carcat;
+        }
+
     }    
 
 }
