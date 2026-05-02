@@ -28,80 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblMakeModel = new System.Windows.Forms.Label();
-            this.lblPlate = new System.Windows.Forms.Label();
-            this.lblType = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblRole = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblEmpID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblMakeModel
+            // lblName
             // 
-            this.lblMakeModel.BackColor = System.Drawing.Color.Transparent;
-            this.lblMakeModel.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
-            this.lblMakeModel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblMakeModel.Location = new System.Drawing.Point(26, 33);
-            this.lblMakeModel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMakeModel.Name = "lblMakeModel";
-            this.lblMakeModel.Size = new System.Drawing.Size(315, 42);
-            this.lblMakeModel.TabIndex = 1;
-            this.lblMakeModel.Text = "Employee_Name";
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
+            this.lblName.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
+            this.lblName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblName.Location = new System.Drawing.Point(11, 15);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(165, 19);
+            this.lblName.TabIndex = 1;
+            this.lblName.Text = "Employee_Name";
+            this.lblName.Click += new System.EventHandler(this.lblName_Click);
             // 
-            // lblPlate
+            // lblRole
             // 
-            this.lblPlate.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlate.Font = new System.Drawing.Font("Calibri", 11F);
-            this.lblPlate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
-            this.lblPlate.Location = new System.Drawing.Point(29, 75);
-            this.lblPlate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPlate.Name = "lblPlate";
-            this.lblPlate.Size = new System.Drawing.Size(315, 42);
-            this.lblPlate.TabIndex = 2;
-            this.lblPlate.Text = "Role";
+            this.lblRole.BackColor = System.Drawing.Color.Transparent;
+            this.lblRole.Font = new System.Drawing.Font("Calibri", 11F);
+            this.lblRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
+            this.lblRole.Location = new System.Drawing.Point(12, 34);
+            this.lblRole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(135, 19);
+            this.lblRole.TabIndex = 2;
+            this.lblRole.Text = "Role";
             // 
-            // lblType
+            // lblEmail
             // 
-            this.lblType.BackColor = System.Drawing.Color.Transparent;
-            this.lblType.Font = new System.Drawing.Font("Calibri", 10F);
-            this.lblType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblType.Location = new System.Drawing.Point(30, 117);
-            this.lblType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(315, 52);
-            this.lblType.TabIndex = 3;
-            this.lblType.Text = "Email";
+            this.lblEmail.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmail.Font = new System.Drawing.Font("Calibri", 10F);
+            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.lblEmail.Location = new System.Drawing.Point(13, 52);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(135, 23);
+            this.lblEmail.TabIndex = 3;
+            this.lblEmail.Text = "Email";
             // 
-            // label1
+            // lblEmpID
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Calibri", 20F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
-            this.label1.Location = new System.Drawing.Point(330, 89);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 77);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ID";
+            this.lblEmpID.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmpID.Font = new System.Drawing.Font("Calibri", 20F);
+            this.lblEmpID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
+            this.lblEmpID.Location = new System.Drawing.Point(143, 40);
+            this.lblEmpID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmpID.Name = "lblEmpID";
+            this.lblEmpID.Size = new System.Drawing.Size(48, 35);
+            this.lblEmpID.TabIndex = 4;
+            this.lblEmpID.Text = "ID";
             // 
             // EmployeeCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblType);
-            this.Controls.Add(this.lblPlate);
-            this.Controls.Add(this.lblMakeModel);
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.lblEmpID);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.lblRole);
+            this.Controls.Add(this.lblName);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "EmployeeCard";
-            this.Size = new System.Drawing.Size(446, 219);
+            this.Size = new System.Drawing.Size(189, 96);
+            this.Load += new System.EventHandler(this.EmployeeCard_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lblMakeModel;
-        private System.Windows.Forms.Label lblPlate;
-        private System.Windows.Forms.Label lblType;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblEmpID;
     }
 }

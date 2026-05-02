@@ -53,10 +53,10 @@
             this.filterPanel.Controls.Add(this.chkAtoZ);
             this.filterPanel.Controls.Add(this.chkCompact);
             this.filterPanel.Controls.Add(this.chkReservationCount);
-            this.filterPanel.Location = new System.Drawing.Point(1744, 339);
-            this.filterPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.filterPanel.Location = new System.Drawing.Point(747, 152);
+            this.filterPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(413, 253);
+            this.filterPanel.Size = new System.Drawing.Size(178, 115);
             this.filterPanel.TabIndex = 55;
             // 
             // lblSortTitle
@@ -65,10 +65,10 @@
             this.lblSortTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblSortTitle.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.lblSortTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSortTitle.Location = new System.Drawing.Point(18, 18);
-            this.lblSortTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSortTitle.Location = new System.Drawing.Point(8, 8);
+            this.lblSortTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSortTitle.Name = "lblSortTitle";
-            this.lblSortTitle.Size = new System.Drawing.Size(115, 40);
+            this.lblSortTitle.Size = new System.Drawing.Size(51, 18);
             this.lblSortTitle.TabIndex = 0;
             this.lblSortTitle.Text = "Sort by";
             this.lblSortTitle.Click += new System.EventHandler(this.lblFilterTitle_Click);
@@ -79,10 +79,10 @@
             this.chkAtoZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkAtoZ.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkAtoZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkAtoZ.Location = new System.Drawing.Point(18, 68);
-            this.chkAtoZ.Margin = new System.Windows.Forms.Padding(4);
+            this.chkAtoZ.Location = new System.Drawing.Point(8, 30);
+            this.chkAtoZ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkAtoZ.Name = "chkAtoZ";
-            this.chkAtoZ.Size = new System.Drawing.Size(103, 41);
+            this.chkAtoZ.Size = new System.Drawing.Size(52, 21);
             this.chkAtoZ.TabIndex = 1;
             this.chkAtoZ.Text = "A - Z";
             this.chkAtoZ.UseVisualStyleBackColor = false;
@@ -93,10 +93,10 @@
             this.chkCompact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkCompact.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkCompact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkCompact.Location = new System.Drawing.Point(18, 120);
-            this.chkCompact.Margin = new System.Windows.Forms.Padding(4);
+            this.chkCompact.Location = new System.Drawing.Point(8, 54);
+            this.chkCompact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkCompact.Name = "chkCompact";
-            this.chkCompact.Size = new System.Drawing.Size(103, 41);
+            this.chkCompact.Size = new System.Drawing.Size(52, 21);
             this.chkCompact.TabIndex = 2;
             this.chkCompact.Text = "Z - A";
             this.chkCompact.UseVisualStyleBackColor = false;
@@ -107,10 +107,10 @@
             this.chkReservationCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkReservationCount.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkReservationCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkReservationCount.Location = new System.Drawing.Point(18, 172);
-            this.chkReservationCount.Margin = new System.Windows.Forms.Padding(4);
+            this.chkReservationCount.Location = new System.Drawing.Point(8, 77);
+            this.chkReservationCount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkReservationCount.Name = "chkReservationCount";
-            this.chkReservationCount.Size = new System.Drawing.Size(286, 41);
+            this.chkReservationCount.Size = new System.Drawing.Size(135, 21);
             this.chkReservationCount.TabIndex = 3;
             this.chkReservationCount.Text = "Reservations Count";
             this.chkReservationCount.UseVisualStyleBackColor = false;
@@ -121,10 +121,10 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Calibri", 11F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.txtSearch.Location = new System.Drawing.Point(834, 242);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearch.Location = new System.Drawing.Point(357, 108);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(802, 48);
+            this.txtSearch.Size = new System.Drawing.Size(345, 25);
             this.txtSearch.TabIndex = 54;
             this.txtSearch.Text = "Search...";
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -133,21 +133,22 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(170, 402);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(73, 180);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1988, 1058);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(852, 474);
             this.flowLayoutPanel1.TabIndex = 52;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(936, 272);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(401, 122);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 51);
+            this.label7.Size = new System.Drawing.Size(0, 23);
             this.label7.TabIndex = 50;
             // 
             // button1
@@ -158,10 +159,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.button1.Location = new System.Drawing.Point(170, 242);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(73, 108);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(455, 93);
+            this.button1.Size = new System.Drawing.Size(195, 42);
             this.button1.TabIndex = 47;
             this.button1.Text = "Hire a New Employee";
             this.button1.UseVisualStyleBackColor = false;
@@ -176,19 +177,22 @@
             this.contentPanel.Controls.Add(this.sortbutton);
             this.contentPanel.Controls.Add(this.label7);
             this.contentPanel.Controls.Add(this.button1);
-            this.contentPanel.Location = new System.Drawing.Point(0, 1);
+            this.contentPanel.Location = new System.Drawing.Point(-29, 0);
+            this.contentPanel.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(2352, 1732);
+            this.contentPanel.Size = new System.Drawing.Size(1008, 776);
             this.contentPanel.TabIndex = 56;
+            this.contentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.contentPanel_Paint);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.label1.Location = new System.Drawing.Point(159, 100);
+            this.label1.Location = new System.Drawing.Point(68, 45);
+            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(903, 66);
+            this.label1.Size = new System.Drawing.Size(403, 29);
             this.label1.TabIndex = 56;
             this.label1.Text = "Employees at branch (Branch_Address)";
             // 
@@ -203,10 +207,9 @@
             this.plus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.plus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.plus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.plus.Location = new System.Drawing.Point(2106, 268);
-            this.plus.Margin = new System.Windows.Forms.Padding(6);
+            this.plus.Location = new System.Drawing.Point(903, 120);
             this.plus.Name = "plus";
-            this.plus.Size = new System.Drawing.Size(52, 56);
+            this.plus.Size = new System.Drawing.Size(22, 25);
             this.plus.TabIndex = 53;
             this.plus.UseVisualStyleBackColor = false;
             // 
@@ -221,21 +224,21 @@
             this.sortbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.sortbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sortbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.sortbutton.Location = new System.Drawing.Point(2011, 264);
-            this.sortbutton.Margin = new System.Windows.Forms.Padding(6);
+            this.sortbutton.Location = new System.Drawing.Point(862, 118);
             this.sortbutton.Name = "sortbutton";
-            this.sortbutton.Size = new System.Drawing.Size(60, 64);
+            this.sortbutton.Size = new System.Drawing.Size(26, 29);
             this.sortbutton.TabIndex = 51;
             this.sortbutton.UseVisualStyleBackColor = false;
             // 
             // Employees
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(2357, 1509);
+            this.ClientSize = new System.Drawing.Size(957, 707);
             this.Controls.Add(this.contentPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "Employees";
             this.Text = "Form1";
             this.filterPanel.ResumeLayout(false);
