@@ -132,8 +132,13 @@ namespace VehicleRentalApp.DAL
                             License_Plate = reader["License_Plate"].ToString(),
                             Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
                             Return_Branch_ID = Convert.ToInt32(reader["Return_Branch_ID"]),
-                            Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
-                            Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
+                            Return_Date = reader["Return_Date"] == DBNull.Value 
+                                ? (DateTime?)null 
+                                : Convert.ToDateTime(reader["Return_Date"]),
+
+                            Pickup_Date = reader["Pickup_Date"] == DBNull.Value 
+                                ? (DateTime?)null 
+                                : Convert.ToDateTime(reader["Pickup_Date"])
 
                         };
 
