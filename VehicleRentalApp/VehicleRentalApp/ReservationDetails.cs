@@ -30,8 +30,10 @@ namespace VehicleRentalApp
 
             lblStatusV.Text = _res.Status;
             lblDeadlineV.Text = _res.Deadline.ToShortDateString();
-            lblPickupDateV.Text = _res.PickupDate.ToShortDateString();
-            lblReturnDateV.Text = _res.ReturnDate;
+
+            // Check for null dates:
+            lblPickupDateV.Text = _res.PickupDate?.ToShortDateString() ?? "Not Picked Up";
+            lblReturnDateV.Text = _res.ReturnDate?.ToShortDateString() ?? "Not Returned";
             lblResDateV.Text = _res.ResDate.ToShortDateString();
 
             switch (_res.Status)

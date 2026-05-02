@@ -45,6 +45,8 @@ namespace VehicleRentalApp
         }
         private void RefreshDisplay()
         {
+            string pickupText = Data.PickupDate?.ToShortDateString() ?? "Not Picked Up";
+            string returnText = Data.ReturnDate?.ToShortDateString() ?? "Not Returned";
             lblClientName.Text = $"{Data.FirstName} {Data.LastName}";
             lblResId.Text = $"ID: #{Data.ReservationId}";
             lblLicenceNo.Text = Data.LicenceNo;
@@ -70,11 +72,7 @@ namespace VehicleRentalApp
             }
         }
 
-        private void BtnEdit_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Edit reservation coming soon.", "Edit",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+ 
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
@@ -140,8 +138,8 @@ namespace VehicleRentalApp
 
         public string Status { get; set; }
         public DateTime Deadline { get; set; }
-        public DateTime PickupDate { get; set; }
-        public string ReturnDate { get; set; }
+        public DateTime? PickupDate { get; set; } = null;  // Default: not picked up
+        public DateTime? ReturnDate { get; set; } = null;  // Default: not returned
         public DateTime ResDate { get; set; }
 
         public string LicensePlate { get; set; }

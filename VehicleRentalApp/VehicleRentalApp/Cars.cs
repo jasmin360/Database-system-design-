@@ -2,13 +2,25 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using VehicleRentalApp.DAL;
+using VehicleRentalApp.Models;
 
 namespace VehicleRentalApp
 {
     public partial class Cars : UserControl
     {
-        public Cars()
+        private string statusFilter = "All";
+        private bool picantoChecked = false;
+        private bool suvChecked = false;
+        private bool coupeChecked = false;
+        private bool sedanChecked = false;
+        private bool hatchbackChecked = false;
+
+        private Branch branch;
+
+        public Cars(Branch branchitself)
         {
+            this.branch = branchitself;
             InitializeComponent();
             filterPanel.Visible = false;
 
@@ -16,7 +28,7 @@ namespace VehicleRentalApp
             {
                 filterPanel.Visible = false;
                 if (new AddCar().ShowDialog() == DialogResult.OK)
-                    LoadCars(); // refresh after adding
+                    LoadCars();
             };
 
             txtSearch.GotFocus += (s, e) =>
@@ -36,154 +48,50 @@ namespace VehicleRentalApp
                     txtSearch.ForeColor = Color.FromArgb(82, 82, 110);
                 }
             };
+
+            // Status filter buttons
+            all.Click += (s, e) => { statusFilter = "All"; LoadCars(); };
+            free.Click += (s, e) => { statusFilter = "Free"; LoadCars(); };
+            reserv.Click += (s, e) => { statusFilter = "Reserved"; LoadCars(); };
+
+            // Car type filter checkboxes
+            chkPicanto.CheckedChanged += (s, e) => { picantoChecked = chkPicanto.Checked; LoadCars(); };
+            chkSUV.CheckedChanged += (s, e) => { suvChecked = chkSUV.Checked; LoadCars(); };
+            chkCoupe.CheckedChanged += (s, e) => { coupeChecked = chkCoupe.Checked; LoadCars(); };
+            chkSedan.CheckedChanged += (s, e) => { sedanChecked = chkSedan.Checked; LoadCars(); };
+            chkHatchback.CheckedChanged += (s, e) => { hatchbackChecked = chkHatchback.Checked; LoadCars(); };
         }
 
         private void LoadCars()
         {
-            // demo data — replace with DB query later
-            var cars = new List<CarInfo>
-            {
-                new CarInfo { LicensePlate="ABC-1234", Condition="Reserved", Seats=5, Mileage=15000,
-                              Colour="White",  CarType="SUV",       Make="Toyota",  Model="RAV4",
-                              ModelYear=2022, Transmission="Automatic", DailyRate=65,  IsReserved=false },
-                new CarInfo { LicensePlate="XYZ-9876", Condition="Free",      Seats=4, Mileage=42000,
-                              Colour="Black",  CarType="Hatchback", Make="Honda",   Model="Civic",
-                              ModelYear=2020, Transmission="Manual",    DailyRate=40,  IsReserved=true  },
-                new CarInfo { LicensePlate="LUX-0001", Condition="Excellent", Seats=4, Mileage=8000,
-                              Colour="Silver", CarType="Sedan",     Make="BMW",     Model="5 Series",
-                              ModelYear=2023, Transmission="Automatic", DailyRate=180, IsReserved=false },
-                new CarInfo { LicensePlate="VAN-4421", Condition="Fair",      Seats=8, Mileage=98000,
-                              Colour="Grey",   CarType="Coupe",     Make="Ford",    Model="Mustang",
-                              ModelYear=2018, Transmission="Manual",    DailyRate=85,  IsReserved=false },
-                new CarInfo { LicensePlate="PIC-2210", Condition="Good",      Seats=4, Mileage=27000,
-                              Colour="Red",    CarType="Picanto",   Make="Kia",     Model="Picanto",
-                              ModelYear=2021, Transmission="Manual",    DailyRate=30,  IsReserved=false },
-                                new CarInfo { LicensePlate="ABC-1234", Condition="Reserved", Seats=5, Mileage=15000,
-                              Colour="White",  CarType="SUV",       Make="Toyota",  Model="RAV4",
-                              ModelYear=2022, Transmission="Automatic", DailyRate=65,  IsReserved=false },
-                new CarInfo { LicensePlate="XYZ-9876", Condition="Free",      Seats=4, Mileage=42000,
-                              Colour="Black",  CarType="Hatchback", Make="Honda",   Model="Civic",
-                              ModelYear=2020, Transmission="Manual",    DailyRate=40,  IsReserved=true  },
-                new CarInfo { LicensePlate="LUX-0001", Condition="Excellent", Seats=4, Mileage=8000,
-                              Colour="Silver", CarType="Sedan",     Make="BMW",     Model="5 Series",
-                              ModelYear=2023, Transmission="Automatic", DailyRate=180, IsReserved=false },
-                new CarInfo { LicensePlate="VAN-4421", Condition="Fair",      Seats=8, Mileage=98000,
-                              Colour="Grey",   CarType="Coupe",     Make="Ford",    Model="Mustang",
-                              ModelYear=2018, Transmission="Manual",    DailyRate=85,  IsReserved=false },
-                new CarInfo { LicensePlate="PIC-2210", Condition="Good",      Seats=4, Mileage=27000,
-                              Colour="Red",    CarType="Picanto",   Make="Kia",     Model="Picanto",
-                              ModelYear=2021, Transmission="Manual",    DailyRate=30,  IsReserved=false },
-                                new CarInfo { LicensePlate="ABC-1234", Condition="Reserved", Seats=5, Mileage=15000,
-                              Colour="White",  CarType="SUV",       Make="Toyota",  Model="RAV4",
-                              ModelYear=2022, Transmission="Automatic", DailyRate=65,  IsReserved=false },
-                new CarInfo { LicensePlate="XYZ-9876", Condition="Free",      Seats=4, Mileage=42000,
-                              Colour="Black",  CarType="Hatchback", Make="Honda",   Model="Civic",
-                              ModelYear=2020, Transmission="Manual",    DailyRate=40,  IsReserved=true  },
-                new CarInfo { LicensePlate="LUX-0001", Condition="Excellent", Seats=4, Mileage=8000,
-                              Colour="Silver", CarType="Sedan",     Make="BMW",     Model="5 Series",
-                              ModelYear=2023, Transmission="Automatic", DailyRate=180, IsReserved=false },
-                new CarInfo { LicensePlate="VAN-4421", Condition="Fair",      Seats=8, Mileage=98000,
-                              Colour="Grey",   CarType="Coupe",     Make="Ford",    Model="Mustang",
-                              ModelYear=2018, Transmission="Manual",    DailyRate=85,  IsReserved=false },
-                new CarInfo { LicensePlate="PIC-2210", Condition="Good",      Seats=4, Mileage=27000,
-                              Colour="Red",    CarType="Picanto",   Make="Kia",     Model="Picanto",
-                              ModelYear=2021, Transmission="Manual",    DailyRate=30,  IsReserved=false },
-                                new CarInfo { LicensePlate="ABC-1234", Condition="Reserved", Seats=5, Mileage=15000,
-                              Colour="White",  CarType="SUV",       Make="Toyota",  Model="RAV4",
-                              ModelYear=2022, Transmission="Automatic", DailyRate=65,  IsReserved=false },
-                new CarInfo { LicensePlate="XYZ-9876", Condition="Free",      Seats=4, Mileage=42000,
-                              Colour="Black",  CarType="Hatchback", Make="Honda",   Model="Civic",
-                              ModelYear=2020, Transmission="Manual",    DailyRate=40,  IsReserved=true  },
-                new CarInfo { LicensePlate="LUX-0001", Condition="Excellent", Seats=4, Mileage=8000,
-                              Colour="Silver", CarType="Sedan",     Make="BMW",     Model="5 Series",
-                              ModelYear=2023, Transmission="Automatic", DailyRate=180, IsReserved=false },
-                new CarInfo { LicensePlate="VAN-4421", Condition="Fair",      Seats=8, Mileage=98000,
-                              Colour="Grey",   CarType="Coupe",     Make="Ford",    Model="Mustang",
-                              ModelYear=2018, Transmission="Manual",    DailyRate=85,  IsReserved=false },
-                new CarInfo { LicensePlate="PIC-2210", Condition="Good",      Seats=4, Mileage=27000,
-                              Colour="Red",    CarType="Picanto",   Make="Kia",     Model="Picanto",
-                              ModelYear=2021, Transmission="Manual",    DailyRate=30,  IsReserved=false },
-                                new CarInfo { LicensePlate="ABC-1234", Condition="Reserved", Seats=5, Mileage=15000,
-                              Colour="White",  CarType="SUV",       Make="Toyota",  Model="RAV4",
-                              ModelYear=2022, Transmission="Automatic", DailyRate=65,  IsReserved=false },
-                new CarInfo { LicensePlate="XYZ-9876", Condition="Free",      Seats=4, Mileage=42000,
-                              Colour="Black",  CarType="Hatchback", Make="Honda",   Model="Civic",
-                              ModelYear=2020, Transmission="Manual",    DailyRate=40,  IsReserved=true  },
-                new CarInfo { LicensePlate="LUX-0001", Condition="Excellent", Seats=4, Mileage=8000,
-                              Colour="Silver", CarType="Sedan",     Make="BMW",     Model="5 Series",
-                              ModelYear=2023, Transmission="Automatic", DailyRate=180, IsReserved=false },
-                new CarInfo { LicensePlate="VAN-4421", Condition="Fair",      Seats=8, Mileage=98000,
-                              Colour="Grey",   CarType="Coupe",     Make="Ford",    Model="Mustang",
-                              ModelYear=2018, Transmission="Manual",    DailyRate=85,  IsReserved=false },
-                new CarInfo { LicensePlate="PIC-2210", Condition="Good",      Seats=4, Mileage=27000,
-                              Colour="Red",    CarType="Picanto",   Make="Kia",     Model="Picanto",
-                              ModelYear=2021, Transmission="Manual",    DailyRate=30,  IsReserved=false },
-                                new CarInfo { LicensePlate="ABC-1234", Condition="Reserved", Seats=5, Mileage=15000,
-                              Colour="White",  CarType="SUV",       Make="Toyota",  Model="RAV4",
-                              ModelYear=2022, Transmission="Automatic", DailyRate=65,  IsReserved=false },
-                new CarInfo { LicensePlate="XYZ-9876", Condition="Free",      Seats=4, Mileage=42000,
-                              Colour="Black",  CarType="Hatchback", Make="Honda",   Model="Civic",
-                              ModelYear=2020, Transmission="Manual",    DailyRate=40,  IsReserved=true  },
-                new CarInfo { LicensePlate="LUX-0001", Condition="Excellent", Seats=4, Mileage=8000,
-                              Colour="Silver", CarType="Sedan",     Make="BMW",     Model="5 Series",
-                              ModelYear=2023, Transmission="Automatic", DailyRate=180, IsReserved=false },
-                new CarInfo { LicensePlate="VAN-4421", Condition="Fair",      Seats=8, Mileage=98000,
-                              Colour="Grey",   CarType="Coupe",     Make="Ford",    Model="Mustang",
-                              ModelYear=2018, Transmission="Manual",    DailyRate=85,  IsReserved=false },
-                new CarInfo { LicensePlate="PIC-2210", Condition="Good",      Seats=4, Mileage=27000,
-                              Colour="Red",    CarType="Picanto",   Make="Kia",     Model="Picanto",
-                              ModelYear=2021, Transmission="Manual",    DailyRate=30,  IsReserved=false },
-                                new CarInfo { LicensePlate="ABC-1234", Condition="Reserved", Seats=5, Mileage=15000,
-                              Colour="White",  CarType="SUV",       Make="Toyota",  Model="RAV4",
-                              ModelYear=2022, Transmission="Automatic", DailyRate=65,  IsReserved=false },
-                new CarInfo { LicensePlate="XYZ-9876", Condition="Free",      Seats=4, Mileage=42000,
-                              Colour="Black",  CarType="Hatchback", Make="Honda",   Model="Civic",
-                              ModelYear=2020, Transmission="Manual",    DailyRate=40,  IsReserved=true  },
-                new CarInfo { LicensePlate="LUX-0001", Condition="Excellent", Seats=4, Mileage=8000,
-                              Colour="Silver", CarType="Sedan",     Make="BMW",     Model="5 Series",
-                              ModelYear=2023, Transmission="Automatic", DailyRate=180, IsReserved=false },
-                new CarInfo { LicensePlate="VAN-4421", Condition="Fair",      Seats=8, Mileage=98000,
-                              Colour="Grey",   CarType="Coupe",     Make="Ford",    Model="Mustang",
-                              ModelYear=2018, Transmission="Manual",    DailyRate=85,  IsReserved=false },
-                new CarInfo { LicensePlate="PIC-2210", Condition="Good",      Seats=4, Mileage=27000,
-                              Colour="Red",    CarType="Picanto",   Make="Kia",     Model="Picanto",
-                              ModelYear=2021, Transmission="Manual",    DailyRate=30,  IsReserved=false },
-                                new CarInfo { LicensePlate="ABC-1234", Condition="Reserved", Seats=5, Mileage=15000,
-                              Colour="White",  CarType="SUV",       Make="Toyota",  Model="RAV4",
-                              ModelYear=2022, Transmission="Automatic", DailyRate=65,  IsReserved=false },
-                new CarInfo { LicensePlate="XYZ-9876", Condition="Free",      Seats=4, Mileage=42000,
-                              Colour="Black",  CarType="Hatchback", Make="Honda",   Model="Civic",
-                              ModelYear=2020, Transmission="Manual",    DailyRate=40,  IsReserved=true  },
-                new CarInfo { LicensePlate="LUX-0001", Condition="Excellent", Seats=4, Mileage=8000,
-                              Colour="Silver", CarType="Sedan",     Make="BMW",     Model="5 Series",
-                              ModelYear=2023, Transmission="Automatic", DailyRate=180, IsReserved=false },
-                new CarInfo { LicensePlate="VAN-4421", Condition="Fair",      Seats=8, Mileage=98000,
-                              Colour="Grey",   CarType="Coupe",     Make="Ford",    Model="Mustang",
-                              ModelYear=2018, Transmission="Manual",    DailyRate=85,  IsReserved=false },
-                new CarInfo { LicensePlate="PIC-2210", Condition="Good",      Seats=4, Mileage=27000,
-                              Colour="Red",    CarType="Picanto",   Make="Kia",     Model="Picanto",
-                              ModelYear=2021, Transmission="Manual",    DailyRate=30,  IsReserved=false },
-                                new CarInfo { LicensePlate="ABC-1234", Condition="Reserved", Seats=5, Mileage=15000,
-                              Colour="White",  CarType="SUV",       Make="Toyota",  Model="RAV4",
-                              ModelYear=2022, Transmission="Automatic", DailyRate=65,  IsReserved=false },
-                new CarInfo { LicensePlate="XYZ-9876", Condition="Free",      Seats=4, Mileage=42000,
-                              Colour="Black",  CarType="Hatchback", Make="Honda",   Model="Civic",
-                              ModelYear=2020, Transmission="Manual",    DailyRate=40,  IsReserved=true  },
-                new CarInfo { LicensePlate="LUX-0001", Condition="Excellent", Seats=4, Mileage=8000,
-                              Colour="Silver", CarType="Sedan",     Make="BMW",     Model="5 Series",
-                              ModelYear=2023, Transmission="Automatic", DailyRate=180, IsReserved=false },
-                new CarInfo { LicensePlate="VAN-4421", Condition="Fair",      Seats=8, Mileage=98000,
-                              Colour="Grey",   CarType="Coupe",     Make="Ford",    Model="Mustang",
-                              ModelYear=2018, Transmission="Manual",    DailyRate=85,  IsReserved=false },
-                new CarInfo { LicensePlate="PIC-2210", Condition="Good",      Seats=4, Mileage=27000,
-                              Colour="Red",    CarType="Picanto",   Make="Kia",     Model="Picanto",
-                              ModelYear=2021, Transmission="Manual",    DailyRate=30,  IsReserved=false }
+            //int branchID = this.branch.Branch_ID;
 
-            };
+            //// Call backend with current filter state
+            //Car[] carsFromDB = VHSAUTOMOTIVE.filter_Cars_In_Branch(branchID,statusFilter,picantoChecked,suvChecked,coupeChecked,sedanChecked,hatchbackChecked
+            //);
 
-            flowLayoutPanel1.Controls.Clear();
-            foreach (var car in cars)
-                flowLayoutPanel1.Controls.Add(new CarCard(car));
+            //flowLayoutPanel1.Controls.Clear();
+
+            //foreach (var carData in carsFromDB)
+            //{
+            //    var car = new CarInfo
+            //    {
+            //        LicensePlate = carData.License_Plate,
+            //        Condition = carData.Condition,
+            //        Seats = carData.No_seats,
+            //        Mileage = carData.Mileage,
+            //        Colour = carData.Colour,
+            //        CarType = carData.Car_Type,
+            //        Make = carData.Make,
+            //        Model = carData.Model,
+            //        ModelYear = carData.Model_Year,
+            //        Transmission = carData.Transmission,
+            //        DailyRate = carData.Daily_Rental_Rate,
+            //        IsReserved = carData.Condition == "Reserved"
+            //    };
+
+            //    flowLayoutPanel1.Controls.Add(new CarCard(car));
+            //}
         }
 
         private void right_Click(object sender, EventArgs e)

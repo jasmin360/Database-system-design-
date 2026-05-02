@@ -66,7 +66,7 @@
             this.lblCarInfo.Location = new System.Drawing.Point(100, 44);
             this.lblCarInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCarInfo.Name = "lblCarInfo";
-            this.lblCarInfo.Size = new System.Drawing.Size(156, 21);
+            this.lblCarInfo.Size = new System.Drawing.Size(245, 21);
             this.lblCarInfo.TabIndex = 46;
             this.lblCarInfo.Text = "Make Model • Plate";
             this.lblCarInfo.Click += new System.EventHandler(this.lblCarInfo_Click);
@@ -122,7 +122,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.btnDelete.Location = new System.Drawing.Point(359, 16);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(20, 26);
             this.btnDelete.TabIndex = 42;
@@ -143,7 +143,7 @@
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnDelete);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ReservationCard";
             this.Size = new System.Drawing.Size(402, 147);
             this.Load += new System.EventHandler(this.ReservationCard_Load);
