@@ -1,186 +1,386 @@
 
-EXEC Client_Create 10001, 'Ahmed',   'Hassan',   'ahmed.hassan@gmail.com',    '201012345678';
-EXEC Client_Create 10002, 'Sara',    'Mahmoud',  'sara.mahmoud@yahoo.com',    '201123456789';
-EXEC Client_Create 10003, 'Omar',    'Ali',      'omar.ali@hotmail.com',      '201234567890';
-EXEC Client_Create 10004, 'Nour',    'Ibrahim',  'nour.ibrahim@outlook.com',  '201345678901';
-EXEC Client_Create 10005, 'Khaled',  'Mostafa',  'khaled.mostafa@gmail.com',  '201456789012';
+INSERT INTO Client VALUES (10000001, 'James',    'Anderson',  'james.anderson@gmail.com',    '201501234567');
+INSERT INTO Client VALUES (10000002, 'Emily',    'Carter',    'emily.carter@yahoo.com',      '201502345678');
+INSERT INTO Client VALUES (10000003, 'Mohamed',  'Hassan',    'mohamed.hassan@outlook.com',  '201503456789');
+INSERT INTO Client VALUES (10000004, 'Sara',     'Ibrahim',   'sara.ibrahim@gmail.com',      '201504567890');
+INSERT INTO Client VALUES (10000005, 'Oliver',   'Smith',     'oliver.smith@hotmail.com',    '201505678901');
+INSERT INTO Client VALUES (10000006, 'Layla',    'Mostafa',   'layla.mostafa@gmail.com',     '201506789012');
+INSERT INTO Client VALUES (10000007, 'Noah',     'Williams',  'noah.williams@yahoo.com',     '201507890123');
+INSERT INTO Client VALUES (10000008, 'Nour',     'Ahmed',     'nour.ahmed@gmail.com',        '201508901234');
+INSERT INTO Client VALUES (10000009, 'Liam',     'Johnson',   'liam.johnson@outlook.com',    '201509012345');
+INSERT INTO Client VALUES (10000010, 'Hana',     'Khalil',    'hana.khalil@gmail.com',       '201510123456');
+INSERT INTO Client VALUES (10000011, 'Ethan',    'Brown',     'ethan.brown@yahoo.com',       '201511234567');
+INSERT INTO Client VALUES (10000012, 'Dina',     'Samir',     'dina.samir@hotmail.com',      '201512345678');
+INSERT INTO Client VALUES (10000013, 'Mason',    'Jones',     'mason.jones@gmail.com',       '201513456789');
+INSERT INTO Client VALUES (10000014, 'Rania',    'Farouk',    'rania.farouk@outlook.com',    '201514567890');
+INSERT INTO Client VALUES (10000015, 'Lucas',    'Davis',     'lucas.davis@gmail.com',       '201515678901');
+INSERT INTO Client VALUES (10000016, 'Aya',      'Nasser',    'aya.nasser@yahoo.com',        '201516789012');
+INSERT INTO Client VALUES (10000017, 'Aiden',    'Miller',    'aiden.miller@gmail.com',      '201517890123');
+INSERT INTO Client VALUES (10000018, 'Mariam',   'Youssef',   'mariam.youssef@gmail.com',    '201518901234');
+INSERT INTO Client VALUES (10000019, 'Elijah',   'Wilson',    'elijah.wilson@outlook.com',   '201519012345');
+INSERT INTO Client VALUES (10000020, 'Yasmin',   'Kamal',     'yasmin.kamal@hotmail.com',    '201520123456');
+INSERT INTO Client VALUES (10000021, 'Logan',    'Moore',     'logan.moore@gmail.com',       '201521234567');
+INSERT INTO Client VALUES (10000022, 'Nadia',    'Samy',      'nadia.samy@yahoo.com',        '201522345678');
+INSERT INTO Client VALUES (10000023, 'Jackson',  'Taylor',    'jackson.taylor@gmail.com',    '201523456789');
+INSERT INTO Client VALUES (10000024, 'Salma',    'Mahmoud',   'salma.mahmoud@outlook.com',   '201524567890');
+INSERT INTO Client VALUES (10000025, 'Sebastian','Thomas',    'sebastian.thomas@gmail.com',  '201525678901');
+INSERT INTO Client VALUES (10000026, 'Mona',     'Gamal',     'mona.gamal@yahoo.com',        '201526789012');
+INSERT INTO Client VALUES (10000027, 'Mateo',    'Jackson',   'mateo.jackson@gmail.com',     '201527890123');
+INSERT INTO Client VALUES (10000028, 'Farah',    'Adel',      'farah.adel@hotmail.com',      '201528901234');
+INSERT INTO Client VALUES (10000029, 'Jack',     'White',     'jack.white@gmail.com',        '201529012345');
+INSERT INTO Client VALUES (10000030, 'Nada',     'Ramadan',   'nada.ramadan@outlook.com',    '201530123456');
+INSERT INTO Client VALUES (10000031, 'Owen',     'Harris',    'owen.harris@gmail.com',       '201531234567');
+INSERT INTO Client VALUES (10000032, 'Heba',     'Zahran',    'heba.zahran@yahoo.com',       '201532345678');
+INSERT INTO Client VALUES (10000033, 'Henry',    'Martin',    'henry.martin@gmail.com',      '201533456789');
+INSERT INTO Client VALUES (10000034, 'Passant',  'Fouad',     'passant.fouad@outlook.com',   '201534567890');
+INSERT INTO Client VALUES (10000035, 'Alexander','Garcia',    'alexander.garcia@gmail.com',  '201535678901');
+INSERT INTO Client VALUES (10000036, 'Rana',     'Magdy',     'rana.magdy@yahoo.com',        '201536789012');
+INSERT INTO Client VALUES (10000037, 'Benjamin', 'Martinez',  'benjamin.martinez@gmail.com', '201537890123');
+INSERT INTO Client VALUES (10000038, 'Doha',     'Tawfik',    'doha.tawfik@hotmail.com',     '201538901234');
+INSERT INTO Client VALUES (10000039, 'Samuel',   'Robinson',  'samuel.robinson@gmail.com',   '201539012345');
+INSERT INTO Client VALUES (10000040, 'Nour',     'Fekry',     'nour.fekry@outlook.com',      '201540123456');
+INSERT INTO Client VALUES (10000041, 'Daniel',   'Clark',     'daniel.clark@gmail.com',      '201541234567');
+INSERT INTO Client VALUES (10000042, 'Sana',     'Abdelaziz', 'sana.abdelaziz@yahoo.com',    '201542345678');
+INSERT INTO Client VALUES (10000043, 'Michael',  'Rodriguez', 'michael.rodriguez@gmail.com', '201543456789');
+INSERT INTO Client VALUES (10000044, 'Ghada',    'Salem',     'ghada.salem@outlook.com',     '201544567890');
+INSERT INTO Client VALUES (10000045, 'David',    'Lewis',     'david.lewis@gmail.com',       '201545678901');
+INSERT INTO Client VALUES (10000046, 'Amira',    'Sherif',    'amira.sherif@yahoo.com',      '201546789012');
+INSERT INTO Client VALUES (10000047, 'Joseph',   'Lee',       'joseph.lee@gmail.com',        '201547890123');
+INSERT INTO Client VALUES (10000048, 'Shaimaa',  'Osman',     'shaimaa.osman@hotmail.com',   '201548901234');
+INSERT INTO Client VALUES (10000049, 'Charles',  'Walker',    'charles.walker@gmail.com',    '201549012345');
+INSERT INTO Client VALUES (10000050, 'Nour',     'Eldin',     'nour.eldin@outlook.com',      '201550123456');
 
 
-EXEC Branch_Create 'Cairo',          12,  3,  '202345678901';
-EXEC Branch_Create 'Alexandria',     7,   1,  '203456789012';
-EXEC Branch_Create 'Giza',           45,  2,  '202567890123';
-EXEC Branch_Create 'Mansoura',       88,  5,  '205678901234';
-EXEC Branch_Create 'Aswan',          3,   9,  '297890123456';
+EXEC Branch_Create 'Cairo',          12, 5,  '201200000001';
+EXEC Branch_Create 'Alexandria',     34, 2,  '201200000002';
+EXEC Branch_Create 'Giza',            7, 11, '201200000003';
+EXEC Branch_Create 'Luxor',          22, 3,  '201200000004';
+EXEC Branch_Create 'Aswan',           8, 9,  '201200000005';
+EXEC Branch_Create 'Hurghada',       15, 6,  '201200000006';
+EXEC Branch_Create 'Sharm El Sheikh',19, 4,  '201200000007';
+EXEC Branch_Create 'Mansoura',        3, 7,  '201200000008';
+EXEC Branch_Create 'Tanta',          27, 1,  '201200000009';
+EXEC Branch_Create 'Port Said',      41, 8,  '201200000010';
 
 
-EXEC CarCategory_Create 'Sedan',     'Toyota',  'Camry',    2022, 'Automatic', 350.00;
-EXEC CarCategory_Create 'SUV',       'Hyundai', 'Tucson',   2023, 'Automatic', 500.00;
-EXEC CarCategory_Create 'Hatchback', 'Kia',     'Rio',      2021, 'Manual',    250.00;
-EXEC CarCategory_Create 'Coupe',     'BMW',     '430i',     2023, 'DCT',       800.00;
-EXEC CarCategory_Create 'Picanto',   'Kia',     'Picanto',  2020, 'Manual',    180.00;
+EXEC CarCategory_Create 'Picanto',   'Kia',        'Picanto',   2024, 'Manual',    150.00;
+EXEC CarCategory_Create 'Picanto',   'Kia',        'Picanto',   2025, 'Automatic', 175.00;
+EXEC CarCategory_Create 'Hatchback', 'Toyota',     'Yaris',     2024, 'CVT',       200.00;
+EXEC CarCategory_Create 'Hatchback', 'Hyundai',    'i20',       2025, 'DCT',       210.00;
+EXEC CarCategory_Create 'Sedan',     'Toyota',     'Camry',     2024, 'Automatic', 300.00;
+EXEC CarCategory_Create 'Sedan',     'Honda',      'Civic',     2025, 'CVT',       280.00;
+EXEC CarCategory_Create 'Sedan',     'Nissan',     'Altima',    2024, 'Automatic', 260.00;
+EXEC CarCategory_Create 'Sedan',     'Hyundai',    'Elantra',   2026, 'DCT',       270.00;
+EXEC CarCategory_Create 'SUV',       'Toyota',     'RAV4',      2024, 'Automatic', 400.00;
+EXEC CarCategory_Create 'SUV',       'Hyundai',    'Tucson',    2025, 'DCT',       420.00;
+EXEC CarCategory_Create 'SUV',       'Kia',        'Sportage',  2025, 'Automatic', 390.00;
+EXEC CarCategory_Create 'SUV',       'Ford',       'Explorer',  2024, 'Automatic', 500.00;
+EXEC CarCategory_Create 'SUV',       'Chevrolet',  'Equinox',   2026, 'CVT',       370.00;
+EXEC CarCategory_Create 'Coupe',     'BMW',        '2 Series',  2024, 'Automatic', 600.00;
+EXEC CarCategory_Create 'Coupe',     'Mercedes',   'C-Class',   2025, 'AMT',       650.00;
+EXEC CarCategory_Create 'Coupe',     'Audi',       'A5',        2024, 'DCT',       620.00;
+EXEC CarCategory_Create 'Hatchback', 'Volkswagen', 'Golf',      2026, 'Manual',    220.00;
+EXEC CarCategory_Create 'Picanto',   'Suzuki',     'Alto',      2025, 'Manual',    140.00;
+EXEC CarCategory_Create 'Sedan',     'Chevrolet',  'Malibu',    2024, 'Automatic', 290.00;
+EXEC CarCategory_Create 'SUV',       'Mitsubishi', 'Outlander', 2025, 'CVT',       410.00;
 
 
-EXEC Car_Create 'ABC-1234', 'Free',     5, 12000, 'White',  1, 1;
-EXEC Car_Create 'DEF-5678', 'Free',     5, 30500, 'Black',  1, 2;
-EXEC Car_Create 'GHI-9012', 'Reserved', 7, 45000, 'Silver', 2, 1;
-EXEC Car_Create 'JKL-3456', 'Free',     5, 8200,  'Red',    3, 3;
-EXEC Car_Create 'MNO-7890', 'Free',     5, 62000, 'Blue',   4, 2;
-EXEC Car_Create 'PQR-1122', 'Reserved', 4, 15000, 'White',  5, 4;
-EXEC Car_Create 'STU-3344', 'Free',     5, 27000, 'Gray',   2, 3;
-EXEC Car_Create 'VWX-5566', 'Free',     7, 51000, 'Black',  2, 5;
+EXEC Car_Create 'AAA-001', 'Free',     5, 12000, 'White',  1,  1;
+EXEC Car_Create 'AAA-002', 'Free',     5,  8500, 'Black',  1,  1;
+EXEC Car_Create 'AAA-003', 'Reserved', 5, 22000, 'Silver', 2,  2;
+EXEC Car_Create 'AAA-004', 'Free',     5,  5000, 'Red',    2,  2;
+EXEC Car_Create 'AAA-005', 'Free',     5, 15000, 'Blue',   3,  3;
+EXEC Car_Create 'AAA-006', 'Reserved', 5, 31000, 'White',  3,  3;
+EXEC Car_Create 'AAA-007', 'Free',     5,  9200, 'Grey',   4,  4;
+EXEC Car_Create 'AAA-008', 'Free',     5,  4100, 'Black',  4,  4;
+EXEC Car_Create 'AAA-009', 'Reserved', 5, 18000, 'White',  5,  5;
+EXEC Car_Create 'AAA-010', 'Free',     5,  7700, 'Silver', 5,  5;
+EXEC Car_Create 'AAA-011', 'Free',     5,  6600, 'Red',    6,  6;
+EXEC Car_Create 'AAA-012', 'Reserved', 5, 27000, 'Blue',   6,  6;
+EXEC Car_Create 'AAA-013', 'Free',     5,  3400, 'White',  7,  7;
+EXEC Car_Create 'AAA-014', 'Free',     5, 11200, 'Black',  7,  7;
+EXEC Car_Create 'AAA-015', 'Reserved', 5, 19500, 'Grey',   8,  8;
+EXEC Car_Create 'AAA-016', 'Free',     5,  8100, 'Silver', 8,  8;
+EXEC Car_Create 'AAA-017', 'Free',     5,  4400, 'White',  9,  9;
+EXEC Car_Create 'AAA-018', 'Reserved', 5, 33000, 'Black',  9,  9;
+EXEC Car_Create 'AAA-019', 'Free',     5,  7200, 'Blue',   10, 10;
+EXEC Car_Create 'AAA-020', 'Free',     5,  5500, 'Red',    10, 10;
+EXEC Car_Create 'BBB-001', 'Free',     5, 14000, 'White',  11, 1;
+EXEC Car_Create 'BBB-002', 'Reserved', 5, 25000, 'Silver', 11, 1;
+EXEC Car_Create 'BBB-003', 'Free',     7,  9100, 'Black',  12, 2;
+EXEC Car_Create 'BBB-004', 'Free',     7, 16000, 'White',  12, 2;
+EXEC Car_Create 'BBB-005', 'Reserved', 7, 40000, 'Blue',   12, 3;
+EXEC Car_Create 'BBB-006', 'Free',     7,  7800, 'Red',    13, 3;
+EXEC Car_Create 'BBB-007', 'Free',     7,  3300, 'Grey',   13, 4;
+EXEC Car_Create 'BBB-008', 'Reserved', 4, 21000, 'White',  14, 4;
+EXEC Car_Create 'BBB-009', 'Free',     4, 12500, 'Black',  14, 5;
+EXEC Car_Create 'BBB-010', 'Free',     4,  8900, 'Silver', 15, 5;
+EXEC Car_Create 'CCC-001', 'Reserved', 4, 17000, 'White',  15, 6;
+EXEC Car_Create 'CCC-002', 'Free',     4,  6200, 'Blue',   16, 6;
+EXEC Car_Create 'CCC-003', 'Free',     4,  4800, 'Red',    16, 7;
+EXEC Car_Create 'CCC-004', 'Reserved', 5, 29000, 'Black',  17, 7;
+EXEC Car_Create 'CCC-005', 'Free',     5, 10100, 'White',  17, 8;
+EXEC Car_Create 'CCC-006', 'Free',     5,  5700, 'Grey',   18, 8;
+EXEC Car_Create 'CCC-007', 'Reserved', 5, 23000, 'Silver', 18, 9;
+EXEC Car_Create 'CCC-008', 'Free',     5,  8300, 'White',  19, 9;
+EXEC Car_Create 'CCC-009', 'Free',     5, 11800, 'Black',  19, 10;
+EXEC Car_Create 'CCC-010', 'Reserved', 7, 36000, 'Blue',   20, 10;
+EXEC Car_Create 'DDD-001', 'Free',     5,  9900, 'White',  1,  1;
+EXEC Car_Create 'DDD-002', 'Free',     5,  7100, 'Red',    2,  2;
+EXEC Car_Create 'DDD-003', 'Reserved', 5, 26000, 'Silver', 3,  3;
+EXEC Car_Create 'DDD-004', 'Free',     5,  4200, 'Black',  4,  4;
+EXEC Car_Create 'DDD-005', 'Free',     5, 13400, 'White',  5,  5;
+EXEC Car_Create 'DDD-006', 'Reserved', 5, 30000, 'Blue',   6,  6;
+EXEC Car_Create 'DDD-007', 'Free',     5,  6800, 'Grey',   7,  7;
+EXEC Car_Create 'DDD-008', 'Free',     5,  5100, 'Black',  8,  8;
+EXEC Car_Create 'DDD-009', 'Reserved', 5, 20000, 'White',  9,  9;
+EXEC Car_Create 'DDD-010', 'Free',     5,  8000, 'Red',    10, 10;
+EXEC Car_Create 'EEE-001', 'Free',     5,  7400, 'White',  11, 1;
+EXEC Car_Create 'EEE-002', 'Free',     7, 16500, 'Silver', 12, 2;
+EXEC Car_Create 'EEE-003', 'Reserved', 7, 28000, 'Black',  12, 3;
+EXEC Car_Create 'EEE-004', 'Free',     4,  9600, 'Blue',   14, 4;
+EXEC Car_Create 'EEE-005', 'Free',     4,  5300, 'Red',    15, 5;
+EXEC Car_Create 'EEE-006', 'Reserved', 4, 24000, 'White',  16, 6;
+EXEC Car_Create 'EEE-007', 'Free',     5, 11000, 'Grey',   17, 7;
+EXEC Car_Create 'EEE-008', 'Free',     5,  6400, 'Black',  18, 8;
+EXEC Car_Create 'EEE-009', 'Reserved', 5, 31000, 'Silver', 19, 9;
+EXEC Car_Create 'EEE-010', 'Free',     7,  7900, 'Blue',   20, 10;
 
 
-
-EXEC Employee_Create 'pass$Cairo1',  'mgr.cairo@rental.com',     'Supervisor', 'Tarek',   'Sami',    1, NULL;
-EXEC Employee_Create 'pass$Alex1',   'mgr.alex@rental.com',      'Supervisor', 'Dina',    'Fouad',   2, NULL;
-EXEC Employee_Create 'pass$Giza1',   'mgr.giza@rental.com',      'Supervisor', 'Youssef', 'Nabil',   3, NULL;
-
-
-
-EXEC Employee_Create 'pass$emp01',   'ali.kamal@rental.com',     'Employee',   'Ali',     'Kamal',   1, 1;
-EXEC Employee_Create 'pass$emp02',   'mona.riad@rental.com',     'Employee',   'Mona',    'Riad',    1, 1;
-EXEC Employee_Create 'pass$emp03',   'hassan.omar@rental.com',   'Employee',   'Hassan',  'Omar',    2, 2;
-EXEC Employee_Create 'pass$emp04',   'nadia.samir@rental.com',   'Employee',   'Nadia',   'Samir',   3, 3;
-EXEC Employee_Create 'pass$emp05',   'walid.fathy@rental.com',   'Employee',   'Walid',   'Fathy',   4, 1;
-
-
-
-EXEC Payment_Create 'Cash',  '2025-01-05', 4, 10001;
-EXEC Payment_Create 'Card',  '2025-01-10', 5, 10002;
-EXEC Payment_Create 'Cash',  '2025-02-14', 6, 10003;
-EXEC Payment_Create 'Card',  '2025-02-20', 7, 10004;
-EXEC Payment_Create 'Cash',  '2025-03-01', 4, 10005;
-EXEC Payment_Create 'Card',  '2025-03-15', 5, 10001;
-EXEC Payment_Create 'Cash',  '2025-04-02', 6, 10002;
-
-
-
-EXEC Reservation_Create '2025-01-05', '2025-01-12', 'Pending',  10001, 'ABC-1234', 1, 2, NULL,         NULL;
-EXEC Reservation_Create '2025-02-14', '2025-02-20', 'Pending',  10003, 'JKL-3456', 3, 3, NULL,         NULL;
-
-
-EXEC Reservation_Create '2025-01-10', '2025-01-17', 'Pickedup', 10002, 'DEF-5678', 2, 1, NULL,         '2025-01-10';
-EXEC Reservation_Create '2025-03-01', '2025-03-08', 'Pickedup', 10005, 'PQR-1122', 4, 4, NULL,         '2025-03-01';
-
-
-EXEC Reservation_Create '2025-02-20', '2025-02-27', 'Returned', 10004, 'STU-3344', 3, 2, '2025-02-26', '2025-02-20';
-EXEC Reservation_Create '2025-03-15', '2025-03-22', 'Returned', 10001, 'VWX-5566', 2, 5, '2025-03-21', '2025-03-15';
-EXEC Reservation_Create '2025-04-02', '2025-04-09', 'Returned', 10002, 'ABC-1234', 1, 3, '2025-04-08', '2025-04-02';
+EXEC Employee_Create 'Pass@001', 'sup.cairo@rentalco.com',       'Supervisor', 'Ahmed',    'Hassan',   1,  NULL;
+EXEC Employee_Create 'Pass@002', 'sup.alex@rentalco.com',        'Supervisor', 'Mohamed',  'Ali',      2,  NULL;
+EXEC Employee_Create 'Pass@003', 'sup.giza@rentalco.com',        'Supervisor', 'Sara',     'Mostafa',  3,  NULL;
+EXEC Employee_Create 'Pass@004', 'sup.luxor@rentalco.com',       'Supervisor', 'Omar',     'Saleh',    4,  NULL;
+EXEC Employee_Create 'Pass@005', 'sup.aswan@rentalco.com',       'Supervisor', 'Layla',    'Ibrahim',  5,  NULL;
+EXEC Employee_Create 'Pass@006', 'sup.hurghada@rentalco.com',    'Supervisor', 'Khaled',   'Farouk',   6,  NULL;
+EXEC Employee_Create 'Pass@007', 'sup.sharm@rentalco.com',       'Supervisor', 'Mona',     'Kamal',    7,  NULL;
+EXEC Employee_Create 'Pass@008', 'sup.mansoura@rentalco.com',    'Supervisor', 'Yassin',   'Gamal',    8,  NULL;
+EXEC Employee_Create 'Pass@009', 'sup.tanta@rentalco.com',       'Supervisor', 'Rania',    'Nour',     9,  NULL;
+EXEC Employee_Create 'Pass@010', 'sup.portsaid@rentalco.com',    'Supervisor', 'Amr',      'Taha',     10, NULL;
+EXEC Employee_Create 'Pass@011', 'emp01.cairo@rentalco.com',     'Employee',   'Nour',     'Ahmed',    1,  1;
+EXEC Employee_Create 'Pass@012', 'emp02.cairo@rentalco.com',     'Employee',   'Hana',     'Samir',    1,  1;
+EXEC Employee_Create 'Pass@013', 'emp03.cairo@rentalco.com',     'Employee',   'Dina',     'Adel',     1,  1;
+EXEC Employee_Create 'Pass@014', 'emp01.alex@rentalco.com',      'Employee',   'Tarek',    'Mansour',  2,  2;
+EXEC Employee_Create 'Pass@015', 'emp02.alex@rentalco.com',      'Employee',   'Saly',     'Youssef',  2,  2;
+EXEC Employee_Create 'Pass@016', 'emp01.giza@rentalco.com',      'Employee',   'Mariam',   'Sherif',   3,  3;
+EXEC Employee_Create 'Pass@017', 'emp02.giza@rentalco.com',      'Employee',   'Kareem',   'Osman',    3,  3;
+EXEC Employee_Create 'Pass@018', 'emp01.luxor@rentalco.com',     'Employee',   'Amal',     'Helal',    4,  4;
+EXEC Employee_Create 'Pass@019', 'emp01.aswan@rentalco.com',     'Employee',   'Wael',     'Lotfy',    5,  5;
+EXEC Employee_Create 'Pass@020', 'emp01.hurghada@rentalco.com',  'Employee',   'Noha',     'Fathy',    6,  6;
+EXEC Employee_Create 'Pass@021', 'emp02.hurghada@rentalco.com',  'Employee',   'Youssef',  'Aziz',     6,  6;
+EXEC Employee_Create 'Pass@022', 'emp01.sharm@rentalco.com',     'Employee',   'Iman',     'Hamdy',    7,  7;
+EXEC Employee_Create 'Pass@023', 'emp02.sharm@rentalco.com',     'Employee',   'Sherif',   'Ragab',    7,  7;
+EXEC Employee_Create 'Pass@024', 'emp01.mansoura@rentalco.com',  'Employee',   'Heba',     'Zaki',     8,  8;
+EXEC Employee_Create 'Pass@025', 'emp02.mansoura@rentalco.com',  'Employee',   'Amira',    'Sabry',    8,  8;
+EXEC Employee_Create 'Pass@026', 'emp01.tanta@rentalco.com',     'Employee',   'Mahmoud',  'Hafez',    9,  9;
+EXEC Employee_Create 'Pass@027', 'emp02.tanta@rentalco.com',     'Employee',   'Rana',     'Saber',    9,  9;
+EXEC Employee_Create 'Pass@028', 'emp01.portsaid@rentalco.com',  'Employee',   'Ahmed',    'Mohsen',   10, 10;
+EXEC Employee_Create 'Pass@029', 'emp02.portsaid@rentalco.com',  'Employee',   'Fatma',    'Badr',     10, 10;
+EXEC Employee_Create 'Pass@030', 'emp03.alex@rentalco.com',      'Employee',   'Hassan',   'Soliman',  2,  2;
 
 
+EXEC Payment_Create 'Cash', '2026-01-05',  1,  10000001;
+EXEC Payment_Create 'Card', '2026-01-07',  2,  10000002;
+EXEC Payment_Create 'Cash', '2026-01-10',  3,  10000003;
+EXEC Payment_Create 'Card', '2026-01-12',  4,  10000004;
+EXEC Payment_Create 'Cash', '2026-01-15',  5,  10000005;
+EXEC Payment_Create 'Card', '2026-01-17',  6,  10000006;
+EXEC Payment_Create 'Cash', '2026-01-20',  7,  10000007;
+EXEC Payment_Create 'Card', '2026-01-22',  8,  10000008;
+EXEC Payment_Create 'Cash', '2026-01-25',  9,  10000009;
+EXEC Payment_Create 'Card', '2026-01-27', 10,  10000010;
+EXEC Payment_Create 'Cash', '2026-01-28', 11,  10000011;
+EXEC Payment_Create 'Card', '2026-01-30', 12,  10000012;
+EXEC Payment_Create 'Cash', '2026-02-02', 13,  10000013;
+EXEC Payment_Create 'Card', '2026-02-04', 14,  10000014;
+EXEC Payment_Create 'Cash', '2026-02-06', 15,  10000015;
+EXEC Payment_Create 'Card', '2026-02-08', 16,  10000016;
+EXEC Payment_Create 'Cash', '2026-02-10', 17,  10000017;
+EXEC Payment_Create 'Card', '2026-02-12', 18,  10000018;
+EXEC Payment_Create 'Cash', '2026-02-14', 19,  10000019;
+EXEC Payment_Create 'Card', '2026-02-16', 20,  10000020;
+EXEC Payment_Create 'Cash', '2026-02-18', 21,  10000021;
+EXEC Payment_Create 'Card', '2026-02-20', 22,  10000022;
+EXEC Payment_Create 'Cash', '2026-02-22', 23,  10000023;
+EXEC Payment_Create 'Card', '2026-02-24', 24,  10000024;
+EXEC Payment_Create 'Cash', '2026-02-26', 25,  10000025;
+EXEC Payment_Create 'Card', '2026-02-28', 26,  10000026;
+EXEC Payment_Create 'Cash', '2026-03-02',  1,  10000027;
+EXEC Payment_Create 'Card', '2026-03-04',  2,  10000028;
+EXEC Payment_Create 'Cash', '2026-03-06',  3,  10000029;
+EXEC Payment_Create 'Card', '2026-03-08',  4,  10000030;
+EXEC Payment_Create 'Cash', '2026-03-10',  5,  10000031;
+EXEC Payment_Create 'Card', '2026-03-12',  6,  10000032;
+EXEC Payment_Create 'Cash', '2026-03-14',  7,  10000033;
+EXEC Payment_Create 'Card', '2026-03-16',  8,  10000034;
+EXEC Payment_Create 'Cash', '2026-03-18',  9,  10000035;
+EXEC Payment_Create 'Card', '2026-03-20', 10,  10000036;
+EXEC Payment_Create 'Cash', '2026-03-22', 11,  10000037;
+EXEC Payment_Create 'Card', '2026-03-24', 12,  10000038;
+EXEC Payment_Create 'Cash', '2026-03-26', 13,  10000039;
+EXEC Payment_Create 'Card', '2026-03-28', 14,  10000040;
+EXEC Payment_Create 'Cash', '2026-03-30', 15,  10000041;
+EXEC Payment_Create 'Card', '2026-04-01', 16,  10000042;
+EXEC Payment_Create 'Cash', '2026-04-03', 17,  10000043;
+EXEC Payment_Create 'Card', '2026-04-05', 18,  10000044;
+EXEC Payment_Create 'Cash', '2026-04-07', 19,  10000045;
+EXEC Payment_Create 'Card', '2026-04-09', 20,  10000046;
+EXEC Payment_Create 'Cash', '2026-04-11', 21,  10000047;
+EXEC Payment_Create 'Card', '2026-04-13', 22,  10000048;
+EXEC Payment_Create 'Cash', '2026-04-15', 23,  10000049;
+EXEC Payment_Create 'Card', '2026-04-17', 24,  10000050;
+EXEC Payment_Create 'Cash', '2026-04-19', 25,  10000001;
+EXEC Payment_Create 'Card', '2026-04-21', 26,  10000002;
+EXEC Payment_Create 'Cash', '2026-04-23', 27,  10000003;
+EXEC Payment_Create 'Card', '2026-04-25', 28,  10000004;
+EXEC Payment_Create 'Cash', '2026-04-27', 29,  10000005;
+EXEC Payment_Create 'Card', '2026-04-29', 30,  10000006;
+EXEC Payment_Create 'Cash', '2026-05-01',  1,  10000007;
+EXEC Payment_Create 'Card', '2026-05-03',  2,  10000008;
+EXEC Payment_Create 'Cash', '2026-05-05',  3,  10000009;
+EXEC Payment_Create 'Card', '2026-05-07',  4,  10000010;
+EXEC Payment_Create 'Cash', '2026-05-09',  5,  10000011;
+EXEC Payment_Create 'Card', '2026-05-11',  6,  10000012;
+EXEC Payment_Create 'Cash', '2026-05-13',  7,  10000013;
+EXEC Payment_Create 'Card', '2026-05-15',  8,  10000014;
+EXEC Payment_Create 'Cash', '2026-05-17',  9,  10000015;
+EXEC Payment_Create 'Card', '2026-05-19', 10,  10000016;
+EXEC Payment_Create 'Cash', '2026-06-01', 11,  10000017;
+EXEC Payment_Create 'Card', '2026-06-03', 12,  10000018;
+EXEC Payment_Create 'Cash', '2026-06-05', 13,  10000019;
+EXEC Payment_Create 'Card', '2026-06-07', 14,  10000020;
+EXEC Payment_Create 'Cash', '2026-06-09', 15,  10000021;
+EXEC Payment_Create 'Card', '2026-06-11', 16,  10000022;
+EXEC Payment_Create 'Cash', '2026-06-13', 17,  10000023;
+EXEC Payment_Create 'Card', '2026-06-15', 18,  10000024;
+EXEC Payment_Create 'Cash', '2026-06-17', 19,  10000025;
+EXEC Payment_Create 'Card', '2026-06-19', 20,  10000026;
+EXEC Payment_Create 'Cash', '2026-07-01', 21,  10000027;
+EXEC Payment_Create 'Card', '2026-07-03', 22,  10000028;
+EXEC Payment_Create 'Cash', '2026-07-05', 23,  10000029;
+EXEC Payment_Create 'Card', '2026-07-07', 24,  10000030;
+EXEC Payment_Create 'Cash', '2026-07-09', 25,  10000031;
+EXEC Payment_Create 'Card', '2026-07-11', 26,  10000032;
+EXEC Payment_Create 'Cash', '2026-07-13', 27,  10000033;
+EXEC Payment_Create 'Card', '2026-07-15', 28,  10000034;
+EXEC Payment_Create 'Cash', '2026-08-01', 29,  10000035;
+EXEC Payment_Create 'Card', '2026-08-03', 30,  10000036;
+EXEC Payment_Create 'Cash', '2026-08-05',  1,  10000037;
+EXEC Payment_Create 'Card', '2026-08-07',  2,  10000038;
+EXEC Payment_Create 'Cash', '2026-09-01',  3,  10000039;
+EXEC Payment_Create 'Card', '2026-09-03',  4,  10000040;
+EXEC Payment_Create 'Cash', '2026-09-05',  5,  10000041;
+EXEC Payment_Create 'Card', '2026-09-07',  6,  10000042;
+EXEC Payment_Create 'Cash', '2026-10-01',  7,  10000043;
+EXEC Payment_Create 'Card', '2026-10-03',  8,  10000044;
+EXEC Payment_Create 'Cash', '2026-11-01',  9,  10000045;
+EXEC Payment_Create 'Card', '2026-11-03', 10,  10000046;
+EXEC Payment_Create 'Cash', '2026-12-01', 11,  10000047;
+EXEC Payment_Create 'Card', '2026-12-05', 12,  10000048;
 
 
+EXEC Reservation_Create '2026-01-05',  1,  '2026-01-12', 'Returned', 10000001, 'AAA-001', 1,  1,  '2026-01-11', '2026-01-06';
+EXEC Reservation_Create '2026-01-07',  2,  '2026-01-14', 'Returned', 10000002, 'AAA-003', 2,  2,  '2026-01-13', '2026-01-08';
+EXEC Reservation_Create '2026-01-10',  3,  '2026-01-17', 'Returned', 10000003, 'AAA-005', 3,  3,  '2026-01-16', '2026-01-11';
+EXEC Reservation_Create '2026-01-12',  4,  '2026-01-19', 'Returned', 10000004, 'AAA-007', 4,  4,  '2026-01-18', '2026-01-13';
+EXEC Reservation_Create '2026-01-15',  5,  '2026-01-22', 'Returned', 10000005, 'AAA-009', 5,  5,  '2026-01-21', '2026-01-16';
+EXEC Reservation_Create '2026-01-17',  6,  '2026-01-24', 'Returned', 10000006, 'AAA-011', 6,  6,  '2026-01-23', '2026-01-18';
+EXEC Reservation_Create '2026-01-20',  7,  '2026-01-27', 'Returned', 10000007, 'AAA-013', 7,  7,  '2026-01-26', '2026-01-21';
+EXEC Reservation_Create '2026-01-22',  8,  '2026-01-29', 'Returned', 10000008, 'AAA-015', 8,  8,  '2026-01-28', '2026-01-23';
+EXEC Reservation_Create '2026-01-25',  9,  '2026-02-01', 'Returned', 10000009, 'AAA-017', 9,  9,  '2026-01-31', '2026-01-26';
+EXEC Reservation_Create '2026-01-27', 10,  '2026-02-03', 'Returned', 10000010, 'AAA-019', 10, 10, '2026-02-02', '2026-01-28';
+EXEC Reservation_Create '2026-01-28', 11,  '2026-02-04', 'Returned', 10000011, 'BBB-001', 1,  2,  '2026-02-03', '2026-01-29';
+EXEC Reservation_Create '2026-01-30', 12,  '2026-02-06', 'Returned', 10000012, 'BBB-003', 2,  3,  '2026-02-05', '2026-01-31';
+EXEC Reservation_Create '2026-02-02', 13,  '2026-02-09', 'Returned', 10000013, 'BBB-005', 3,  4,  '2026-02-08', '2026-02-03';
+EXEC Reservation_Create '2026-02-04', 14,  '2026-02-11', 'Returned', 10000014, 'BBB-008', 4,  5,  '2026-02-10', '2026-02-05';
+EXEC Reservation_Create '2026-02-06', 15,  '2026-02-13', 'Returned', 10000015, 'BBB-010', 5,  6,  '2026-02-12', '2026-02-07';
+EXEC Reservation_Create '2026-02-08', 16,  '2026-02-15', 'Returned', 10000016, 'CCC-001', 6,  7,  '2026-02-14', '2026-02-09';
+EXEC Reservation_Create '2026-02-10', 17,  '2026-02-17', 'Returned', 10000017, 'CCC-004', 7,  8,  '2026-02-16', '2026-02-11';
+EXEC Reservation_Create '2026-02-12', 18,  '2026-02-19', 'Returned', 10000018, 'CCC-007', 8,  9,  '2026-02-18', '2026-02-13';
+EXEC Reservation_Create '2026-02-14', 19,  '2026-02-21', 'Returned', 10000019, 'CCC-009', 9,  10, '2026-02-20', '2026-02-15';
+EXEC Reservation_Create '2026-02-16', 20,  '2026-02-23', 'Returned', 10000020, 'DDD-001', 1,  2,  '2026-02-22', '2026-02-17';
+EXEC Reservation_Create '2026-02-18', 21,  '2026-02-25', 'Returned', 10000021, 'DDD-003', 2,  3,  '2026-02-24', '2026-02-19';
+EXEC Reservation_Create '2026-02-20', 22,  '2026-02-27', 'Returned', 10000022, 'DDD-005', 3,  4,  '2026-02-26', '2026-02-21';
+EXEC Reservation_Create '2026-02-22', 23,  '2026-03-01', 'Returned', 10000023, 'DDD-007', 4,  5,  '2026-02-28', '2026-02-23';
+EXEC Reservation_Create '2026-02-24', 24,  '2026-03-03', 'Returned', 10000024, 'DDD-009', 5,  6,  '2026-03-02', '2026-02-25';
+EXEC Reservation_Create '2026-02-26', 25,  '2026-03-05', 'Returned', 10000025, 'EEE-001', 6,  7,  '2026-03-04', '2026-02-27';
+EXEC Reservation_Create '2026-02-28', 26,  '2026-03-07', 'Returned', 10000026, 'EEE-003', 7,  8,  '2026-03-06', '2026-03-01';
+EXEC Reservation_Create '2026-03-02', 27,  '2026-03-09', 'Returned', 10000027, 'EEE-006', 8,  9,  '2026-03-08', '2026-03-03';
+EXEC Reservation_Create '2026-03-04', 28,  '2026-03-11', 'Returned', 10000028, 'EEE-009', 9,  10, '2026-03-10', '2026-03-05';
+EXEC Reservation_Create '2026-03-06', 29,  '2026-03-13', 'Returned', 10000029, 'AAA-002', 1,  1,  '2026-03-12', '2026-03-07';
+EXEC Reservation_Create '2026-03-08', 30,  '2026-03-15', 'Returned', 10000030, 'AAA-004', 2,  2,  '2026-03-14', '2026-03-09';
+EXEC Reservation_Create '2026-03-10', 31,  '2026-03-17', 'Returned', 10000031, 'AAA-006', 3,  3,  '2026-03-16', '2026-03-11';
+EXEC Reservation_Create '2026-03-12', 32,  '2026-03-19', 'Returned', 10000032, 'AAA-008', 4,  4,  '2026-03-18', '2026-03-13';
+EXEC Reservation_Create '2026-03-14', 33,  '2026-03-21', 'Returned', 10000033, 'AAA-010', 5,  5,  '2026-03-20', '2026-03-15';
+EXEC Reservation_Create '2026-03-16', 34,  '2026-03-23', 'Returned', 10000034, 'AAA-012', 6,  6,  '2026-03-22', '2026-03-17';
+EXEC Reservation_Create '2026-03-18', 35,  '2026-03-25', 'Returned', 10000035, 'AAA-014', 7,  7,  '2026-03-24', '2026-03-19';
+EXEC Reservation_Create '2026-03-20', 36,  '2026-03-27', 'Returned', 10000036, 'AAA-016', 8,  8,  '2026-03-26', '2026-03-21';
+EXEC Reservation_Create '2026-03-22', 37,  '2026-03-29', 'Returned', 10000037, 'AAA-018', 9,  9,  '2026-03-28', '2026-03-23';
+EXEC Reservation_Create '2026-03-24', 38,  '2026-03-31', 'Returned', 10000038, 'AAA-020', 10, 10, '2026-03-30', '2026-03-25';
+EXEC Reservation_Create '2026-03-26', 39,  '2026-04-02', 'Returned', 10000039, 'BBB-002', 1,  2,  '2026-04-01', '2026-03-27';
+EXEC Reservation_Create '2026-03-28', 40,  '2026-04-04', 'Returned', 10000040, 'BBB-004', 2,  3,  '2026-04-03', '2026-03-29';
 
 
+EXEC Reservation_Create '2026-04-01', 41,  '2026-04-15', 'Pickedup', 10000041, 'BBB-006', 3,  NULL, NULL, '2026-04-02';
+EXEC Reservation_Create '2026-04-03', 42,  '2026-04-17', 'Pickedup', 10000042, 'BBB-007', 4,  NULL, NULL, '2026-04-04';
+EXEC Reservation_Create '2026-04-05', 43,  '2026-04-19', 'Pickedup', 10000043, 'BBB-009', 5,  NULL, NULL, '2026-04-06';
+EXEC Reservation_Create '2026-04-07', 44,  '2026-04-21', 'Pickedup', 10000044, 'CCC-002', 6,  NULL, NULL, '2026-04-08';
+EXEC Reservation_Create '2026-04-09', 45,  '2026-04-23', 'Pickedup', 10000045, 'CCC-003', 7,  NULL, NULL, '2026-04-10';
+EXEC Reservation_Create '2026-04-11', 46,  '2026-04-25', 'Pickedup', 10000046, 'CCC-005', 8,  NULL, NULL, '2026-04-12';
+EXEC Reservation_Create '2026-04-13', 47,  '2026-04-27', 'Pickedup', 10000047, 'CCC-006', 9,  NULL, NULL, '2026-04-14';
+EXEC Reservation_Create '2026-04-15', 48,  '2026-04-29', 'Pickedup', 10000048, 'CCC-008', 10, NULL, NULL, '2026-04-16';
+EXEC Reservation_Create '2026-04-17', 49,  '2026-05-01', 'Pickedup', 10000049, 'CCC-010', 1,  NULL, NULL, '2026-04-18';
+EXEC Reservation_Create '2026-04-19', 50,  '2026-05-03', 'Pickedup', 10000050, 'DDD-002', 2,  NULL, NULL, '2026-04-20';
+EXEC Reservation_Create '2026-04-21', 51,  '2026-05-05', 'Pickedup', 10000001, 'DDD-004', 3,  NULL, NULL, '2026-04-22';
+EXEC Reservation_Create '2026-04-23', 52,  '2026-05-07', 'Pickedup', 10000002, 'DDD-006', 4,  NULL, NULL, '2026-04-24';
+EXEC Reservation_Create '2026-04-25', 53,  '2026-05-09', 'Pickedup', 10000003, 'DDD-008', 5,  NULL, NULL, '2026-04-26';
+EXEC Reservation_Create '2026-04-27', 54,  '2026-05-11', 'Pickedup', 10000004, 'DDD-010', 6,  NULL, NULL, '2026-04-28';
+EXEC Reservation_Create '2026-04-29', 55,  '2026-05-13', 'Pickedup', 10000005, 'EEE-002', 7,  NULL, NULL, '2026-04-30';
+EXEC Reservation_Create '2026-05-01', 56,  '2026-05-15', 'Pickedup', 10000006, 'EEE-004', 8,  NULL, NULL, '2026-05-02';
+EXEC Reservation_Create '2026-05-03', 57,  '2026-05-17', 'Pickedup', 10000007, 'EEE-005', 9,  NULL, NULL, '2026-05-04';
+EXEC Reservation_Create '2026-05-05', 58,  '2026-05-19', 'Pickedup', 10000008, 'EEE-007', 10, NULL, NULL, '2026-05-06';
+EXEC Reservation_Create '2026-05-07', 59,  '2026-05-21', 'Pickedup', 10000009, 'EEE-008', 1,  NULL, NULL, '2026-05-08';
+EXEC Reservation_Create '2026-05-09', 60,  '2026-05-23', 'Pickedup', 10000010, 'EEE-010', 2,  NULL, NULL, '2026-05-10';
 
 
+EXEC Reservation_Create '2026-05-11', 61,  '2026-05-25', 'Pending',  10000011, 'AAA-001', 3,  4,  NULL, NULL;
+EXEC Reservation_Create '2026-05-13', 62,  '2026-05-27', 'Pending',  10000012, 'AAA-002', 4,  5,  NULL, NULL;
+EXEC Reservation_Create '2026-05-15', 63,  '2026-05-29', 'Pending',  10000013, 'AAA-004', 5,  6,  NULL, NULL;
+EXEC Reservation_Create '2026-05-17', 64,  '2026-05-31', 'Pending',  10000014, 'AAA-006', 6,  7,  NULL, NULL;
+EXEC Reservation_Create '2026-05-19', 65,  '2026-06-02', 'Pending',  10000015, 'AAA-008', 7,  8,  NULL, NULL;
+EXEC Reservation_Create '2026-06-01', 66,  '2026-06-15', 'Pending',  10000016, 'AAA-010', 8,  9,  NULL, NULL;
+EXEC Reservation_Create '2026-06-03', 67,  '2026-06-17', 'Pending',  10000017, 'AAA-012', 9,  10, NULL, NULL;
+EXEC Reservation_Create '2026-06-05', 68,  '2026-06-19', 'Pending',  10000018, 'AAA-014', 10, 1,  NULL, NULL;
+EXEC Reservation_Create '2026-06-07', 69,  '2026-06-21', 'Pending',  10000019, 'AAA-016', 1,  2,  NULL, NULL;
+EXEC Reservation_Create '2026-06-09', 70,  '2026-06-23', 'Pending',  10000020, 'AAA-018', 2,  3,  NULL, NULL;
+EXEC Reservation_Create '2026-06-11', 71,  '2026-06-25', 'Pending',  10000021, 'AAA-020', 3,  4,  NULL, NULL;
+EXEC Reservation_Create '2026-06-13', 72,  '2026-06-27', 'Pending',  10000022, 'BBB-001', 4,  5,  NULL, NULL;
+EXEC Reservation_Create '2026-06-15', 73,  '2026-06-29', 'Pending',  10000023, 'BBB-002', 5,  6,  NULL, NULL;
+EXEC Reservation_Create '2026-06-17', 74,  '2026-07-01', 'Pending',  10000024, 'BBB-003', 6,  7,  NULL, NULL;
+EXEC Reservation_Create '2026-06-19', 75,  '2026-07-03', 'Pending',  10000025, 'BBB-004', 7,  8,  NULL, NULL;
+EXEC Reservation_Create '2026-07-01', 76,  '2026-07-15', 'Pending',  10000026, 'BBB-006', 8,  9,  NULL, NULL;
+EXEC Reservation_Create '2026-07-03', 77,  '2026-07-17', 'Pending',  10000027, 'BBB-007', 9,  10, NULL, NULL;
+EXEC Reservation_Create '2026-07-05', 78,  '2026-07-19', 'Pending',  10000028, 'BBB-009', 1,  2,  NULL, NULL;
+EXEC Reservation_Create '2026-07-07', 79,  '2026-07-21', 'Pending',  10000029, 'CCC-002', 2,  3,  NULL, NULL;
+EXEC Reservation_Create '2026-07-09', 80,  '2026-07-23', 'Pending',  10000030, 'CCC-003', 3,  4,  NULL, NULL;
+EXEC Reservation_Create '2026-07-11', 81,  '2026-07-25', 'Pending',  10000031, 'CCC-005', 4,  5,  NULL, NULL;
+EXEC Reservation_Create '2026-07-13', 82,  '2026-07-27', 'Pending',  10000032, 'CCC-006', 5,  6,  NULL, NULL;
+EXEC Reservation_Create '2026-07-15', 83,  '2026-07-29', 'Pending',  10000033, 'CCC-008', 6,  7,  NULL, NULL;
+EXEC Reservation_Create '2026-07-17', 84,  '2026-07-31', 'Pending',  10000034, 'CCC-010', 7,  8,  NULL, NULL;
+EXEC Reservation_Create '2026-07-19', 85,  '2026-08-02', 'Pending',  10000035, 'DDD-002', 8,  9,  NULL, NULL;
+EXEC Reservation_Create '2026-08-01', 86,  '2026-08-15', 'Pending',  10000036, 'DDD-004', 9,  10, NULL, NULL;
+EXEC Reservation_Create '2026-08-03', 87,  '2026-08-17', 'Pending',  10000037, 'DDD-006', 10, 1,  NULL, NULL;
+EXEC Reservation_Create '2026-08-05', 88,  '2026-08-19', 'Pending',  10000038, 'DDD-008', 1,  2,  NULL, NULL;
+EXEC Reservation_Create '2026-09-01', 89,  '2026-09-15', 'Pending',  10000039, 'DDD-010', 2,  3,  NULL, NULL;
+EXEC Reservation_Create '2026-09-03', 90,  '2026-09-17', 'Pending',  10000040, 'EEE-002', 3,  4,  NULL, NULL;
+EXEC Reservation_Create '2026-09-05', 91,  '2026-09-19', 'Pending',  10000041, 'EEE-004', 4,  5,  NULL, NULL;
+EXEC Reservation_Create '2026-09-07', 92,  '2026-09-21', 'Pending',  10000042, 'EEE-005', 5,  6,  NULL, NULL;
+EXEC Reservation_Create '2026-10-01', 93,  '2026-10-15', 'Pending',  10000043, 'EEE-007', 6,  7,  NULL, NULL;
+EXEC Reservation_Create '2026-10-03', 94,  '2026-10-17', 'Pending',  10000044, 'EEE-008', 7,  8,  NULL, NULL;
+EXEC Reservation_Create '2026-11-01', 95,  '2026-11-15', 'Pending',  10000045, 'EEE-010', 8,  9,  NULL, NULL;
+EXEC Reservation_Create '2026-11-03', 96,  '2026-11-17', 'Pending',  10000046, 'AAA-003', 9,  10, NULL, NULL;
+EXEC Reservation_Create '2026-11-05', 97,  '2026-11-19', 'Pending',  10000047, 'AAA-005', 10, 1,  NULL, NULL;
+EXEC Reservation_Create '2026-11-07', 98,  '2026-11-21', 'Pending',  10000048, 'AAA-007', 1,  2,  NULL, NULL;
+EXEC Reservation_Create '2026-12-01', 99,  '2026-12-15', 'Pending',  10000049, 'AAA-009', 2,  3,  NULL, NULL;
+EXEC Reservation_Create '2026-12-05', 100, '2026-12-19', 'Pending',  10000050, 'AAA-011', 3,  4,  NULL, NULL;
 
-
-
--- ============================================================
--- DUMMY DATA INSERTIONS
--- All reservation/payment dates between 2026-04-27 and 2026-05-02
--- Run in FK dependency order
--- ============================================================
-
-
--- ============================================================
--- 1. CLIENT
--- ============================================================
-INSERT INTO Client VALUES (10001, 'Ahmed',   'Hassan',   'ahmed.hassan@gmail.com',    '201012345678');
-INSERT INTO Client VALUES (10002, 'Sara',    'Mahmoud',  'sara.mahmoud@yahoo.com',    '201123456789');
-INSERT INTO Client VALUES (10003, 'Omar',    'Ali',      'omar.ali@hotmail.com',      '201234567890');
-INSERT INTO Client VALUES (10004, 'Nour',    'Ibrahim',  'nour.ibrahim@outlook.com',  '201345678901');
-INSERT INTO Client VALUES (10005, 'Khaled',  'Mostafa',  'khaled.mostafa@gmail.com',  '201456789012');
-
-
--- ============================================================
--- 2. BRANCH
--- ============================================================
-EXEC Branch_Create 'Cairo',       12,  3,  '202345678901';
-EXEC Branch_Create 'Alexandria',  7,   1,  '203456789012';
-EXEC Branch_Create 'Giza',        45,  2,  '202567890123';
-EXEC Branch_Create 'Mansoura',    88,  5,  '205678901234';
-EXEC Branch_Create 'Aswan',       3,   9,  '297890123456';
--- Branch_IDs: 1..5
-
-
--- ============================================================
--- 3. CAR CATEGORY
--- ============================================================
-EXEC CarCategory_Create 'Sedan',     'Toyota',  'Camry',   2022, 'Automatic', 350.00;
-EXEC CarCategory_Create 'SUV',       'Hyundai', 'Tucson',  2023, 'Automatic', 500.00;
-EXEC CarCategory_Create 'Hatchback', 'Kia',     'Rio',     2021, 'Manual',    250.00;
-EXEC CarCategory_Create 'Coupe',     'BMW',     '430i',    2023, 'DCT',       800.00;
-EXEC CarCategory_Create 'Picanto',   'Kia',     'Picanto', 2020, 'Manual',    180.00;
--- Category_IDs: 1..5
-
-
--- ============================================================
--- 4. CAR
--- ============================================================
-EXEC Car_Create 'ABC-1234', 'Free',     5, 12000, 'White',  1, 1;
-EXEC Car_Create 'DEF-5678', 'Reserved', 5, 30500, 'Black',  1, 2;
-EXEC Car_Create 'GHI-9012', 'Reserved', 7, 45000, 'Silver', 2, 1;
-EXEC Car_Create 'JKL-3456', 'Free',     5, 8200,  'Red',    3, 3;
-EXEC Car_Create 'MNO-7890', 'Free',     5, 62000, 'Blue',   4, 2;
-EXEC Car_Create 'PQR-1122', 'Reserved', 4, 15000, 'White',  5, 4;
-EXEC Car_Create 'STU-3344', 'Free',     5, 27000, 'Gray',   2, 3;
-EXEC Car_Create 'VWX-5566', 'Free',     7, 51000, 'Black',  2, 5;
-
-
--- ============================================================
--- 5. EMPLOYEE
---    Supervisors first so their Emp_IDs exist for subordinates
--- ============================================================
-EXEC Employee_Create 'pass$Cairo1', 'mgr.cairo@rental.com',   'Supervisor', 'Tarek',   'Sami',   1, NULL;
-EXEC Employee_Create 'pass$Alex1',  'mgr.alex@rental.com',    'Supervisor', 'Dina',    'Fouad',  2, NULL;
-EXEC Employee_Create 'pass$Giza1',  'mgr.giza@rental.com',    'Supervisor', 'Youssef', 'Nabil',  3, NULL;
--- Emp_IDs: 1 (Tarek/Cairo), 2 (Dina/Alex), 3 (Youssef/Giza)
-
-EXEC Employee_Create 'pass$emp01',  'ali.kamal@rental.com',   'Employee',   'Ali',     'Kamal',  1, 1;
-EXEC Employee_Create 'pass$emp02',  'mona.riad@rental.com',   'Employee',   'Mona',    'Riad',   1, 1;
-EXEC Employee_Create 'pass$emp03',  'hassan.omar@rental.com', 'Employee',   'Hassan',  'Omar',   2, 2;
-EXEC Employee_Create 'pass$emp04',  'nadia.samir@rental.com', 'Employee',   'Nadia',   'Samir',  3, 3;
-EXEC Employee_Create 'pass$emp05',  'walid.fathy@rental.com', 'Employee',   'Walid',   'Fathy',  4, 1;
--- Emp_IDs: 4..8
-
-
--- ============================================================
--- 6. PAYMENT  (all dated 2026-04-27 to 2026-05-02)
--- ============================================================
-EXEC Payment_Create 'Cash', '2026-04-27', 4, 10001;   -- Payment_ID 1
-EXEC Payment_Create 'Card', '2026-04-27', 5, 10002;   -- Payment_ID 2
-EXEC Payment_Create 'Cash', '2026-04-28', 6, 10003;   -- Payment_ID 3
-EXEC Payment_Create 'Card', '2026-04-28', 7, 10004;   -- Payment_ID 4
-EXEC Payment_Create 'Cash', '2026-04-29', 4, 10005;   -- Payment_ID 5
-EXEC Payment_Create 'Card', '2026-04-30', 5, 10001;   -- Payment_ID 6
-EXEC Payment_Create 'Cash', '2026-05-01', 6, 10002;   -- Payment_ID 7
-EXEC Payment_Create 'Card', '2026-05-01', 7, 10003;   -- Payment_ID 8
-EXEC Payment_Create 'Cash', '2026-05-02', 4, 10004;   -- Payment_ID 9
-EXEC Payment_Create 'Card', '2026-05-02', 5, 10005;   -- Payment_ID 10
-
-
--- ============================================================
--- 7. RESERVATION  (Reservation_Date and Deadline within window)
---
---   'Pending'  -> Pickup_Date = NULL,        Return_Date = NULL
---   'Pickedup' -> Pickup_Date = pickup date, Return_Date = NULL
---   'Returned' -> Pickup_Date NOT NULL,       Return_Date >= Pickup_Date
--- ============================================================
-
--- Pending (booked but not yet picked up)
-EXEC Reservation_Create '2026-04-27', '2026-05-04', 'Pending',  10001, 'ABC-1234', 1, 2, NULL,         NULL;
-EXEC Reservation_Create '2026-04-28', '2026-05-05', 'Pending',  10003, 'JKL-3456', 3, 3, NULL,         NULL;
-EXEC Reservation_Create '2026-04-30', '2026-05-07', 'Pending',  10004, 'MNO-7890', 2, 4, NULL,         NULL;
-EXEC Reservation_Create '2026-05-01', '2026-05-08', 'Pending',  10005, 'STU-3344', 3, 1, NULL,         NULL;
-
--- Picked up (car is out, not yet returned)
-EXEC Reservation_Create '2026-04-27', '2026-05-03', 'Pickedup', 10002, 'DEF-5678', 2, 1, NULL,         '2026-04-27';
-EXEC Reservation_Create '2026-04-28', '2026-05-04', 'Pickedup', 10005, 'PQR-1122', 4, 4, NULL,         '2026-04-28';
-EXEC Reservation_Create '2026-04-29', '2026-05-06', 'Pickedup', 10001, 'GHI-9012', 1, 3, NULL,         '2026-04-29';
-
--- Returned (completed rentals within the window)
-EXEC Reservation_Create '2026-04-27', '2026-04-30', 'Returned', 10002, 'VWX-5566', 5, 2, '2026-04-30', '2026-04-27';
-EXEC Reservation_Create '2026-04-28', '2026-05-01', 'Returned', 10003, 'STU-3344', 3, 1, '2026-05-01', '2026-04-28';
-EXEC Reservation_Create '2026-04-29', '2026-05-02', 'Returned', 10004, 'ABC-1234', 1, 2, '2026-05-02', '2026-04-29';

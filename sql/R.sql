@@ -442,3 +442,17 @@ BEGIN
     where Car_Type = @Car_Type
 
 END;
+
+CREATE PROCEDURE branch_revenue
+    @Branch_ID INT
+AS
+BEGIN
+    SELECT
+        SUM(cat.Daily_Rental_Rate * DATEDIFF(DAY, r.Reservation_Date, r.Deadline)) AS Total_Revenue
+    FROM Reservation r
+    JOIN Payment      p   ON r.Payment_ID    = p.Payment_ID
+    JOIN Employee     e   ON p.Emp_ID        = e.Emp_ID
+    JOIN Car          c   ON r.License_Plate = c.License_Plate
+    JOIN Car_Category cat ON c.Category_ID   = cat.Category_ID
+    WHERE e.Branch_ID = @Branch_ID;
+END;
