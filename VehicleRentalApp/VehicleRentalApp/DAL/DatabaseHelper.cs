@@ -78,7 +78,7 @@ namespace VehicleRentalApp.DAL
         }
 
         // parameter is employee email output is object of type branch containing branch details
-        public Branch branch_details_from_employee(string email)
+        public static Branch branch_details_from_employee(string email)
         {
             Branch branch = null;
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -109,7 +109,7 @@ namespace VehicleRentalApp.DAL
         }
 
         //will give you an array of reservations, if empty then no recent reservations
-        public ReservationHorse[] recent_reservations()
+        public static ReservationHorse[] recent_reservations()
         {
             List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -130,8 +130,8 @@ namespace VehicleRentalApp.DAL
                             Reservation_Status = reader["Reservation_Status"].ToString(),
                             LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
                             License_Plate = reader["License_Plate"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch"]),
-                            Return_Branch_ID = Convert.ToInt32(reader["Return_Branch"]),
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = Convert.ToInt32(reader["Return_Branch_ID"]),
                             Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
                             Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
@@ -147,7 +147,7 @@ namespace VehicleRentalApp.DAL
         //will give you a chonky reservation with its detailsu
         // takes reservatioin id as parameter
         // also takes a boolean by ref and that boolean is true if reservation is found otherwise it is false
-        public ReservationChonk Reservation_Details(int Reservation_ID, ref bool exist)
+        public static ReservationChonk Reservation_Details(int Reservation_ID, ref bool exist)
         {
             ReservationChonk reservation = null;
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -172,8 +172,8 @@ namespace VehicleRentalApp.DAL
                             Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
                             Deadline = Convert.ToDateTime(reader["Deadline"]),
                             Reservation_Status = reader["Reservation_Status"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch"]),
-                            Return_Branch_ID = Convert.ToInt32(reader["Return_Branch"]),
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = Convert.ToInt32(reader["Return_Branch_ID"]),
                             Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
                             Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"]),
                             Driver_License_Number = Convert.ToInt32(reader["Driver_License_Number"]),
@@ -375,7 +375,7 @@ namespace VehicleRentalApp.DAL
             
         }
 
-        public int total_cars_in_branch(int branchID)
+        public static int total_cars_in_branch(int branchID)
         {
             int result=0;
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -434,7 +434,7 @@ namespace VehicleRentalApp.DAL
             return reservations.ToArray();
         }
 
-        public Car[] Get_Available_Cars_In_Branch (int branchID)
+        public static Car[] Get_Available_Cars_In_Branch (int branchID)
         {
             List<Car> cars = new List<Car>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())

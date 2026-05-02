@@ -188,7 +188,6 @@ CREATE PROCEDURE Get_Recent_Reservations
 AS
 BEGIN
     SELECT *
-
     FROM Reservation r
     WHERE r.Reservation_Date >= DATEADD(DAY, -7, CAST(GETDATE() AS DATE));
 END;

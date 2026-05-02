@@ -46,7 +46,7 @@ namespace VehicleRentalApp
             if (VHSAUTOMOTIVE.verify_credentials(username, password, ref result,ref employee))
             {
                 MessageBox.Show(result);
-                Dashboard dashboard = new Dashboard();
+                Dashboard dashboard = new Dashboard(employee);
                 dashboard.Show();
                 this.Hide();
             }

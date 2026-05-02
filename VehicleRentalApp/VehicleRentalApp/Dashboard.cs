@@ -7,16 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VehicleRentalApp.DAL;
+using VehicleRentalApp.Models;
 
 namespace VehicleRentalApp
 {
     public partial class Dashboard : Form
     {
-        public Dashboard()
+        Employee employee = null;
+        Branch branchitself = null;
+        String branchname = "";
+        int totalcarsperbranch = 0;
+        Car[] availablecars= null;
+        int availablecarsno = 0;
+        Double revenue = 0.0;
+
+        public Dashboard(Employee employee)
         {
             InitializeComponent();
             SetupLayout();
             NavigateTo(new overview());
+            this.employee = employee;
+            this.branchitself = VHSAUTOMOTIVE.branch_details_from_employee(employee.Email);
+            this.branchname = this.branchitself.City;
+            branch.Text = this.branchname;
+            this.totalcarsperbranch= VHSAUTOMOTIVE.total_cars_in_branch(this.employee.Branch_ID);
+            this.availablecars = VHSAUTOMOTIVE.Get_Available_Cars_In_Branch(this.employee.Branch_ID);
+            this.availablecarsno = this.availablecars.Length;
+            label3.Text = this.totalcarsperbranch.ToString();
+            label4.Text = this.availablecarsno.ToString();
+            //revenuefunctioncallhere
+            label1.Text = this.revenue.ToString() + " $";
+
             //profilePic.Click += (sender, e) => Display_side_bar(sender, e);
 
 
@@ -173,14 +195,14 @@ namespace VehicleRentalApp
 
         private void button5_Click(object sender, EventArgs e)
         {
-            BranchDetails branchDetails = new BranchDetails();
+            BranchDetails branchDetails = new BranchDetails(this.branchitself);
 
             branchDetails.ShowDialog();
         }
 
         private void branch_Click(object sender, EventArgs e)
         {
-            BranchDetails branchDetails = new BranchDetails();
+            BranchDetails branchDetails = new BranchDetails(this.branchitself);
 
             branchDetails.ShowDialog();
         }
@@ -204,6 +226,11 @@ namespace VehicleRentalApp
             Employees employees = new Employees();
 
             employees.ShowDialog();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

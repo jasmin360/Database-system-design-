@@ -264,6 +264,7 @@ GO
 --reservation 
 CREATE PROCEDURE Reservation_Create
      @Reservation_Date date,
+     @Payment_ID int,
      @Deadline date,
      @Reservation_Status varchar(20),
      @LicenseNo int,
@@ -275,11 +276,11 @@ CREATE PROCEDURE Reservation_Create
 AS
 BEGIN
     insert into Reservation (
-        Reservation_Date, Deadline, Reservation_Status, LicenseNo, License_Plate, Pickup_Branch_ID, Return_Branch_ID,
+        Reservation_Date,Payment_ID, Deadline, Reservation_Status, LicenseNo, License_Plate, Pickup_Branch_ID, Return_Branch_ID,
         Return_Date, Pickup_Date
     )
     values (
-        @Reservation_Date, @Deadline, @Reservation_Status, @LicenseNo, @License_Plate, @Pickup_Branch_ID, @Return_Branch_ID,
+        @Reservation_Date, @Payment_ID, @Deadline, @Reservation_Status, @LicenseNo, @License_Plate, @Pickup_Branch_ID, @Return_Branch_ID,
         @Return_Date, @Pickup_Date
     );
 END;
