@@ -42,7 +42,19 @@ namespace VehicleRentalApp
 
         private void EmployeeCard_Click(object sender, EventArgs e)
         {
+            // Create the dummy employee object based on the card's data
+            Employee clickedEmployee = new Employee
+            {
+                Emp_ID = Data.EmployeeID,
+                First_Name = Data.Name.Split(' ')[0],
+                Last_Name = Data.Name.Contains(" ") ? Data.Name.Split(' ')[1] : "",
+                Position = Data.Role,
+                Email = Data.Email
+            };
 
+            // Open the Details form and pass in that employee
+            EmployeeDetails detailsForm = new EmployeeDetails(clickedEmployee);
+            detailsForm.ShowDialog();
         }
 
         private void lblEmail_Click(object sender, EventArgs e)
