@@ -15,13 +15,12 @@ namespace VehicleRentalApp
 {
     public partial class recentRes : UserControl
     {
-        VehicleRentalApp.Models.Branch branchh;
+
         public event EventHandler NavigateRequested;
 
-        public recentRes(VehicleRentalApp.Models.Branch branchitself)
+        public recentRes()
         {
             InitializeComponent();
-            branchh = branchitself;
             left.Click += (s, e) => NavigateRequested?.Invoke(this, EventArgs.Empty);
             right.Click += (s, e) => NavigateRequested?.Invoke(this, EventArgs.Empty);
             this.Load += Reservation_Load_Today_returns;
