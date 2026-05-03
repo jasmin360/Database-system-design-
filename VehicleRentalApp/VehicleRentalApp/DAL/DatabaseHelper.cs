@@ -928,7 +928,7 @@ namespace VehicleRentalApp.DAL
                             cmd2.Parameters.Add(new SqlParameter("@Deadline", SqlDbType.DateTime));
                             cmd2.Parameters["@Deadline"].Value = reservation.Deadline;
                             cmd2.Parameters.Add(new SqlParameter("@Reservation_Status", SqlDbType.VarChar, 200));
-                            cmd2.Parameters["@Reservation_Status"].Value = "pending";
+                            cmd2.Parameters["@Reservation_Status"].Value = "Pending";
                             cmd2.Parameters.Add(new SqlParameter("@Pickup_Branch_ID", SqlDbType.Int));
                             cmd2.Parameters["@Pickup_Branch_ID"].Value = Convert.ToInt32(reader["Branch_ID"]);
                             cmd2.Parameters.Add(new SqlParameter("@License_Plate", SqlDbType.VarChar, 200));
