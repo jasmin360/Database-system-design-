@@ -25,10 +25,6 @@ namespace VehicleRentalApp.DAL
     public class VHSAUTOMOTIVE
     {
 
-        //first 2 parameters contain the email and passkey actually used to sign in and the third parameter is an array passed by refrence 
-        //i will output the employee details in it 
-        //the function itself returns a boolena you can use to check directly if this human is signing in correctly
-        //a string passed by raference that will contain the ouput message
         public static bool verify_credentials(string email, string passkey, ref string result, ref Employee employee)
         {
             bool checker = false;
@@ -83,7 +79,6 @@ namespace VehicleRentalApp.DAL
             return checker;
         }
 
-        // parameter is employee email output is object of type branch containing branch details
         public static Branch branch_details_from_employee(string email)
         {
             Branch branch = null;
@@ -114,7 +109,6 @@ namespace VehicleRentalApp.DAL
             return branch;
         }
 
-        //will give you an array of reservations, if empty then no recent reservations
         public static ReservationHorse[] recent_reservations()
         {
             List<ReservationHorse> reservations = new List<ReservationHorse>();
@@ -155,9 +149,7 @@ namespace VehicleRentalApp.DAL
             return reservations.ToArray();
         }
 
-        //will give you a chonky reservation with its detailsu
-        // takes reservatioin id as parameter
-        // also takes a boolean by ref and that boolean is true if reservation is found otherwise it is false
+
         public static ReservationChonk Reservation_Details(int Reservation_ID, ref bool exist)
         {
             ReservationChonk reservation = null;
@@ -224,9 +216,7 @@ namespace VehicleRentalApp.DAL
             return reservation;
         }
 
-        //if return is an empty array then no reservations found with this filter
-        //all parameters are optional
-        // week (1-53) and month (1-12) and year are integers
+
         public static ReservationHorse[] filter_reservation(int? day = null, int? week = null, int? month = null, int? year = null)
         {
             List<ReservationHorse> reservations = new List<ReservationHorse>();
@@ -636,14 +626,21 @@ namespace VehicleRentalApp.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Reservation_ID", SqlDbType.Int));
                 cmd.Parameters["@Reservation_ID"].Value = reservationID;
-                cmd.Parameters.Add(new SqlParameter("@Reservation_Status", SqlDbType.VarChar, 200));
-                cmd.Parameters["@Reservation_Status"].Value = "Returned";
+
                 cmd.Parameters.Add(new SqlParameter("@Return_Branch_ID", SqlDbType.Int));
                 cmd.Parameters["@Return_Branch_ID"].Value = branchID;
                 cmd.Parameters.Add(new SqlParameter("@Return_Date", SqlDbType.DateTime));
                 cmd.Parameters["@Return_Date"].Value = DateTime.Now;
 
                 cmd.ExecuteNonQuery();
+            }
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Reservation_Update", connection))
+            {
+                
+                cmd.CommandType = CommandType.StoredProcedure;                
+                cmd.Parameters.Add(new SqlParameter("@Reservation_Status", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Reservation_Status"].Value = "Returned";
             }
 
             string licenseplate = "";
@@ -969,6 +966,8 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters["@SuperEmpID"].Value = supID;
                 cmd.Parameters.Add(new SqlParameter("@Passkey", SqlDbType.VarChar, 200));
                 cmd.Parameters["@Passkey"].Value = employee.Passkey;
+                cmd.Parameters.Add(new SqlParameter("@Active", SqlDbType.Bit));
+                cmd.Parameters["@Active"].Value = 1;
 
 
                 cmd.ExecuteNonQuery();
