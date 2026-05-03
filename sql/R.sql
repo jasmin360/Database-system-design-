@@ -530,7 +530,7 @@ CREATE PROCEDURE pick_car
     @Category_ID INT
 AS 
 BEGIN
-    SELECT 1
+    SELECT TOP 1 *
     FROM Car
 WHERE Category_ID = @Category_ID
       

@@ -281,7 +281,6 @@ namespace VehicleRentalApp
                 LicenseNo = int.Parse(txtLicenceNo.Text),
                 Reservation_Date = dtpResDate.Value,
                 Deadline = dtpDeadline.Value,
-                Pickup_Branch_ID = currentBranchID,
                 Payment_ID = paymentID,
                 Category_ID = cat_ID
             };

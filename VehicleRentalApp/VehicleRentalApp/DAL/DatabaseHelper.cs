@@ -907,7 +907,6 @@ namespace VehicleRentalApp.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Category_ID", SqlDbType.Int));
                 cmd.Parameters["@Category_ID"].Value = reservation.Category_ID;
-                cmd.Parameters.Add(new SqlParameter("@Pickup_Branch_ID", SqlDbType.Int));
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -927,7 +926,7 @@ namespace VehicleRentalApp.DAL
                             cmd2.Parameters.Add(new SqlParameter("@Reservation_Status", SqlDbType.VarChar, 200));
                             cmd2.Parameters["@Reservation_Status"].Value = "pending";
                             cmd2.Parameters.Add(new SqlParameter("@Pickup_Branch_ID", SqlDbType.Int));
-                            cmd2.Parameters["@Pickup_Branch_ID"].Value = reservation.Pickup_Branch_ID;
+                            cmd2.Parameters["@Pickup_Branch_ID"].Value = Convert.ToInt32(reader["Branch_ID"]);
                             cmd2.Parameters.Add(new SqlParameter("@License_Plate", SqlDbType.VarChar, 200));
                             cmd2.Parameters["@License_Plate"].Value = licensePlate;
                             cmd2.Parameters.Add(new SqlParameter("@Payment_ID", SqlDbType.Int));
