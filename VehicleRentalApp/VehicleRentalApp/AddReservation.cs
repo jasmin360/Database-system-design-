@@ -3,44 +3,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using VehicleRentalApp.DAL;
 using VehicleRentalApp.Models;
 
 namespace VehicleRentalApp
 {
     public partial class AddReservation : Form
     {
-        private List<CarInfo> allCategories = new List<CarInfo>
-        {
-            new CarInfo { CarType="SUV",        Make="Toyota",     Model="RAV4",      ModelYear=2022, Transmission="Automatic", DailyRate=65  },
-            new CarInfo { CarType="Hatchback",  Make="Honda",      Model="Civic",     ModelYear=2020, Transmission="Manual",    DailyRate=40  },
-            new CarInfo { CarType="Sedan",      Make="BMW",        Model="5 Series",  ModelYear=2023, Transmission="Automatic", DailyRate=180 },
-            new CarInfo { CarType="Coupe",      Make="Ford",       Model="Mustang",   ModelYear=2018, Transmission="Manual",    DailyRate=85  },
-            new CarInfo { CarType="Picanto",    Make="Kia",        Model="Picanto",   ModelYear=2021, Transmission="Manual",    DailyRate=30  },
-            new CarInfo { CarType="SUV",        Make="Hyundai",    Model="Tucson",    ModelYear=2022, Transmission="Automatic", DailyRate=70  },
-            new CarInfo { CarType="Sedan",      Make="Mercedes",   Model="C-Class",   ModelYear=2023, Transmission="Automatic", DailyRate=200 },
-            new CarInfo { CarType="Hatchback",  Make="Volkswagen", Model="Golf",      ModelYear=2021, Transmission="Manual",    DailyRate=55  },
-            new CarInfo { CarType="Coupe",      Make="Audi",       Model="A5",        ModelYear=2022, Transmission="Automatic", DailyRate=150 },
-            new CarInfo { CarType="SUV",        Make="Nissan",     Model="X-Trail",   ModelYear=2020, Transmission="Automatic", DailyRate=60  },
-            new CarInfo { CarType="Sedan",      Make="Toyota",     Model="Camry",     ModelYear=2021, Transmission="Automatic", DailyRate=75  },
-            new CarInfo { CarType="Hatchback",  Make="Peugeot",    Model="208",       ModelYear=2022, Transmission="Manual",    DailyRate=45  },
-        };
-
-        private Dictionary<string, int> availableCounts = new Dictionary<string, int>
-        {
-            { "Toyota RAV4",        4 },
-            { "Honda Civic",        1 },
-            { "BMW 5 Series",       0 },
-            { "Ford Mustang",       3 },
-            { "Kia Picanto",        2 },
-            { "Hyundai Tucson",     5 },
-            { "Mercedes C-Class",   0 },
-            { "Volkswagen Golf",    2 },
-            { "Audi A5",            1 },
-            { "Nissan X-Trail",     3 },
-            { "Toyota Camry",       4 },
-            { "Peugeot 208",        6 },
-        };
-
         private List<CarInfo> filteredCategories;
         private CarInfo selectedCategory = null;
         private CategoryCard selectedCard = null;
@@ -61,7 +30,7 @@ namespace VehicleRentalApp
             dtpResDate.Value = DateTime.Today;
             dtpDeadline.Value = DateTime.Today.AddDays(7);
             dtpPickupDate.Value = DateTime.Today;
-            dtpPaymentDate.Value = DateTime.Today; // ADD THIS - Initialize payment date
+            dtpPaymentDate.Value = DateTime.Today;
 
             SetClientFieldsEnabled(false);
 
@@ -74,16 +43,36 @@ namespace VehicleRentalApp
 
         private void AddReservation_Load(object sender, EventArgs e)
         {
-            cmbStatus.SelectedIndex = 0; // Default to "Picked Up"
+            cmbStatus.SelectedIndex = 0; // Default to "Pending"
             cmbPaymentMethod.SelectedIndex = 0; // Default to "Cash"
 
-            // Filter out categories with 0 available cars
-            filteredCategories = allCategories.Where(c =>
+            LoadCategories();
+        }
+
+        private void LoadCategories()
+        {
+            // Call backend to get all categories
+            Car_Category[] categoriesFromDB = VHSAUTOMOTIVE.display_all_cats()
+; // Replace with your actual backend method
+
+            var allCategories = new List<CarInfo>();
+
+            foreach (var cat in categoriesFromDB)
             {
-                string key = $"{c.Make} {c.Model}";
-                int count = availableCounts.ContainsKey(key) ? availableCounts[key] : 0;
-                return count > 0; // Only show categories with available cars
-            }).ToList();
+                allCategories.Add(new CarInfo
+                {
+                    CarType = cat.Car_Type,
+                    Make = cat.Make,
+                    Model = cat.Model,
+                    ModelYear = cat.Model_Year,
+                    Transmission = cat.Transmission,
+                    DailyRate = cat.Daily_Rental_Rate,
+                    count = cat.Count 
+                });
+            }
+
+            // Filter out categories with 0 available cars
+            filteredCategories = allCategories.Where(c => c.count > 0).ToList();
 
             RefreshCategoryCards();
         }
@@ -99,7 +88,10 @@ namespace VehicleRentalApp
                 return;
             }
 
-            // TODO: replace with real DB lookup
+            // TODO: Call backend for client lookup
+            // Client clientData = VHSAUTOMOTIVE.lookup_client(int.Parse(licence));
+
+            // Dummy check for now
             bool found = licence.ToUpper() == "DL-12345";
 
             if (found)
@@ -162,10 +154,7 @@ namespace VehicleRentalApp
             flowCategories.Controls.Clear();
             foreach (var c in filteredCategories)
             {
-                string key = $"{c.Make} {c.Model}";
-                int count = availableCounts.ContainsKey(key) ? availableCounts[key] : 0;
-
-                var card = new CategoryCard(c, count);
+                var card = new CategoryCard(c);
                 card.CardSelected += Card_Selected;
                 flowCategories.Controls.Add(card);
             }
@@ -205,13 +194,29 @@ namespace VehicleRentalApp
             if (txtCatSearch.Text == "Search categories...") return;
             string q = txtCatSearch.Text.ToLower();
 
-            // Filter from allCategories AND exclude 0-count categories
+            // Call backend again and filter
+            Car_Category[] categoriesFromDB = VHSAUTOMOTIVE.display_all_cats();
+
+            var allCategories = new List<CarInfo>();
+            foreach (var cat in categoriesFromDB)
+            {
+                allCategories.Add(new CarInfo
+                {
+                    CarType = cat.Car_Type,
+                    Make = cat.Make,
+                    Model = cat.Model,
+                    ModelYear = cat.Model_Year,
+                    Transmission = cat.Transmission,
+                    DailyRate = cat.Daily_Rental_Rate,
+                    count = cat.Count
+                });
+            }
+
+            // Filter by search query AND exclude 0-count categories
             filteredCategories = allCategories
                 .Where(c =>
                 {
-                    string key = $"{c.Make} {c.Model}";
-                    int count = availableCounts.ContainsKey(key) ? availableCounts[key] : 0;
-                    bool hasAvailable = count > 0;
+                    bool hasAvailable = c.count > 0;
                     bool matchesSearch = c.Make.ToLower().Contains(q) ||
                                        c.Model.ToLower().Contains(q) ||
                                        c.CarType.ToLower().Contains(q);
@@ -267,7 +272,7 @@ namespace VehicleRentalApp
 
                 // ✓ Payment info (from payment fields)
                 Payment_Method = cmbPaymentMethod.SelectedItem.ToString(),
-                Payment_Date = dtpPaymentDate.Value, // CHANGED - Use payment date picker
+                Payment_Date = dtpPaymentDate.Value,
 
                 // ✓ Employee info (from logged-in employee)
                 Emp_ID = currentEmployeeID,
@@ -277,9 +282,9 @@ namespace VehicleRentalApp
                 Payment_ID = 0      // Backend assigns
             };
 
-            // TODO: Call backend to save
-            // bool createNewClient = !clientFound;
-            // VHSAUTOMOTIVE.add_reservation(reservationData, createNewClient);
+            // Call backend to save
+            bool createNewClient = !clientFound;
+            //VHSAUTOMOTIVE.add_reservation(Created );
 
             MessageBox.Show("Reservation saved.", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
