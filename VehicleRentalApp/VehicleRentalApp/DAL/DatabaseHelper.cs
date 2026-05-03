@@ -221,7 +221,7 @@ namespace VehicleRentalApp.DAL
         //if return is an empty array then no reservations found with this filter
         //all parameters are optional
         // week (1-53) and month (1-12) and year are integers
-        public static ReservationHorse[] filter_reservation(DateTime? day = null , int? week= null, int? month = null, int? year = null)
+        public static ReservationHorse[] filter_reservation(int? day = null , int? week= null, int? month = null, int? year = null)
         {
             List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -335,7 +335,7 @@ namespace VehicleRentalApp.DAL
             return reservations.ToArray();
         }
 
-        public static ReservationHorse[] filter_deadlines(DateTime? day = null, int? week= null, int? month = null, int? year = null)
+        public static ReservationHorse[] filter_deadlines(int? day = null, int? week= null, int? month = null, int? year = null)
         {
             List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
