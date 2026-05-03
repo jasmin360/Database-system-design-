@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using VehicleRentalApp.DAL;
 
 namespace VehicleRentalApp
 {
@@ -98,6 +99,20 @@ namespace VehicleRentalApp
         private void ReservationDetails_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDelete_Click_1(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show(
+                $"ARE YOU SUREEEEEEEEEE?????????",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm == DialogResult.Yes)
+            {
+                VHSAUTOMOTIVE.cancel_reservation(_res.ReservationId);
+            }
         }
     }
 }

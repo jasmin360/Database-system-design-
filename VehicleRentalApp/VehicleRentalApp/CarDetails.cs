@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using VehicleRentalApp.DAL;
 
 namespace VehicleRentalApp
 {
@@ -46,5 +47,19 @@ namespace VehicleRentalApp
         }
 
         private void btnClose_Click(object sender, EventArgs e) => this.Close();
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show(
+                $"ARE YOU SUREEEEEEEEEE?????????",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm == DialogResult.Yes)
+            {
+                VHSAUTOMOTIVE.delete_car(_car.LicensePlate);
+            }
+        }
     }
 }
