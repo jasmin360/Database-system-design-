@@ -14,13 +14,15 @@ namespace VehicleRentalApp
 {
     public partial class overview : UserControl
     {
+        int BranchIDD;
         public event EventHandler NavigateRequested;
 
-        public overview()
+        public overview(int BranchID)
         {
             InitializeComponent();
             left.Click += (s, e) => NavigateRequested?.Invoke(this, EventArgs.Empty);
             right.Click += (s, e) => NavigateRequested?.Invoke(this, EventArgs.Empty);
+            this.BranchIDD = BranchID;
             this.Load += Reservation_Load_Recent;
 
         }
@@ -72,7 +74,7 @@ namespace VehicleRentalApp
             flowLayoutPanel1.Controls.Clear();
             foreach (var reservation in reservations)
             {
-                var card = new ReservationCard(reservation);
+                var card = new ReservationCard(reservation, this.BranchIDD);
                 flowLayoutPanel1.Controls.Add(card);
             }
         }

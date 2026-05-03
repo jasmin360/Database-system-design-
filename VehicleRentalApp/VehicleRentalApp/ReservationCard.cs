@@ -9,13 +9,14 @@ namespace VehicleRentalApp
 {
     public partial class ReservationCard : UserControl
     {
+        int BranchIDD;
         public ReservationInfo Data { get; private set; }
 
-        public ReservationCard(ReservationInfo data, bool showReservationDate = true)
+        public ReservationCard(ReservationInfo data, int BranchID, bool showReservationDate = true)
         {
             InitializeComponent();
             Data = data;
-
+            this.BranchIDD = BranchID;
             RefreshDisplay();
 
             lblDates.Text = showReservationDate
@@ -24,31 +25,23 @@ namespace VehicleRentalApp
 
             btnDelete.Click += BtnDelete_Click;
 
+            lblStatus.Click += LblStatus_Click;
+
             this.Click += OpenDetails;
             foreach (Control c in this.Controls)
             {
                 if (c != btnDelete && c != lblStatus)
                     c.Click += OpenDetails;
             }
-
-            var statusMenu = new ContextMenuStrip();
-            statusMenu.Items.Add("Pending", null, (s, e) => SetStatus("Pending"));
-            statusMenu.Items.Add("Picked Up", null, (s, e) => SetStatus("Picked Up"));
-            statusMenu.Items.Add("Returned", null, (s, e) => SetStatus("Returned"));
-            lblStatus.ContextMenuStrip = statusMenu;
-            lblStatus.Click += (s, e) =>
-            {
-                statusMenu.Show(lblStatus, 0, lblStatus.Height);
-            };
         }
+
         public void SetDeadlineOnlyView()
         {
             lblDates.Text = $"Deadline: {Data.Deadline.ToShortDateString()}";
         }
+
         private void RefreshDisplay()
         {
-            string pickupText = Data.PickupDate?.ToShortDateString() ?? "Not Picked Up";
-            string returnText = Data.ReturnDate?.ToShortDateString() ?? "Not Returned";
             lblClientName.Text = $"{Data.FirstName} {Data.LastName}";
             lblResId.Text = $"ID: #{Data.ReservationId}";
             lblLicenceNo.Text = Data.LicenceNo;
@@ -59,13 +52,13 @@ namespace VehicleRentalApp
 
             switch (Data.Status)
             {
-                case "Picked Up":
+                case "Pickedup":
                     lblStatus.ForeColor = Color.FromArgb(82, 180, 110);
                     lblStatus.BackColor = Color.FromArgb(10, 40, 20);
                     break;
-                case "Reserved":
-                    lblStatus.ForeColor = Color.FromArgb(112, 105, 181);
-                    lblStatus.BackColor = Color.FromArgb(29, 26, 73);
+                case "Returned":
+                    lblStatus.ForeColor = Color.FromArgb(138, 43, 226);
+                    lblStatus.BackColor = Color.FromArgb(30, 10, 40);
                     break;
                 case "Pending":
                     lblStatus.ForeColor = Color.FromArgb(200, 160, 60);
@@ -74,7 +67,21 @@ namespace VehicleRentalApp
             }
         }
 
- 
+        private void LblStatus_Click(object sender, EventArgs e)
+        {
+            string nextStatus = GetNextStatus(Data.Status);
+            SetStatus(nextStatus);
+        }
+
+        private string GetNextStatus(string currentStatus)
+        {
+            if (currentStatus == "Pending")
+                return "Pickedup";
+            else if (currentStatus == "Pickedup")
+                return "Returned";
+            else
+                return currentStatus; // Stay at Returned
+        }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
@@ -99,57 +106,82 @@ namespace VehicleRentalApp
                 this.Dispose();
             }
         }
+
         private void SetStatus(string newStatus)
         {
-            Data.Status = newStatus;
-            RefreshDisplay();
+            if (Data.Status == newStatus)
+            {
+                MessageBox.Show("Already at final status.", "No Change",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-            // update database laterfdfsf
+            var confirm = MessageBox.Show(
+                $"Change status from '{Data.Status}' to '{newStatus}'?",
+                "Confirm Status Change",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                if (Data.Status == "Pending" && newStatus == "Pickedup")
+                {
+                    PickupReservation(Data.ReservationId);
+                }
+                else if (Data.Status == "Pickedup" && newStatus == "Returned")
+                {
+                    ReturnReservation(Data.ReservationId);
+                }
+                else
+                {
+                    MessageBox.Show("This status transition is not supported.", "Invalid Transition",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                Data.Status = newStatus;
+                RefreshDisplay();
+            }
         }
 
+        private void PickupReservation(int reservationId)
+        {
+            // Pending -> Pickedup
+            VHSAUTOMOTIVE.pickup_car(reservationId, VHSAUTOMOTIVE.car_branch(Data.LicensePlate));
+        }
+
+        private void ReturnReservation(int reservationId)
+        {
+            // Pickedup -> Returned
+            VHSAUTOMOTIVE.return_car(reservationId, this.BranchIDD );
+        }
 
         private void btnEdit_Click(object sender, EventArgs e) { }
         private void btnDelete_Click(object sender, EventArgs e) { }
         private void lblStatus_Click(object sender, EventArgs e) { }
-
-        private void lblRate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ReservationCard_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCarInfo_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void lblRate_Click(object sender, EventArgs e) { }
+        private void ReservationCard_Load(object sender, EventArgs e) { }
+        private void lblCarInfo_Click(object sender, EventArgs e) { }
     }
 
     public class ReservationInfo
     {
         public int ReservationId { get; set; }
-
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string LicenceNo { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-
         public string Status { get; set; }
         public DateTime Deadline { get; set; }
-        public DateTime? PickupDate { get; set; } = null;  // Default: not picked up
-        public DateTime? ReturnDate { get; set; } = null;  // Default: not returned
+        public DateTime? PickupDate { get; set; } = null;
+        public DateTime? ReturnDate { get; set; } = null;
         public DateTime ResDate { get; set; }
-
         public string LicensePlate { get; set; }
         public string Condition { get; set; }
         public int Seats { get; set; }
         public int Mileage { get; set; }
         public string Colour { get; set; }
-
         public string CarType { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
