@@ -1124,7 +1124,7 @@ namespace VehicleRentalApp.DAL
                             Email = reader["Email"].ToString(),
                             Position = reader["Position"].ToString(),
                             Branch_ID = Convert.ToInt32(reader["Branch_ID"]),
-                            SuperEmpID = Convert.ToInt32(reader["SuperEmpID"]),
+                            SuperEmpID = reader["SuperEmpID"] != DBNull.Value ? Convert.ToInt32(reader["SuperEmpID"]) : 0,
                             Passkey = reader["Passkey"].ToString()
                         };
                         employees.Add(emp);
