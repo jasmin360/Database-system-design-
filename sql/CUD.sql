@@ -140,7 +140,7 @@ CREATE PROCEDURE Car_Create
      @Branch_ID int
 AS
 BEGIN
-    insert into Car 
+    insert into Car (License_Plate, Condition, No_seats, Mileage, Colour, Category_ID, Branch_ID)
     values (@License_Plate, @Condition, @No_seats, @Mileage, @Colour, @Category_ID, @Branch_ID);
 END;
 

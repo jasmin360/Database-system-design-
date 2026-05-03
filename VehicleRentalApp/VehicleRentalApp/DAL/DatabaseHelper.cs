@@ -880,7 +880,7 @@ namespace VehicleRentalApp.DAL
                 cmd.ExecuteNonQuery();
             }
         }
-        public static void add_payment(Payment payment, int employeeID, int clientID)
+        public static void add_payment(Payment payment)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Payment_Create", connection))
@@ -891,22 +891,22 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters.Add(new SqlParameter("@Payment_Date", SqlDbType.DateTime));
                 cmd.Parameters["@Payment_Date"].Value = payment.Payment_Date;
                 cmd.Parameters.Add(new SqlParameter("@Emp_ID", SqlDbType.Int));
-                cmd.Parameters["@Emp_ID"].Value = employeeID;
+                cmd.Parameters["@Emp_ID"].Value = payment.Emp_ID;
                 cmd.Parameters.Add(new SqlParameter("@Client_ID", SqlDbType.Int));
-                cmd.Parameters["@Client_ID"].Value = clientID;
+                cmd.Parameters["@Client_ID"].Value = payment.Client_ID;
 
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public static void add_reservation(ReservationHorse reservation, int paymentID)
+        public static void add_reservation(ReservationHorse reservation)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Reservation_Create", connection))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Payment_ID", SqlDbType.Int));
-                cmd.Parameters["@Payment_ID"].Value = paymentID;
+                cmd.Parameters["@Payment_ID"].Value = reservation.Payment_ID;
                 cmd.Parameters.Add(new SqlParameter("@Reservation_Date", SqlDbType.DateTime));
                 cmd.Parameters["@Reservation_Date"].Value = reservation.Reservation_Date;
                 cmd.Parameters.Add(new SqlParameter("@Deadline", SqlDbType.DateTime));
