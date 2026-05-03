@@ -36,7 +36,7 @@ namespace VehicleRentalApp
             this.availablecarsno = this.availablecars.Length;
             label3.Text = this.totalcarsperbranch.ToString();
             label4.Text = this.availablecarsno.ToString();
-            //revenuefunctioncallhere
+            this.revenue = VHSAUTOMOTIVE.branch_revenue(this.employee.Branch_ID);
             label1.Text = this.revenue.ToString() + " $";
 
             //profilePic.Click += (sender, e) => Display_side_bar(sender, e);

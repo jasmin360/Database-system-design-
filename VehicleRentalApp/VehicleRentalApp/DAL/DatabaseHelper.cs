@@ -1072,8 +1072,8 @@ namespace VehicleRentalApp.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Branch_ID", SqlDbType.Int));
                 cmd.Parameters["@Branch_ID"].Value = branchID;
-                cmd.Parameters.Add(new SqlParameter("@ReserveOrFree", SqlDbType.VarChar, 200));
-                cmd.Parameters["@ReserveOrFree"].Value = reserveOrFree;
+                cmd.Parameters.Add(new SqlParameter("@freereservedall", SqlDbType.VarChar, 200));
+                cmd.Parameters["@freereservedall"].Value = reserveOrFree;
                 cmd.Parameters.Add(new SqlParameter("@Picanto", SqlDbType.Bit));
                 cmd.Parameters["@Picanto"].Value = picanto;
                 cmd.Parameters.Add(new SqlParameter("@SUV", SqlDbType.Bit));
