@@ -30,12 +30,12 @@
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelCarSection = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassHashed = new System.Windows.Forms.Label();
-            this.txtColour = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panelCarSection.SuspendLayout();
@@ -57,27 +57,27 @@
             // 
             this.panelCarSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.panelCarSection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelCarSection.Controls.Add(this.textBox1);
+            this.panelCarSection.Controls.Add(this.txtEmail);
             this.panelCarSection.Controls.Add(this.lblName);
             this.panelCarSection.Controls.Add(this.txtName);
             this.panelCarSection.Controls.Add(this.lblEmail);
             this.panelCarSection.Controls.Add(this.lblPassHashed);
-            this.panelCarSection.Controls.Add(this.txtColour);
+            this.panelCarSection.Controls.Add(this.txtPassword);
             this.panelCarSection.Location = new System.Drawing.Point(51, 107);
             this.panelCarSection.Name = "panelCarSection";
             this.panelCarSection.Size = new System.Drawing.Size(533, 194);
             this.panelCarSection.TabIndex = 3;
             // 
-            // textBox1
+            // txtEmail
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 10F);
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox1.Location = new System.Drawing.Point(283, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 40);
-            this.textBox1.TabIndex = 10;
+            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmail.Font = new System.Drawing.Font("Calibri", 10F);
+            this.txtEmail.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtEmail.Location = new System.Drawing.Point(283, 70);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(210, 40);
+            this.txtEmail.TabIndex = 10;
             // 
             // lblName
             // 
@@ -126,17 +126,17 @@
             this.lblPassHashed.TabIndex = 8;
             this.lblPassHashed.Text = "Temporary Password";
             // 
-            // txtColour
+            // txtPassword
             // 
-            this.txtColour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.txtColour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtColour.Font = new System.Drawing.Font("Calibri", 10F);
-            this.txtColour.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtColour.Location = new System.Drawing.Point(283, 126);
-            this.txtColour.Name = "txtColour";
-            this.txtColour.PasswordChar = '*';
-            this.txtColour.Size = new System.Drawing.Size(210, 40);
-            this.txtColour.TabIndex = 9;
+            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPassword.Font = new System.Drawing.Font("Calibri", 10F);
+            this.txtPassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtPassword.Location = new System.Drawing.Point(283, 126);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(210, 40);
+            this.txtPassword.TabIndex = 9;
             // 
             // btnSave
             // 
@@ -196,8 +196,8 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPassHashed;
-        private System.Windows.Forms.TextBox txtColour;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
     }

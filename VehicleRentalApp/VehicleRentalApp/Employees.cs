@@ -15,14 +15,15 @@ namespace VehicleRentalApp
     public partial class Employees : Form
     {
         int branchidd;
-        public Employees(int branchID)
+        int supid;
+        public Employees(int branchID, int supID)
         {
             InitializeComponent();
             branchidd = branchID;
             this.Load += loademployeesboop;
             HireButton.Click += (s, e) =>
             {
-                if (new HireEmployee(branchID).ShowDialog() == DialogResult.OK)
+                if (new HireEmployee(branchID, supid).ShowDialog() == DialogResult.OK)
                     LoadEmployees(branchID);
             };
         }
