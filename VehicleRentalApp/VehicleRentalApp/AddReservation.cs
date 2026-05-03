@@ -87,20 +87,21 @@ namespace VehicleRentalApp
                 lblClientStatus.ForeColor = Color.FromArgb(200, 80, 80);
                 return;
             }
+            Client clientData = VHSAUTOMOTIVE.find_client(int.Parse(licence));
+            bool found = false;
 
-            // TODO: Call backend for client lookup
-            // Client clientData = VHSAUTOMOTIVE.lookup_client(int.Parse(licence));
-
-            // Dummy check for now
-            bool found = licence.ToUpper() == "DL-12345";
+            if (clientData != null)
+            {
+                found = true;
+            }
 
             if (found)
             {
-                // TODO: populate from DB result
-                txtFirstName.Text = "Jane";
-                txtLastName.Text = "Doe";
-                txtEmail.Text = "jane.doe@email.com";
-                txtPhone.Text = "+1 555 0199";
+
+                txtFirstName.Text = clientData.First_Name;
+                txtLastName.Text = clientData.Last_Name;
+                txtEmail.Text = clientData.Email;
+                txtPhone.Text = clientData.Phone;
 
                 SetClientFieldsEnabled(false);
                 lblClientStatus.Text = "Client found.";
@@ -114,6 +115,7 @@ namespace VehicleRentalApp
                 lblClientStatus.Text = "Client not found. Fill in details to create a new client.";
                 lblClientStatus.ForeColor = Color.FromArgb(200, 160, 60);
                 clientFound = false;
+                
             }
         }
 
@@ -232,59 +234,60 @@ namespace VehicleRentalApp
         {
             if (!ValidateInputs()) return;
 
-            // Collect all data into ReservationChonk
-            var reservationData = new ReservationChonk
+            Client clientcheck = VHSAUTOMOTIVE.find_client(int.Parse(txtLicenceNo.Text));
+
+            if (clientcheck == null) {
+                clientcheck = new Client
+                {
+                    Driver_License_Number = int.Parse(txtLicenceNo.Text), 
+                    First_Name = txtFirstName.Text,
+                    Last_Name = txtLastName.Text,
+                    Email = txtEmail.Text,
+                    Phone = txtPhone.Text
+
+                }; 
+                VHSAUTOMOTIVE.add_client(clientcheck);
+
+            }
+
+            Payment payments = new Payment
             {
-                // ✓ Client info (from form or DB lookup)
-                Driver_License_Number = int.Parse(txtLicenceNo.Text),
-                First_Name = txtFirstName.Text,
-                Last_Name = txtLastName.Text,
-                Email = txtEmail.Text,
-                Phone = txtPhone.Text,
+                Payment_Method = cmbPaymentMethod.SelectedItem.ToString(),
+                Client_ID = int.Parse(txtLicenceNo.Text),
+                Emp_ID= this.currentEmployeeID
 
-                // ✓ Reservation dates (from date pickers)
-                Reservation_Date = dtpResDate.Value,
-                Deadline = dtpDeadline.Value,
-                Pickup_Date = dtpPickupDate.Value,
+            };
 
-                // ✓ Auto-filled reservation info
-                Reservation_Status = "Pending", // Always pending for new reservations
-                Pickup_Branch_ID = currentBranchID, // Current branch
-                Return_Branch_ID = null, // Not set yet
-                Return_Date = null, // Not returned yet
-
-                // ✓ Category info (from selected card)
-                Category_ID = 0, // Backend will assign proper category ID
+            Car_Category cat = new Car_Category
+            {
                 Car_Type = selectedCategory.CarType,
                 Make = selectedCategory.Make,
                 Model = selectedCategory.Model,
                 Model_Year = selectedCategory.ModelYear,
                 Transmission = selectedCategory.Transmission,
-                Daily_Rental_Rate = selectedCategory.DailyRate,
-
-                // ✓ Car info (backend assigns from available cars)
-                License_Plate = null, // Backend assigns available car
-                Condition = null,     // Backend fills from assigned car
-                No_seats = 0,         // Backend fills from assigned car
-                Mileage = 0,          // Backend fills from assigned car
-                Colour = null,        // Backend fills from assigned car
-                Branch_ID = currentBranchID, // Current branch
-
-                // ✓ Payment info (from payment fields)
-                Payment_Method = cmbPaymentMethod.SelectedItem.ToString(),
-                Payment_Date = dtpPaymentDate.Value,
-
-                // ✓ Employee info (from logged-in employee)
-                Emp_ID = currentEmployeeID,
-
-                // Not used in this form
-                Reservation_ID = 0, // Backend assigns
-                Payment_ID = 0      // Backend assigns
+                Daily_Rental_Rate = selectedCategory.DailyRate
             };
 
-            // Call backend to save
+            int cat_ID = VHSAUTOMOTIVE.catID_fro_desc(cat);
+
+            int paymentID = VHSAUTOMOTIVE.add_payment(payments);
+
+
+            var reservationData = new ReservationHorse
+            {
+
+                LicenseNo = int.Parse(txtLicenceNo.Text),
+
+                Reservation_Date = dtpResDate.Value,
+                Deadline = dtpDeadline.Value, 
+                Pickup_Branch_ID = currentBranchID, 
+                Payment_ID = paymentID,
+                Category_ID = cat_ID
+
+            };
+            VHSAUTOMOTIVE.add_reservation(reservationData);
+
             bool createNewClient = !clientFound;
-            //VHSAUTOMOTIVE.add_reservation(Created );
 
             MessageBox.Show("Reservation saved.", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);

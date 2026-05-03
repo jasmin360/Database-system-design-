@@ -918,7 +918,7 @@ namespace VehicleRentalApp.DAL
                         using (SqlCommand cmd2 = new SqlCommand("Reservation_Create", connection2))
                         {
                             cmd2.CommandType = CommandType.StoredProcedure;
-                            cmd2.Parameters.Add(new SqlParameter("@Driver_License_Number", SqlDbType.Int));
+                            cmd2.Parameters.Add(new SqlParameter("@LicenseNo", SqlDbType.Int));
                             cmd2.Parameters["@LicenseNo"].Value = reservation.LicenseNo;
                             cmd2.Parameters.Add(new SqlParameter("@Reservation_Date", SqlDbType.DateTime));
                             cmd2.Parameters["@Reservation_Date"].Value = reservation.Reservation_Date;
@@ -1289,7 +1289,6 @@ namespace VehicleRentalApp.DAL
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-
                     while (reader.Read())
                     {
                         Car_Category cat = new Car_Category
@@ -1326,6 +1325,37 @@ namespace VehicleRentalApp.DAL
             }
 
             return cats.ToArray();
+        }
+
+
+        public static int catID_fro_desc(Car_Category cat)
+        {
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("CarCategory_from_catID", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Car_Type", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Car_Type"].Value = cat.Car_Type;
+                cmd.Parameters.Add(new SqlParameter("@Make", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Make"].Value = cat.Make;
+                cmd.Parameters.Add(new SqlParameter("@Model", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Model"].Value = cat.Model;
+                cmd.Parameters.Add(new SqlParameter("@Model_Year", SqlDbType.Int));
+                cmd.Parameters["@Model_Year"].Value = cat.Model_Year;
+                cmd.Parameters.Add(new SqlParameter("@Transmission", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Transmission"].Value = cat.Transmission;
+                cmd.Parameters.Add(new SqlParameter("@Daily_Rental_Rate", SqlDbType.Decimal));
+                cmd.Parameters["@Daily_Rental_Rate"].Value = cat.Daily_Rental_Rate;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        cat.Category_ID = Convert.ToInt32(reader["Category_ID"]);
+                    }
+                }
+            }
+            return cat.Category_ID;
         }
 
     }    
