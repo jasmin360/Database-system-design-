@@ -64,6 +64,10 @@ namespace VehicleRentalApp
             lblYearV.Text = _res.ModelYear.ToString();
             lblTransV.Text = _res.Transmission;
             lblRateV.Text = $"${_res.DailyRate:0.##}/day";
+
+            lblPayIDV.Text = _res.PaymentId.ToString();
+            lblPayMethodV.Text = _res.PaymentMethod;
+            lblPayDateV.Text = _res.PaymentDate.ToShortDateString() ?? "N/A";
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -90,5 +94,10 @@ namespace VehicleRentalApp
         }
 
         private void btnClose_Click(object sender, EventArgs e) => this.Close();
+
+        private void ReservationDetails_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

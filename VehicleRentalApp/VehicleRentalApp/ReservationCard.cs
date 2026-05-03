@@ -156,5 +156,9 @@ namespace VehicleRentalApp
         public int ModelYear { get; set; }
         public string Transmission { get; set; }
         public decimal DailyRate { get; set; }
+
+        public int PaymentId { get; set; }
+        public string PaymentMethod { get; set; }
+        public DateTime PaymentDate { get; set; }
     }
 }
