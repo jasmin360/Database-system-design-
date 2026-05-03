@@ -27,7 +27,8 @@ namespace VehicleRentalApp
             plus.Click += (s, e) =>
             {
                 filterPanel.Visible = false;
-                if (new AddCar().ShowDialog() == DialogResult.OK)
+                
+                if (new AddCar(this.branch.Branch_ID).ShowDialog() == DialogResult.OK)
                     LoadCars();
             };
 

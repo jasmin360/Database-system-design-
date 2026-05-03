@@ -18,16 +18,19 @@ namespace VehicleRentalApp
         private int? selectedMonth = null;
         private int? selectedYear = null;
         private int? selectedDay = null;
+        private int _empID;
+        private int _branchID;
 
-        public Reservation()
+        public Reservation(int empID, int branchid)
         {
             InitializeComponent();
             resDisplay.AutoScroll = true;
-
+            _empID = empID;
+            _branchID = branchid;
 
             plus.Click += (s, e) =>
             {
-                if (new AddReservation().ShowDialog() == DialogResult.OK)
+                if (new AddReservation(_empID, _branchID).ShowDialog() == DialogResult.OK)
                     LoadReservations();
             };
 

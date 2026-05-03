@@ -55,7 +55,7 @@ namespace VehicleRentalApp
         private void SetupLayout() {
             ovBtn.Click += (s, e) => NavigateTo(new overview());
             carBtn.Click += (s, e) => NavigateTo(new Cars(this.branchitself));
-            ResBtn.Click += (s, e) => NavigateTo(new Reservation());
+            ResBtn.Click += (s, e) => NavigateTo(new Reservation(this.employee.Emp_ID, this.branchitself.Branch_ID));
 
         }
         private void NavigateTo(UserControl screen)

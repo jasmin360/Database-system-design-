@@ -1,35 +1,45 @@
 ﻿using System;
 using System.Windows.Forms;
+using VehicleRentalApp.DAL;
+using VehicleRentalApp.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace VehicleRentalApp
 {
     public partial class AddCar : Form
     {
-        public AddCar()
+        int branchid;
+        public AddCar(int BranchID)
         {
             InitializeComponent();
+            this.branchid = BranchID;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!ValidateInputs()) return;
+            Car cardata = new Car();
+            Car_Category carcat = new Car_Category();
 
-            // TODO: insert into DB
-            // Car table:
-            //   txtLicensePlate.Text
-            //   cmbCondition.SelectedItem.ToString()
-            //   numSeats.Value
-            //   numMileage.Value
-            //   txtColour.Text
-            //   Category_ID  → from inserted Car_Category row
+            cardata.Branch_ID = this.branchid;
+            cardata.Colour = txtColour.Text;
+            cardata.Mileage = (int)numMileage.Value;
+            cardata.License_Plate = txtLicensePlate.Text;
+            cardata.Condition = cmbCondition.SelectedItem.ToString();
+            cardata.No_seats = (int)numSeats.Value;
+            cardata.Category_ID = 0;
 
-            // Car_Category table:
-            //   cmbCarType.SelectedItem.ToString()
-            //   txtMake.Text
-            //   txtModel.Text
-            //   numModelYear.Value
-            //   cmbTransmission.SelectedItem.ToString()
-            //   numDailyRate.Value
+            carcat.Make = txtMake.Text;
+            carcat.Model = txtModel.Text;
+            carcat.Transmission = cmbTransmission.SelectedItem.ToString();
+            carcat.Model_Year = (int)numModelYear.Value;
+            carcat.Car_Type = cmbCarType.SelectedItem.ToString();
+            carcat.Daily_Rental_Rate = numDailyRate.Value;
+            carcat.Category_ID =0;
+
+            VHSAUTOMOTIVE.add_car(cardata, carcat);
+
+
 
             MessageBox.Show("Car added successfully.", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);

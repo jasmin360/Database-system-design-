@@ -29,6 +29,12 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.lblResSection = new System.Windows.Forms.Label();
             this.panelRes = new System.Windows.Forms.Panel();
+            this.lblPaymentDate = new System.Windows.Forms.Label();
+            this.dtpPaymentDate = new System.Windows.Forms.DateTimePicker();
+            this.lblPaymentMethod = new System.Windows.Forms.Label();
+            this.cmbPaymentMethod = new System.Windows.Forms.ComboBox();
+            this.lblAmount = new System.Windows.Forms.Label();
+            this.numAmount = new System.Windows.Forms.NumericUpDown();
             this.lblStatus = new System.Windows.Forms.Label();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.lblDeadline = new System.Windows.Forms.Label();
@@ -45,6 +51,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.panelClient.SuspendLayout();
             this.panelRes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             this.panelCat.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -269,6 +276,12 @@
             // 
             this.panelRes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.panelRes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelRes.Controls.Add(this.lblPaymentDate);
+            this.panelRes.Controls.Add(this.dtpPaymentDate);
+            this.panelRes.Controls.Add(this.lblPaymentMethod);
+            this.panelRes.Controls.Add(this.cmbPaymentMethod);
+            this.panelRes.Controls.Add(this.lblAmount);
+            this.panelRes.Controls.Add(this.numAmount);
             this.panelRes.Controls.Add(this.lblStatus);
             this.panelRes.Controls.Add(this.cmbStatus);
             this.panelRes.Controls.Add(this.lblDeadline);
@@ -282,6 +295,87 @@
             this.panelRes.Name = "panelRes";
             this.panelRes.Size = new System.Drawing.Size(313, 209);
             this.panelRes.TabIndex = 4;
+            // 
+            // lblPaymentDate
+            // 
+            this.lblPaymentDate.AutoSize = true;
+            this.lblPaymentDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.lblPaymentDate.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPaymentDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.lblPaymentDate.Location = new System.Drawing.Point(8, 181);
+            this.lblPaymentDate.Name = "lblPaymentDate";
+            this.lblPaymentDate.Size = new System.Drawing.Size(88, 17);
+            this.lblPaymentDate.TabIndex = 12;
+            this.lblPaymentDate.Text = "Payment Date";
+            // 
+            // dtpPaymentDate
+            // 
+            this.dtpPaymentDate.CalendarForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dtpPaymentDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.dtpPaymentDate.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.dtpPaymentDate.Font = new System.Drawing.Font("Calibri", 10F);
+            this.dtpPaymentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpPaymentDate.Location = new System.Drawing.Point(139, 179);
+            this.dtpPaymentDate.Name = "dtpPaymentDate";
+            this.dtpPaymentDate.Size = new System.Drawing.Size(117, 24);
+            this.dtpPaymentDate.TabIndex = 13;
+            // 
+            // lblPaymentMethod
+            // 
+            this.lblPaymentMethod.AutoSize = true;
+            this.lblPaymentMethod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.lblPaymentMethod.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPaymentMethod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.lblPaymentMethod.Location = new System.Drawing.Point(8, 125);
+            this.lblPaymentMethod.Name = "lblPaymentMethod";
+            this.lblPaymentMethod.Size = new System.Drawing.Size(110, 17);
+            this.lblPaymentMethod.TabIndex = 8;
+            this.lblPaymentMethod.Text = "Payment Method";
+            // 
+            // cmbPaymentMethod
+            // 
+            this.cmbPaymentMethod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaymentMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbPaymentMethod.Font = new System.Drawing.Font("Calibri", 10F);
+            this.cmbPaymentMethod.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmbPaymentMethod.Items.AddRange(new object[] {
+            "Cash",
+            "Credit Card",
+            "Debit Card",
+            "Bank Transfer"});
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(139, 122);
+            this.cmbPaymentMethod.Name = "cmbPaymentMethod";
+            this.cmbPaymentMethod.Size = new System.Drawing.Size(117, 23);
+            this.cmbPaymentMethod.TabIndex = 9;
+            // 
+            // lblAmount
+            // 
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.lblAmount.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.lblAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.lblAmount.Location = new System.Drawing.Point(8, 153);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(55, 17);
+            this.lblAmount.TabIndex = 10;
+            this.lblAmount.Text = "Amount";
+            // 
+            // numAmount
+            // 
+            this.numAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.numAmount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.numAmount.Font = new System.Drawing.Font("Calibri", 10F);
+            this.numAmount.DecimalPlaces = 2;
+            this.numAmount.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numAmount.Location = new System.Drawing.Point(139, 151);
+            this.numAmount.Name = "numAmount";
+            this.numAmount.Size = new System.Drawing.Size(117, 24);
+            this.numAmount.TabIndex = 11;
             // 
             // lblStatus
             // 
@@ -501,10 +595,10 @@
             this.panelClient.PerformLayout();
             this.panelRes.ResumeLayout(false);
             this.panelRes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
             this.panelCat.ResumeLayout(false);
             this.panelCat.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         private System.Windows.Forms.Label lblTitle;
@@ -524,6 +618,12 @@
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label lblResSection;
         private System.Windows.Forms.Panel panelRes;
+        private System.Windows.Forms.Label lblPaymentDate;
+        private System.Windows.Forms.DateTimePicker dtpPaymentDate;
+        private System.Windows.Forms.Label lblPaymentMethod;
+        private System.Windows.Forms.ComboBox cmbPaymentMethod;
+        private System.Windows.Forms.Label lblAmount;
+        private System.Windows.Forms.NumericUpDown numAmount;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label lblDeadline;

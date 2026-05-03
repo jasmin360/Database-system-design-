@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using VehicleRentalApp.Models;
 
 namespace VehicleRentalApp
 {
     public partial class AddReservation : Form
     {
-        private List<CarInfo> _allCategories = new List<CarInfo>
+        private List<CarInfo> allCategories = new List<CarInfo>
         {
             new CarInfo { CarType="SUV",        Make="Toyota",     Model="RAV4",      ModelYear=2022, Transmission="Automatic", DailyRate=65  },
             new CarInfo { CarType="Hatchback",  Make="Honda",      Model="Civic",     ModelYear=2020, Transmission="Manual",    DailyRate=40  },
@@ -24,7 +25,7 @@ namespace VehicleRentalApp
             new CarInfo { CarType="Hatchback",  Make="Peugeot",    Model="208",       ModelYear=2022, Transmission="Manual",    DailyRate=45  },
         };
 
-        private Dictionary<string, int> _availableCounts = new Dictionary<string, int>
+        private Dictionary<string, int> availableCounts = new Dictionary<string, int>
         {
             { "Toyota RAV4",        4 },
             { "Honda Civic",        1 },
@@ -40,28 +41,50 @@ namespace VehicleRentalApp
             { "Peugeot 208",        6 },
         };
 
-        private List<CarInfo> _filteredCategories;
-        private CarInfo _selectedCategory = null;
-        private CategoryCard _selectedCard = null;
-        private bool _clientFound = false;
+        private List<CarInfo> filteredCategories;
+        private CarInfo selectedCategory = null;
+        private CategoryCard selectedCard = null;
+        private bool clientFound = false;
 
-        public AddReservation()
+        // Store employee and branch info
+        private int currentEmployeeID;
+        private int currentBranchID;
+
+        public AddReservation(int employeeID, int branchID)
         {
             InitializeComponent();
+
+            // Store employee and branch
+            this.currentEmployeeID = employeeID;
+            this.currentBranchID = branchID;
 
             dtpResDate.Value = DateTime.Today;
             dtpDeadline.Value = DateTime.Today.AddDays(7);
             dtpPickupDate.Value = DateTime.Today;
+            dtpPaymentDate.Value = DateTime.Today; // ADD THIS - Initialize payment date
 
             SetClientFieldsEnabled(false);
+
+            // Disable auto-filled fields
+            cmbStatus.Enabled = false;
+            cmbStatus.BackColor = Color.FromArgb(23, 22, 54);
 
             this.Load += AddReservation_Load;
         }
 
         private void AddReservation_Load(object sender, EventArgs e)
         {
-            cmbStatus.SelectedIndex = 0;
-            _filteredCategories = new List<CarInfo>(_allCategories);
+            cmbStatus.SelectedIndex = 0; // Default to "Picked Up"
+            cmbPaymentMethod.SelectedIndex = 0; // Default to "Cash"
+
+            // Filter out categories with 0 available cars
+            filteredCategories = allCategories.Where(c =>
+            {
+                string key = $"{c.Make} {c.Model}";
+                int count = availableCounts.ContainsKey(key) ? availableCounts[key] : 0;
+                return count > 0; // Only show categories with available cars
+            }).ToList();
+
             RefreshCategoryCards();
         }
 
@@ -90,7 +113,7 @@ namespace VehicleRentalApp
                 SetClientFieldsEnabled(false);
                 lblClientStatus.Text = "Client found.";
                 lblClientStatus.ForeColor = Color.FromArgb(82, 180, 110);
-                _clientFound = true;
+                clientFound = true;
             }
             else
             {
@@ -98,7 +121,7 @@ namespace VehicleRentalApp
                 SetClientFieldsEnabled(true);
                 lblClientStatus.Text = "Client not found. Fill in details to create a new client.";
                 lblClientStatus.ForeColor = Color.FromArgb(200, 160, 60);
-                _clientFound = false;
+                clientFound = false;
             }
         }
 
@@ -108,7 +131,7 @@ namespace VehicleRentalApp
             SetClientFieldsEnabled(false);
             lblClientStatus.Text = "Enter a licence number and click Look Up";
             lblClientStatus.ForeColor = Color.FromArgb(82, 82, 110);
-            _clientFound = false;
+            clientFound = false;
         }
 
         private void SetClientFieldsEnabled(bool enabled)
@@ -137,10 +160,10 @@ namespace VehicleRentalApp
         private void RefreshCategoryCards()
         {
             flowCategories.Controls.Clear();
-            foreach (var c in _filteredCategories)
+            foreach (var c in filteredCategories)
             {
                 string key = $"{c.Make} {c.Model}";
-                int count = _availableCounts.ContainsKey(key) ? _availableCounts[key] : 0;
+                int count = availableCounts.ContainsKey(key) ? availableCounts[key] : 0;
 
                 var card = new CategoryCard(c, count);
                 card.CardSelected += Card_Selected;
@@ -151,11 +174,11 @@ namespace VehicleRentalApp
         private void Card_Selected(object sender, EventArgs e)
         {
             var card = (CategoryCard)sender;
-            if (_selectedCard != null)
-                _selectedCard.SetSelected(false);
+            if (selectedCard != null)
+                selectedCard.SetSelected(false);
             card.SetSelected(true);
-            _selectedCard = card;
-            _selectedCategory = card.Data;
+            selectedCard = card;
+            selectedCategory = card.Data;
         }
 
         // ── Category search ───────────────────────────────────────────
@@ -181,11 +204,21 @@ namespace VehicleRentalApp
         {
             if (txtCatSearch.Text == "Search categories...") return;
             string q = txtCatSearch.Text.ToLower();
-            _filteredCategories = _allCategories
-                .Where(c => c.Make.ToLower().Contains(q)
-                         || c.Model.ToLower().Contains(q)
-                         || c.CarType.ToLower().Contains(q))
+
+            // Filter from allCategories AND exclude 0-count categories
+            filteredCategories = allCategories
+                .Where(c =>
+                {
+                    string key = $"{c.Make} {c.Model}";
+                    int count = availableCounts.ContainsKey(key) ? availableCounts[key] : 0;
+                    bool hasAvailable = count > 0;
+                    bool matchesSearch = c.Make.ToLower().Contains(q) ||
+                                       c.Model.ToLower().Contains(q) ||
+                                       c.CarType.ToLower().Contains(q);
+                    return hasAvailable && matchesSearch;
+                })
                 .ToList();
+
             RefreshCategoryCards();
         }
 
@@ -194,17 +227,59 @@ namespace VehicleRentalApp
         {
             if (!ValidateInputs()) return;
 
-            // TODO: insert into DB
-            // Reservation fields:
-            //   LicenceNo          = txtLicenceNo.Text
-            //   Reservation_Status = cmbStatus.SelectedItem
-            //   Deadline           = dtpDeadline.Value
-            //   Pickup_Date        = dtpPickupDate.Value
-            //   Reservation_Date   = dtpResDate.Value
-            //   Return_Date        = "Not Returned"
-            //   Category_ID        = from _selectedCategory
-            //   License_Plate      = assigned from available car in category
-            // If !_clientFound: insert new Client first using txtFirstName etc.
+            // Collect all data into ReservationChonk
+            var reservationData = new ReservationChonk
+            {
+                // ✓ Client info (from form or DB lookup)
+                Driver_License_Number = int.Parse(txtLicenceNo.Text),
+                First_Name = txtFirstName.Text,
+                Last_Name = txtLastName.Text,
+                Email = txtEmail.Text,
+                Phone = txtPhone.Text,
+
+                // ✓ Reservation dates (from date pickers)
+                Reservation_Date = dtpResDate.Value,
+                Deadline = dtpDeadline.Value,
+                Pickup_Date = dtpPickupDate.Value,
+
+                // ✓ Auto-filled reservation info
+                Reservation_Status = "Pending", // Always pending for new reservations
+                Pickup_Branch_ID = currentBranchID, // Current branch
+                Return_Branch_ID = null, // Not set yet
+                Return_Date = null, // Not returned yet
+
+                // ✓ Category info (from selected card)
+                Category_ID = 0, // Backend will assign proper category ID
+                Car_Type = selectedCategory.CarType,
+                Make = selectedCategory.Make,
+                Model = selectedCategory.Model,
+                Model_Year = selectedCategory.ModelYear,
+                Transmission = selectedCategory.Transmission,
+                Daily_Rental_Rate = selectedCategory.DailyRate,
+
+                // ✓ Car info (backend assigns from available cars)
+                License_Plate = null, // Backend assigns available car
+                Condition = null,     // Backend fills from assigned car
+                No_seats = 0,         // Backend fills from assigned car
+                Mileage = 0,          // Backend fills from assigned car
+                Colour = null,        // Backend fills from assigned car
+                Branch_ID = currentBranchID, // Current branch
+
+                // ✓ Payment info (from payment fields)
+                Payment_Method = cmbPaymentMethod.SelectedItem.ToString(),
+                Payment_Date = dtpPaymentDate.Value, // CHANGED - Use payment date picker
+
+                // ✓ Employee info (from logged-in employee)
+                Emp_ID = currentEmployeeID,
+
+                // Not used in this form
+                Reservation_ID = 0, // Backend assigns
+                Payment_ID = 0      // Backend assigns
+            };
+
+            // TODO: Call backend to save
+            // bool createNewClient = !clientFound;
+            // VHSAUTOMOTIVE.add_reservation(reservationData, createNewClient);
 
             MessageBox.Show("Reservation saved.", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -218,19 +293,34 @@ namespace VehicleRentalApp
             {
                 MessageBox.Show("Licence number is required.", "Validation",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtLicenceNo.Focus();
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
                 string.IsNullOrWhiteSpace(txtLastName.Text))
             {
-                MessageBox.Show("Client details are required. Look up or fill in a new client.",
-                    "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Client details are required.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (_selectedCategory == null)
+            if (selectedCategory == null)
             {
                 MessageBox.Show("Please select a car category.", "Validation",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (cmbPaymentMethod.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a payment method.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbPaymentMethod.Focus();
+                return false;
+            }
+            if (numAmount.Value <= 0)
+            {
+                MessageBox.Show("Payment amount must be greater than 0.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                numAmount.Focus();
                 return false;
             }
             return true;
