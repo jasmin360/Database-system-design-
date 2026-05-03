@@ -555,6 +555,8 @@ BEGIN
     GROUP BY Category_ID;
 END;
 
+GO
+
 CREATE PROCEDURE exists_car_reservation
     @License_Plate varchar(200)
 AS
