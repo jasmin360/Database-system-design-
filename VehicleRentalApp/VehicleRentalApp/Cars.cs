@@ -65,23 +65,14 @@ namespace VehicleRentalApp
 
         private void LoadCars()
         {
-            try
-            {
-                MessageBox.Show("Step 1: LoadCars() called");
 
                 int branchID = this.branch.Branch_ID;
-                MessageBox.Show($"Step 2: Branch ID = {branchID}");
-
-                MessageBox.Show($"Step 3: Filters - Status: {statusFilter}, Picanto: {picantoChecked}, SUV: {suvChecked}, Coupe: {coupeChecked}, Sedan: {sedanChecked}, Hatchback: {hatchbackChecked}");
 
                 // Call backend with current filter state
                 Car[] carsFromDB = VHSAUTOMOTIVE.filter_Cars_In_Branch(branchID, statusFilter, picantoChecked, suvChecked, coupeChecked, sedanChecked, hatchbackChecked);
 
-                MessageBox.Show($"Step 4: Got {carsFromDB.Length} cars from database");
-
                 flowLayoutPanel1.Controls.Clear();
 
-                MessageBox.Show($"Step 5: Cleared flowLayoutPanel1, now has {flowLayoutPanel1.Controls.Count} controls");
 
                 int cardCount = 0;
                 foreach (var carData in carsFromDB)
@@ -108,18 +99,10 @@ namespace VehicleRentalApp
                     cardCount++;
                 }
 
-                MessageBox.Show($"Step 6: Added {cardCount} cards to flowLayoutPanel1. Total controls: {flowLayoutPanel1.Controls.Count}");
-
-                // Force refresh
                 flowLayoutPanel1.Refresh();
 
-                MessageBox.Show("Step 7: Completed LoadCars()");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"ERROR: {ex.Message}\n\nStack: {ex.StackTrace}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        
+
         }
 
         private void right_Click(object sender, EventArgs e)

@@ -7,6 +7,7 @@ namespace VehicleRentalApp
 {
     public partial class EditCar : Form
     {
+        int catid;
         private readonly CarInfo _car;
 
         public EditCar(CarInfo car)
@@ -73,9 +74,9 @@ namespace VehicleRentalApp
             _car.ModelYear = (int)numModelYear.Value;
             _car.Transmission = cmbTransmission.SelectedItem.ToString();
             _car.DailyRate = numDailyRate.Value;
-            _car.
+            _car.cat_id = catid;
 
-            VHSAUTOMOTIVE.update_car(_car.LicensePlate, _car.Condition, _car.Mileage, _car.DailyRate, catid);
+            //VHSAUTOMOTIVE.update_car(_car.LicensePlate, _car.Condition, _car.Mileage, _car.DailyRate, catid);
 
             this.DialogResult = DialogResult.OK;
             MessageBox.Show("Changes saved.", "Success",
