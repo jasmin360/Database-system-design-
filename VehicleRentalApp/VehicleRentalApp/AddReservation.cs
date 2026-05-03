@@ -283,7 +283,7 @@ namespace VehicleRentalApp
 
             // Call backend to save
             bool createNewClient = !clientFound;
-            VHSAUTOMOTIVE.add_reservation(Created);
+            VHSAUTOMOTIVE.add_reservation(Created );
 
             MessageBox.Show("Reservation saved.", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
