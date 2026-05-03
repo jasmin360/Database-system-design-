@@ -22,6 +22,8 @@ namespace VehicleRentalApp
         public Reservation()
         {
             InitializeComponent();
+            resDisplay.AutoScroll = true;
+
 
             plus.Click += (s, e) =>
             {
@@ -88,32 +90,33 @@ namespace VehicleRentalApp
             if (periodFilter == "today")
             {
                 if (timeType == "reservation")
-                    reservationsFromDB = VHSAUTOMOTIVE.Reservation_filter(branchID, selectedDate.Value);
+                    reservationsFromDB = VHSAUTOMOTIVE.filter_reservation_today();
                 else
-                    reservationsFromDB = VHSAUTOMOTIVE.Deadline_filter(branchID, selectedDate.Value);
+                    reservationsFromDB = VHSAUTOMOTIVE.filter_deadlines_today();
             }
             else if (periodFilter == "thisweek")
             {
                 if (timeType == "reservation")
-                    reservationsFromDB = VHSAUTOMOTIVE.Reservation_thisweekfilter(branchID);
+                    reservationsFromDB = VHSAUTOMOTIVE.filter_reservation_this_week();
                 else
-                    reservationsFromDB = VHSAUTOMOTIVE.Deadlines_thisweekfilter(branchID);
+                    reservationsFromDB = VHSAUTOMOTIVE.filter_deadlines_this_week();
             }
             else if (periodFilter == "month" && selectedMonth.HasValue && selectedYear.HasValue)
             {
                 if (timeType == "reservation")
-                    reservationsFromDB = VHSAUTOMOTIVE.recent_reservations();
+                    reservationsFromDB = VHSAUTOMOTIVE.filter_reservation(null,null, selectedMonth, selectedYear);
                 else
-                    reservationsFromDB = VHSAUTOMOTIVE.recent_reservations();
+                    reservationsFromDB = VHSAUTOMOTIVE.filter_deadlines(null, null, selectedMonth, selectedYear); ;
             }
-            else if (periodFilter == "day" && selectedMonth.HasValue && selectedYear.HasValue && selectedDate.HasValue)
+            else if (periodFilter == "day" && selectedMonth.HasValue && selectedYear.HasValue && selectedDay.HasValue)
             {
                 if (timeType == "reservation")
-                    reservationsFromDB = VHSAUTOMOTIVE.Reservation_filter(branchID, selectedDate.Value);
+                    reservationsFromDB = VHSAUTOMOTIVE.filter_reservation(selectedDay, null, selectedMonth, selectedYear);
                 else
-                    reservationsFromDB = VHSAUTOMOTIVE.Deadline_filter(branchID, selectedDate.Value);
+                    reservationsFromDB = VHSAUTOMOTIVE.filter_deadlines(selectedDay, null, selectedMonth, selectedYear);
             }
             else
+                reservationsFromDB = VHSAUTOMOTIVE.filter_reservation_today();
 
             var reservations = new List<ReservationInfo>();
 
@@ -148,20 +151,11 @@ namespace VehicleRentalApp
                     DailyRate = details.Daily_Rental_Rate
                 });
             }
-
-            // Apply month filter client-side if needed
-            if (periodFilter == "month" && selectedMonth.HasValue && selectedYear.HasValue)
-            {
-                reservations = reservations.FindAll(r =>
-                {
-                    DateTime dateToCheck = timeType == "reservation" ? r.ResDate : r.Deadline;
-                    return dateToCheck.Month == selectedMonth.Value && dateToCheck.Year == selectedYear.Value;
-                });
-            }
-
+            // ADD THESE LINES - Display the cards!
             resDisplay.Controls.Clear();
             foreach (var res in reservations)
-                resDisplay.Controls.Add(new ReservationCard(res, showReservationDates));
+                resDisplay.Controls.Add(new ReservationCard(res, _showReservationDates));
+
         }
 
         private void Reservation_Load(object sender, EventArgs e)
@@ -190,6 +184,8 @@ namespace VehicleRentalApp
                     monthBtn.Text = _monthYearPicker.Value.ToString("MMMM");
                     selectedMonth = _monthYearPicker.Value.Month;
                     selectedYear = _monthYearPicker.Value.Year;
+                    periodFilter = "month";  // Add this
+                    LoadReservations();      // Add this
                 };
             }
 
@@ -223,6 +219,8 @@ namespace VehicleRentalApp
                     selectedMonth = _datePicker.Value.Month;
                     selectedYear = _datePicker.Value.Year;
                     selectedDay = _datePicker.Value.Day;
+                    periodFilter = "day";    // Add this
+                    LoadReservations();      // Add this
                 };
 
                 _datePicker.Leave += (s, ev) =>

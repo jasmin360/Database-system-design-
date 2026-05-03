@@ -38,6 +38,8 @@ namespace VehicleRentalApp
             label4.Text = this.availablecarsno.ToString();
             this.revenue = VHSAUTOMOTIVE.branch_revenue(this.employee.Branch_ID);
             label1.Text = this.revenue.ToString() + " $";
+            label7.Text = this.employee.First_Name + " " + this.employee.Last_Name;
+            label8.Text = this.employee.Email;
 
             //profilePic.Click += (sender, e) => Display_side_bar(sender, e);
 
