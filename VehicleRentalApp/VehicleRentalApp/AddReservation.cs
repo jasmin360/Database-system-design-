@@ -52,7 +52,8 @@ namespace VehicleRentalApp
         private void LoadCategories()
         {
             // Call backend to get all categories
-            Car_Category[] categoriesFromDB = VHSAUTOMOTIVE.get_all_categories(); // Replace with your actual backend method
+            Car_Category[] categoriesFromDB = VHSAUTOMOTIVE.display_all_cats()
+; // Replace with your actual backend method
 
             var allCategories = new List<CarInfo>();
 
@@ -66,7 +67,7 @@ namespace VehicleRentalApp
                     ModelYear = cat.Model_Year,
                     Transmission = cat.Transmission,
                     DailyRate = cat.Daily_Rental_Rate,
-                    count = cat.count // Assuming you added count to Car_Category
+                    count = cat.Count 
                 });
             }
 
@@ -194,7 +195,7 @@ namespace VehicleRentalApp
             string q = txtCatSearch.Text.ToLower();
 
             // Call backend again and filter
-            Car_Category[] categoriesFromDB = VHSAUTOMOTIVE.get_all_categories();
+            Car_Category[] categoriesFromDB = VHSAUTOMOTIVE.display_all_cats();
 
             var allCategories = new List<CarInfo>();
             foreach (var cat in categoriesFromDB)
@@ -207,7 +208,7 @@ namespace VehicleRentalApp
                     ModelYear = cat.Model_Year,
                     Transmission = cat.Transmission,
                     DailyRate = cat.Daily_Rental_Rate,
-                    count = cat.count
+                    count = cat.Count
                 });
             }
 
@@ -283,7 +284,7 @@ namespace VehicleRentalApp
 
             // Call backend to save
             bool createNewClient = !clientFound;
-            VHSAUTOMOTIVE.add_reservation(Created );
+            //VHSAUTOMOTIVE.add_reservation(Created );
 
             MessageBox.Show("Reservation saved.", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
