@@ -685,14 +685,20 @@ namespace VehicleRentalApp.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Reservation_ID", SqlDbType.Int));
                 cmd.Parameters["@Reservation_ID"].Value = reservationID;
-                cmd.Parameters.Add(new SqlParameter("@Reservation_Status", SqlDbType.VarChar, 200));
-                cmd.Parameters["@Reservation_Status"].Value = "Pickedup";
                 cmd.Parameters.Add(new SqlParameter("@Pickup_Branch_ID", SqlDbType.Int));
                 cmd.Parameters["@Pickup_Branch_ID"].Value = branchID;
                 cmd.Parameters.Add(new SqlParameter("@Pickup_Date", SqlDbType.DateTime));
                 cmd.Parameters["@Pickup_Date"].Value = DateTime.Now;
 
                 cmd.ExecuteNonQuery();
+            }
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Reservation_Update", connection))
+            {
+                
+                cmd.CommandType = CommandType.StoredProcedure;                
+                cmd.Parameters.Add(new SqlParameter("@Reservation_Status", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Reservation_Status"].Value = "Pickedup";
             }
 
             string licenseplate = "";
