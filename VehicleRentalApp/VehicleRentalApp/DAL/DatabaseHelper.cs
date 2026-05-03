@@ -221,7 +221,7 @@ namespace VehicleRentalApp.DAL
         //if return is an empty array then no reservations found with this filter
         //all parameters are optional
         // week (1-53) and month (1-12) and year are integers
-        public static ReservationHorse[] filter_reservation(DateTime? day = null , int? week= null, int? month = null, int? year = null)
+        public static ReservationHorse[] filter_reservation(int? day = null , int? week= null, int? month = null, int? year = null)
         {
             List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -300,7 +300,42 @@ namespace VehicleRentalApp.DAL
             return reservations.ToArray();
         }
 
-        public static ReservationHorse[] filter_deadlines(DateTime? day = null, int? week= null, int? month = null, int? year = null)
+        public static ReservationHorse[] filter_reservation_today()
+        {
+            List<ReservationHorse> reservations = new List<ReservationHorse>();
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Reservation_todayfilter", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ReservationHorse reservation = new ReservationHorse
+                        {
+                            Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
+                            Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
+                            Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
+                            Deadline = Convert.ToDateTime(reader["Deadline"]),
+                            Reservation_Status = reader["Reservation_Status"].ToString(),
+                            LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
+                            License_Plate = reader["License_Plate"].ToString(),
+                            Pickup_Branch_ID = reader["Pickup_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Pickup_Branch_ID"]) : (int?)null, 
+                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Pickup_Branch_ID"]) : (int?)null,
+                            Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
+                            Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
+
+                        };
+
+                        reservations.Add(reservation);
+                    }
+                    
+                }
+            }
+            return reservations.ToArray();
+        }
+
+        public static ReservationHorse[] filter_deadlines(int? day = null, int? week= null, int? month = null, int? year = null)
         {
             List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -349,6 +384,42 @@ namespace VehicleRentalApp.DAL
             List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Deadlines_thisweekfilter", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                   while (reader.Read())
+                    {
+                        ReservationHorse reservation = new ReservationHorse
+                        {
+                            Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
+                            Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
+                            Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
+                            Deadline = Convert.ToDateTime(reader["Deadline"]),
+                            Reservation_Status = reader["Reservation_Status"].ToString(),
+                            LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
+                            License_Plate = reader["License_Plate"].ToString(),
+                            Pickup_Branch_ID = reader["Pickup_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Pickup_Branch_ID"]) : (int?)null, 
+                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Pickup_Branch_ID"]) : (int?)null,
+                            Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
+                            Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
+
+                        };
+
+                        reservations.Add(reservation);
+                    }
+                }
+            }
+            return reservations.ToArray();
+            
+        }
+
+        public static ReservationHorse[] filter_deadlines_today()
+        {
+            List<ReservationHorse> reservations = new List<ReservationHorse>();
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Deadlines_todayfilter", connection))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
