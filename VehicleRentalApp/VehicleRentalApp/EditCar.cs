@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using VehicleRentalApp.DAL;
 
 namespace VehicleRentalApp
 {
@@ -25,10 +27,34 @@ namespace VehicleRentalApp
             numModelYear.Value = car.ModelYear;
             cmbTransmission.SelectedItem = car.Transmission;
             numDailyRate.Value = car.DailyRate;
+            catid = car.cat_id;
 
             // license plate is the primary key — don't allow editing
             txtLicensePlate.ReadOnly = true;
             txtLicensePlate.BackColor = System.Drawing.Color.FromArgb(23, 22, 54);
+
+            numSeats.ReadOnly = true;
+            numSeats.BackColor = Color.FromArgb(23, 22, 54);
+
+            cmbCondition.Enabled = false;
+            cmbCondition.BackColor = Color.FromArgb(23, 22, 54);
+
+            cmbCarType.Enabled = false;
+            cmbCarType.BackColor = Color.FromArgb(23, 22, 54);
+
+            cmbTransmission.Enabled = false;
+            cmbTransmission.BackColor = Color.FromArgb(23, 22, 54);
+
+            txtMake.ReadOnly = true;
+            txtMake.BackColor = System.Drawing.Color.FromArgb(23, 22, 54);
+
+            txtModel.ReadOnly = true;
+            txtModel.BackColor = System.Drawing.Color.FromArgb(23, 22, 54);
+
+            numModelYear.ReadOnly = true;
+            numModelYear.BackColor = Color.FromArgb(23, 22, 54);
+
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -36,6 +62,7 @@ namespace VehicleRentalApp
             if (!ValidateInputs()) return;
 
             // write back to the CarInfo object
+            _car.LicensePlate = txtLicensePlate.Text.Trim();
             _car.Condition = cmbCondition.SelectedItem.ToString();
             _car.Seats = (int)numSeats.Value;
             _car.Mileage = (int)numMileage.Value;
@@ -46,8 +73,9 @@ namespace VehicleRentalApp
             _car.ModelYear = (int)numModelYear.Value;
             _car.Transmission = cmbTransmission.SelectedItem.ToString();
             _car.DailyRate = numDailyRate.Value;
+            _car.
 
-            // TODO: UPDATE Car / Car_Category in DB
+            VHSAUTOMOTIVE.update_car(_car.LicensePlate, _car.Condition, _car.Mileage, _car.DailyRate, catid);
 
             this.DialogResult = DialogResult.OK;
             MessageBox.Show("Changes saved.", "Success",

@@ -2,6 +2,8 @@
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using VehicleRentalApp.DAL;
+using VehicleRentalApp.Models;
 
 namespace VehicleRentalApp
 {
@@ -84,7 +86,7 @@ namespace VehicleRentalApp
 
             if (confirm == DialogResult.Yes)
             {
-                // remoververve db
+                VHSAUTOMOTIVE.cancel_reservation(Data.ReservationId);
             }
         }
 
