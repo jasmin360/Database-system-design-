@@ -52,7 +52,7 @@ namespace VehicleRentalApp
 
         private void SetupLayout() {
             ovBtn.Click += (s, e) => NavigateTo(new overview());
-            carBtn.Click += (s, e) => NavigateTo(new Cars());
+            carBtn.Click += (s, e) => NavigateTo(new Cars(this.branchitself));
             ResBtn.Click += (s, e) => NavigateTo(new Reservation());
 
         }
@@ -229,6 +229,11 @@ namespace VehicleRentalApp
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contentPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -475,12 +475,11 @@ GO
 CREATE PROCEDURE car_filter_chonk
     @Branch_ID INT = NULL,
     @freereservedall varchar(200) = null,
-    @picanto boolean = false,
-    @suv boolean = false,
-    @coupe boolean = false,
-    @sedan boolean = false,
-    @hatchback boolean = false
-
+    @picanto bit = false,
+    @suv bit = false,
+    @coupe bit = false,
+    @sedan bit = false,
+    @hatchback bit = false
 AS
 BEGIN
     select c.License_Plate,
@@ -491,19 +490,19 @@ BEGIN
     c.Category_ID,
     c.Branch_ID
     FROM Car c
-    INNER JOIN Car_Category cat ON c.Category_ID WHERE Branch_ID = @branchID
+    INNER JOIN Car_Category cat ON c.Category_ID = cat.Category_ID WHERE Branch_ID = @branch_ID
     AND (                                   
-        OR (@condition = 'Free' AND c.Condition = 'Free')     
-        OR (@condition = 'Reserved' AND c.Condition = 'Reserved') 
-        OR (@condition= null AND c.Condition = 'Free' AND c.Condition = 'Reserved' )
+        (@freereservedall = 'Free' AND c.Condition = 'Free')     
+        OR (@freereservedall = 'Reserved' AND c.Condition = 'Reserved') 
+        OR (@freereservedall is null AND c.Condition = 'Free' AND c.Condition = 'Reserved' )
     )
     AND (
-        (@picanto = false AND @suv = false AND @coupe = false AND @sedan = false AND @hatchback = false)
+        (@picanto = 0 AND @suv = 0 AND @coupe = 0 AND @sedan = 0 AND @hatchback = 0)
         OR 
-        (@picanto = true AND cat.Car_Type = 'Picanto')
-        OR (@suv = true AND cat.Car_Type = 'SUV')
-        OR (@coupe = true AND cat.Car_Type = 'Coupe')
-        OR (@sedan = true AND cat.Car_Type = 'Sedan')
-        OR (@hatchback = true AND cat.Car_Type = 'Hatchback')
+        (@picanto = 1 AND cat.Car_Type = 'Picanto')
+        OR (@suv = 1 AND cat.Car_Type = 'SUV')
+        OR (@coupe = 1 AND cat.Car_Type = 'Coupe')
+        OR (@sedan = 1 AND cat.Car_Type = 'Sedan')
+        OR (@hatchback = 1 AND cat.Car_Type = 'Hatchback')
     )
 END;
