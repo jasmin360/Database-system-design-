@@ -523,3 +523,24 @@ BEGIN
 WHERE Deadline = CAST(GETDATE() AS DATE)
       
 END;
+
+GO 
+
+CREATE PROCEDURE pick_car 
+    @Category_ID INT
+AS 
+BEGIN
+    SELECT 1
+    FROM Car
+WHERE Category_ID = @Category_ID
+      
+END;
+
+GO 
+
+CREATE PROCEDURE display_cats
+AS 
+BEGIN
+    SELECT *
+    FROM Car_Category
+END;

@@ -140,7 +140,7 @@ CREATE PROCEDURE Car_Create
      @Branch_ID int
 AS
 BEGIN
-    insert into Car 
+    insert into Car (License_Plate, Condition, No_seats, Mileage, Colour, Category_ID, Branch_ID)
     values (@License_Plate, @Condition, @No_seats, @Mileage, @Colour, @Category_ID, @Branch_ID);
 END;
 
@@ -226,13 +226,15 @@ END;
 GO
 CREATE PROCEDURE Payment_Create
      @Payment_Method varchar(10),
-     @Payment_Date date,
+     @Payment_Date date= GETDATE(),
      @Emp_ID int,
      @Client_ID int
 AS
 BEGIN
-    insert into Payment (Payment_Method, Payment_Date, Emp_ID, Client_ID)
-    values (@Payment_Method, @Payment_Date, @Emp_ID, @Client_ID);
+    INSERT INTO Payment (Payment_Method, Payment_Date, Emp_ID, Client_ID)
+    VALUES (@Payment_Method, @Payment_Date, @Emp_ID, @Client_ID);
+
+    SELECT SCOPE_IDENTITY() AS Payment_ID;
 END;
 
 GO
@@ -270,7 +272,7 @@ CREATE PROCEDURE Reservation_Create
      @LicenseNo int,
      @License_Plate varchar(200),
      @Pickup_Branch_ID int,
-     @Return_Branch_ID int,
+     @Return_Branch_ID int = null,
      @Return_Date date = null,
      @Pickup_Date date = null
 AS

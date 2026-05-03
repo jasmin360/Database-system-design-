@@ -13,9 +13,10 @@ namespace VehicleRentalApp.Models
         public string    Reservation_Status { get; set; }
         public int       LicenseNo          { get; set; }
         public string    License_Plate      { get; set; }
-        public int?       Pickup_Branch_ID   { get; set; }
+        public int       Pickup_Branch_ID   { get; set; }
         public int?      Return_Branch_ID   { get; set; }
         public DateTime? Return_Date        { get; set; }
         public DateTime? Pickup_Date        { get; set; }
+        public int     Category_ID      { get; set; }
     }
 }
