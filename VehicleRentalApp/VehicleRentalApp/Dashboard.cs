@@ -222,7 +222,7 @@ namespace VehicleRentalApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EmployeeDetails employeeDetails = new EmployeeDetails(employee);
+            EmployeeDetails employeeDetails = new EmployeeDetails(employee, employee.Emp_ID);
 
             employeeDetails.ShowDialog();
         }
