@@ -1258,26 +1258,70 @@ namespace VehicleRentalApp.DAL
             }
             return client;
         }
-            public static void add_client(Client client)
+        public static void add_client(Client client)
+        {
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Client_Create", connection))
             {
-                using (SqlConnection connection = DatabaseHelper.GetConnection())
-                using (SqlCommand cmd = new SqlCommand("Client_Create", connection))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter("@First_Name", SqlDbType.VarChar, 200));
-                    cmd.Parameters["@First_Name"].Value = client.First_Name;
-                    cmd.Parameters.Add(new SqlParameter("@Last_Name", SqlDbType.VarChar, 200));
-                    cmd.Parameters["@Last_Name"].Value = client.Last_Name;
-                    cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.VarChar, 200));
-                    cmd.Parameters["@Email"].Value = client.Email;
-                    cmd.Parameters.Add(new SqlParameter("@Phone", SqlDbType.VarChar, 200));
-                    cmd.Parameters["@Phone"].Value = client.Phone;
-                    cmd.Parameters.Add(new SqlParameter("@Driver_License_Number", SqlDbType.Int));
-                    cmd.Parameters["@Driver_License_Number"].Value = client.Driver_License_Number;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@First_Name", SqlDbType.VarChar, 200));
+                cmd.Parameters["@First_Name"].Value = client.First_Name;
+                cmd.Parameters.Add(new SqlParameter("@Last_Name", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Last_Name"].Value = client.Last_Name;
+                cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Email"].Value = client.Email;
+                cmd.Parameters.Add(new SqlParameter("@Phone", SqlDbType.VarChar, 200));
+                cmd.Parameters["@Phone"].Value = client.Phone;
+                cmd.Parameters.Add(new SqlParameter("@Driver_License_Number", SqlDbType.Int));
+                cmd.Parameters["@Driver_License_Number"].Value = client.Driver_License_Number;
 
-                    cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static Car_Category display_all_cats()
+        {
+            List<Car_Category> cats = new List<Car_Category>();
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("display_cats", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+                        Car_Category cat = new Car_Category
+                        {
+                            Category_ID = Convert.ToInt32(reader["Category_ID"]),
+                            Car_Type = reader["Car_Type"].ToString(),
+                            Make = reader["Make"].ToString(),
+                            Model = reader["Model"].ToString(),
+                            Model_Year = Convert.ToInt32(reader["Model_Year"]),
+                            Transmission = reader["Transmission"].ToString(),
+                            Daily_Rental_Rate = Convert.ToDecimal(reader["Daily_Rental_Rate"])
+                        };
+                        cats.Add(cat);
+                    }
+                }
+                using (SqlConnection connection = DatabaseHelper.GetConnection())
+                using (SqlCommand countCmd = new SqlCommand("Get_Cars_Count_Per_Category", connection))
+                using (SqlDataReader countReader = countCmd.ExecuteReader())
+                {
+                    countCmd.CommandType = CommandType.StoredProcedure;
+                    while (countReader.Read())
+                    {
+                        int id = Convert.ToInt32(countReader["Category_ID"]);
+                        int count = Convert.ToInt32(countReader["Car_Count"]);
+                        var cat = cats.FirstOrDefault(c => c.Category_ID == id);
+                        if (cat != null) cat.Count = count;
+                    }
                 }
             }
+
+            return cats.ToArray();
+        }
 
     }    
 
