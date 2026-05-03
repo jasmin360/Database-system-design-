@@ -61,13 +61,12 @@ namespace VehicleRentalApp.DAL
                                 Active = Convert.ToInt32(reader["Active"])
                             };
                             checker = true;
-
+                            result = "Login successful.";
                             if (employee.Active == 0)
                             {
                                 result = "Account is inactive. Please contact your administrator.";
                                 checker = false;
                             }
-                            result = "Login successful.";
                         }
                         else
                         {
@@ -1156,18 +1155,23 @@ namespace VehicleRentalApp.DAL
 
                     while (reader.Read())
                     {
-                        Employee emp = new Employee
+
+                        if (reader["Position"].ToString()== "Employee")
                         {
-                            Emp_ID = Convert.ToInt32(reader["Emp_ID"]),
-                            First_Name = reader["First_Name"].ToString(),
-                            Last_Name = reader["Last_Name"].ToString(),
-                            Email = reader["Email"].ToString(),
-                            Position = reader["Position"].ToString(),
-                            Branch_ID = Convert.ToInt32(reader["Branch_ID"]),
-                            SuperEmpID = reader["SuperEmpID"] != DBNull.Value ? Convert.ToInt32(reader["SuperEmpID"]) : 0,
-                            Passkey = reader["Passkey"].ToString()
-                        };
-                        employees.Add(emp);
+                            Employee emp = new Employee
+                            {
+                                Emp_ID = Convert.ToInt32(reader["Emp_ID"]),
+                                First_Name = reader["First_Name"].ToString(),
+                                Last_Name = reader["Last_Name"].ToString(),
+                                Email = reader["Email"].ToString(),
+                                Position = reader["Position"].ToString(),
+                                Branch_ID = Convert.ToInt32(reader["Branch_ID"]),
+                                SuperEmpID = reader["SuperEmpID"] != DBNull.Value ? Convert.ToInt32(reader["SuperEmpID"]) : 0,
+                                Passkey = reader["Passkey"].ToString()
+                            };
+                            employees.Add(emp);
+                            }
+
                     }
                 }
             }
