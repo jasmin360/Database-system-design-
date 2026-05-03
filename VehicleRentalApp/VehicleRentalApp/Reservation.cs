@@ -236,5 +236,10 @@ namespace VehicleRentalApp
             if (_datePicker.Visible)
                 _datePicker.Focus();
         }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadReservations();
+        }
     }
 }
