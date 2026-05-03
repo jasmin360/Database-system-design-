@@ -174,11 +174,12 @@ CREATE PROCEDURE Employee_Create
      @First_name varchar(200),
      @Last_name varchar(200),
      @Branch_ID int,
-     @SuperEmpID int = null
+     @SuperEmpID int = null,
+     @Active bit
 AS
 BEGIN
-    insert into Employee (Passkey, Email, Position, First_name, Last_name, Branch_ID, SuperEmpID)
-    values (@Passkey, @Email, @Position, @First_name, @Last_name, @Branch_ID, @SuperEmpID);
+    insert into Employee (Passkey, Email, Position, First_name, Last_name, Branch_ID, SuperEmpID, Active)
+    values (@Passkey, @Email, @Position, @First_name, @Last_name, @Branch_ID, @SuperEmpID, @Active);
 END;
 
 GO
