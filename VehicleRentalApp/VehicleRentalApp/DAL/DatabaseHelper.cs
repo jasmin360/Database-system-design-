@@ -1279,7 +1279,7 @@ namespace VehicleRentalApp.DAL
             }
         }
 
-        public static Car_Category display_all_cats()
+        public static Car_Category[] display_all_cats()
         {
             List<Car_Category> cats = new List<Car_Category>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
