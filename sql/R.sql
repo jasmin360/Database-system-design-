@@ -98,7 +98,7 @@ CREATE PROCEDURE Cars_Read_ByCategoryID
     @Category_ID INT
 AS
 BEGIN
-    select * from Car where Category_ID = @Category_ID;
+    select * from Car where Category_ID = @Category_ID AND Condition != 'Retired';
 END;
 
 GO
@@ -107,7 +107,7 @@ CREATE PROCEDURE Cars_Read_ByBranchID
     @Branch_ID INT
 AS
 BEGIN
-    select * from Car where Branch_ID = @Branch_ID;
+    select * from Car where Branch_ID = @Branch_ID AND Condition != 'Retired';
 END;
 
 GO
@@ -116,7 +116,7 @@ CREATE PROCEDURE Employee_Read_ByBranchID
     @Branch_ID INT
 AS
 BEGIN
-    select * from Employee where Branch_ID = @Branch_ID;
+    select * from Employee where Branch_ID = @Branch_ID AND Active = 1;
 END;
 
 GO
@@ -125,7 +125,7 @@ CREATE PROCEDURE Employee_Read_BySupervisorID
     @SuperEmpID INT
 AS
 BEGIN
-    select * from Employee where SuperEmpID = @SuperEmpID;
+    select * from Employee where SuperEmpID = @SuperEmpID AND Active = 1;
 END;
 
 GO
@@ -256,9 +256,9 @@ CREATE PROCEDURE Get_Total_Cars_In_Branch
 AS
 BEGIN
     IF @Branch_ID IS NULL
-        SELECT COUNT(*) AS Total_Cars FROM Car;
+        SELECT COUNT(*) AS Total_Cars FROM Car WHERE Condition != 'Retired';
     ELSE
-        SELECT COUNT(*) AS Total_Cars FROM Car WHERE Branch_ID = @Branch_ID;
+        SELECT COUNT(*) AS Total_Cars FROM Car WHERE Branch_ID = @Branch_ID AND Condition != 'Retired';
 END;
 
 GO
@@ -363,7 +363,7 @@ BEGIN
     SELECT  *
     FROM Reservation
     WHERE Deadline < CAST(GETDATE() AS DATE)
-      AND Reservation_Status != 'Returned'
+      AND Reservation_Status = 'Pickedup'
       AND (@Branch_ID IS NULL OR Pickup_Branch_ID = @Branch_ID);
 END;
 
@@ -434,7 +434,7 @@ BEGIN
     License_Plate, Condition, No_seats, Mileage, Colour, Branch_ID, Car.Category_ID, Car_Type, Make, Model, Model_Year, Transmission, Daily_Rental_Rate 
     from Car
     join Car_Category on Car.Category_ID = Car_Category.Category_ID
-    where Car_Type = @Car_Type
+    where Car_Type = @Car_Type AND Condition != 'Retired'
 
 END;
 
@@ -461,7 +461,7 @@ Create procedure all_employees
     @Branch_ID int
 AS
 BEGIN
-    select * from Employee where Branch_ID = @Branch_ID;
+    select * from Employee where Branch_ID = @Branch_ID  AND Active = 1;
 
 END;
 
@@ -532,7 +532,7 @@ AS
 BEGIN
     SELECT TOP 1 *
     FROM Car
-WHERE Category_ID = @Category_ID
+WHERE Category_ID = @Category_ID AND Condition != 'Retired'
       
 END;
 
@@ -552,6 +552,7 @@ AS
 BEGIN
     SELECT Category_ID, COUNT(*) AS Car_Count
     FROM Car
+    WHERE Condition != 'Retired'
     GROUP BY Category_ID;
 END;
 
