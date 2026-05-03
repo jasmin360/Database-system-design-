@@ -13,7 +13,7 @@ namespace VehicleRentalApp
         private static readonly Color BgSelected = Color.FromArgb(29, 26, 73);
         private static readonly Color BorderSel = Color.FromArgb(112, 105, 181);
 
-        public CategoryCard(CarInfo data, int availableCount)
+        public CategoryCard(CarInfo data)
         {
             InitializeComponent();
             Data = data;
@@ -23,15 +23,15 @@ namespace VehicleRentalApp
             lblYear.Text = data.ModelYear.ToString();
             lblTrans.Text = data.Transmission;
             lblRate.Text = $"${data.DailyRate:0.##}/day";
-            lblAvailable.Text = $"{availableCount} available";
+            lblAvailable.Text = $"{data.count} available";
 
             // colour the count badge depending on availability
-            if (availableCount == 0)
+            if (data.count == 0)
             {
                 lblAvailable.ForeColor = Color.FromArgb(200, 80, 80);
                 lblAvailable.BackColor = Color.FromArgb(40, 10, 10);
             }
-            else if (availableCount <= 2)
+            else if (data.count <= 2)
             {
                 lblAvailable.ForeColor = Color.FromArgb(200, 160, 60);
                 lblAvailable.BackColor = Color.FromArgb(40, 30, 10);

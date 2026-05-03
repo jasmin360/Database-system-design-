@@ -75,5 +75,7 @@ namespace VehicleRentalApp
         public string Transmission { get; set; }
         public decimal DailyRate { get; set; }
         public bool IsReserved { get; set; }
+
+        public int count { get; set; }
     }
 }
