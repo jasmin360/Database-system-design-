@@ -228,10 +228,11 @@ namespace VehicleRentalApp
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            Employees employees = new Employees(this.branchitself.Branch_ID, this.employee.Emp_ID);
+        { 
+            Employees employees = new Employees(this.branchitself.Branch_ID, this.employee.Emp_ID, this.branchitself.City);
 
             employees.ShowDialog();
+
         }
 
         private void label6_Click(object sender, EventArgs e)
