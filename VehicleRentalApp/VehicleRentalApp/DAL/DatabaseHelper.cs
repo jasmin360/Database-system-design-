@@ -1402,16 +1402,16 @@ namespace VehicleRentalApp.DAL
         //            }
         //        }
 
-        //    }
-
-            //if (!reservations.Any())
-            //{
-            //    return false;
-            //}
-            //else
-            //{
-                
-            //}
+            if (!reservations.Any())
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
+
+    }    
 
     }    
