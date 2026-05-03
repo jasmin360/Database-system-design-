@@ -566,3 +566,14 @@ BEGIN
     FROM reservation
     where License_Plate = @License_Plate
 END;
+
+GO
+
+CREATE PROCEDURE car_branch
+    @License_Plate varchar(200)
+AS
+BEGIN
+    SELECT Branch_ID
+    FROM Car
+    where License_Plate = @License_Plate
+END;

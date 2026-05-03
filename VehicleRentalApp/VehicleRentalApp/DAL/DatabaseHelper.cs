@@ -1378,7 +1378,26 @@ namespace VehicleRentalApp.DAL
             return cat.Category_ID;
         }
 
+        public static int car_branch(string licensePlate)
+        {
+            int branchID = 0;
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("car_branch", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@License_Plate", SqlDbType.VarChar, 200));
+                cmd.Parameters["@License_Plate"].Value = licensePlate;
 
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        branchID = Convert.ToInt32(reader["Branch_ID"]);
+                    }
+                }
+            }
+            return branchID;
+        }
 
      
 
