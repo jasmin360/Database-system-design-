@@ -29,9 +29,9 @@ namespace VehicleRentalApp.DAL
         //i will output the employee details in it 
         //the function itself returns a boolena you can use to check directly if this human is signing in correctly
         //a string passed by raference that will contain the ouput message
-        public static bool verify_credentials(string email, string passkey, ref string result , ref Employee employee)
+        public static bool verify_credentials(string email, string passkey, ref string result, ref Employee employee)
         {
-            bool checker=false;
+            bool checker = false;
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Employee_Read_Email", connection))
             {
@@ -42,7 +42,7 @@ namespace VehicleRentalApp.DAL
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    if(reader.Read())
+                    if (reader.Read())
                     {
                         string storedPasskey = reader["Passkey"].ToString();
 
@@ -59,7 +59,7 @@ namespace VehicleRentalApp.DAL
                                 Branch_ID = Convert.ToInt32(reader["Branch_ID"]),
                                 SuperEmpID = reader.IsDBNull(reader.GetOrdinal("SuperEmpID")) ? (int?)null : Convert.ToInt32(reader["SuperEmpID"])
                             };
-                            checker= true;
+                            checker = true;
                             result = "Login successful.";
                         }
                         else
@@ -130,14 +130,14 @@ namespace VehicleRentalApp.DAL
                             Reservation_Status = reader["Reservation_Status"].ToString(),
                             LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
                             License_Plate = reader["License_Plate"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
-                            Return_Date = reader["Return_Date"] == DBNull.Value 
-                                ? (DateTime?)null 
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = reader["Return_Branch_ID"] != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Return_Date = reader["Return_Date"] == DBNull.Value
+                                ? (DateTime?)null
                                 : Convert.ToDateTime(reader["Return_Date"]),
 
-                            Pickup_Date = reader["Pickup_Date"] == DBNull.Value 
-                                ? (DateTime?)null 
+                            Pickup_Date = reader["Pickup_Date"] == DBNull.Value
+                                ? (DateTime?)null
                                 : Convert.ToDateTime(reader["Pickup_Date"])
 
                         };
@@ -177,8 +177,8 @@ namespace VehicleRentalApp.DAL
                             Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
                             Deadline = Convert.ToDateTime(reader["Deadline"]),
                             Reservation_Status = reader["Reservation_Status"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = reader["Return_Branch_ID"] != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
                             Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
                             Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"]),
                             Driver_License_Number = Convert.ToInt32(reader["Driver_License_Number"]),
@@ -206,22 +206,22 @@ namespace VehicleRentalApp.DAL
 
                         };
 
-                        
+
                     }
                     else
                     {
-                        exist= false;
+                        exist = false;
                         return reservation;
                     }
                 }
             }
-        return reservation;
+            return reservation;
         }
 
         //if return is an empty array then no reservations found with this filter
         //all parameters are optional
         // week (1-53) and month (1-12) and year are integers
-        public static ReservationHorse[] filter_reservation(int? day = null , int? week= null, int? month = null, int? year = null)
+        public static ReservationHorse[] filter_reservation(int? day = null, int? week = null, int? month = null, int? year = null)
         {
             List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -250,8 +250,8 @@ namespace VehicleRentalApp.DAL
                             Reservation_Status = reader["Reservation_Status"].ToString(),
                             LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
                             License_Plate = reader["License_Plate"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = reader["Return_Branch_ID"] != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
                             Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
                             Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
@@ -259,7 +259,7 @@ namespace VehicleRentalApp.DAL
 
                         reservations.Add(reservation);
                     }
-                    
+
                 }
             }
             return reservations.ToArray();
@@ -285,8 +285,8 @@ namespace VehicleRentalApp.DAL
                             Reservation_Status = reader["Reservation_Status"].ToString(),
                             LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
                             License_Plate = reader["License_Plate"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = reader["Return_Branch_ID"] != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
                             Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
                             Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
@@ -294,7 +294,7 @@ namespace VehicleRentalApp.DAL
 
                         reservations.Add(reservation);
                     }
-                    
+
                 }
             }
             return reservations.ToArray();
@@ -320,8 +320,8 @@ namespace VehicleRentalApp.DAL
                             Reservation_Status = reader["Reservation_Status"].ToString(),
                             LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
                             License_Plate = reader["License_Plate"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = reader["Return_Branch_ID"] != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
                             Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
                             Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
@@ -329,13 +329,13 @@ namespace VehicleRentalApp.DAL
 
                         reservations.Add(reservation);
                     }
-                    
+
                 }
             }
             return reservations.ToArray();
         }
 
-        public static ReservationHorse[] filter_deadlines(int? day = null, int? week= null, int? month = null, int? year = null)
+        public static ReservationHorse[] filter_deadlines(int? day = null, int? week = null, int? month = null, int? year = null)
         {
             List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -353,7 +353,7 @@ namespace VehicleRentalApp.DAL
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                   while (reader.Read())
+                    while (reader.Read())
                     {
                         ReservationHorse reservation = new ReservationHorse
                         {
@@ -364,8 +364,8 @@ namespace VehicleRentalApp.DAL
                             Reservation_Status = reader["Reservation_Status"].ToString(),
                             LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
                             License_Plate = reader["License_Plate"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = reader["Return_Branch_ID"] != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
                             Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
                             Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
@@ -376,7 +376,7 @@ namespace VehicleRentalApp.DAL
                 }
             }
             return reservations.ToArray();
-            
+
         }
 
         public static ReservationHorse[] filter_deadlines_this_week()
@@ -389,7 +389,7 @@ namespace VehicleRentalApp.DAL
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                   while (reader.Read())
+                    while (reader.Read())
                     {
                         ReservationHorse reservation = new ReservationHorse
                         {
@@ -400,8 +400,8 @@ namespace VehicleRentalApp.DAL
                             Reservation_Status = reader["Reservation_Status"].ToString(),
                             LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
                             License_Plate = reader["License_Plate"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = reader["Return_Branch_ID"] != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
                             Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
                             Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
@@ -412,7 +412,7 @@ namespace VehicleRentalApp.DAL
                 }
             }
             return reservations.ToArray();
-            
+
         }
 
         public static ReservationHorse[] filter_deadlines_today()
@@ -425,7 +425,7 @@ namespace VehicleRentalApp.DAL
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                   while (reader.Read())
+                    while (reader.Read())
                     {
                         ReservationHorse reservation = new ReservationHorse
                         {
@@ -436,8 +436,8 @@ namespace VehicleRentalApp.DAL
                             Reservation_Status = reader["Reservation_Status"].ToString(),
                             LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
                             License_Plate = reader["License_Plate"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = reader["Return_Branch_ID"] != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
                             Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
                             Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
@@ -448,29 +448,30 @@ namespace VehicleRentalApp.DAL
                 }
             }
             return reservations.ToArray();
-            
+
         }
 
         public static int total_cars_in_branch(int branchID)
         {
-            int result=0;
+            int result = 0;
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Get_Total_Cars_In_Branch", connection))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Branch_ID", SqlDbType.Int));
                 cmd.Parameters["@Branch_ID"].Value = branchID;
-                using (SqlDataReader reader = cmd.ExecuteReader()){
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
                     if (reader.Read())
                     {
                         result = Convert.ToInt32(reader[0]);
-            
+
                     }
                 }
             }
 
             return result;
-    
+
         }
 
         public static ReservationHorse[] planned_returns_today()
@@ -485,24 +486,24 @@ namespace VehicleRentalApp.DAL
                     while (reader.Read())
                     {
                         ReservationHorse reservation = new ReservationHorse
-                            {
-                                Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
-                                Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
-                                Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
-                                Deadline = Convert.ToDateTime(reader["Deadline"]),
-                                Reservation_Status = reader["Reservation_Status"].ToString(),
-                                LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
-                                License_Plate = reader["License_Plate"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
-                                Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
-                                Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
+                        {
+                            Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
+                            Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
+                            Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
+                            Deadline = Convert.ToDateTime(reader["Deadline"]),
+                            Reservation_Status = reader["Reservation_Status"].ToString(),
+                            LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
+                            License_Plate = reader["License_Plate"].ToString(),
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = reader["Return_Branch_ID"] != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
+                            Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
-                            };
+                        };
 
                         reservations.Add(reservation);
                     }
-                    
+
                 }
 
             }
@@ -510,7 +511,7 @@ namespace VehicleRentalApp.DAL
             return reservations.ToArray();
         }
 
-        public static Car[] Get_Available_Cars_In_Branch (int branchID)
+        public static Car[] Get_Available_Cars_In_Branch(int branchID)
         {
             List<Car> cars = new List<Car>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
@@ -537,14 +538,14 @@ namespace VehicleRentalApp.DAL
 
                         cars.Add(carss);
                     }
-                    
+
                 }
 
 
             }
 
             return cars.ToArray();
-            
+
         }
 
         public static ReservationHorse[] Get_Overdue_Reservations()
@@ -567,8 +568,8 @@ namespace VehicleRentalApp.DAL
                             Reservation_Status = reader["Reservation_Status"].ToString(),
                             LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
                             License_Plate = reader["License_Plate"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = reader["Return_Branch_ID"] != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
                             Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
                             Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
@@ -605,8 +606,8 @@ namespace VehicleRentalApp.DAL
                             Reservation_Status = reader["Reservation_Status"].ToString(),
                             LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
                             License_Plate = reader["License_Plate"].ToString(),
-                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]),
+                            Return_Branch_ID = reader["Return_Branch_ID"] != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
                             Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
                             Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
@@ -621,7 +622,7 @@ namespace VehicleRentalApp.DAL
             return reservations.ToArray();
         }
 
-        public static void return_car (int reservationID, int branchID)
+        public static void return_car(int reservationID, int branchID)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Reservation_Update", connection))
@@ -639,7 +640,7 @@ namespace VehicleRentalApp.DAL
                 cmd.ExecuteNonQuery();
             }
 
-            string licenseplate= "";
+            string licenseplate = "";
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("license_plate_from_reservationID", connection))
             {
@@ -651,7 +652,7 @@ namespace VehicleRentalApp.DAL
                 {
                     if (reader.Read())
                     {
-                        licenseplate= reader[0].ToString();
+                        licenseplate = reader[0].ToString();
                     }
                 }
 
@@ -669,11 +670,11 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters["@License_Plate"].Value = licenseplate;
 
                 cmd.ExecuteNonQuery();
-                
+
             }
         }
 
-        public static void pickup_car (int reservationID, int branchID)
+        public static void pickup_car(int reservationID, int branchID)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Reservation_Update", connection))
@@ -691,7 +692,7 @@ namespace VehicleRentalApp.DAL
                 cmd.ExecuteNonQuery();
             }
 
-            string licenseplate="";
+            string licenseplate = "";
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("license_plate_from_reservationID", connection))
             {
@@ -703,7 +704,7 @@ namespace VehicleRentalApp.DAL
                 {
                     if (reader.Read())
                     {
-                        licenseplate= reader[0].ToString();
+                        licenseplate = reader[0].ToString();
                     }
                 }
 
@@ -719,11 +720,11 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters["@License_Plate"].Value = licenseplate;
 
                 cmd.ExecuteNonQuery();
-                
+
             }
         }
 
-        public static void cancel_reservation (int reservationID)
+        public static void cancel_reservation(int reservationID)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Reservation_Delete", connection))
@@ -747,7 +748,7 @@ namespace VehicleRentalApp.DAL
                 {
                     if (reader.Read())
                     {
-                        licenseplate= reader[0].ToString();
+                        licenseplate = reader[0].ToString();
                     }
                 }
 
@@ -763,7 +764,7 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters["@License_Plate"].Value = licenseplate;
 
                 cmd.ExecuteNonQuery();
-                
+
             }
         }
 
@@ -910,7 +911,7 @@ namespace VehicleRentalApp.DAL
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    if(reader.Read())
+                    if (reader.Read())
                     {
                         string licensePlate = reader["License_Plate"].ToString();
                         using (SqlConnection connection2 = DatabaseHelper.GetConnection())
@@ -942,7 +943,7 @@ namespace VehicleRentalApp.DAL
             }
         }
 
-        public static void hire_employee(Employee employee, int supID )
+        public static void hire_employee(Employee employee, int supID)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Employee_Create", connection))
@@ -981,7 +982,7 @@ namespace VehicleRentalApp.DAL
             }
         }
 
-        public static void display_client(int clientID, out Client client, out bool exist,string First_Name= null, string Last_Name= null, String email= null, string phone= null)
+        public static void display_client(int clientID, out Client client, out bool exist, string First_Name = null, string Last_Name = null, String email = null, string phone = null)
         {
             client = null;
             exist = false;
@@ -1007,11 +1008,11 @@ namespace VehicleRentalApp.DAL
 
                         };
 
-                        
+
                     }
                     else
                     {
-                        exist= false;
+                        exist = false;
                         using (SqlConnection connection2 = DatabaseHelper.GetConnection())
                         using (SqlCommand cmd2 = new SqlCommand("Client_Create", connection2))
                         {
@@ -1034,7 +1035,7 @@ namespace VehicleRentalApp.DAL
             }
         }
 
-        public static void edit_employee(int employeeID, string firstName=null, string lastName=null, string email=null, string position=null, int? branchID=null, int? superEmpID=null, string passkey=null)
+        public static void edit_employee(int employeeID, string firstName = null, string lastName = null, string email = null, string position = null, int? branchID = null, int? superEmpID = null, string passkey = null)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Employee_Update", connection))
@@ -1108,7 +1109,7 @@ namespace VehicleRentalApp.DAL
                 cmd.ExecuteNonQuery();
             }
 
-            
+
         }
 
         public static double branch_revenue(int branchID)
@@ -1132,7 +1133,7 @@ namespace VehicleRentalApp.DAL
 
             return revenue;
         }
-    
+
         public static Employee[] view_all_employees(int branchID)
         {
             List<Employee> employees = new List<Employee>();
@@ -1166,8 +1167,9 @@ namespace VehicleRentalApp.DAL
 
             return employees.ToArray();
         }
-    
-        public static Car[] filter_Cars_In_Branch (int branchID, string reserveOrFree, bool picanto, bool suv, bool coupe, bool sedan, bool hatchback){
+
+        public static Car[] filter_Cars_In_Branch(int branchID, string reserveOrFree, bool picanto, bool suv, bool coupe, bool sedan, bool hatchback)
+        {
             List<Car> cars = new List<Car>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("car_filter_chonk", connection))
@@ -1210,7 +1212,7 @@ namespace VehicleRentalApp.DAL
             }
             return cars.ToArray();
         }
-        
+
         public static Car_Category cat_fromID(int catID)
         {
             Car_Category carcat = null;
@@ -1370,48 +1372,9 @@ namespace VehicleRentalApp.DAL
         }
 
 
-        //public static bool exists(){
-        //    List<ReservationHorse> reservations = new List<ReservationHorse>();
-        //    using (SqlConnection connection = DatabaseHelper.GetConnection())
-        //    using (SqlCommand cmd = new SqlCommand("exists_car_reservation", connection))
-        //    {
-        //        cmd.CommandType = CommandType.StoredProcedure;
-        //        cmd.Parameters.Add(new SqlParameter("@Branch_ID", SqlDbType.Int));
-        //        cmd.Parameters["@Branch_ID"].Value = branchID;
-        //        using (SqlDataReader reader = cmd.ExecuteReader())
-        //        {
-        //            while (reader.Read())
-        //            {
-        //                ReservationHorse reservation = new ReservationHorse
-        //                {
-        //                    Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
-        //                    Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
-        //                    Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
-        //                    Deadline = Convert.ToDateTime(reader["Deadline"]),
-        //                    Reservation_Status = reader["Reservation_Status"].ToString(),
-        //                    LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
-        //                    License_Plate = reader["License_Plate"].ToString(),
-        //                    Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
-        //                    Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
-        //                    Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
-        //                    Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
 
-        //                };
 
-        //                reservations.Add(reservation);
-        //            }
-        //        }
 
-            if (!reservations.Any())
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+    }
 
-    }    
-
-    }    
+}
