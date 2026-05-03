@@ -225,7 +225,7 @@ namespace VehicleRentalApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Employees employees = new Employees();
+            Employees employees = new Employees(this.branchitself.Branch_ID);
 
             employees.ShowDialog();
         }
