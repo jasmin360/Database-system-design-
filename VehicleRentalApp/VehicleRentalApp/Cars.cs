@@ -123,5 +123,10 @@ namespace VehicleRentalApp
         {
             LoadCars();
         }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

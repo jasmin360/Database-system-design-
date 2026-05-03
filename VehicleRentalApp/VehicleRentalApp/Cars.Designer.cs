@@ -39,10 +39,10 @@
             this.all.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.all.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.all.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.all.Location = new System.Drawing.Point(56, 28);
-            this.all.Margin = new System.Windows.Forms.Padding(2);
+            this.all.Location = new System.Drawing.Point(112, 56);
+            this.all.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.all.Name = "all";
-            this.all.Size = new System.Drawing.Size(62, 31);
+            this.all.Size = new System.Drawing.Size(124, 62);
             this.all.TabIndex = 25;
             this.all.Text = "All";
             this.all.UseVisualStyleBackColor = false;
@@ -56,10 +56,10 @@
             this.reserv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reserv.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reserv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.reserv.Location = new System.Drawing.Point(122, 28);
-            this.reserv.Margin = new System.Windows.Forms.Padding(2);
+            this.reserv.Location = new System.Drawing.Point(244, 56);
+            this.reserv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.reserv.Name = "reserv";
-            this.reserv.Size = new System.Drawing.Size(81, 31);
+            this.reserv.Size = new System.Drawing.Size(162, 62);
             this.reserv.TabIndex = 26;
             this.reserv.Text = "Reserved";
             this.reserv.UseVisualStyleBackColor = false;
@@ -72,10 +72,10 @@
             this.free.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.free.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.free.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.free.Location = new System.Drawing.Point(207, 28);
-            this.free.Margin = new System.Windows.Forms.Padding(2);
+            this.free.Location = new System.Drawing.Point(414, 56);
+            this.free.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.free.Name = "free";
-            this.free.Size = new System.Drawing.Size(74, 31);
+            this.free.Size = new System.Drawing.Size(148, 62);
             this.free.TabIndex = 27;
             this.free.Text = "Free";
             this.free.UseVisualStyleBackColor = false;
@@ -84,21 +84,22 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(56, 99);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(112, 198);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(820, 470);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1640, 940);
             this.flowLayoutPanel1.TabIndex = 42;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(396, 41);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(792, 82);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 23);
+            this.label7.Size = new System.Drawing.Size(0, 46);
             this.label7.TabIndex = 39;
             // 
             // filterPanel
@@ -111,10 +112,10 @@
             this.filterPanel.Controls.Add(this.chkCoupe);
             this.filterPanel.Controls.Add(this.chkSedan);
             this.filterPanel.Controls.Add(this.chkHatchback);
-            this.filterPanel.Location = new System.Drawing.Point(689, 63);
-            this.filterPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.filterPanel.Location = new System.Drawing.Point(1378, 126);
+            this.filterPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(185, 177);
+            this.filterPanel.Size = new System.Drawing.Size(368, 352);
             this.filterPanel.TabIndex = 46;
             // 
             // lblFilterTitle
@@ -123,10 +124,10 @@
             this.lblFilterTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblFilterTitle.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.lblFilterTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblFilterTitle.Location = new System.Drawing.Point(8, 8);
-            this.lblFilterTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFilterTitle.Location = new System.Drawing.Point(16, 16);
+            this.lblFilterTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFilterTitle.Name = "lblFilterTitle";
-            this.lblFilterTitle.Size = new System.Drawing.Size(115, 18);
+            this.lblFilterTitle.Size = new System.Drawing.Size(233, 37);
             this.lblFilterTitle.TabIndex = 0;
             this.lblFilterTitle.Text = "Filter by Car Type";
             // 
@@ -136,10 +137,10 @@
             this.chkPicanto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkPicanto.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkPicanto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkPicanto.Location = new System.Drawing.Point(8, 30);
-            this.chkPicanto.Margin = new System.Windows.Forms.Padding(2);
+            this.chkPicanto.Location = new System.Drawing.Point(16, 60);
+            this.chkPicanto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkPicanto.Name = "chkPicanto";
-            this.chkPicanto.Size = new System.Drawing.Size(69, 21);
+            this.chkPicanto.Size = new System.Drawing.Size(128, 37);
             this.chkPicanto.TabIndex = 1;
             this.chkPicanto.Text = "Picanto";
             this.chkPicanto.UseVisualStyleBackColor = false;
@@ -150,10 +151,10 @@
             this.chkSUV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkSUV.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkSUV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkSUV.Location = new System.Drawing.Point(8, 53);
-            this.chkSUV.Margin = new System.Windows.Forms.Padding(2);
+            this.chkSUV.Location = new System.Drawing.Point(16, 106);
+            this.chkSUV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkSUV.Name = "chkSUV";
-            this.chkSUV.Size = new System.Drawing.Size(50, 21);
+            this.chkSUV.Size = new System.Drawing.Size(91, 37);
             this.chkSUV.TabIndex = 2;
             this.chkSUV.Text = "SUV";
             this.chkSUV.UseVisualStyleBackColor = false;
@@ -164,10 +165,10 @@
             this.chkCoupe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkCoupe.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkCoupe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkCoupe.Location = new System.Drawing.Point(8, 77);
-            this.chkCoupe.Margin = new System.Windows.Forms.Padding(2);
+            this.chkCoupe.Location = new System.Drawing.Point(16, 154);
+            this.chkCoupe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkCoupe.Name = "chkCoupe";
-            this.chkCoupe.Size = new System.Drawing.Size(62, 21);
+            this.chkCoupe.Size = new System.Drawing.Size(116, 37);
             this.chkCoupe.TabIndex = 3;
             this.chkCoupe.Text = "Coupe";
             this.chkCoupe.UseVisualStyleBackColor = false;
@@ -178,10 +179,10 @@
             this.chkSedan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkSedan.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkSedan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkSedan.Location = new System.Drawing.Point(8, 100);
-            this.chkSedan.Margin = new System.Windows.Forms.Padding(2);
+            this.chkSedan.Location = new System.Drawing.Point(16, 200);
+            this.chkSedan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkSedan.Name = "chkSedan";
-            this.chkSedan.Size = new System.Drawing.Size(61, 21);
+            this.chkSedan.Size = new System.Drawing.Size(113, 37);
             this.chkSedan.TabIndex = 4;
             this.chkSedan.Text = "Sedan";
             this.chkSedan.UseVisualStyleBackColor = false;
@@ -192,10 +193,10 @@
             this.chkHatchback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.chkHatchback.Font = new System.Drawing.Font("Calibri", 10F);
             this.chkHatchback.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.chkHatchback.Location = new System.Drawing.Point(8, 123);
-            this.chkHatchback.Margin = new System.Windows.Forms.Padding(2);
+            this.chkHatchback.Location = new System.Drawing.Point(16, 246);
+            this.chkHatchback.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkHatchback.Name = "chkHatchback";
-            this.chkHatchback.Size = new System.Drawing.Size(87, 21);
+            this.chkHatchback.Size = new System.Drawing.Size(161, 37);
             this.chkHatchback.TabIndex = 5;
             this.chkHatchback.Text = "Hatchback";
             this.chkHatchback.UseVisualStyleBackColor = false;
@@ -206,10 +207,10 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Calibri", 14.5F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.txtSearch.Location = new System.Drawing.Point(285, 28);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearch.Location = new System.Drawing.Point(570, 56);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(377, 31);
+            this.txtSearch.Size = new System.Drawing.Size(752, 55);
             this.txtSearch.TabIndex = 47;
             this.txtSearch.Text = "Search...";
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -225,9 +226,10 @@
             this.BtnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.BtnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.BtnRefresh.Location = new System.Drawing.Point(772, 31);
+            this.BtnRefresh.Location = new System.Drawing.Point(1544, 62);
+            this.BtnRefresh.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.BtnRefresh.Name = "BtnRefresh";
-            this.BtnRefresh.Size = new System.Drawing.Size(23, 25);
+            this.BtnRefresh.Size = new System.Drawing.Size(46, 50);
             this.BtnRefresh.TabIndex = 48;
             this.BtnRefresh.UseVisualStyleBackColor = false;
             this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
@@ -243,9 +245,10 @@
             this.plus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.plus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.plus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.plus.Location = new System.Drawing.Point(850, 32);
+            this.plus.Location = new System.Drawing.Point(1700, 64);
+            this.plus.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.plus.Name = "plus";
-            this.plus.Size = new System.Drawing.Size(23, 25);
+            this.plus.Size = new System.Drawing.Size(46, 50);
             this.plus.TabIndex = 43;
             this.plus.UseVisualStyleBackColor = false;
             // 
@@ -260,16 +263,17 @@
             this.right.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.right.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.right.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.right.Location = new System.Drawing.Point(808, 30);
+            this.right.Location = new System.Drawing.Point(1616, 60);
+            this.right.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.right.Name = "right";
-            this.right.Size = new System.Drawing.Size(27, 29);
+            this.right.Size = new System.Drawing.Size(54, 58);
             this.right.TabIndex = 40;
             this.right.UseVisualStyleBackColor = false;
             this.right.Click += new System.EventHandler(this.right_Click);
             // 
             // Cars
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.Controls.Add(this.BtnRefresh);
@@ -282,9 +286,9 @@
             this.Controls.Add(this.free);
             this.Controls.Add(this.reserv);
             this.Controls.Add(this.all);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Cars";
-            this.Size = new System.Drawing.Size(930, 599);
+            this.Size = new System.Drawing.Size(1860, 1198);
             this.Load += new System.EventHandler(this.Cars_Load);
             this.filterPanel.ResumeLayout(false);
             this.filterPanel.PerformLayout();
