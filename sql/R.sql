@@ -467,34 +467,34 @@ END;
 
 GO
 
-CREATE PROCEDURE car_filter_chonk
+Create PROCEDURE car_filter_chonk
     @Branch_ID INT = NULL,
     @freereservedall varchar(200) = null,
-    @picanto bit = false,
-    @suv bit = false,
-    @coupe bit = false,
-    @sedan bit = false,
-    @hatchback bit = false
+    @picanto bit = 0,
+    @suv bit = 0,
+    @coupe bit = 0,
+    @sedan bit = 0,
+    @hatchback bit = 0
 AS
 BEGIN
-    select c.License_Plate,
-    c.Condition,
-    c.No_seats,
-    c.Mileage,
-    c.Colour,
-    c.Category_ID,
-    c.Branch_ID
+    SELECT c.License_Plate,
+           c.Condition,
+           c.No_seats,
+           c.Mileage,
+           c.Colour,
+           c.Category_ID,
+           c.Branch_ID
     FROM Car c
-    INNER JOIN Car_Category cat ON c.Category_ID = cat.Category_ID WHERE Branch_ID = @branch_ID
+    INNER JOIN Car_Category cat ON c.Category_ID = cat.Category_ID 
+    WHERE c.Branch_ID = @Branch_ID
     AND (                                   
         (@freereservedall = 'Free' AND c.Condition = 'Free')     
         OR (@freereservedall = 'Reserved' AND c.Condition = 'Reserved') 
-        OR (@freereservedall is null AND c.Condition = 'Free' AND c.Condition = 'Reserved' )
+        OR (@freereservedall = 'All')  -- Simple: if 'All', return everything
     )
     AND (
         (@picanto = 0 AND @suv = 0 AND @coupe = 0 AND @sedan = 0 AND @hatchback = 0)
-        OR 
-        (@picanto = 1 AND cat.Car_Type = 'Picanto')
+        OR (@picanto = 1 AND cat.Car_Type = 'Picanto')
         OR (@suv = 1 AND cat.Car_Type = 'SUV')
         OR (@coupe = 1 AND cat.Car_Type = 'Coupe')
         OR (@sedan = 1 AND cat.Car_Type = 'Sedan')
@@ -553,4 +553,13 @@ BEGIN
     SELECT Category_ID, COUNT(*) AS Car_Count
     FROM Car
     GROUP BY Category_ID;
+END;
+
+CREATE PROCEDURE exists_car_reservation
+    @License_Plate varchar(200)
+AS
+BEGIN
+    SELECT *
+    FROM reservation
+    where License_Plate = @License_Plate
 END;

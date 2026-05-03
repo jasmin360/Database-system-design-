@@ -1082,7 +1082,7 @@ namespace VehicleRentalApp.DAL
             return result;
         }
 
-        public static void update_car(string licensePlate, string condition, int mileage)
+        public static void update_car(string licensePlate, string condition, int mileage, double daily_rental_rate, int catid)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
             using (SqlCommand cmd = new SqlCommand("Car_Update", connection))
@@ -1097,6 +1097,18 @@ namespace VehicleRentalApp.DAL
 
                 cmd.ExecuteNonQuery();
             }
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("CarCategory_Update", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Category_ID", SqlDbType.Int));
+                cmd.Parameters["@Category_ID"].Value = catid;
+                cmd.Parameters.Add(new SqlParameter("@Daily_Rental_Rate", SqlDbType.Money));
+
+                cmd.ExecuteNonQuery();
+            }
+
+            
         }
 
         public static double branch_revenue(int branchID)
@@ -1355,6 +1367,51 @@ namespace VehicleRentalApp.DAL
                 }
             }
             return cat.Category_ID;
+        }
+
+
+        public static bool exists(){
+            List<ReservationHorse> reservations = new List<ReservationHorse>();
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("exists_car_reservation", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Branch_ID", SqlDbType.Int));
+                cmd.Parameters["@Branch_ID"].Value = branchID;
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ReservationHorse reservation = new ReservationHorse
+                        {
+                            Reservation_ID = Convert.ToInt32(reader["Reservation_ID"]),
+                            Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
+                            Reservation_Date = Convert.ToDateTime(reader["Reservation_Date"]),
+                            Deadline = Convert.ToDateTime(reader["Deadline"]),
+                            Reservation_Status = reader["Reservation_Status"].ToString(),
+                            LicenseNo = Convert.ToInt32(reader["LicenseNo"]),
+                            License_Plate = reader["License_Plate"].ToString(),
+                            Pickup_Branch_ID = Convert.ToInt32(reader["Pickup_Branch_ID"]), 
+                            Return_Branch_ID = reader["Return_Branch_ID"]  != DBNull.Value ? Convert.ToInt32(reader["Return_Branch_ID"]) : (int?)null,
+                            Return_Date = reader["Return_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Return_Date"]),
+                            Pickup_Date = reader["Pickup_Date"].ToString() == "" ? (DateTime?)null : Convert.ToDateTime(reader["Pickup_Date"])
+
+                        };
+
+                        reservations.Add(reservation);
+                    }
+                }
+
+            }
+
+            if (!reservations.Any())
+            {
+                return false;
+            }
+            else
+            {
+                
+            }
         }
 
     }    

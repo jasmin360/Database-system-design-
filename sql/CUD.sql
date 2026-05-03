@@ -102,20 +102,11 @@ END;
 GO
 CREATE PROCEDURE CarCategory_Update
      @Category_ID int,
-     @Car_Type varchar(20) = null,
-     @Make varchar(200) = null,
-     @Model varchar(200) = null,
-     @Model_Year int = null,
-     @Transmission varchar(20) = null,
      @Daily_Rental_Rate money = null
 AS
 BEGIN;
     update Car_Category
-    set Car_Type          = ISNULL(@Car_Type, Car_Type),
-        Make              = ISNULL(@Make, Make),
-        Model             = ISNULL(@Model, Model),
-        Model_Year        = ISNULL(@Model_Year, Model_Year),
-        Transmission      = ISNULL(@Transmission, Transmission),
+    set 
         Daily_Rental_Rate = ISNULL(@Daily_Rental_Rate, Daily_Rental_Rate)
     where Category_ID = @Category_ID;
 END;
