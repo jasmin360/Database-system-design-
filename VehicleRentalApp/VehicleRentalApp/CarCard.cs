@@ -41,6 +41,7 @@ namespace VehicleRentalApp
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            
             var confirm = MessageBox.Show(
                 $"ARE YOU SUREEEEEEEEEE?????????",
                 "Confirm Delete",
@@ -49,7 +50,7 @@ namespace VehicleRentalApp
 
             if (confirm == DialogResult.Yes)
             {
-                VHSAUTOMOTIVE.delete_car(Data.LicensePlate);
+                //VHSAUTOMOTIVE.retire;  INSTESAD OF DELETETETETTE
             }
         }
 
