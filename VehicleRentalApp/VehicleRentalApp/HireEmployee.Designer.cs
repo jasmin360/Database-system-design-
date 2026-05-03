@@ -30,12 +30,12 @@
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelCarSection = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassHashed = new System.Windows.Forms.Label();
             this.txtColour = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panelCarSection.SuspendLayout();
@@ -46,10 +46,9 @@
             this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.lblTitle.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitle.Location = new System.Drawing.Point(202, 30);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Location = new System.Drawing.Point(173, 26);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(366, 64);
+            this.lblTitle.Size = new System.Drawing.Size(314, 55);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Hire Employee";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,11 +63,21 @@
             this.panelCarSection.Controls.Add(this.lblEmail);
             this.panelCarSection.Controls.Add(this.lblPassHashed);
             this.panelCarSection.Controls.Add(this.txtColour);
-            this.panelCarSection.Location = new System.Drawing.Point(60, 124);
-            this.panelCarSection.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panelCarSection.Location = new System.Drawing.Point(51, 107);
             this.panelCarSection.Name = "panelCarSection";
-            this.panelCarSection.Size = new System.Drawing.Size(621, 225);
+            this.panelCarSection.Size = new System.Drawing.Size(533, 194);
             this.panelCarSection.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Calibri", 10F);
+            this.textBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBox1.Location = new System.Drawing.Point(283, 70);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(210, 40);
+            this.textBox1.TabIndex = 10;
             // 
             // lblName
             // 
@@ -76,10 +85,9 @@
             this.lblName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblName.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblName.Location = new System.Drawing.Point(18, 23);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(15, 20);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(91, 37);
+            this.lblName.Size = new System.Drawing.Size(82, 33);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name";
             // 
@@ -89,10 +97,9 @@
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtName.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtName.Location = new System.Drawing.Point(330, 16);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtName.Location = new System.Drawing.Point(283, 14);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(245, 44);
+            this.txtName.Size = new System.Drawing.Size(210, 40);
             this.txtName.TabIndex = 1;
             // 
             // lblEmail
@@ -101,10 +108,9 @@
             this.lblEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblEmail.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblEmail.Location = new System.Drawing.Point(18, 87);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Location = new System.Drawing.Point(15, 75);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(85, 37);
+            this.lblEmail.Size = new System.Drawing.Size(77, 33);
             this.lblEmail.TabIndex = 2;
             this.lblEmail.Text = "Email";
             // 
@@ -114,10 +120,9 @@
             this.lblPassHashed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPassHashed.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
             this.lblPassHashed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.lblPassHashed.Location = new System.Drawing.Point(18, 153);
-            this.lblPassHashed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPassHashed.Location = new System.Drawing.Point(15, 132);
             this.lblPassHashed.Name = "lblPassHashed";
-            this.lblPassHashed.Size = new System.Drawing.Size(276, 37);
+            this.lblPassHashed.Size = new System.Drawing.Size(249, 33);
             this.lblPassHashed.TabIndex = 8;
             this.lblPassHashed.Text = "Temporary Password";
             // 
@@ -127,24 +132,11 @@
             this.txtColour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtColour.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtColour.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtColour.Location = new System.Drawing.Point(330, 146);
-            this.txtColour.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtColour.Location = new System.Drawing.Point(283, 126);
             this.txtColour.Name = "txtColour";
             this.txtColour.PasswordChar = '*';
-            this.txtColour.Size = new System.Drawing.Size(245, 44);
+            this.txtColour.Size = new System.Drawing.Size(210, 40);
             this.txtColour.TabIndex = 9;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 10F);
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.textBox1.Location = new System.Drawing.Point(330, 81);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 44);
-            this.textBox1.TabIndex = 10;
             // 
             // btnSave
             // 
@@ -154,10 +146,9 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.btnSave.Location = new System.Drawing.Point(289, 390);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnSave.Location = new System.Drawing.Point(248, 336);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(187, 78);
+            this.btnSave.Size = new System.Drawing.Size(160, 67);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -170,26 +161,27 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.btnCancel.Location = new System.Drawing.Point(497, 390);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCancel.Location = new System.Drawing.Point(426, 336);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(187, 78);
+            this.btnCancel.Size = new System.Drawing.Size(160, 67);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // HireEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(762, 505);
+            this.ClientSize = new System.Drawing.Size(653, 435);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panelCarSection);
             this.Controls.Add(this.lblTitle);
             this.Name = "HireEmployee";
             this.Text = "HireEmployee";
+            this.Load += new System.EventHandler(this.HireEmployee_Load);
             this.panelCarSection.ResumeLayout(false);
             this.panelCarSection.PerformLayout();
             this.ResumeLayout(false);
