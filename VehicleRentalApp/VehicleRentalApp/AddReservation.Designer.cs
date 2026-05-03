@@ -97,7 +97,7 @@
             this.panelClient.Controls.Add(this.lblPhone);
             this.panelClient.Controls.Add(this.txtPhone);
             this.panelClient.Location = new System.Drawing.Point(18, 89);
-            this.panelClient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelClient.Margin = new System.Windows.Forms.Padding(2);
             this.panelClient.Name = "panelClient";
             this.panelClient.Size = new System.Drawing.Size(315, 209);
             this.panelClient.TabIndex = 2;
@@ -134,7 +134,7 @@
             this.txtLicenceNo.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtLicenceNo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtLicenceNo.Location = new System.Drawing.Point(122, 11);
-            this.txtLicenceNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLicenceNo.Margin = new System.Windows.Forms.Padding(2);
             this.txtLicenceNo.Name = "txtLicenceNo";
             this.txtLicenceNo.Size = new System.Drawing.Size(95, 24);
             this.txtLicenceNo.TabIndex = 1;
@@ -148,7 +148,7 @@
             this.btnLookup.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold);
             this.btnLookup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.btnLookup.Location = new System.Drawing.Point(221, 11);
-            this.btnLookup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLookup.Margin = new System.Windows.Forms.Padding(2);
             this.btnLookup.Name = "btnLookup";
             this.btnLookup.Size = new System.Drawing.Size(50, 24);
             this.btnLookup.TabIndex = 2;
@@ -177,7 +177,7 @@
             this.txtFirstName.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtFirstName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtFirstName.Location = new System.Drawing.Point(122, 48);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(149, 24);
             this.txtFirstName.TabIndex = 5;
@@ -203,7 +203,7 @@
             this.txtLastName.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtLastName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtLastName.Location = new System.Drawing.Point(122, 76);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(2);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(149, 24);
             this.txtLastName.TabIndex = 7;
@@ -229,7 +229,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtEmail.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtEmail.Location = new System.Drawing.Point(122, 104);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(149, 24);
             this.txtEmail.TabIndex = 9;
@@ -255,7 +255,7 @@
             this.txtPhone.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtPhone.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtPhone.Location = new System.Drawing.Point(122, 132);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(2);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(149, 24);
             this.txtPhone.TabIndex = 11;
@@ -291,7 +291,7 @@
             this.panelRes.Controls.Add(this.lblResDate);
             this.panelRes.Controls.Add(this.dtpResDate);
             this.panelRes.Location = new System.Drawing.Point(337, 89);
-            this.panelRes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRes.Margin = new System.Windows.Forms.Padding(2);
             this.panelRes.Name = "panelRes";
             this.panelRes.Size = new System.Drawing.Size(313, 209);
             this.panelRes.TabIndex = 4;
@@ -304,7 +304,7 @@
             this.lblPaymentDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.lblPaymentDate.Location = new System.Drawing.Point(8, 181);
             this.lblPaymentDate.Name = "lblPaymentDate";
-            this.lblPaymentDate.Size = new System.Drawing.Size(88, 17);
+            this.lblPaymentDate.Size = new System.Drawing.Size(91, 17);
             this.lblPaymentDate.TabIndex = 12;
             this.lblPaymentDate.Text = "Payment Date";
             // 
@@ -328,7 +328,7 @@
             this.lblPaymentMethod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.lblPaymentMethod.Location = new System.Drawing.Point(8, 125);
             this.lblPaymentMethod.Name = "lblPaymentMethod";
-            this.lblPaymentMethod.Size = new System.Drawing.Size(110, 17);
+            this.lblPaymentMethod.Size = new System.Drawing.Size(111, 17);
             this.lblPaymentMethod.TabIndex = 8;
             this.lblPaymentMethod.Text = "Payment Method";
             // 
@@ -355,22 +355,22 @@
             this.lblAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.lblAmount.Location = new System.Drawing.Point(8, 153);
             this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(55, 17);
+            this.lblAmount.Size = new System.Drawing.Size(56, 17);
             this.lblAmount.TabIndex = 10;
             this.lblAmount.Text = "Amount";
             // 
             // numAmount
             // 
             this.numAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.numAmount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.numAmount.Font = new System.Drawing.Font("Calibri", 10F);
             this.numAmount.DecimalPlaces = 2;
+            this.numAmount.Font = new System.Drawing.Font("Calibri", 10F);
+            this.numAmount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.numAmount.Location = new System.Drawing.Point(139, 151);
             this.numAmount.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.numAmount.Location = new System.Drawing.Point(139, 151);
             this.numAmount.Name = "numAmount";
             this.numAmount.Size = new System.Drawing.Size(117, 24);
             this.numAmount.TabIndex = 11;
@@ -400,7 +400,7 @@
             "Picked Up",
             "Reserved"});
             this.cmbStatus.Location = new System.Drawing.Point(139, 7);
-            this.cmbStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(117, 23);
             this.cmbStatus.TabIndex = 1;
@@ -426,7 +426,7 @@
             this.dtpDeadline.Font = new System.Drawing.Font("Calibri", 10F);
             this.dtpDeadline.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDeadline.Location = new System.Drawing.Point(139, 35);
-            this.dtpDeadline.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDeadline.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDeadline.Name = "dtpDeadline";
             this.dtpDeadline.Size = new System.Drawing.Size(117, 24);
             this.dtpDeadline.TabIndex = 3;
@@ -452,7 +452,7 @@
             this.dtpPickupDate.Font = new System.Drawing.Font("Calibri", 10F);
             this.dtpPickupDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpPickupDate.Location = new System.Drawing.Point(139, 64);
-            this.dtpPickupDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpPickupDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpPickupDate.Name = "dtpPickupDate";
             this.dtpPickupDate.Size = new System.Drawing.Size(117, 24);
             this.dtpPickupDate.TabIndex = 5;
@@ -478,7 +478,7 @@
             this.dtpResDate.Font = new System.Drawing.Font("Calibri", 10F);
             this.dtpResDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpResDate.Location = new System.Drawing.Point(139, 93);
-            this.dtpResDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpResDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpResDate.Name = "dtpResDate";
             this.dtpResDate.Size = new System.Drawing.Size(117, 24);
             this.dtpResDate.TabIndex = 7;
@@ -502,7 +502,7 @@
             this.panelCat.Controls.Add(this.txtCatSearch);
             this.panelCat.Controls.Add(this.flowCategories);
             this.panelCat.Location = new System.Drawing.Point(14, 334);
-            this.panelCat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelCat.Margin = new System.Windows.Forms.Padding(2);
             this.panelCat.Name = "panelCat";
             this.panelCat.Size = new System.Drawing.Size(636, 225);
             this.panelCat.TabIndex = 6;
@@ -514,7 +514,7 @@
             this.txtCatSearch.Font = new System.Drawing.Font("Calibri", 10F);
             this.txtCatSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.txtCatSearch.Location = new System.Drawing.Point(5, 5);
-            this.txtCatSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCatSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtCatSearch.Name = "txtCatSearch";
             this.txtCatSearch.Size = new System.Drawing.Size(624, 24);
             this.txtCatSearch.TabIndex = 0;
@@ -528,7 +528,7 @@
             this.flowCategories.AutoScroll = true;
             this.flowCategories.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.flowCategories.Location = new System.Drawing.Point(5, 33);
-            this.flowCategories.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowCategories.Margin = new System.Windows.Forms.Padding(2);
             this.flowCategories.Name = "flowCategories";
             this.flowCategories.Size = new System.Drawing.Size(624, 185);
             this.flowCategories.TabIndex = 1;
@@ -542,7 +542,7 @@
             this.btnSave.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.btnSave.Location = new System.Drawing.Point(481, 563);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(80, 31);
             this.btnSave.TabIndex = 7;
@@ -559,7 +559,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.btnCancel.Location = new System.Drawing.Point(571, 563);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 31);
             this.btnCancel.TabIndex = 8;
@@ -583,12 +583,13 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddReservation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Reservation";
+            this.Load += new System.EventHandler(this.AddReservation_Load_1);
             this.panelClient.ResumeLayout(false);
             this.panelClient.PerformLayout();
             this.panelRes.ResumeLayout(false);
@@ -597,6 +598,7 @@
             this.panelCat.ResumeLayout(false);
             this.panelCat.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.Label lblTitle;

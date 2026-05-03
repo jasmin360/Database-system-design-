@@ -325,5 +325,10 @@ namespace VehicleRentalApp
         }
 
         private void btnCancel_Click(object sender, EventArgs e) => this.Close();
+
+        private void AddReservation_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

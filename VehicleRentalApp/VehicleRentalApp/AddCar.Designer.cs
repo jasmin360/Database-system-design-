@@ -142,7 +142,7 @@
             this.cmbCondition.Items.AddRange(new object[] {
             "Reserved",
             "Free",
-            "Maintenance"});
+            });
             this.cmbCondition.Location = new System.Drawing.Point(100, 37);
             this.cmbCondition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbCondition.Name = "cmbCondition";

@@ -92,6 +92,12 @@ namespace VehicleRentalApp
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+            if (numSeats.Value <= 0)
+            {
+                MessageBox.Show("Seats must be greater than 0.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
             if (string.IsNullOrWhiteSpace(txtColour.Text))
             {
                 MessageBox.Show("Colour is required.", "Validation",
