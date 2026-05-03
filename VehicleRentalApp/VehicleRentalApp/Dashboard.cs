@@ -26,8 +26,8 @@ namespace VehicleRentalApp
         {
             InitializeComponent();
             SetupLayout();
-            NavigateTo(new overview(this.employee.Branch_ID));
             this.employee = employee;
+            NavigateTo(new overview(this.employee.Branch_ID));
             this.branchitself = VHSAUTOMOTIVE.branch_details_from_employee(employee.Email);
             this.branchname = this.branchitself.City;
             branch.Text = this.branchname;
