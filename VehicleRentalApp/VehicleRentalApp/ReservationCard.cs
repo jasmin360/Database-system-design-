@@ -102,6 +102,7 @@ namespace VehicleRentalApp
         private void SetStatus(string newStatus)
         {
             Data.Status = newStatus;
+
             RefreshDisplay();
 
             // update database laterfdfsf

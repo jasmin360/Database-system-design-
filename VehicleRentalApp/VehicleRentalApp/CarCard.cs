@@ -50,7 +50,7 @@ namespace VehicleRentalApp
 
             if (confirm == DialogResult.Yes)
             {
-                //VHSAUTOMOTIVE.retire;  INSTESAD OF DELETETETETTE
+                VHSAUTOMOTIVE.delete_car(Data.LicensePlate); 
             }
         }
 
