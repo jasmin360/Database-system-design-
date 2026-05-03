@@ -174,11 +174,12 @@ CREATE PROCEDURE Employee_Create
      @First_name varchar(200),
      @Last_name varchar(200),
      @Branch_ID int,
-     @SuperEmpID int = null
+     @SuperEmpID int = null,
+     @Active bit
 AS
 BEGIN
-    insert into Employee (Passkey, Email, Position, First_name, Last_name, Branch_ID, SuperEmpID)
-    values (@Passkey, @Email, @Position, @First_name, @Last_name, @Branch_ID, @SuperEmpID);
+    insert into Employee (Passkey, Email, Position, First_name, Last_name, Branch_ID, SuperEmpID, Active)
+    values (@Passkey, @Email, @Position, @First_name, @Last_name, @Branch_ID, @SuperEmpID, @Active);
 END;
 
 GO
@@ -316,11 +317,22 @@ END;
 
 GO
 
-CREATE PROCEDURE retireCar
-    @License_Plate VARCHAR(20),
+Create PROCEDURE retireCar
+    @License_Plate VARCHAR(200)
 AS
 BEGIN
     UPDATE Car
-    SET Condition = "Retired"
-    WHERE License_Plate = @LicensePlate;
+    SET Condition = 'Retired'
+    WHERE License_Plate = @License_Plate;
+END
+
+GO
+
+Create PROCEDURE fireemployee
+    @Emp_ID int
+AS
+BEGIN
+    UPDATE Employee
+    SET Active = 0
+    WHERE Emp_ID = @Emp_ID;
 END

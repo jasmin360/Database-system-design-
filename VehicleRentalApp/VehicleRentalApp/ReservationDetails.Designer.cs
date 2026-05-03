@@ -66,10 +66,19 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.panelPayment = new System.Windows.Forms.Panel();
+            this.lblPayID = new System.Windows.Forms.Label();
+            this.lblPayIDV = new System.Windows.Forms.Label();
+            this.lblPayMethod = new System.Windows.Forms.Label();
+            this.lblPayMethodV = new System.Windows.Forms.Label();
+            this.lblPayDate = new System.Windows.Forms.Label();
+            this.lblPayDateV = new System.Windows.Forms.Label();
+            this.lblPaymentDetails = new System.Windows.Forms.Label();
             this.panelClient.SuspendLayout();
             this.panelRes.SuspendLayout();
             this.panelCar.SuspendLayout();
             this.panelCat.SuspendLayout();
+            this.panelPayment.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -77,7 +86,7 @@
             this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.lblTitle.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitle.Location = new System.Drawing.Point(24, 5);
+            this.lblTitle.Location = new System.Drawing.Point(101, -3);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(490, 29);
@@ -201,9 +210,9 @@
             this.lblEmailK.Location = new System.Drawing.Point(9, 80);
             this.lblEmailK.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmailK.Name = "lblEmailK";
-            this.lblEmailK.Size = new System.Drawing.Size(39, 17);
+            this.lblEmailK.Size = new System.Drawing.Size(11, 17);
             this.lblEmailK.TabIndex = 6;
-            this.lblEmailK.Text = "Email";
+            this.lblEmailK.Text = " ";
             // 
             // lblEmailV
             // 
@@ -749,7 +758,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.btnClose.Location = new System.Drawing.Point(568, 425);
+            this.btnClose.Location = new System.Drawing.Point(568, 576);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(80, 36);
@@ -785,19 +794,124 @@
             this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(512, 425);
+            this.btnDelete.Location = new System.Drawing.Point(512, 576);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(35, 36);
             this.btnDelete.TabIndex = 101;
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
+            // panelPayment
+            // 
+            this.panelPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.panelPayment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPayment.Controls.Add(this.lblPayID);
+            this.panelPayment.Controls.Add(this.lblPayIDV);
+            this.panelPayment.Controls.Add(this.lblPayMethod);
+            this.panelPayment.Controls.Add(this.lblPayMethodV);
+            this.panelPayment.Controls.Add(this.lblPayDate);
+            this.panelPayment.Controls.Add(this.lblPayDateV);
+            this.panelPayment.Location = new System.Drawing.Point(40, 456);
+            this.panelPayment.Margin = new System.Windows.Forms.Padding(2);
+            this.panelPayment.Name = "panelPayment";
+            this.panelPayment.Size = new System.Drawing.Size(606, 105);
+            this.panelPayment.TabIndex = 10;
+            // 
+            // lblPayID
+            // 
+            this.lblPayID.AutoSize = true;
+            this.lblPayID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.lblPayID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPayID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.lblPayID.Location = new System.Drawing.Point(10, 10);
+            this.lblPayID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPayID.Name = "lblPayID";
+            this.lblPayID.Size = new System.Drawing.Size(79, 17);
+            this.lblPayID.TabIndex = 0;
+            this.lblPayID.Text = "Payment ID ";
+            // 
+            // lblPayMethod
+            // 
+            this.lblPayMethod.AutoSize = true;
+            this.lblPayMethod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.lblPayMethod.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPayMethod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.lblPayMethod.Location = new System.Drawing.Point(11, 40);
+            this.lblPayMethod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPayMethod.Name = "lblPayMethod";
+            this.lblPayMethod.Size = new System.Drawing.Size(111, 17);
+            this.lblPayMethod.TabIndex = 2;
+            this.lblPayMethod.Text = "Payment Method";
+            // 
+            // lblPayDate
+            // 
+            this.lblPayDate.AutoSize = true;
+            this.lblPayDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.lblPayDate.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
+            this.lblPayDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.lblPayDate.Location = new System.Drawing.Point(10, 73);
+            this.lblPayDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPayDate.Name = "lblPayDate";
+            this.lblPayDate.Size = new System.Drawing.Size(91, 17);
+            this.lblPayDate.TabIndex = 4;
+            this.lblPayDate.Text = "Payment Date";
+            // 
+            // lblPaymentDetails
+            // 
+            this.lblPaymentDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.lblPaymentDetails.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPaymentDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
+            this.lblPaymentDetails.Location = new System.Drawing.Point(41, 425);
+            this.lblPaymentDetails.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPaymentDetails.Name = "lblPaymentDetails";
+            this.lblPaymentDetails.Size = new System.Drawing.Size(100, 29);
+            this.lblPaymentDetails.TabIndex = 102;
+            this.lblPaymentDetails.Text = "Payment";
+            //
+            // lblPayIDV
+            //
+            this.lblPayIDV.AutoSize = true;
+            this.lblPayIDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.lblPayIDV.Font = new System.Drawing.Font("Calibri", 10F);
+            this.lblPayIDV.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPayIDV.Location = new System.Drawing.Point(120, 10);
+            this.lblPayIDV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPayIDV.Name = "lblPayIDV";
+            this.lblPayIDV.Size = new System.Drawing.Size(30, 10);
+            this.lblPayIDV.TabIndex = 103;
+            //
+            // lblPayMethodV
+            //
+            this.lblPayMethodV.AutoSize = true;
+            this.lblPayMethodV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.lblPayMethodV.Font = new System.Drawing.Font("Calibri", 10F);
+            this.lblPayMethodV.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPayMethodV.Location = new System.Drawing.Point(120, 40);
+            this.lblPayMethodV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPayMethodV.Name = "lblPayMethodV";
+            this.lblPayMethodV.Size = new System.Drawing.Size(30, 40);
+            this.lblPayMethodV.TabIndex = 104;
+            //
+            // lblPayDateV
+            //
+            this.lblPayDateV.AutoSize = true;
+            this.lblPayDateV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.lblPayDateV.Font = new System.Drawing.Font("Calibri", 10F);
+            this.lblPayDateV.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPayDateV.Location = new System.Drawing.Point(120, 73);
+            this.lblPayDateV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPayDateV.Name = "lblPayDateV";
+            this.lblPayDateV.Size = new System.Drawing.Size(0, 17);
+            this.lblPayDateV.TabIndex = 105;
+            //
             // ReservationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(687, 472);
+            this.ClientSize = new System.Drawing.Size(687, 628);
+            this.Controls.Add(this.lblPaymentDetails);
+            this.Controls.Add(this.panelPayment);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblClientSection);
             this.Controls.Add(this.panelClient);
@@ -817,6 +931,7 @@
             this.Name = "ReservationDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Reservation Details";
+            this.Load += new System.EventHandler(this.ReservationDetails_Load);
             this.panelClient.ResumeLayout(false);
             this.panelClient.PerformLayout();
             this.panelRes.ResumeLayout(false);
@@ -825,6 +940,8 @@
             this.panelCar.PerformLayout();
             this.panelCat.ResumeLayout(false);
             this.panelCat.PerformLayout();
+            this.panelPayment.ResumeLayout(false);
+            this.panelPayment.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -862,5 +979,10 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Panel panelPayment;
+        private System.Windows.Forms.Label lblPayID, lblPayIDV;
+        private System.Windows.Forms.Label lblPayMethod, lblPayMethodV;
+        private System.Windows.Forms.Label lblPayDate, lblPayDateV;
+        private System.Windows.Forms.Label lblPaymentDetails;  
     }
 }

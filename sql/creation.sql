@@ -44,6 +44,7 @@ First_Name varchar(200) NOT NULL,
 Last_Name varchar(200) NOT NULL,
 Branch_ID int NOT NULL REFERENCES Branch(Branch_ID),
 SuperEmpID int REFERENCES Employee(Emp_ID), 
+Active bit NOT NULL, 
 
     CONSTRAINT noselfsupervisor 
         CHECK (SuperEmpID IS NULL OR SuperEmpID <> Emp_ID)

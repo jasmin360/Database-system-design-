@@ -57,9 +57,16 @@ namespace VehicleRentalApp.DAL
                                 First_Name = reader["First_Name"].ToString(),
                                 Last_Name = reader["Last_Name"].ToString(),
                                 Branch_ID = Convert.ToInt32(reader["Branch_ID"]),
-                                SuperEmpID = reader.IsDBNull(reader.GetOrdinal("SuperEmpID")) ? (int?)null : Convert.ToInt32(reader["SuperEmpID"])
+                                SuperEmpID = reader.IsDBNull(reader.GetOrdinal("SuperEmpID")) ? (int?)null : Convert.ToInt32(reader["SuperEmpID"]),
+                                Active = Convert.ToInt32(reader["Active"])
                             };
                             checker = true;
+
+                            if (employee.Active == 0)
+                            {
+                                result = "Account is inactive. Please contact your administrator.";
+                                checker = false;
+                            }
                             result = "Login successful.";
                         }
                         else
@@ -972,7 +979,7 @@ namespace VehicleRentalApp.DAL
         public static void fire_employee(int employeeID)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
-            using (SqlCommand cmd = new SqlCommand("Employee_Delete", connection))
+            using (SqlCommand cmd = new SqlCommand("fireemployee", connection))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@Emp_ID", SqlDbType.Int));
@@ -1371,7 +1378,26 @@ namespace VehicleRentalApp.DAL
             return cat.Category_ID;
         }
 
+        public static int car_branch(string licensePlate)
+        {
+            int branchID = 0;
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("car_branch", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@License_Plate", SqlDbType.VarChar, 200));
+                cmd.Parameters["@License_Plate"].Value = licensePlate;
 
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        branchID = Convert.ToInt32(reader["Branch_ID"]);
+                    }
+                }
+            }
+            return branchID;
+        }
 
      
 

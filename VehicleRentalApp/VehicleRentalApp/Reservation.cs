@@ -151,7 +151,10 @@ namespace VehicleRentalApp
                     Model = details.Model,
                     ModelYear = details.Model_Year,
                     Transmission = details.Transmission,
-                    DailyRate = details.Daily_Rental_Rate
+                    DailyRate = details.Daily_Rental_Rate,
+                    PaymentId = details.Payment_ID,
+                    PaymentMethod = details.Payment_Method,
+                    PaymentDate = details.Payment_Date
                 });
             }
             // ADD THESE LINES - Display the cards!
