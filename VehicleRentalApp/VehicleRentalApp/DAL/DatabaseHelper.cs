@@ -872,7 +872,7 @@ namespace VehicleRentalApp.DAL
         public static void delete_car(string licensePlate)
         {
             using (SqlConnection connection = DatabaseHelper.GetConnection())
-            using (SqlCommand cmd = new SqlCommand("Car_Delete", connection))
+            using (SqlCommand cmd = new SqlCommand("retireCar", connection))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@License_Plate", SqlDbType.VarChar, 200));

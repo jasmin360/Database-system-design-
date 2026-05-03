@@ -313,3 +313,14 @@ AS
 BEGIN
     delete from Reservation where Reservation_ID = @Reservation_ID;
 END;
+
+GO
+
+CREATE PROCEDURE retireCar
+    @License_Plate VARCHAR(20),
+AS
+BEGIN
+    UPDATE Vehicle
+    SET Condition = "Retire"
+    WHERE License_Plate = @LicensePlate;
+END
