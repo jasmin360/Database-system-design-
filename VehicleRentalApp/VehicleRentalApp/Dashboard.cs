@@ -26,7 +26,7 @@ namespace VehicleRentalApp
         {
             InitializeComponent();
             SetupLayout();
-            NavigateTo(new overview());
+            NavigateTo(new overview(this.employee.Branch_ID));
             this.employee = employee;
             this.branchitself = VHSAUTOMOTIVE.branch_details_from_employee(employee.Email);
             this.branchname = this.branchitself.City;
@@ -57,7 +57,7 @@ namespace VehicleRentalApp
         //}
 
         private void SetupLayout() {
-            ovBtn.Click += (s, e) => NavigateTo(new overview());
+            ovBtn.Click += (s, e) => NavigateTo(new overview(this.employee.Branch_ID));
             carBtn.Click += (s, e) => NavigateTo(new Cars(this.branchitself));
             ResBtn.Click += (s, e) => NavigateTo(new Reservation(this.employee.Emp_ID, this.branchitself.Branch_ID));
 
@@ -69,12 +69,12 @@ namespace VehicleRentalApp
 
             if (screen is overview ov)
             {
-                ov.NavigateRequested += (s, e) => NavigateTo(new recentRes());
+                ov.NavigateRequested += (s, e) => NavigateTo(new recentRes(this.employee.Branch_ID));
                 highlightButton(ovBtn);
             }
             else if (screen is recentRes rr)
             {
-                rr.NavigateRequested += (s, e) => NavigateTo(new overview());
+                rr.NavigateRequested += (s, e) => NavigateTo(new overview(this.employee.Branch_ID));
                 highlightButton(ovBtn); // same button, both are overview screens
             }
             else if (screen is Cars)

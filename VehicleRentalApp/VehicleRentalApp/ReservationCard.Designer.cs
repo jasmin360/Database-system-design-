@@ -127,7 +127,7 @@
             this.btnDelete.Size = new System.Drawing.Size(20, 26);
             this.btnDelete.TabIndex = 42;
             this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // ReservationCard
             // 

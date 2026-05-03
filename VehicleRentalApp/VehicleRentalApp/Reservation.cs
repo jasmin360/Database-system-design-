@@ -157,7 +157,7 @@ namespace VehicleRentalApp
             // ADD THESE LINES - Display the cards!
             resDisplay.Controls.Clear();
             foreach (var res in reservations)
-                resDisplay.Controls.Add(new ReservationCard(res, _showReservationDates));
+                resDisplay.Controls.Add(new ReservationCard(res, _branchID, _showReservationDates));
 
         }
 
