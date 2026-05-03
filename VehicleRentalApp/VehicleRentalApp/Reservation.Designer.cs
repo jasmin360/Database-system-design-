@@ -26,9 +26,10 @@
             this.monthBtn = new System.Windows.Forms.Button();
             this.dayBtn = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.plus = new System.Windows.Forms.Button();
             this.siwtchViews = new System.Windows.Forms.Button();
             this.resDisplay = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnRefresh = new System.Windows.Forms.Button();
+            this.plus = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // todaybtn
@@ -39,10 +40,10 @@
             this.todaybtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.todaybtn.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.todaybtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.todaybtn.Location = new System.Drawing.Point(112, 56);
-            this.todaybtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.todaybtn.Location = new System.Drawing.Point(56, 28);
+            this.todaybtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.todaybtn.Name = "todaybtn";
-            this.todaybtn.Size = new System.Drawing.Size(140, 62);
+            this.todaybtn.Size = new System.Drawing.Size(70, 31);
             this.todaybtn.TabIndex = 25;
             this.todaybtn.Text = "Today";
             this.todaybtn.UseVisualStyleBackColor = false;
@@ -55,10 +56,10 @@
             this.thisWeekbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.thisWeekbtn.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thisWeekbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.thisWeekbtn.Location = new System.Drawing.Point(260, 56);
-            this.thisWeekbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.thisWeekbtn.Location = new System.Drawing.Point(130, 28);
+            this.thisWeekbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.thisWeekbtn.Name = "thisWeekbtn";
-            this.thisWeekbtn.Size = new System.Drawing.Size(176, 62);
+            this.thisWeekbtn.Size = new System.Drawing.Size(88, 31);
             this.thisWeekbtn.TabIndex = 25;
             this.thisWeekbtn.Text = "This Week";
             this.thisWeekbtn.UseVisualStyleBackColor = false;
@@ -71,10 +72,10 @@
             this.monthBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.monthBtn.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monthBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.monthBtn.Location = new System.Drawing.Point(448, 56);
-            this.monthBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.monthBtn.Location = new System.Drawing.Point(224, 28);
+            this.monthBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.monthBtn.Name = "monthBtn";
-            this.monthBtn.Size = new System.Drawing.Size(212, 62);
+            this.monthBtn.Size = new System.Drawing.Size(106, 31);
             this.monthBtn.TabIndex = 25;
             this.monthBtn.Text = "Month";
             this.monthBtn.UseVisualStyleBackColor = false;
@@ -88,10 +89,10 @@
             this.dayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dayBtn.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dayBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.dayBtn.Location = new System.Drawing.Point(668, 56);
-            this.dayBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dayBtn.Location = new System.Drawing.Point(334, 28);
+            this.dayBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dayBtn.Name = "dayBtn";
-            this.dayBtn.Size = new System.Drawing.Size(144, 62);
+            this.dayBtn.Size = new System.Drawing.Size(72, 31);
             this.dayBtn.TabIndex = 25;
             this.dayBtn.Text = "Day";
             this.dayBtn.UseVisualStyleBackColor = false;
@@ -103,14 +104,60 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Calibri", 14.5F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.txtSearch.Location = new System.Drawing.Point(820, 56);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Location = new System.Drawing.Point(410, 28);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(598, 55);
+            this.txtSearch.Size = new System.Drawing.Size(300, 31);
             this.txtSearch.TabIndex = 45;
             this.txtSearch.Text = "Search...";
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // siwtchViews
+            // 
+            this.siwtchViews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.siwtchViews.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.siwtchViews.FlatAppearance.BorderSize = 2;
+            this.siwtchViews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.siwtchViews.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siwtchViews.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.siwtchViews.Location = new System.Drawing.Point(717, 28);
+            this.siwtchViews.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.siwtchViews.Name = "siwtchViews";
+            this.siwtchViews.Size = new System.Drawing.Size(94, 31);
+            this.siwtchViews.TabIndex = 27;
+            this.siwtchViews.Text = "Switch Views";
+            this.siwtchViews.UseVisualStyleBackColor = false;
+            // 
+            // resDisplay
+            // 
+            this.resDisplay.AutoScroll = true;
+            this.resDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.resDisplay.Location = new System.Drawing.Point(56, 99);
+            this.resDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.resDisplay.Name = "resDisplay";
+            this.resDisplay.Size = new System.Drawing.Size(820, 470);
+            this.resDisplay.TabIndex = 42;
+            this.resDisplay.Paint += new System.Windows.Forms.PaintEventHandler(this.resDisplay_Paint);
+            // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.BtnRefresh.BackgroundImage = global::VehicleRentalApp.Properties.Resources.Refresh2;
+            this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.BtnRefresh.FlatAppearance.BorderSize = 0;
+            this.BtnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.BtnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.BtnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.BtnRefresh.Location = new System.Drawing.Point(820, 31);
+            this.BtnRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(24, 24);
+            this.BtnRefresh.TabIndex = 46;
+            this.BtnRefresh.UseVisualStyleBackColor = false;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // plus
             // 
@@ -123,45 +170,19 @@
             this.plus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.plus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.plus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.plus.Location = new System.Drawing.Point(1700, 62);
-            this.plus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.plus.Location = new System.Drawing.Point(850, 31);
+            this.plus.Margin = new System.Windows.Forms.Padding(2);
             this.plus.Name = "plus";
-            this.plus.Size = new System.Drawing.Size(48, 48);
+            this.plus.Size = new System.Drawing.Size(24, 24);
             this.plus.TabIndex = 43;
             this.plus.UseVisualStyleBackColor = false;
             // 
-            // siwtchViews
-            // 
-            this.siwtchViews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.siwtchViews.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.siwtchViews.FlatAppearance.BorderSize = 2;
-            this.siwtchViews.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.siwtchViews.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siwtchViews.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.siwtchViews.Location = new System.Drawing.Point(1484, 56);
-            this.siwtchViews.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.siwtchViews.Name = "siwtchViews";
-            this.siwtchViews.Size = new System.Drawing.Size(188, 62);
-            this.siwtchViews.TabIndex = 27;
-            this.siwtchViews.Text = "Switch Views";
-            this.siwtchViews.UseVisualStyleBackColor = false;
-            // 
-            // resDisplay
-            // 
-            this.resDisplay.AutoScroll = true;
-            this.resDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.resDisplay.Location = new System.Drawing.Point(112, 198);
-            this.resDisplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.resDisplay.Name = "resDisplay";
-            this.resDisplay.Size = new System.Drawing.Size(1640, 940);
-            this.resDisplay.TabIndex = 42;
-            this.resDisplay.Paint += new System.Windows.Forms.PaintEventHandler(this.resDisplay_Paint);
-            // 
             // Reservation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.Controls.Add(this.BtnRefresh);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.plus);
             this.Controls.Add(this.siwtchViews);
@@ -170,9 +191,9 @@
             this.Controls.Add(this.monthBtn);
             this.Controls.Add(this.thisWeekbtn);
             this.Controls.Add(this.todaybtn);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Reservation";
-            this.Size = new System.Drawing.Size(1860, 1198);
+            this.Size = new System.Drawing.Size(930, 599);
             this.Load += new System.EventHandler(this.Reservation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -188,5 +209,7 @@
         private System.Windows.Forms.FlowLayoutPanel resDisplay;
 
         #endregion
+
+        private System.Windows.Forms.Button BtnRefresh;
     }
 }
