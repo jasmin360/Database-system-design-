@@ -226,7 +226,7 @@ END;
 GO
 CREATE PROCEDURE Payment_Create
      @Payment_Method varchar(10),
-     @Payment_Date date,
+     @Payment_Date date = null,
      @Emp_ID int,
      @Client_ID int
 AS

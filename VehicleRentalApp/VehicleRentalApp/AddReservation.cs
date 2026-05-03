@@ -29,8 +29,17 @@ namespace VehicleRentalApp
 
             dtpResDate.Value = DateTime.Today;
             dtpDeadline.Value = DateTime.Today.AddDays(7);
-            dtpPickupDate.Value = DateTime.Today;
             dtpPaymentDate.Value = DateTime.Today;
+
+            // Make payment date non-editable
+            dtpPaymentDate.Enabled = false;
+            dtpPaymentDate.BackColor = Color.FromArgb(23, 22, 54);
+
+            // Hide pickup date and amount fields
+            lblPickupDate.Visible = false;
+            dtpPickupDate.Visible = false;
+            lblAmount.Visible = false;
+            numAmount.Visible = false;
 
             SetClientFieldsEnabled(false);
 
@@ -43,8 +52,8 @@ namespace VehicleRentalApp
 
         private void AddReservation_Load(object sender, EventArgs e)
         {
-            cmbStatus.SelectedIndex = 0; // Default to "Pending"
-            cmbPaymentMethod.SelectedIndex = 0; // Default to "Cash"
+            cmbStatus.SelectedIndex = 0; //"Pending"
+            cmbPaymentMethod.SelectedIndex = 0; // "Cash"
 
             LoadCategories();
         }
@@ -52,8 +61,7 @@ namespace VehicleRentalApp
         private void LoadCategories()
         {
             // Call backend to get all categories
-            Car_Category[] categoriesFromDB = VHSAUTOMOTIVE.display_all_cats()
-; // Replace with your actual backend method
+            Car_Category[] categoriesFromDB = VHSAUTOMOTIVE.display_all_cats();
 
             var allCategories = new List<CarInfo>();
 
@@ -67,7 +75,7 @@ namespace VehicleRentalApp
                     ModelYear = cat.Model_Year,
                     Transmission = cat.Transmission,
                     DailyRate = cat.Daily_Rental_Rate,
-                    count = cat.Count 
+                    count = cat.Count
                 });
             }
 
@@ -87,20 +95,20 @@ namespace VehicleRentalApp
                 lblClientStatus.ForeColor = Color.FromArgb(200, 80, 80);
                 return;
             }
+            Client clientData = VHSAUTOMOTIVE.find_client(int.Parse(licence));
+            bool found = false;
 
-            // TODO: Call backend for client lookup
-            // Client clientData = VHSAUTOMOTIVE.lookup_client(int.Parse(licence));
-
-            // Dummy check for now
-            bool found = licence.ToUpper() == "DL-12345";
+            if (clientData != null)
+            {
+                found = true;
+            }
 
             if (found)
             {
-                // TODO: populate from DB result
-                txtFirstName.Text = "Jane";
-                txtLastName.Text = "Doe";
-                txtEmail.Text = "jane.doe@email.com";
-                txtPhone.Text = "+1 555 0199";
+                txtFirstName.Text = clientData.First_Name;
+                txtLastName.Text = clientData.Last_Name;
+                txtEmail.Text = clientData.Email;
+                txtPhone.Text = clientData.Phone;
 
                 SetClientFieldsEnabled(false);
                 lblClientStatus.Text = "Client found.";
@@ -232,59 +240,51 @@ namespace VehicleRentalApp
         {
             if (!ValidateInputs()) return;
 
-            // Collect all data into ReservationChonk
-            var reservationData = new ReservationChonk
+            Client clientcheck = VHSAUTOMOTIVE.find_client(int.Parse(txtLicenceNo.Text));
+
+            if (clientcheck == null)
             {
-                // ✓ Client info (from form or DB lookup)
-                Driver_License_Number = int.Parse(txtLicenceNo.Text),
-                First_Name = txtFirstName.Text,
-                Last_Name = txtLastName.Text,
-                Email = txtEmail.Text,
-                Phone = txtPhone.Text,
+                clientcheck = new Client
+                {
+                    Driver_License_Number = int.Parse(txtLicenceNo.Text),
+                    First_Name = txtFirstName.Text,
+                    Last_Name = txtLastName.Text,
+                    Email = txtEmail.Text,
+                    Phone = txtPhone.Text
+                };
+                VHSAUTOMOTIVE.add_client(clientcheck);
+            }
 
-                // ✓ Reservation dates (from date pickers)
-                Reservation_Date = dtpResDate.Value,
-                Deadline = dtpDeadline.Value,
-                Pickup_Date = dtpPickupDate.Value,
+            Payment payments = new Payment
+            {
+                Payment_Method = cmbPaymentMethod.SelectedItem.ToString(),
+                Client_ID = int.Parse(txtLicenceNo.Text),
+                Emp_ID = this.currentEmployeeID
+            };
 
-                // ✓ Auto-filled reservation info
-                Reservation_Status = "Pending", // Always pending for new reservations
-                Pickup_Branch_ID = currentBranchID, // Current branch
-                Return_Branch_ID = null, // Not set yet
-                Return_Date = null, // Not returned yet
-
-                // ✓ Category info (from selected card)
-                Category_ID = 0, // Backend will assign proper category ID
+            Car_Category cat = new Car_Category
+            {
                 Car_Type = selectedCategory.CarType,
                 Make = selectedCategory.Make,
                 Model = selectedCategory.Model,
                 Model_Year = selectedCategory.ModelYear,
                 Transmission = selectedCategory.Transmission,
-                Daily_Rental_Rate = selectedCategory.DailyRate,
-
-                // ✓ Car info (backend assigns from available cars)
-                License_Plate = null, // Backend assigns available car
-                Condition = null,     // Backend fills from assigned car
-                No_seats = 0,         // Backend fills from assigned car
-                Mileage = 0,          // Backend fills from assigned car
-                Colour = null,        // Backend fills from assigned car
-                Branch_ID = currentBranchID, // Current branch
-
-                // ✓ Payment info (from payment fields)
-                Payment_Method = cmbPaymentMethod.SelectedItem.ToString(),
-                Payment_Date = dtpPaymentDate.Value,
-
-                // ✓ Employee info (from logged-in employee)
-                Emp_ID = currentEmployeeID,
-
-                // Not used in this form
-                Reservation_ID = 0, // Backend assigns
-                Payment_ID = 0      // Backend assigns
+                Daily_Rental_Rate = selectedCategory.DailyRate
             };
 
-            // Call backend to save
-            bool createNewClient = !clientFound;
-            //VHSAUTOMOTIVE.add_reservation(Created );
+            int cat_ID = VHSAUTOMOTIVE.catID_fro_desc(cat);
+
+            int paymentID = VHSAUTOMOTIVE.add_payment(payments);
+
+            var reservationData = new ReservationHorse
+            {
+                LicenseNo = int.Parse(txtLicenceNo.Text),
+                Reservation_Date = dtpResDate.Value,
+                Deadline = dtpDeadline.Value,
+                Payment_ID = paymentID,
+                Category_ID = cat_ID
+            };
+            VHSAUTOMOTIVE.add_reservation(reservationData);
 
             MessageBox.Show("Reservation saved.", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -319,13 +319,6 @@ namespace VehicleRentalApp
                 MessageBox.Show("Please select a payment method.", "Validation",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbPaymentMethod.Focus();
-                return false;
-            }
-            if (numAmount.Value <= 0)
-            {
-                MessageBox.Show("Payment amount must be greater than 0.", "Validation",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                numAmount.Focus();
                 return false;
             }
             return true;

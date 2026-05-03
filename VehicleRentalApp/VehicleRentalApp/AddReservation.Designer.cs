@@ -341,9 +341,7 @@
             this.cmbPaymentMethod.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmbPaymentMethod.Items.AddRange(new object[] {
             "Cash",
-            "Credit Card",
-            "Debit Card",
-            "Bank Transfer"});
+            "Card"});
             this.cmbPaymentMethod.Location = new System.Drawing.Point(139, 122);
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
             this.cmbPaymentMethod.Size = new System.Drawing.Size(117, 23);
@@ -398,8 +396,8 @@
             this.cmbStatus.Font = new System.Drawing.Font("Calibri", 10F);
             this.cmbStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmbStatus.Items.AddRange(new object[] {
-            "Picked Up",
             "Pending",
+            "Picked Up",
             "Reserved"});
             this.cmbStatus.Location = new System.Drawing.Point(139, 7);
             this.cmbStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
