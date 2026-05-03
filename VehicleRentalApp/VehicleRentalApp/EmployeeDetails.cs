@@ -30,7 +30,18 @@ namespace VehicleRentalApp
             lblNameK.Text = $"Employee Name : {EmployeeDetails.name}";
             lblRoleK.Text = $"Employee Role : {EmployeeDetails.role}";
             lblEmailK.Text = $"Employee Email : {EmployeeDetails.email}";
+            //check if the employee id that was coming from the dashboard is the same as the one in the employee details form, if it is, then hide the fire button
+            //    if (EmployeeDetails.id == Dashboard.BRANCHID())
+            //    {
+            //        btnFire.Visible = false;
+            //    }
+            //    else
+            //    {
+            //        btnFire.Visible = true;
+            //}
+
         }
+
 
         public static int BRANCHID()
         {
@@ -48,6 +59,11 @@ namespace VehicleRentalApp
         }
 
         private void panelCar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void EmployeeDetails_Load(object sender, EventArgs e)
         {
 
         }

@@ -12,9 +12,22 @@ namespace VehicleRentalApp
 {
     public partial class HireEmployee : Form
     {
-        public HireEmployee()
+        int branchid;
+
+        public HireEmployee(int BranchID)
         {
+            this.branchid = BranchID;
             InitializeComponent();
+        }
+
+        private void HireEmployee_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

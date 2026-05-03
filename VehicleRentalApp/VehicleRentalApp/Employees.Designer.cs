@@ -31,7 +31,7 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.HireButton = new System.Windows.Forms.Button();
             this.contentPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.contentPanel.SuspendLayout();
@@ -44,7 +44,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Calibri", 11F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.txtSearch.Location = new System.Drawing.Point(708, 228);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(688, 43);
             this.txtSearch.TabIndex = 54;
@@ -56,7 +56,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(146, 346);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1704, 912);
             this.flowLayoutPanel1.TabIndex = 52;
@@ -73,21 +73,22 @@
             this.label7.Size = new System.Drawing.Size(0, 46);
             this.label7.TabIndex = 50;
             // 
-            // button1
+            // HireButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
-            this.button1.Location = new System.Drawing.Point(146, 208);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(390, 81);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "Hire a New Employee";
-            this.button1.UseVisualStyleBackColor = false;
+            this.HireButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
+            this.HireButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.HireButton.FlatAppearance.BorderSize = 2;
+            this.HireButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HireButton.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HireButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
+            this.HireButton.Location = new System.Drawing.Point(146, 208);
+            this.HireButton.Margin = new System.Windows.Forms.Padding(4);
+            this.HireButton.Name = "HireButton";
+            this.HireButton.Size = new System.Drawing.Size(390, 81);
+            this.HireButton.TabIndex = 47;
+            this.HireButton.Text = "Hire a New Employee";
+            this.HireButton.UseVisualStyleBackColor = false;
+            this.HireButton.Click += new System.EventHandler(this.HireEmployee_Click);
             // 
             // contentPanel
             // 
@@ -95,9 +96,9 @@
             this.contentPanel.Controls.Add(this.txtSearch);
             this.contentPanel.Controls.Add(this.flowLayoutPanel1);
             this.contentPanel.Controls.Add(this.label7);
-            this.contentPanel.Controls.Add(this.button1);
+            this.contentPanel.Controls.Add(this.HireButton);
             this.contentPanel.Location = new System.Drawing.Point(-58, 0);
-            this.contentPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.contentPanel.Margin = new System.Windows.Forms.Padding(2);
             this.contentPanel.Name = "contentPanel";
             this.contentPanel.Size = new System.Drawing.Size(2016, 1492);
             this.contentPanel.TabIndex = 56;
@@ -123,7 +124,7 @@
             this.ClientSize = new System.Drawing.Size(1914, 1360);
             this.Controls.Add(this.contentPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Employees";
             this.Text = "Form1";
             this.contentPanel.ResumeLayout(false);
@@ -136,7 +137,7 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button HireButton;
         private System.Windows.Forms.Panel contentPanel;
         private System.Windows.Forms.Label label1;
     }
