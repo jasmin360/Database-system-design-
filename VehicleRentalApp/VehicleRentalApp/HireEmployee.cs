@@ -30,7 +30,6 @@ namespace VehicleRentalApp
             Employee employeecat = new Employee();
 
 
-            //employeecat.Emp_ID = last employee id ++
             //Because we have only one textfield for a name, that is txtName, so we need to make substring to get the first name alone and the last name alone
             string fullname = txtName.Text.Trim();
             int spaceIndex = fullname.IndexOf(' ');
@@ -38,10 +37,8 @@ namespace VehicleRentalApp
             employeecat.Last_Name = fullname.Substring(spaceIndex + 1).Trim();
 
             employeecat.Email = txtEmail.Text.Trim();
-            employeecat.Position = "Employee";
-            employeecat.Passkey = txtPassword.Text.Trim();
-            employeecat.SuperEmpID = supid;
             employeecat.Branch_ID = branchid;
+            employeecat.Passkey = txtPassword.Text.Trim();
 
 
 
@@ -77,6 +74,13 @@ namespace VehicleRentalApp
                 txtPassword.Focus();
                 return false;
             }
+            if (txtPassword.Text.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 characters long.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassword.Focus();
+                return false;
+            }
 
             return true;
         }
@@ -89,6 +93,11 @@ namespace VehicleRentalApp
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

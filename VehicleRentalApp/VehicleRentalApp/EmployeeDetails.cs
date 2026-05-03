@@ -80,7 +80,12 @@ namespace VehicleRentalApp
 
         private void button6_Click(object sender, EventArgs e)
         {
+            VHSAUTOMOTIVE.fire_employee(EmployeeDetails.id);
 
+
+            MessageBox.Show("Employee Fired successfully.", "Success",
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }

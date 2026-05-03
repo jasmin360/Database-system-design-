@@ -215,9 +215,14 @@ namespace VehicleRentalApp
 
         private void button6_Click_1(object sender, EventArgs e)
         {
+            this.Hide();
+
             MainnForm mainForm = new MainnForm();
 
             mainForm.ShowDialog();
+
+            this.Close();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -228,10 +233,11 @@ namespace VehicleRentalApp
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            Employees employees = new Employees(this.branchitself.Branch_ID, this.employee.Emp_ID);
+        { 
+            Employees employees = new Employees(this.branchitself.Branch_ID, this.employee.Emp_ID, this.branchitself.City);
 
             employees.ShowDialog();
+
         }
 
         private void label6_Click(object sender, EventArgs e)

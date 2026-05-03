@@ -2,6 +2,7 @@
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using VehicleRentalApp.DAL;
 
 namespace VehicleRentalApp
 {
@@ -20,9 +21,12 @@ namespace VehicleRentalApp
 
             // make every child clickable as the card itself, except the edit button
             this.Click += OpenDetails;
+            button1.Click += button1_Click;
+
+            this.Click += OpenDetails;
             foreach (Control c in this.Controls)
             {
-                if (c != edit)
+                if (c != button1 && c != lblStatus)
                     c.Click += OpenDetails;
             }
         }
@@ -34,6 +38,20 @@ namespace VehicleRentalApp
             lblType.Text = $"{Data.CarType} • {Data.ModelYear}";
             lblRate.Text = $"${Data.DailyRate:0.##}/day";
             lblStatus.Text = Data.IsReserved ? "Reserved" : "Free";
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            var confirm = MessageBox.Show(
+                $"ARE YOU SUREEEEEEEEEE?????????",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm == DialogResult.Yes)
+            {
+                //VHSAUTOMOTIVE.retire;  INSTESAD OF DELETETETETTE
+            }
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -55,10 +73,6 @@ namespace VehicleRentalApp
         {
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
     public class CarInfo
@@ -77,5 +91,7 @@ namespace VehicleRentalApp
         public bool IsReserved { get; set; }
 
         public int count { get; set; }
+
+        public int cat_id { get; set; }
     }
 }

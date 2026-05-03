@@ -51,7 +51,7 @@ namespace VehicleRentalApp
             };
 
             // Status filter buttons
-            all.Click += (s, e) => { statusFilter = "All"; LoadCars(); };
+            all.Click += (s, e) => { statusFilter = "All"; MessageBox.Show("clicked all");LoadCars(); };
             free.Click += (s, e) => { statusFilter = "Free"; LoadCars(); };
             reserv.Click += (s, e) => { statusFilter = "Reserved"; LoadCars(); };
 
@@ -65,34 +65,44 @@ namespace VehicleRentalApp
 
         private void LoadCars()
         {
-            int branchID = this.branch.Branch_ID;
 
-            // Call backend with current filter state
-            Car[] carsFromDB = VHSAUTOMOTIVE.filter_Cars_In_Branch(branchID, statusFilter, picantoChecked, suvChecked, coupeChecked, sedanChecked, hatchbackChecked);
+                int branchID = this.branch.Branch_ID;
 
-            flowLayoutPanel1.Controls.Clear();
+                // Call backend with current filter state
+                Car[] carsFromDB = VHSAUTOMOTIVE.filter_Cars_In_Branch(branchID, statusFilter, picantoChecked, suvChecked, coupeChecked, sedanChecked, hatchbackChecked);
 
-            foreach (var carData in carsFromDB)
-            {
-                Car_Category carCat = VHSAUTOMOTIVE.cat_fromID(carData.Category_ID);
-                var car = new CarInfo
+                flowLayoutPanel1.Controls.Clear();
+
+
+                int cardCount = 0;
+                foreach (var carData in carsFromDB)
                 {
-                    LicensePlate = carData.License_Plate,
-                    Condition = carData.Condition,
-                    Seats = carData.No_seats,
-                    Mileage = carData.Mileage,
-                    Colour = carData.Colour,
-                    CarType = carCat.Car_Type,
-                    Make = carCat.Make,
-                    Model = carCat.Model,
-                    ModelYear = carCat.Model_Year,
-                    Transmission = carCat.Transmission,
-                    DailyRate = carCat.Daily_Rental_Rate,
-                    IsReserved = carData.Condition == "Reserved"
-                };
+                    Car_Category carCat = VHSAUTOMOTIVE.cat_fromID(carData.Category_ID);
+                    var car = new CarInfo
+                    {
+                        LicensePlate = carData.License_Plate,
+                        Condition = carData.Condition,
+                        Seats = carData.No_seats,
+                        Mileage = carData.Mileage,
+                        Colour = carData.Colour,
+                        CarType = carCat.Car_Type,
+                        Make = carCat.Make,
+                        Model = carCat.Model,
+                        ModelYear = carCat.Model_Year,
+                        Transmission = carCat.Transmission,
+                        DailyRate = carCat.Daily_Rental_Rate,
+                        IsReserved = carData.Condition == "Reserved",
+                        cat_id = carData.Category_ID
+                    };
 
-                flowLayoutPanel1.Controls.Add(new CarCard(car));
-            }
+                    flowLayoutPanel1.Controls.Add(new CarCard(car));
+                    cardCount++;
+                }
+
+                flowLayoutPanel1.Refresh();
+
+        
+
         }
 
         private void right_Click(object sender, EventArgs e)

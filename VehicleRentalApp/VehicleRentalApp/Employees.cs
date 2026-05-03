@@ -15,17 +15,19 @@ namespace VehicleRentalApp
     public partial class Employees : Form
     {
         int branchidd;
-        int supid;
-        public Employees(int branchID, int supID)
+
+        public Employees(int branchID, int supID, String City)
         {
             InitializeComponent();
             branchidd = branchID;
             this.Load += loademployeesboop;
             HireButton.Click += (s, e) =>
             {
-                if (new HireEmployee(branchID, supid).ShowDialog() == DialogResult.OK)
+                if (new HireEmployee(branchID, supID).ShowDialog() == DialogResult.OK)
                     LoadEmployees(branchID);
             };
+
+            label1.Text = "Employees at branch " + City;
         }
 
         private void LoadEmployees(int branchID)
@@ -77,5 +79,12 @@ namespace VehicleRentalApp
         {
 
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadEmployees(this.branchidd);
+        }
+
+
     }
 }
