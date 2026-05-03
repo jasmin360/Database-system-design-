@@ -276,16 +276,11 @@ END;
 GO
 
 CREATE PROCEDURE Get_Todays_Planned_Returns
-    @Branch_ID INT = NULL
 AS
 BEGIN
-    IF @Branch_ID IS NULL
-        SELECT * FROM Reservation WHERE Deadline = CAST(GETDATE() AS DATE);
-    ELSE
         SELECT * FROM Reservation
         WHERE Deadline = CAST(GETDATE() AS DATE)
-          AND Return_Branch_ID = @Branch_ID
-          AND Reservation_Status != 'Returned';
+          AND Reservation_Status = 'Pickedup';
 END;
 
 GO

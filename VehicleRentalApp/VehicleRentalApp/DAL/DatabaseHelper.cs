@@ -402,7 +402,7 @@ namespace VehicleRentalApp.DAL
     
         }
 
-        public static ReservationHorse[] planned_returns_today(int branchID)
+        public static ReservationHorse[] planned_returns_today()
         {
             List<ReservationHorse> reservations = new List<ReservationHorse>();
             using (SqlConnection connection = DatabaseHelper.GetConnection())
