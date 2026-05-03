@@ -118,5 +118,10 @@ namespace VehicleRentalApp
         private void label7_Click(object sender, EventArgs e) { }
         private void pictureBox4_Click(object sender, EventArgs e) { }
         private void button1_Click(object sender, EventArgs e) { }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadCars();
+        }
     }
 }

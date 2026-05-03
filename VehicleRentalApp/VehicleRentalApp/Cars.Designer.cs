@@ -17,8 +17,6 @@
             this.free = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.plus = new System.Windows.Forms.Button();
-            this.right = new System.Windows.Forms.Button();
             this.filterPanel = new System.Windows.Forms.Panel();
             this.lblFilterTitle = new System.Windows.Forms.Label();
             this.chkPicanto = new System.Windows.Forms.CheckBox();
@@ -27,6 +25,9 @@
             this.chkSedan = new System.Windows.Forms.CheckBox();
             this.chkHatchback = new System.Windows.Forms.CheckBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.BtnRefresh = new System.Windows.Forms.Button();
+            this.plus = new System.Windows.Forms.Button();
+            this.right = new System.Windows.Forms.Button();
             this.filterPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,41 +100,6 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(0, 23);
             this.label7.TabIndex = 39;
-            // 
-            // plus
-            // 
-            this.plus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.plus.BackgroundImage = global::VehicleRentalApp.Properties.Resources.add;
-            this.plus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.plus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.plus.FlatAppearance.BorderSize = 0;
-            this.plus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.plus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.plus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.plus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.plus.Location = new System.Drawing.Point(850, 32);
-            this.plus.Name = "plus";
-            this.plus.Size = new System.Drawing.Size(23, 25);
-            this.plus.TabIndex = 43;
-            this.plus.UseVisualStyleBackColor = false;
-            // 
-            // right
-            // 
-            this.right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.right.BackgroundImage = global::VehicleRentalApp.Properties.Resources.filter__2_1;
-            this.right.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.right.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.right.FlatAppearance.BorderSize = 0;
-            this.right.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.right.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.right.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.right.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
-            this.right.Location = new System.Drawing.Point(808, 30);
-            this.right.Name = "right";
-            this.right.Size = new System.Drawing.Size(27, 29);
-            this.right.TabIndex = 40;
-            this.right.UseVisualStyleBackColor = false;
-            this.right.Click += new System.EventHandler(this.right_Click);
             // 
             // filterPanel
             // 
@@ -248,11 +214,65 @@
             this.txtSearch.Text = "Search...";
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.BtnRefresh.BackgroundImage = global::VehicleRentalApp.Properties.Resources.Refresh1;
+            this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.BtnRefresh.FlatAppearance.BorderSize = 0;
+            this.BtnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.BtnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.BtnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.BtnRefresh.Location = new System.Drawing.Point(772, 31);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(23, 25);
+            this.BtnRefresh.TabIndex = 48;
+            this.BtnRefresh.UseVisualStyleBackColor = false;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
+            // plus
+            // 
+            this.plus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.plus.BackgroundImage = global::VehicleRentalApp.Properties.Resources.add;
+            this.plus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.plus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.plus.FlatAppearance.BorderSize = 0;
+            this.plus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.plus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.plus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.plus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.plus.Location = new System.Drawing.Point(850, 32);
+            this.plus.Name = "plus";
+            this.plus.Size = new System.Drawing.Size(23, 25);
+            this.plus.TabIndex = 43;
+            this.plus.UseVisualStyleBackColor = false;
+            // 
+            // right
+            // 
+            this.right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.right.BackgroundImage = global::VehicleRentalApp.Properties.Resources.filter__2_1;
+            this.right.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.right.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.right.FlatAppearance.BorderSize = 0;
+            this.right.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.right.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.right.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.right.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.right.Location = new System.Drawing.Point(808, 30);
+            this.right.Name = "right";
+            this.right.Size = new System.Drawing.Size(27, 29);
+            this.right.TabIndex = 40;
+            this.right.UseVisualStyleBackColor = false;
+            this.right.Click += new System.EventHandler(this.right_Click);
+            // 
             // Cars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
+            this.Controls.Add(this.BtnRefresh);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.filterPanel);
             this.Controls.Add(this.plus);
@@ -288,5 +308,6 @@
         private System.Windows.Forms.CheckBox chkSedan;
         private System.Windows.Forms.CheckBox chkHatchback;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button BtnRefresh;
     }
 }
