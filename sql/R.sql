@@ -363,7 +363,7 @@ BEGIN
     SELECT  *
     FROM Reservation
     WHERE Deadline < CAST(GETDATE() AS DATE)
-      AND Reservation_Status != 'Returned'
+      AND Reservation_Status = 'Pickedup'
       AND (@Branch_ID IS NULL OR Pickup_Branch_ID = @Branch_ID);
 END;
 
@@ -490,6 +490,7 @@ BEGIN
     AND (                                   
         (@freereservedall = 'Free' AND c.Condition = 'Free')     
         OR (@freereservedall = 'Reserved' AND c.Condition = 'Reserved') 
+        OR (@freereservedall = 'Retired' AND c.Condition = 'Retired') 
         OR (@freereservedall = 'All')  -- Simple: if 'All', return everything
     )
     AND (
