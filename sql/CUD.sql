@@ -320,7 +320,7 @@ CREATE PROCEDURE retireCar
     @License_Plate VARCHAR(20),
 AS
 BEGIN
-    UPDATE Vehicle
-    SET Condition = "Retire"
+    UPDATE Car
+    SET Condition = "Retired"
     WHERE License_Plate = @LicensePlate;
 END
