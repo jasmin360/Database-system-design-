@@ -1305,7 +1305,6 @@ namespace VehicleRentalApp.DAL
                         cats.Add(cat);
                     }
                 }
-                using (SqlConnection connection = DatabaseHelper.GetConnection())
                 using (SqlCommand countCmd = new SqlCommand("Get_Cars_Count_Per_Category", connection))
                 using (SqlDataReader countReader = countCmd.ExecuteReader())
                 {
