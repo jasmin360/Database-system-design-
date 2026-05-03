@@ -40,6 +40,10 @@ namespace VehicleRentalApp
             label1.Text = this.revenue.ToString() + " $";
             label7.Text = this.employee.First_Name + " " + this.employee.Last_Name;
             label8.Text = this.employee.Email;
+            if (!(employee.Position == "Supervisor"))
+            {
+                button2.Visible = false;
+            }
 
             //profilePic.Click += (sender, e) => Display_side_bar(sender, e);
 
@@ -218,7 +222,7 @@ namespace VehicleRentalApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EmployeeDetails employeeDetails = new EmployeeDetails(employee);
+            EmployeeDetails employeeDetails = new EmployeeDetails(employee, employee.Emp_ID);
 
             employeeDetails.ShowDialog();
         }
@@ -236,6 +240,11 @@ namespace VehicleRentalApp
         }
 
         private void contentPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label7_Click_1(object sender, EventArgs e)
         {
 
         }

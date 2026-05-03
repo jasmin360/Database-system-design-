@@ -544,3 +544,13 @@ BEGIN
     SELECT *
     FROM Car_Category
 END;
+
+GO
+
+CREATE PROCEDURE Get_Cars_Count_Per_Category
+AS
+BEGIN
+    SELECT Category_ID, COUNT(*) AS Car_Count
+    FROM Car
+    GROUP BY Category_ID;
+END;

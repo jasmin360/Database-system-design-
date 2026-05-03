@@ -313,7 +313,7 @@
             this.button2.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.button2.Location = new System.Drawing.Point(24, 717);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(595, 132);
             this.button2.TabIndex = 4;
@@ -328,7 +328,7 @@
             this.button6.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
             this.button6.Location = new System.Drawing.Point(24, 1072);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(595, 132);
             this.button6.TabIndex = 3;
@@ -343,7 +343,7 @@
             this.button5.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.button5.Location = new System.Drawing.Point(24, 549);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(595, 132);
             this.button5.TabIndex = 2;
@@ -358,7 +358,7 @@
             this.button1.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.button1.Location = new System.Drawing.Point(24, 381);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(595, 132);
             this.button1.TabIndex = 1;
@@ -398,6 +398,7 @@
             this.label7.Size = new System.Drawing.Size(293, 49);
             this.label7.TabIndex = 31;
             this.label7.Text = "Leon S. Kennedy";
+            this.label7.Click += new System.EventHandler(this.label7_Click_1);
             // 
             // close
             // 

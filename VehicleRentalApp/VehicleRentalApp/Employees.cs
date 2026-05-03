@@ -20,6 +20,11 @@ namespace VehicleRentalApp
             InitializeComponent();
             branchidd = branchID;
             this.Load += loademployeesboop;
+            HireButton.Click += (s, e) =>
+            {
+                if (new HireEmployee(branchID).ShowDialog() == DialogResult.OK)
+                    LoadEmployees(branchID);
+            };
         }
 
         private void LoadEmployees(int branchID)
@@ -63,6 +68,11 @@ namespace VehicleRentalApp
         }
 
         private void contentPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void HireEmployee_Click(object sender, EventArgs e)
         {
 
         }
