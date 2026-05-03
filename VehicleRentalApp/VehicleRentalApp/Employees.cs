@@ -28,23 +28,73 @@ namespace VehicleRentalApp
             };
 
             label1.Text = "Employees at branch " + City;
+
+            // Search box placeholder handling
+            txtSearch.GotFocus += (s, e) =>
+            {
+                if (txtSearch.Text == "Search...")
+                {
+                    txtSearch.Text = "";
+                    txtSearch.ForeColor = SystemColors.ButtonHighlight;
+                }
+            };
+
+            txtSearch.LostFocus += (s, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(txtSearch.Text))
+                {
+                    txtSearch.Text = "Search...";
+                    txtSearch.ForeColor = Color.FromArgb(82, 82, 110);
+                }
+            };
+
+            // Add search functionality
+            txtSearch.TextChanged += TxtSearch_TextChanged;
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadEmployees(branchidd);
         }
 
         private void LoadEmployees(int branchID)
         {
+            // Get search query
+            string searchQuery = "";
+            if (txtSearch.Text != "Search..." && !string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                searchQuery = txtSearch.Text.ToLower().Trim();
+            }
+
             var employees = new List<EmployeeCardInfo>();
             Employee[] empsList = VHSAUTOMOTIVE.view_all_employees(branchID);
 
             foreach (var employee in empsList)
             {
-                employees.Add(new EmployeeCardInfo
+                // Apply search filter
+                bool matchesSearch = true;
+                if (!string.IsNullOrEmpty(searchQuery))
                 {
-                    EmployeeID = employee.Emp_ID,
-                    Name = employee.First_Name + " " + employee.Last_Name,
-                    Role = employee.Position,
-                    Email = employee.Email
-                });
+                    string fullName = employee.First_Name + " " + employee.Last_Name;
+                    matchesSearch = employee.Emp_ID.ToString().Contains(searchQuery) ||
+                                   employee.First_Name.ToLower().Contains(searchQuery) ||
+                                   employee.Last_Name.ToLower().Contains(searchQuery) ||
+                                   fullName.ToLower().Contains(searchQuery);
+                }
+
+                // Only add if it matches search
+                if (matchesSearch)
+                {
+                    employees.Add(new EmployeeCardInfo
+                    {
+                        EmployeeID = employee.Emp_ID,
+                        Name = employee.First_Name + " " + employee.Last_Name,
+                        Role = employee.Position,
+                        Email = employee.Email
+                    });
+                }
             }
+
             flowLayoutPanel1.Controls.Clear();
 
             foreach (var employee in employees)
@@ -53,8 +103,8 @@ namespace VehicleRentalApp
                 flowLayoutPanel1.Controls.Add(card);
             }
             flowLayoutPanel1.Refresh();
-            
         }
+
         private void loademployeesboop(object sender, EventArgs e)
         {
             LoadEmployees(this.branchidd);
@@ -84,7 +134,5 @@ namespace VehicleRentalApp
         {
             LoadEmployees(this.branchidd);
         }
-
-
     }
 }

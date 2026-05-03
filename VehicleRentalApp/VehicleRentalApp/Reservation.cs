@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using VehicleRentalApp.DAL;
 using VehicleRentalApp.Models;
@@ -52,6 +53,9 @@ namespace VehicleRentalApp
                 }
             };
 
+            // Add search functionality
+            txtSearch.TextChanged += TxtSearch_TextChanged;
+
             siwtchViews.Tag = "reservation";
             siwtchViews.Text = "Deadline View";
             siwtchViews.Click += BtnSwitch_Click;
@@ -60,6 +64,11 @@ namespace VehicleRentalApp
             thisWeekbtn.Click += (s, e) => { periodFilter = "thisweek"; LoadReservations(); };
             monthBtn.Click += (s, e) => { periodFilter = "month"; LoadReservations(); };
             dayBtn.Click += (s, e) => { periodFilter = "day"; LoadReservations(); };
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadReservations(); // Reload with search filter applied
         }
 
         private void BtnSwitch_Click(object sender, EventArgs e)
@@ -86,6 +95,12 @@ namespace VehicleRentalApp
 
         private void LoadReservations()
         {
+            // Get search query
+            string searchQuery = "";
+            if (txtSearch.Text != "Search..." && !string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                searchQuery = txtSearch.Text.ToLower().Trim();
+            }
 
             // Call backend based on current filters
             ReservationHorse[] reservationsFromDB;
@@ -107,9 +122,9 @@ namespace VehicleRentalApp
             else if (periodFilter == "month" && selectedMonth.HasValue && selectedYear.HasValue)
             {
                 if (timeType == "reservation")
-                    reservationsFromDB = VHSAUTOMOTIVE.filter_reservation(null,null, selectedMonth, selectedYear);
+                    reservationsFromDB = VHSAUTOMOTIVE.filter_reservation(null, null, selectedMonth, selectedYear);
                 else
-                    reservationsFromDB = VHSAUTOMOTIVE.filter_deadlines(null, null, selectedMonth, selectedYear); ;
+                    reservationsFromDB = VHSAUTOMOTIVE.filter_deadlines(null, null, selectedMonth, selectedYear);
             }
             else if (periodFilter == "day" && selectedMonth.HasValue && selectedYear.HasValue && selectedDay.HasValue)
             {
@@ -128,7 +143,7 @@ namespace VehicleRentalApp
                 bool success = false;
                 ReservationChonk details = VHSAUTOMOTIVE.Reservation_Details(resData.Reservation_ID, ref success);
 
-                reservations.Add(new ReservationInfo
+                var reservation = new ReservationInfo
                 {
                     ReservationId = resData.Reservation_ID,
                     LicenceNo = resData.LicenseNo.ToString(),
@@ -155,13 +170,32 @@ namespace VehicleRentalApp
                     PaymentId = details.Payment_ID,
                     PaymentMethod = details.Payment_Method,
                     PaymentDate = details.Payment_Date
-                });
+                };
+
+                // Apply search filter
+                bool matchesSearch = true;
+                if (!string.IsNullOrEmpty(searchQuery))
+                {
+                    matchesSearch = reservation.ReservationId.ToString().Contains(searchQuery) ||
+                                   reservation.FirstName.ToLower().Contains(searchQuery) ||
+                                   reservation.LastName.ToLower().Contains(searchQuery) ||
+                                   (reservation.FirstName + " " + reservation.LastName).ToLower().Contains(searchQuery) ||
+                                   reservation.Make.ToLower().Contains(searchQuery) ||
+                                   reservation.Model.ToLower().Contains(searchQuery) ||
+                                   (reservation.Make + " " + reservation.Model).ToLower().Contains(searchQuery);
+                }
+
+                // Only add if it matches search
+                if (matchesSearch)
+                {
+                    reservations.Add(reservation);
+                }
             }
-            // ADD THESE LINES - Display the cards!
+
+            // Display the cards
             resDisplay.Controls.Clear();
             foreach (var res in reservations)
                 resDisplay.Controls.Add(new ReservationCard(res, _branchID, _showReservationDates));
-
         }
 
         private void Reservation_Load(object sender, EventArgs e)
@@ -190,8 +224,8 @@ namespace VehicleRentalApp
                     monthBtn.Text = _monthYearPicker.Value.ToString("MMMM");
                     selectedMonth = _monthYearPicker.Value.Month;
                     selectedYear = _monthYearPicker.Value.Year;
-                    periodFilter = "month";  // Add this
-                    LoadReservations();      // Add this
+                    periodFilter = "month";
+                    LoadReservations();
                 };
             }
 
@@ -225,8 +259,8 @@ namespace VehicleRentalApp
                     selectedMonth = _datePicker.Value.Month;
                     selectedYear = _datePicker.Value.Year;
                     selectedDay = _datePicker.Value.Day;
-                    periodFilter = "day";    // Add this
-                    LoadReservations();      // Add this
+                    periodFilter = "day";
+                    LoadReservations();
                 };
 
                 _datePicker.Leave += (s, ev) =>

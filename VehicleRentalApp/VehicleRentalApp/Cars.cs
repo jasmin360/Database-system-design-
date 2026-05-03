@@ -27,11 +27,12 @@ namespace VehicleRentalApp
             plus.Click += (s, e) =>
             {
                 filterPanel.Visible = false;
-                
+
                 if (new AddCar(this.branch.Branch_ID).ShowDialog() == DialogResult.OK)
                     LoadCars();
             };
 
+            // Search box placeholder handling
             txtSearch.GotFocus += (s, e) =>
             {
                 if (txtSearch.Text == "Search...")
@@ -50,8 +51,11 @@ namespace VehicleRentalApp
                 }
             };
 
+            // Search functionality
+            txtSearch.TextChanged += TxtSearch_TextChanged;
+
             // Status filter buttons
-            all.Click += (s, e) => { statusFilter = "All"; MessageBox.Show("clicked all");LoadCars(); };
+            all.Click += (s, e) => { statusFilter = "All"; LoadCars(); };
             free.Click += (s, e) => { statusFilter = "Free"; LoadCars(); };
             reserv.Click += (s, e) => { statusFilter = "Reserved"; LoadCars(); };
 
@@ -63,46 +67,64 @@ namespace VehicleRentalApp
             chkHatchback.CheckedChanged += (s, e) => { hatchbackChecked = chkHatchback.Checked; LoadCars(); };
         }
 
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            LoadCars(); // Reload with search filter applied
+        }
+
         private void LoadCars()
         {
+            int branchID = this.branch.Branch_ID;
 
-                int branchID = this.branch.Branch_ID;
+            // Get search query
+            string searchQuery = "";
+            if (txtSearch.Text != "Search..." && !string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                searchQuery = txtSearch.Text.ToLower().Trim();
+            }
 
-                // Call backend with current filter state
-                Car[] carsFromDB = VHSAUTOMOTIVE.filter_Cars_In_Branch(branchID, statusFilter, picantoChecked, suvChecked, coupeChecked, sedanChecked, hatchbackChecked);
+            // Call backend with current filter state
+            Car[] carsFromDB = VHSAUTOMOTIVE.filter_Cars_In_Branch(branchID, statusFilter, picantoChecked, suvChecked, coupeChecked, sedanChecked, hatchbackChecked);
 
-                flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Controls.Clear();
 
-
-                int cardCount = 0;
-                foreach (var carData in carsFromDB)
+            int cardCount = 0;
+            foreach (var carData in carsFromDB)
+            {
+                Car_Category carCat = VHSAUTOMOTIVE.cat_fromID(carData.Category_ID);
+                var car = new CarInfo
                 {
-                    Car_Category carCat = VHSAUTOMOTIVE.cat_fromID(carData.Category_ID);
-                    var car = new CarInfo
-                    {
-                        LicensePlate = carData.License_Plate,
-                        Condition = carData.Condition,
-                        Seats = carData.No_seats,
-                        Mileage = carData.Mileage,
-                        Colour = carData.Colour,
-                        CarType = carCat.Car_Type,
-                        Make = carCat.Make,
-                        Model = carCat.Model,
-                        ModelYear = carCat.Model_Year,
-                        Transmission = carCat.Transmission,
-                        DailyRate = carCat.Daily_Rental_Rate,
-                        IsReserved = carData.Condition == "Reserved",
-                        cat_id = carData.Category_ID
-                    };
+                    LicensePlate = carData.License_Plate,
+                    Condition = carData.Condition,
+                    Seats = carData.No_seats,
+                    Mileage = carData.Mileage,
+                    Colour = carData.Colour,
+                    CarType = carCat.Car_Type,
+                    Make = carCat.Make,
+                    Model = carCat.Model,
+                    ModelYear = carCat.Model_Year,
+                    Transmission = carCat.Transmission,
+                    DailyRate = carCat.Daily_Rental_Rate,
+                    IsReserved = carData.Condition == "Reserved",
+                    cat_id = carData.Category_ID
+                };
 
+                // Apply search filter
+                bool matchesSearch = true;
+                if (!string.IsNullOrEmpty(searchQuery))
+                {
+                    matchesSearch = car.Make.ToLower().Contains(searchQuery) ||car.Model.ToLower().Contains(searchQuery) ||car.LicensePlate.ToLower().Contains(searchQuery);
+                }
+
+                // Only add card if it matches search
+                if (matchesSearch)
+                {
                     flowLayoutPanel1.Controls.Add(new CarCard(car));
                     cardCount++;
                 }
+            }
 
-                flowLayoutPanel1.Refresh();
-
-        
-
+            flowLayoutPanel1.Refresh();
         }
 
         private void right_Click(object sender, EventArgs e)
