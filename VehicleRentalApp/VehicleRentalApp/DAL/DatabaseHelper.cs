@@ -1410,7 +1410,7 @@ namespace VehicleRentalApp.DAL
             }
             else
             {
-                
+                return true;
             }
         }
 
