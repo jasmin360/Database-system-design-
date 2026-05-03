@@ -490,7 +490,7 @@ BEGIN
     AND (                                   
         (@freereservedall = 'Free' AND c.Condition = 'Free')     
         OR (@freereservedall = 'Reserved' AND c.Condition = 'Reserved') 
-        OR (@freereservedall = 'All')  -- Simple: if 'All', return everything
+        OR (@freereservedall = 'All' AND c.Condition != 'Retired')  
     )
     AND (
         (@picanto = 0 AND @suv = 0 AND @coupe = 0 AND @sedan = 0 AND @hatchback = 0)
