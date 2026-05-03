@@ -316,11 +316,22 @@ END;
 
 GO
 
-CREATE PROCEDURE retireCar
-    @License_Plate VARCHAR(20),
+Create PROCEDURE retireCar
+    @License_Plate VARCHAR(200)
 AS
 BEGIN
     UPDATE Car
-    SET Condition = "Retired"
-    WHERE License_Plate = @LicensePlate;
+    SET Condition = 'Retired'
+    WHERE License_Plate = @License_Plate;
+END
+
+GO
+
+Create PROCEDURE fireemployee
+    @Emp_ID int
+AS
+BEGIN
+    UPDATE Employee
+    SET Active = 0
+    WHERE Emp_ID = @Emp_ID;
 END

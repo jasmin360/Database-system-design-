@@ -1,5 +1,6 @@
 
 using System;
+using System.ComponentModel.Design;
 namespace VehicleRentalApp.Models
 {
     public class Employee
@@ -12,5 +13,6 @@ namespace VehicleRentalApp.Models
         public string  Last_Name   { get; set; }
         public int     Branch_ID   { get; set; }
         public int?    SuperEmpID  { get; set; }
+        public int Active  { get; set; }
     }
 }

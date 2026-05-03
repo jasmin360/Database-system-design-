@@ -116,7 +116,7 @@ CREATE PROCEDURE Employee_Read_ByBranchID
     @Branch_ID INT
 AS
 BEGIN
-    select * from Employee where Branch_ID = @Branch_ID;
+    select * from Employee where Branch_ID = @Branch_ID AND Active = 1;
 END;
 
 GO
@@ -125,7 +125,7 @@ CREATE PROCEDURE Employee_Read_BySupervisorID
     @SuperEmpID INT
 AS
 BEGIN
-    select * from Employee where SuperEmpID = @SuperEmpID;
+    select * from Employee where SuperEmpID = @SuperEmpID AND Active = 1;
 END;
 
 GO
@@ -461,7 +461,7 @@ Create procedure all_employees
     @Branch_ID int
 AS
 BEGIN
-    select * from Employee where Branch_ID = @Branch_ID;
+    select * from Employee where Branch_ID = @Branch_ID  AND Active = 1;
 
 END;
 
