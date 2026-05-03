@@ -226,11 +226,12 @@ END;
 GO
 CREATE PROCEDURE Payment_Create
      @Payment_Method varchar(10),
-     @Payment_Date date= GETDATE(),
+     @Payment_Date date,
      @Emp_ID int,
      @Client_ID int
 AS
 BEGIN
+    SET @Payment_Date = GETDATE();
     INSERT INTO Payment (Payment_Method, Payment_Date, Emp_ID, Client_ID)
     VALUES (@Payment_Method, @Payment_Date, @Emp_ID, @Client_ID);
 
