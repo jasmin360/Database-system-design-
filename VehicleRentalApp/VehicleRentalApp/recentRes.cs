@@ -126,5 +126,15 @@ namespace VehicleRentalApp
         {
 
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadTodaysReturns();
+        }
+
+        private void recentRes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

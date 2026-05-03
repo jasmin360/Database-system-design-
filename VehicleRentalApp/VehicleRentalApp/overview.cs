@@ -88,5 +88,15 @@ namespace VehicleRentalApp
         {
 
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadRecentReservation();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
