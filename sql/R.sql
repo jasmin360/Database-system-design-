@@ -501,3 +501,25 @@ BEGIN
         OR (@hatchback = 1 AND cat.Car_Type = 'Hatchback')
     )
 END;
+
+GO
+
+CREATE PROCEDURE Reservation_todayfilter 
+AS 
+BEGIN
+    SELECT *
+    FROM Reservation
+WHERE Reservation_Date = CAST(GETDATE() AS DATE)
+       
+END;
+
+GO
+
+CREATE PROCEDURE Deadlines_todayfilter 
+AS 
+BEGIN
+    SELECT *
+    FROM Reservation
+WHERE Deadline = CAST(GETDATE() AS DATE)
+      
+END;
