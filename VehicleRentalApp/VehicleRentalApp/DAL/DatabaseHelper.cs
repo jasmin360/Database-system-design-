@@ -1314,8 +1314,14 @@ namespace VehicleRentalApp.DAL
                     {
                         int id = Convert.ToInt32(countReader["Category_ID"]);
                         int count = Convert.ToInt32(countReader["Car_Count"]);
-                        var cat = cats.FirstOrDefault(c => c.Category_ID == id);
-                        if (cat != null) cat.Count = count;
+                        foreach (var c in cats)
+                        {
+                            if (c.Category_ID == id)
+                            {
+                                c.Count = count;
+                                break;
+                            }
+                        }
                     }
                 }
             }
