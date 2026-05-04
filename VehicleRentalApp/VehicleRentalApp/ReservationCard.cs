@@ -80,7 +80,7 @@ namespace VehicleRentalApp
             else if (currentStatus == "Pickedup")
                 return "Returned";
             else
-                return currentStatus; // Stay at Returned
+                return currentStatus; 
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -146,13 +146,13 @@ namespace VehicleRentalApp
 
         private void PickupReservation(int reservationId)
         {
-            // Pending -> Pickedup
+            
             VHSAUTOMOTIVE.pickup_car(reservationId, VHSAUTOMOTIVE.car_branch(Data.LicensePlate));
         }
 
         private void ReturnReservation(int reservationId)
         {
-            // Pickedup -> Returned
+            
             VHSAUTOMOTIVE.return_car(reservationId, this.BranchIDD );
         }
 

@@ -30,10 +30,10 @@ namespace VehicleRentalApp
         }
         private void AttachClickEventToAll(Control parentControl)
         {
-            // Attach the click event to this specific control
+           
             parentControl.Click += EmployeeCard_Click;
 
-            // Recursively dig down into any panels/groups to attach the event to labels
+            
             foreach (Control child in parentControl.Controls)
             {
                 AttachClickEventToAll(child);
@@ -42,7 +42,7 @@ namespace VehicleRentalApp
 
         private void EmployeeCard_Click(object sender, EventArgs e)
         {
-            // Create the dummy employee object based on the card's data
+            
             Employee clickedEmployee = new Employee
             {
                 Emp_ID = Data.EmployeeID,
@@ -52,7 +52,7 @@ namespace VehicleRentalApp
                 Email = Data.Email
             };
 
-            // Open the Details form and pass in that employee
+            
             EmployeeDetails detailsForm = new EmployeeDetails(clickedEmployee);
             detailsForm.ShowDialog();
         }

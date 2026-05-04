@@ -38,7 +38,7 @@ namespace VehicleRentalApp
                 bool tobtob = false;
                 ReservationChonk nomnom = VHSAUTOMOTIVE.Reservation_Details(resresres.Reservation_ID, ref tobtob);
 
-                // ADD TO LIST - you were missing this!
+                
                 reservations.Add(new ReservationInfo
                 {
                     ReservationId = resresres.Reservation_ID,
@@ -65,7 +65,7 @@ namespace VehicleRentalApp
                     DailyRate = nomnom.Daily_Rental_Rate
                 });
             }
-            // MOVE THIS OUTSIDE THE LOOP
+            
             flowLayoutPanel1.Controls.Clear();
             foreach (var reservation in reservations)
             {

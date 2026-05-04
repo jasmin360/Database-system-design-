@@ -17,8 +17,7 @@ namespace VehicleRentalApp
 
         protected override void WndProc(ref System.Windows.Forms.Message m)
         {
-            // block the day calendar from appearing — only month/year via up/down
-            if (m.Msg == 0x204) return; // WM_RBUTTONDOWN
+            if (m.Msg == 0x204) return; 
             base.WndProc(ref m);
         }
     }

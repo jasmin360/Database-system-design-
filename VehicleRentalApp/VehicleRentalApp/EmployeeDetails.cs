@@ -43,7 +43,7 @@ namespace VehicleRentalApp
             lblNameK.Text = $"Employee Name : {EmployeeDetails.name}";
             lblRoleK.Text = $"Employee Role : {EmployeeDetails.role}";
             lblEmailK.Text = $"Employee Email : {EmployeeDetails.email}";
-            //check if the employee id that was coming from the dashboard is the same as the one in the employee details form, if it is, then hide the fire button
+            
             if (EmployeeDetails.id == ID)
             {
                 button6.Visible = false;

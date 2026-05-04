@@ -80,9 +80,8 @@
             this.panelCat.SuspendLayout();
             this.panelPayment.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblTitle
-            // 
+
+
             this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.lblTitle.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -93,9 +92,8 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Reservation Details";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblClientSection
-            // 
+
+
             this.lblClientSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.lblClientSection.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.lblClientSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
@@ -105,9 +103,7 @@
             this.lblClientSection.Size = new System.Drawing.Size(200, 54);
             this.lblClientSection.TabIndex = 1;
             this.lblClientSection.Text = "Client";
-            // 
-            // panelClient
-            // 
+
             this.panelClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.panelClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelClient.Controls.Add(this.lblLicenceNoK);
@@ -121,13 +117,11 @@
             this.panelClient.Controls.Add(this.lblPhoneK);
             this.panelClient.Controls.Add(this.lblPhoneV);
             this.panelClient.Location = new System.Drawing.Point(82, 158);
-            this.panelClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelClient.Margin = new System.Windows.Forms.Padding(4);
             this.panelClient.Name = "panelClient";
             this.panelClient.Size = new System.Drawing.Size(636, 248);
             this.panelClient.TabIndex = 2;
-            // 
-            // lblLicenceNoK
-            // 
+
             this.lblLicenceNoK.AutoSize = true;
             this.lblLicenceNoK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblLicenceNoK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -138,9 +132,7 @@
             this.lblLicenceNoK.Size = new System.Drawing.Size(143, 33);
             this.lblLicenceNoK.TabIndex = 0;
             this.lblLicenceNoK.Text = "Licence No.";
-            // 
-            // lblLicenceNoV
-            // 
+
             this.lblLicenceNoV.AutoSize = true;
             this.lblLicenceNoV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblLicenceNoV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -150,9 +142,7 @@
             this.lblLicenceNoV.Name = "lblLicenceNoV";
             this.lblLicenceNoV.Size = new System.Drawing.Size(0, 33);
             this.lblLicenceNoV.TabIndex = 1;
-            // 
-            // lblFirstNameK
-            // 
+
             this.lblFirstNameK.AutoSize = true;
             this.lblFirstNameK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblFirstNameK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -163,9 +153,7 @@
             this.lblFirstNameK.Size = new System.Drawing.Size(137, 33);
             this.lblFirstNameK.TabIndex = 2;
             this.lblFirstNameK.Text = "First Name";
-            // 
-            // lblFirstNameV
-            // 
+
             this.lblFirstNameV.AutoSize = true;
             this.lblFirstNameV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblFirstNameV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -175,9 +163,8 @@
             this.lblFirstNameV.Name = "lblFirstNameV";
             this.lblFirstNameV.Size = new System.Drawing.Size(0, 33);
             this.lblFirstNameV.TabIndex = 3;
-            // 
-            // lblLastNameK
-            // 
+
+
             this.lblLastNameK.AutoSize = true;
             this.lblLastNameK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblLastNameK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -188,9 +175,7 @@
             this.lblLastNameK.Size = new System.Drawing.Size(132, 33);
             this.lblLastNameK.TabIndex = 4;
             this.lblLastNameK.Text = "Last Name";
-            // 
-            // lblLastNameV
-            // 
+
             this.lblLastNameV.AutoSize = true;
             this.lblLastNameV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblLastNameV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -200,9 +185,7 @@
             this.lblLastNameV.Name = "lblLastNameV";
             this.lblLastNameV.Size = new System.Drawing.Size(0, 33);
             this.lblLastNameV.TabIndex = 5;
-            // 
-            // lblEmailK
-            // 
+          
             this.lblEmailK.AutoSize = true;
             this.lblEmailK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblEmailK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -213,9 +196,7 @@
             this.lblEmailK.Size = new System.Drawing.Size(21, 33);
             this.lblEmailK.TabIndex = 6;
             this.lblEmailK.Text = " ";
-            // 
-            // lblEmailV
-            // 
+
             this.lblEmailV.AutoSize = true;
             this.lblEmailV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblEmailV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -225,9 +206,7 @@
             this.lblEmailV.Name = "lblEmailV";
             this.lblEmailV.Size = new System.Drawing.Size(0, 33);
             this.lblEmailV.TabIndex = 7;
-            // 
-            // lblPhoneK
-            // 
+
             this.lblPhoneK.AutoSize = true;
             this.lblPhoneK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPhoneK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -238,9 +217,7 @@
             this.lblPhoneK.Size = new System.Drawing.Size(86, 33);
             this.lblPhoneK.TabIndex = 8;
             this.lblPhoneK.Text = "Phone";
-            // 
-            // lblPhoneV
-            // 
+
             this.lblPhoneV.AutoSize = true;
             this.lblPhoneV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPhoneV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -250,9 +227,8 @@
             this.lblPhoneV.Name = "lblPhoneV";
             this.lblPhoneV.Size = new System.Drawing.Size(0, 33);
             this.lblPhoneV.TabIndex = 9;
-            // 
-            // lblResSection
-            // 
+
+
             this.lblResSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.lblResSection.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.lblResSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
@@ -262,9 +238,7 @@
             this.lblResSection.Size = new System.Drawing.Size(250, 31);
             this.lblResSection.TabIndex = 3;
             this.lblResSection.Text = "Reservation Details";
-            // 
-            // panelRes
-            // 
+ 
             this.panelRes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.panelRes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRes.Controls.Add(this.lblStatusK);
@@ -278,13 +252,11 @@
             this.panelRes.Controls.Add(this.lblResDateK);
             this.panelRes.Controls.Add(this.lblResDateV);
             this.panelRes.Location = new System.Drawing.Point(814, 158);
-            this.panelRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelRes.Margin = new System.Windows.Forms.Padding(4);
             this.panelRes.Name = "panelRes";
             this.panelRes.Size = new System.Drawing.Size(480, 248);
             this.panelRes.TabIndex = 4;
-            // 
-            // lblStatusK
-            // 
+
             this.lblStatusK.AutoSize = true;
             this.lblStatusK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblStatusK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -295,9 +267,7 @@
             this.lblStatusK.Size = new System.Drawing.Size(84, 33);
             this.lblStatusK.TabIndex = 0;
             this.lblStatusK.Text = "Status";
-            // 
-            // lblStatusV
-            // 
+
             this.lblStatusV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(26)))), ((int)(((byte)(73)))));
             this.lblStatusV.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold);
             this.lblStatusV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
@@ -307,9 +277,7 @@
             this.lblStatusV.Size = new System.Drawing.Size(202, 33);
             this.lblStatusV.TabIndex = 1;
             this.lblStatusV.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblDeadlineK
-            // 
+
             this.lblDeadlineK.AutoSize = true;
             this.lblDeadlineK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblDeadlineK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -320,9 +288,7 @@
             this.lblDeadlineK.Size = new System.Drawing.Size(115, 33);
             this.lblDeadlineK.TabIndex = 2;
             this.lblDeadlineK.Text = "Deadline";
-            // 
-            // lblDeadlineV
-            // 
+
             this.lblDeadlineV.AutoSize = true;
             this.lblDeadlineV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblDeadlineV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -332,9 +298,7 @@
             this.lblDeadlineV.Name = "lblDeadlineV";
             this.lblDeadlineV.Size = new System.Drawing.Size(0, 33);
             this.lblDeadlineV.TabIndex = 3;
-            // 
-            // lblPickupDateK
-            // 
+
             this.lblPickupDateK.AutoSize = true;
             this.lblPickupDateK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPickupDateK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -345,9 +309,8 @@
             this.lblPickupDateK.Size = new System.Drawing.Size(147, 33);
             this.lblPickupDateK.TabIndex = 4;
             this.lblPickupDateK.Text = "Pickup Date";
-            // 
-            // lblPickupDateV
-            // 
+
+
             this.lblPickupDateV.AutoSize = true;
             this.lblPickupDateV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPickupDateV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -357,9 +320,7 @@
             this.lblPickupDateV.Name = "lblPickupDateV";
             this.lblPickupDateV.Size = new System.Drawing.Size(0, 33);
             this.lblPickupDateV.TabIndex = 5;
-            // 
-            // lblReturnDateK
-            // 
+
             this.lblReturnDateK.AutoSize = true;
             this.lblReturnDateK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblReturnDateK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -370,9 +331,7 @@
             this.lblReturnDateK.Size = new System.Drawing.Size(150, 33);
             this.lblReturnDateK.TabIndex = 6;
             this.lblReturnDateK.Text = "Return Date";
-            // 
-            // lblReturnDateV
-            // 
+
             this.lblReturnDateV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(10)))));
             this.lblReturnDateV.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold);
             this.lblReturnDateV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(160)))), ((int)(((byte)(60)))));
@@ -383,9 +342,7 @@
             this.lblReturnDateV.TabIndex = 7;
             this.lblReturnDateV.Text = "Not Returned";
             this.lblReturnDateV.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblResDateK
-            // 
+
             this.lblResDateK.AutoSize = true;
             this.lblResDateK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblResDateK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -396,9 +353,7 @@
             this.lblResDateK.Size = new System.Drawing.Size(209, 33);
             this.lblResDateK.TabIndex = 8;
             this.lblResDateK.Text = "Reservation Date";
-            // 
-            // lblResDateV
-            // 
+
             this.lblResDateV.AutoSize = true;
             this.lblResDateV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblResDateV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -408,9 +363,7 @@
             this.lblResDateV.Name = "lblResDateV";
             this.lblResDateV.Size = new System.Drawing.Size(0, 33);
             this.lblResDateV.TabIndex = 9;
-            // 
-            // lblCarSection
-            // 
+
             this.lblCarSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.lblCarSection.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.lblCarSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
@@ -420,9 +373,7 @@
             this.lblCarSection.Size = new System.Drawing.Size(200, 56);
             this.lblCarSection.TabIndex = 5;
             this.lblCarSection.Text = "Assigned Car";
-            // 
-            // panelCar
-            // 
+
             this.panelCar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.panelCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelCar.Controls.Add(this.lblPlateK);
@@ -436,13 +387,11 @@
             this.panelCar.Controls.Add(this.lblColourK);
             this.panelCar.Controls.Add(this.lblColourV);
             this.panelCar.Location = new System.Drawing.Point(80, 490);
-            this.panelCar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelCar.Margin = new System.Windows.Forms.Padding(4);
             this.panelCar.Name = "panelCar";
             this.panelCar.Size = new System.Drawing.Size(638, 310);
             this.panelCar.TabIndex = 6;
-            // 
-            // lblPlateK
-            // 
+
             this.lblPlateK.AutoSize = true;
             this.lblPlateK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPlateK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -453,9 +402,7 @@
             this.lblPlateK.Size = new System.Drawing.Size(160, 33);
             this.lblPlateK.TabIndex = 0;
             this.lblPlateK.Text = "License Plate";
-            // 
-            // lblPlateV
-            // 
+
             this.lblPlateV.AutoSize = true;
             this.lblPlateV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPlateV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -465,9 +412,7 @@
             this.lblPlateV.Name = "lblPlateV";
             this.lblPlateV.Size = new System.Drawing.Size(0, 33);
             this.lblPlateV.TabIndex = 1;
-            // 
-            // lblConditionK
-            // 
+
             this.lblConditionK.AutoSize = true;
             this.lblConditionK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblConditionK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -478,9 +423,7 @@
             this.lblConditionK.Size = new System.Drawing.Size(124, 33);
             this.lblConditionK.TabIndex = 2;
             this.lblConditionK.Text = "Condition";
-            // 
-            // lblConditionV
-            // 
+
             this.lblConditionV.AutoSize = true;
             this.lblConditionV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblConditionV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -490,9 +433,7 @@
             this.lblConditionV.Name = "lblConditionV";
             this.lblConditionV.Size = new System.Drawing.Size(0, 33);
             this.lblConditionV.TabIndex = 3;
-            // 
-            // lblSeatsK
-            // 
+
             this.lblSeatsK.AutoSize = true;
             this.lblSeatsK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblSeatsK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -503,9 +444,7 @@
             this.lblSeatsK.Size = new System.Drawing.Size(121, 33);
             this.lblSeatsK.TabIndex = 4;
             this.lblSeatsK.Text = "No. Seats";
-            // 
-            // lblSeatsV
-            // 
+
             this.lblSeatsV.AutoSize = true;
             this.lblSeatsV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblSeatsV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -515,9 +454,7 @@
             this.lblSeatsV.Name = "lblSeatsV";
             this.lblSeatsV.Size = new System.Drawing.Size(0, 33);
             this.lblSeatsV.TabIndex = 5;
-            // 
-            // lblMileageK
-            // 
+
             this.lblMileageK.AutoSize = true;
             this.lblMileageK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblMileageK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -528,9 +465,7 @@
             this.lblMileageK.Size = new System.Drawing.Size(164, 33);
             this.lblMileageK.TabIndex = 6;
             this.lblMileageK.Text = "Mileage (km)";
-            // 
-            // lblMileageV
-            // 
+
             this.lblMileageV.AutoSize = true;
             this.lblMileageV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblMileageV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -540,9 +475,7 @@
             this.lblMileageV.Name = "lblMileageV";
             this.lblMileageV.Size = new System.Drawing.Size(0, 33);
             this.lblMileageV.TabIndex = 7;
-            // 
-            // lblColourK
-            // 
+
             this.lblColourK.AutoSize = true;
             this.lblColourK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblColourK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -553,9 +486,7 @@
             this.lblColourK.Size = new System.Drawing.Size(90, 33);
             this.lblColourK.TabIndex = 8;
             this.lblColourK.Text = "Colour";
-            // 
-            // lblColourV
-            // 
+
             this.lblColourV.AutoSize = true;
             this.lblColourV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblColourV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -565,9 +496,7 @@
             this.lblColourV.Name = "lblColourV";
             this.lblColourV.Size = new System.Drawing.Size(0, 33);
             this.lblColourV.TabIndex = 9;
-            // 
-            // lblCatSection
-            // 
+
             this.lblCatSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.lblCatSection.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.lblCatSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
@@ -577,9 +506,7 @@
             this.lblCatSection.Size = new System.Drawing.Size(230, 56);
             this.lblCatSection.TabIndex = 7;
             this.lblCatSection.Text = "Car Category";
-            // 
-            // panelCat
-            // 
+
             this.panelCat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.panelCat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelCat.Controls.Add(this.lblCarTypeK);
@@ -595,13 +522,11 @@
             this.panelCat.Controls.Add(this.lblRateK);
             this.panelCat.Controls.Add(this.lblRateV);
             this.panelCat.Location = new System.Drawing.Point(810, 490);
-            this.panelCat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelCat.Margin = new System.Windows.Forms.Padding(4);
             this.panelCat.Name = "panelCat";
             this.panelCat.Size = new System.Drawing.Size(480, 310);
             this.panelCat.TabIndex = 8;
-            // 
-            // lblCarTypeK
-            // 
+
             this.lblCarTypeK.AutoSize = true;
             this.lblCarTypeK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblCarTypeK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -612,9 +537,7 @@
             this.lblCarTypeK.Size = new System.Drawing.Size(111, 33);
             this.lblCarTypeK.TabIndex = 0;
             this.lblCarTypeK.Text = "Car Type";
-            // 
-            // lblCarTypeV
-            // 
+
             this.lblCarTypeV.AutoSize = true;
             this.lblCarTypeV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblCarTypeV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -624,9 +547,7 @@
             this.lblCarTypeV.Name = "lblCarTypeV";
             this.lblCarTypeV.Size = new System.Drawing.Size(0, 33);
             this.lblCarTypeV.TabIndex = 1;
-            // 
-            // lblMakeK
-            // 
+
             this.lblMakeK.AutoSize = true;
             this.lblMakeK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblMakeK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -637,9 +558,7 @@
             this.lblMakeK.Size = new System.Drawing.Size(78, 33);
             this.lblMakeK.TabIndex = 2;
             this.lblMakeK.Text = "Make";
-            // 
-            // lblMakeV
-            // 
+  
             this.lblMakeV.AutoSize = true;
             this.lblMakeV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblMakeV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -649,9 +568,7 @@
             this.lblMakeV.Name = "lblMakeV";
             this.lblMakeV.Size = new System.Drawing.Size(0, 33);
             this.lblMakeV.TabIndex = 3;
-            // 
-            // lblModelK
-            // 
+
             this.lblModelK.AutoSize = true;
             this.lblModelK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblModelK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -662,9 +579,7 @@
             this.lblModelK.Size = new System.Drawing.Size(89, 33);
             this.lblModelK.TabIndex = 4;
             this.lblModelK.Text = "Model";
-            // 
-            // lblModelV
-            // 
+ 
             this.lblModelV.AutoSize = true;
             this.lblModelV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblModelV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -674,9 +589,7 @@
             this.lblModelV.Name = "lblModelV";
             this.lblModelV.Size = new System.Drawing.Size(0, 33);
             this.lblModelV.TabIndex = 5;
-            // 
-            // lblYearK
-            // 
+
             this.lblYearK.AutoSize = true;
             this.lblYearK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblYearK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -687,9 +600,7 @@
             this.lblYearK.Size = new System.Drawing.Size(144, 33);
             this.lblYearK.TabIndex = 6;
             this.lblYearK.Text = "Model Year";
-            // 
-            // lblYearV
-            // 
+  
             this.lblYearV.AutoSize = true;
             this.lblYearV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblYearV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -699,9 +610,7 @@
             this.lblYearV.Name = "lblYearV";
             this.lblYearV.Size = new System.Drawing.Size(0, 33);
             this.lblYearV.TabIndex = 7;
-            // 
-            // lblTransK
-            // 
+
             this.lblTransK.AutoSize = true;
             this.lblTransK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblTransK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -712,9 +621,7 @@
             this.lblTransK.Size = new System.Drawing.Size(161, 33);
             this.lblTransK.TabIndex = 8;
             this.lblTransK.Text = "Transmission";
-            // 
-            // lblTransV
-            // 
+
             this.lblTransV.AutoSize = true;
             this.lblTransV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblTransV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -724,9 +631,7 @@
             this.lblTransV.Name = "lblTransV";
             this.lblTransV.Size = new System.Drawing.Size(0, 33);
             this.lblTransV.TabIndex = 9;
-            // 
-            // lblRateK
-            // 
+
             this.lblRateK.AutoSize = true;
             this.lblRateK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblRateK.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -737,9 +642,7 @@
             this.lblRateK.Size = new System.Drawing.Size(129, 33);
             this.lblRateK.TabIndex = 10;
             this.lblRateK.Text = "Daily Rate";
-            // 
-            // lblRateV
-            // 
+
             this.lblRateV.AutoSize = true;
             this.lblRateV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblRateV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -749,9 +652,7 @@
             this.lblRateV.Name = "lblRateV";
             this.lblRateV.Size = new System.Drawing.Size(0, 33);
             this.lblRateV.TabIndex = 11;
-            // 
-            // btnClose
-            // 
+
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.btnClose.FlatAppearance.BorderSize = 2;
@@ -759,16 +660,14 @@
             this.btnClose.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(110)))));
             this.btnClose.Location = new System.Drawing.Point(1136, 1108);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(160, 69);
             this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnEdit
-            // 
+
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.btnEdit.BackgroundImage = global::VehicleRentalApp.Properties.Resources.compose__1_1;
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -778,14 +677,12 @@
             this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Location = new System.Drawing.Point(940, 10);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(30, 31);
             this.btnEdit.TabIndex = 100;
             this.btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
+
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.btnDelete.BackgroundImage = global::VehicleRentalApp.Properties.Resources.delete;
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -795,15 +692,13 @@
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Location = new System.Drawing.Point(1024, 1108);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(70, 69);
             this.btnDelete.TabIndex = 101;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
-            // 
-            // panelPayment
-            // 
+
             this.panelPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.panelPayment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelPayment.Controls.Add(this.lblPayID);
@@ -813,13 +708,12 @@
             this.panelPayment.Controls.Add(this.lblPayDate);
             this.panelPayment.Controls.Add(this.lblPayDateV);
             this.panelPayment.Location = new System.Drawing.Point(80, 877);
-            this.panelPayment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelPayment.Margin = new System.Windows.Forms.Padding(4);
             this.panelPayment.Name = "panelPayment";
             this.panelPayment.Size = new System.Drawing.Size(1210, 200);
             this.panelPayment.TabIndex = 10;
-            // 
-            // lblPayID
-            // 
+            this.panelPayment.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPayment_Paint);
+ 
             this.lblPayID.AutoSize = true;
             this.lblPayID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPayID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -830,9 +724,7 @@
             this.lblPayID.Size = new System.Drawing.Size(149, 33);
             this.lblPayID.TabIndex = 0;
             this.lblPayID.Text = "Payment ID ";
-            // 
-            // lblPayIDV
-            // 
+
             this.lblPayIDV.AutoSize = true;
             this.lblPayIDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPayIDV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -840,12 +732,10 @@
             this.lblPayIDV.Location = new System.Drawing.Point(240, 19);
             this.lblPayIDV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPayIDV.Name = "lblPayIDV";
-            this.lblPayIDV.Size = new System.Drawing.Size(0, 33);
+            this.lblPayIDV.Size = new System.Drawing.Size(71, 33);
             this.lblPayIDV.TabIndex = 103;
             this.lblPayIDV.Text = "XXXX";
-            // 
-            // lblPayMethod
-            // 
+
             this.lblPayMethod.AutoSize = true;
             this.lblPayMethod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPayMethod.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -856,9 +746,7 @@
             this.lblPayMethod.Size = new System.Drawing.Size(209, 33);
             this.lblPayMethod.TabIndex = 2;
             this.lblPayMethod.Text = "Payment Method";
-            // 
-            // lblPayMethodV
-            // 
+
             this.lblPayMethodV.AutoSize = true;
             this.lblPayMethodV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPayMethodV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -866,12 +754,10 @@
             this.lblPayMethodV.Location = new System.Drawing.Point(240, 77);
             this.lblPayMethodV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPayMethodV.Name = "lblPayMethodV";
-            this.lblPayMethodV.Size = new System.Drawing.Size(0, 33);
+            this.lblPayMethodV.Size = new System.Drawing.Size(125, 33);
             this.lblPayMethodV.TabIndex = 104;
             this.lblPayMethodV.Text = "Not Payed";
-            // 
-            // lblPayDate
-            // 
+
             this.lblPayDate.AutoSize = true;
             this.lblPayDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPayDate.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold);
@@ -882,9 +768,7 @@
             this.lblPayDate.Size = new System.Drawing.Size(172, 33);
             this.lblPayDate.TabIndex = 4;
             this.lblPayDate.Text = "Payment Date";
-            // 
-            // lblPayDateV
-            // 
+
             this.lblPayDateV.AutoSize = true;
             this.lblPayDateV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(22)))), ((int)(((byte)(54)))));
             this.lblPayDateV.Font = new System.Drawing.Font("Calibri", 10F);
@@ -892,12 +776,10 @@
             this.lblPayDateV.Location = new System.Drawing.Point(240, 140);
             this.lblPayDateV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPayDateV.Name = "lblPayDateV";
-            this.lblPayDateV.Size = new System.Drawing.Size(0, 33);
+            this.lblPayDateV.Size = new System.Drawing.Size(125, 33);
             this.lblPayDateV.TabIndex = 105;
             this.lblPayDateV.Text = "Not Payed";
-            // 
-            // lblPaymentDetails
-            // 
+
             this.lblPaymentDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(9)))), ((int)(((byte)(41)))));
             this.lblPaymentDetails.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.lblPaymentDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(105)))), ((int)(((byte)(181)))));
@@ -907,9 +789,7 @@
             this.lblPaymentDetails.Size = new System.Drawing.Size(200, 56);
             this.lblPaymentDetails.TabIndex = 102;
             this.lblPaymentDetails.Text = "Payment";
-            // 
-            // ReservationDetails
-            // 
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
@@ -930,7 +810,7 @@
             this.Controls.Add(this.panelCar);
             this.Controls.Add(this.lblCatSection);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ReservationDetails";

@@ -29,7 +29,7 @@ namespace VehicleRentalApp
 
             label1.Text = "Employees at branch " + City;
 
-            // Search box placeholder handling
+
             txtSearch.GotFocus += (s, e) =>
             {
                 if (txtSearch.Text == "Search...")
@@ -48,7 +48,7 @@ namespace VehicleRentalApp
                 }
             };
 
-            // Add search functionality
+
             txtSearch.TextChanged += TxtSearch_TextChanged;
         }
 
@@ -59,7 +59,7 @@ namespace VehicleRentalApp
 
         private void LoadEmployees(int branchID)
         {
-            // Get search query
+            
             string searchQuery = "";
             if (txtSearch.Text != "Search..." && !string.IsNullOrWhiteSpace(txtSearch.Text))
             {
@@ -71,7 +71,7 @@ namespace VehicleRentalApp
 
             foreach (var employee in empsList)
             {
-                // Apply search filter
+               
                 bool matchesSearch = true;
                 if (!string.IsNullOrEmpty(searchQuery))
                 {
@@ -82,7 +82,7 @@ namespace VehicleRentalApp
                                    fullName.ToLower().Contains(searchQuery);
                 }
 
-                // Only add if it matches search
+                
                 if (matchesSearch)
                 {
                     employees.Add(new EmployeeCardInfo

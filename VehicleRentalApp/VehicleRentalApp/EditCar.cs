@@ -15,7 +15,7 @@ namespace VehicleRentalApp
             InitializeComponent();
             _car = car;
 
-            // pre-fill all fields with existing data
+
             txtLicensePlate.Text = car.LicensePlate;
             cmbCondition.SelectedItem = car.Condition;
             numSeats.Value = car.Seats;
@@ -30,7 +30,7 @@ namespace VehicleRentalApp
             numDailyRate.Value = car.DailyRate;
             catid = car.cat_id;
 
-            // license plate is the primary key — don't allow editing
+
             txtLicensePlate.ReadOnly = true;
             txtLicensePlate.BackColor = System.Drawing.Color.FromArgb(23, 22, 54);
 
@@ -62,7 +62,7 @@ namespace VehicleRentalApp
         {
             if (!ValidateInputs()) return;
 
-            // write back to the CarInfo object
+
             _car.LicensePlate = txtLicensePlate.Text.Trim();
             _car.Condition = cmbCondition.SelectedItem.ToString();
             _car.Seats = (int)numSeats.Value;

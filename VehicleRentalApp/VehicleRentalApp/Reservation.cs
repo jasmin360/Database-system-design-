@@ -12,9 +12,9 @@ namespace VehicleRentalApp
     {
         private MonthYearPicker _monthYearPicker;
         private bool _showReservationDates = true;
-        // Filter states
-        private string timeType = "reservation"; // "reservation" or "deadline"
-        private string periodFilter = "today"; // "today", "thisweek", "month", "day"
+        
+        private string timeType = "reservation"; 
+        private string periodFilter = "today"; 
         private DateTime? selectedDate = null;
         private int? selectedMonth = null;
         private int? selectedYear = null;
@@ -53,7 +53,7 @@ namespace VehicleRentalApp
                 }
             };
 
-            // Add search functionality
+            
             txtSearch.TextChanged += TxtSearch_TextChanged;
 
             siwtchViews.Tag = "reservation";
@@ -68,7 +68,7 @@ namespace VehicleRentalApp
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            LoadReservations(); // Reload with search filter applied
+            LoadReservations(); 
         }
 
         private void BtnSwitch_Click(object sender, EventArgs e)
@@ -95,14 +95,14 @@ namespace VehicleRentalApp
 
         private void LoadReservations()
         {
-            // Get search query
+            
             string searchQuery = "";
             if (txtSearch.Text != "Search..." && !string.IsNullOrWhiteSpace(txtSearch.Text))
             {
                 searchQuery = txtSearch.Text.ToLower().Trim();
             }
 
-            // Call backend based on current filters
+            
             ReservationHorse[] reservationsFromDB;
 
             if (periodFilter == "today")
@@ -172,7 +172,7 @@ namespace VehicleRentalApp
                     PaymentDate = details.Payment_Date
                 };
 
-                // Apply search filter
+                
                 bool matchesSearch = true;
                 if (!string.IsNullOrEmpty(searchQuery))
                 {
@@ -185,14 +185,14 @@ namespace VehicleRentalApp
                                    (reservation.Make + " " + reservation.Model).ToLower().Contains(searchQuery);
                 }
 
-                // Only add if it matches search
+                
                 if (matchesSearch)
                 {
                     reservations.Add(reservation);
                 }
             }
 
-            // Display the cards
+            
             resDisplay.Controls.Clear();
             foreach (var res in reservations)
                 resDisplay.Controls.Add(new ReservationCard(res, _branchID, _showReservationDates));

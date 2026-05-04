@@ -30,7 +30,7 @@ namespace VehicleRentalApp
             Employee employeecat = new Employee();
 
 
-            //Because we have only one textfield for a name, that is txtName, so we need to make substring to get the first name alone and the last name alone
+            
             string fullname = txtName.Text.Trim();
             int spaceIndex = fullname.IndexOf(' ');
             employeecat.First_Name = fullname.Substring(0, spaceIndex);

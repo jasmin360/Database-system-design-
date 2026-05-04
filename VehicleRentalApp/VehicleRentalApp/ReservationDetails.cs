@@ -31,7 +31,7 @@ namespace VehicleRentalApp
             lblStatusV.Text = _res.Status;
             lblDeadlineV.Text = _res.Deadline.ToShortDateString();
 
-            // Check for null dates:
+
             lblPickupDateV.Text = _res.PickupDate?.ToShortDateString() ?? "Not Picked Up";
             lblReturnDateV.Text = _res.ReturnDate?.ToShortDateString() ?? "Not Returned";
 
@@ -112,6 +112,11 @@ namespace VehicleRentalApp
             {
                 VHSAUTOMOTIVE.cancel_reservation(_res.ReservationId);
             }
+        }
+
+        private void panelPayment_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
