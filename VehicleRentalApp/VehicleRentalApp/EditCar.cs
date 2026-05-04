@@ -76,7 +76,7 @@ namespace VehicleRentalApp
             _car.DailyRate = numDailyRate.Value;
             _car.cat_id = catid;
 
-            VHSAUTOMOTIVE.update_car(_car.LicensePlate, _car.Condition, _car.Mileage, (double)_car.DailyRate, catid);
+            VHSAUTOMOTIVE.update_car(_car.LicensePlate, _car.Colour, _car.Mileage, (double)_car.DailyRate, catid);
 
             this.DialogResult = DialogResult.OK;
             MessageBox.Show("Changes saved.", "Success",
