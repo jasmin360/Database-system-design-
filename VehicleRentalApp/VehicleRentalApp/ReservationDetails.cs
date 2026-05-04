@@ -14,7 +14,6 @@ namespace VehicleRentalApp
             InitializeComponent();
             _res = res;
             RefreshDisplay();
-            btnEdit.Click += btnEdit_Click;
             btnDelete.Click += btnDelete_Click;
         }
 
@@ -35,8 +34,8 @@ namespace VehicleRentalApp
             // Check for null dates:
             lblPickupDateV.Text = _res.PickupDate?.ToShortDateString() ?? "Not Picked Up";
             lblReturnDateV.Text = _res.ReturnDate?.ToShortDateString() ?? "Not Returned";
-            lblResDateV.Text = _res.ResDate.ToShortDateString();
 
+            lblResDateV.Text = _res.ResDate.ToShortDateString();
             switch (_res.Status)
             {
                 case "Picked Up":
@@ -66,17 +65,17 @@ namespace VehicleRentalApp
             lblTransV.Text = _res.Transmission;
             lblRateV.Text = $"${_res.DailyRate:0.##}/day";
 
-            lblPayIDV.Text = _res.PaymentId.ToString();
-            lblPayMethodV.Text = _res.PaymentMethod;
+            if (_res.PaymentId == 0)
+                lblPayIDV.Text = "N/A";
+            else
+                lblPayIDV.Text = _res.PaymentId.ToString();
+
+            lblPayMethodV.Text = _res.PaymentMethod?? "N/A";
+
             lblPayDateV.Text = _res.PaymentDate.ToShortDateString() ?? "N/A";
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            // TODO: open EditReservation form when built
-            MessageBox.Show("Edit reservation coming soon.", "Edit",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -88,7 +87,7 @@ namespace VehicleRentalApp
 
             if (confirm == DialogResult.Yes)
             {
-                // TODO: delete from DB
+                
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
