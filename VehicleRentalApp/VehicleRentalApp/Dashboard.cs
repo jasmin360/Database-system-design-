@@ -45,16 +45,11 @@ namespace VehicleRentalApp
                 button2.Visible = false;
             }
 
-            //profilePic.Click += (sender, e) => Display_side_bar(sender, e);
-
 
 
         }
 
-        //private void Display_side_bar(object sender, EventArgs e) {
-        //    side_Panel.Visible = !side_Panel.Visible;
 
-        //}
 
         private void SetupLayout() {
             ovBtn.Click += (s, e) => NavigateTo(new overview(this.employee.Branch_ID));

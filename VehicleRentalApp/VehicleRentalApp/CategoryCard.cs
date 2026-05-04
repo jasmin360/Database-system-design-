@@ -25,7 +25,7 @@ namespace VehicleRentalApp
             lblRate.Text = $"${data.DailyRate:0.##}/day";
             lblAvailable.Text = $"{data.count} available";
 
-            // colour the count badge depending on availability
+       
             if (data.count == 0)
             {
                 lblAvailable.ForeColor = Color.FromArgb(200, 80, 80);

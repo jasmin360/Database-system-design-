@@ -1396,7 +1396,31 @@ namespace VehicleRentalApp.DAL
             return branchID;
         }
 
-     
+        public static Payment get_payment(int reservationID)
+        {
+            Payment payment = null;
+            using (SqlConnection connection = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand("Payment_Read_RESID", connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@Reservation_ID", SqlDbType.Int));
+                cmd.Parameters["@Reservation_ID"].Value = reservationID;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        payment = new Payment
+                        {
+                            Payment_ID = Convert.ToInt32(reader["Payment_ID"]),
+                            Payment_Method = reader["Payment_Method"].ToString(),
+                            Payment_Date = Convert.ToDateTime(reader["Payment_Date"])
+                        };
+                    }
+                }
+            }
+            return payment;
+        }
 
     }
 

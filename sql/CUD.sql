@@ -213,9 +213,8 @@ BEGIN
     delete from Employee where Emp_ID = @Emp_ID;
 END;
 
-
---payment 
 GO
+--payment 
 CREATE PROCEDURE Payment_Create
      @Payment_Method varchar(10),
      @Payment_Date date = null,
@@ -223,7 +222,8 @@ CREATE PROCEDURE Payment_Create
      @Client_ID int
 AS
 BEGIN
-    SET @Payment_Date = GETDATE();
+    SET @Payment_Date = ISNULL(@Payment_Date, CAST(GETDATE() AS date));
+
     INSERT INTO Payment (Payment_Method, Payment_Date, Emp_ID, Client_ID)
     VALUES (@Payment_Method, @Payment_Date, @Emp_ID, @Client_ID);
 

@@ -81,6 +81,18 @@ BEGIN
 END;
 
 GO
+CREATE PROCEDURE Payment_Read_RESID
+    @Reservation_ID INT = NULL
+AS
+BEGIN
+        select p.Payment_ID, Payment_Method, Payment_Date
+         from Reservation r
+         LEFT JOIN Payment p ON r.Payment_ID= p.Payment_ID
+         where Reservation_ID = @Reservation_ID;
+END;
+
+
+GO
 
 CREATE PROCEDURE Reservation_Read_ReservationID
     @Reservation_ID INT = NULL

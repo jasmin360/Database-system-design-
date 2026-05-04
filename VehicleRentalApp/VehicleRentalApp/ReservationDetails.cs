@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using VehicleRentalApp.DAL;
+using VehicleRentalApp.Models;
 
 namespace VehicleRentalApp
 {
@@ -65,14 +66,13 @@ namespace VehicleRentalApp
             lblTransV.Text = _res.Transmission;
             lblRateV.Text = $"${_res.DailyRate:0.##}/day";
 
-            if (_res.PaymentId == 0)
-                lblPayIDV.Text = "N/A";
-            else
-                lblPayIDV.Text = _res.PaymentId.ToString();
+            Payment payment = VHSAUTOMOTIVE.get_payment(_res.ReservationId);
 
-            lblPayMethodV.Text = _res.PaymentMethod?? "N/A";
+            lblPayIDV.Text = payment.Payment_ID.ToString();
+            lblPayMethodV.Text = payment.Payment_Method.ToString();
+            lblPayDateV.Text = payment.Payment_Date.ToString();
 
-            lblPayDateV.Text = _res.PaymentDate.ToShortDateString() ?? "N/A";
+            
         }
 
 

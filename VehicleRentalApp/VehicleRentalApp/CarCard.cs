@@ -19,7 +19,7 @@ namespace VehicleRentalApp
 
             edit.Click += BtnEdit_Click;
 
-            // make every child clickable as the card itself, except the edit button
+           
             this.Click += OpenDetails;
             button1.Click += button1_Click;
 
