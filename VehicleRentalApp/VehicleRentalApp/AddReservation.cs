@@ -15,7 +15,6 @@ namespace VehicleRentalApp
         private CategoryCard selectedCard = null;
         private bool clientFound = false;
 
-        // Store employee and branch info
         private int currentEmployeeID;
         private int currentBranchID;
 
@@ -23,7 +22,7 @@ namespace VehicleRentalApp
         {
             InitializeComponent();
 
-            // Store employee and branch
+       
             this.currentEmployeeID = employeeID;
             this.currentBranchID = branchID;
 
@@ -31,11 +30,11 @@ namespace VehicleRentalApp
             dtpDeadline.Value = DateTime.Today.AddDays(7);
             dtpPaymentDate.Value = DateTime.Today;
 
-            // Make payment date non-editable
+            
             dtpPaymentDate.Enabled = false;
             dtpPaymentDate.BackColor = Color.FromArgb(23, 22, 54);
 
-            // Hide pickup date and amount fields
+            
             lblPickupDate.Visible = false;
             dtpPickupDate.Visible = false;
             lblAmount.Visible = false;
@@ -43,7 +42,7 @@ namespace VehicleRentalApp
 
             SetClientFieldsEnabled(false);
 
-            // Disable auto-filled fields
+           
             cmbStatus.Enabled = false;
             cmbStatus.BackColor = Color.FromArgb(23, 22, 54);
 
@@ -52,15 +51,15 @@ namespace VehicleRentalApp
 
         private void AddReservation_Load(object sender, EventArgs e)
         {
-            cmbStatus.SelectedIndex = 0; //"Pending"
-            cmbPaymentMethod.SelectedIndex = 0; // "Cash"
+            cmbStatus.SelectedIndex = 0; 
+            cmbPaymentMethod.SelectedIndex = 0; 
 
             LoadCategories();
         }
 
         private void LoadCategories()
         {
-            // Call backend to get all categories
+            
             Car_Category[] categoriesFromDB = VHSAUTOMOTIVE.display_all_cats();
 
             var allCategories = new List<CarInfo>();
@@ -79,13 +78,13 @@ namespace VehicleRentalApp
                 });
             }
 
-            // Filter out categories with 0 available cars
+            
             filteredCategories = allCategories.Where(c => c.count > 0).ToList();
 
             RefreshCategoryCards();
         }
 
-        // ── Client lookup ─────────────────────────────────────────────
+        
         private void btnLookup_Click(object sender, EventArgs e)
         {
             string licence = txtLicenceNo.Text.Trim();
@@ -156,7 +155,7 @@ namespace VehicleRentalApp
             txtPhone.Text = "";
         }
 
-        // ── Category cards ────────────────────────────────────────────
+      
         private void RefreshCategoryCards()
         {
             flowCategories.Controls.Clear();
@@ -178,7 +177,7 @@ namespace VehicleRentalApp
             selectedCategory = card.Data;
         }
 
-        // ── Category search ───────────────────────────────────────────
+      
         private void txtCatSearch_GotFocus(object sender, EventArgs e)
         {
             if (txtCatSearch.Text == "Search categories...")
@@ -202,7 +201,7 @@ namespace VehicleRentalApp
             if (txtCatSearch.Text == "Search categories...") return;
             string q = txtCatSearch.Text.ToLower();
 
-            // Call backend again and filter
+            
             Car_Category[] categoriesFromDB = VHSAUTOMOTIVE.display_all_cats();
 
             var allCategories = new List<CarInfo>();
@@ -220,7 +219,7 @@ namespace VehicleRentalApp
                 });
             }
 
-            // Filter by search query AND exclude 0-count categories
+         
             filteredCategories = allCategories
                 .Where(c =>
                 {
@@ -235,7 +234,7 @@ namespace VehicleRentalApp
             RefreshCategoryCards();
         }
 
-        // ── Save ──────────────────────────────────────────────────────
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!ValidateInputs()) return;

@@ -32,7 +32,6 @@ namespace VehicleRentalApp
                     LoadCars();
             };
 
-            // Search box placeholder handling
             txtSearch.GotFocus += (s, e) =>
             {
                 if (txtSearch.Text == "Search...")
@@ -51,15 +50,12 @@ namespace VehicleRentalApp
                 }
             };
 
-            // Search functionality
             txtSearch.TextChanged += TxtSearch_TextChanged;
 
-            // Status filter buttons
             all.Click += (s, e) => { statusFilter = "All"; LoadCars(); };
             free.Click += (s, e) => { statusFilter = "Free"; LoadCars(); };
             reserv.Click += (s, e) => { statusFilter = "Reserved"; LoadCars(); };
 
-            // Car type filter checkboxes
             chkPicanto.CheckedChanged += (s, e) => { picantoChecked = chkPicanto.Checked; LoadCars(); };
             chkSUV.CheckedChanged += (s, e) => { suvChecked = chkSUV.Checked; LoadCars(); };
             chkCoupe.CheckedChanged += (s, e) => { coupeChecked = chkCoupe.Checked; LoadCars(); };
@@ -69,21 +65,20 @@ namespace VehicleRentalApp
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            LoadCars(); // Reload with search filter applied
+            LoadCars(); 
         }
 
         private void LoadCars()
         {
             int branchID = this.branch.Branch_ID;
 
-            // Get search query
             string searchQuery = "";
             if (txtSearch.Text != "Search..." && !string.IsNullOrWhiteSpace(txtSearch.Text))
             {
                 searchQuery = txtSearch.Text.ToLower().Trim();
             }
 
-            // Call backend with current filter state
+
             Car[] carsFromDB = VHSAUTOMOTIVE.filter_Cars_In_Branch(branchID, statusFilter, picantoChecked, suvChecked, coupeChecked, sedanChecked, hatchbackChecked);
 
             flowLayoutPanel1.Controls.Clear();
@@ -109,14 +104,14 @@ namespace VehicleRentalApp
                     cat_id = carData.Category_ID
                 };
 
-                // Apply search filter
+ 
                 bool matchesSearch = true;
                 if (!string.IsNullOrEmpty(searchQuery))
                 {
                     matchesSearch = car.Make.ToLower().Contains(searchQuery) ||car.Model.ToLower().Contains(searchQuery) ||car.LicensePlate.ToLower().Contains(searchQuery);
                 }
 
-                // Only add card if it matches search
+              
                 if (matchesSearch)
                 {
                     flowLayoutPanel1.Controls.Add(new CarCard(car));
