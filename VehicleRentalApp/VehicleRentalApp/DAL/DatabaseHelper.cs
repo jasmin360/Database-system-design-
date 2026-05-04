@@ -1103,6 +1103,7 @@ namespace VehicleRentalApp.DAL
                 cmd.Parameters.Add(new SqlParameter("@Category_ID", SqlDbType.Int));
                 cmd.Parameters["@Category_ID"].Value = catid;
                 cmd.Parameters.Add(new SqlParameter("@Daily_Rental_Rate", SqlDbType.Money));
+                cmd.Parameters["@Daily_Rental_Rate"].Value = daily_rental_rate;
 
                 cmd.ExecuteNonQuery();
             }
